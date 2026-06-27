@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People and Mathematics — Issue 01 (print)</title>
+
+<!--  ============================================================
+      HOW TO MAKE THE PDF
+      1. Open this page in Chrome.
+      2. Press  Ctrl/Cmd + P  (Print).
+      3. Destination: "Save as PDF".
+      4. Paper size: Letter   |   Margins: None (or Default)
+      5. TURN ON "Background graphics".   TURN OFF "Headers and footers".
+      6. Save it as  issue-01.pdf  and put it next to index.html.
+      The website's "Download the PDF" button already points there.
+
+      To change the words: edit the text directly in this file
+      (between the tags). Each page is clearly marked with a comment.
+      ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("fonts/BNazanin.woff2") format("woff2"),
+         url("fonts/BNazanin.woff")  format("woff"),
+         url("fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #888; }
+  body { font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; color: var(--ink); }
+  .fa { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", serif; direction: rtl; }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+
+  /* Each .page is one printed sheet */
+  .page {
+    position: relative; width: 8.5in; height: 11in; margin: 18px auto;
+    background: var(--paper); overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.28);
+    padding: 0.85in 0.8in;
+  }
+  .page.dark { background: var(--black); color: var(--paper); }
+  .page.bleed { padding: 0; }
+
+  .kicker { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  .rule { height: 1px; background: currentColor; opacity: 0.2; border: 0; margin: 0; }
+  .dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: #B7AC99; vertical-align: middle; }
+  .imgbox { background-color: #EAE0CC; background-image: repeating-linear-gradient(135deg, #E6DAC1 0 13px, #EFE6D2 13px 26px); border: 1px solid #DBD0BA; display: flex; align-items: flex-end; padding: 10px; }
+  .imglabel { font-family: ui-monospace, Menlo, monospace; font-size: 9px; color: #7C7160; background: rgba(251,247,239,0.85); padding: 3px 7px; border-radius: 3px; }
+
+  /* ---------- COVER ---------- */
+  .cover { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 0.9in 0.8in; }
+  .cover .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover .center { text-align: center; }
+  .cover img.logo { width: 250px; height: 250px; object-fit: contain; }
+  .cover .titlefa { font-family: "Vazirmatn","B Nazanin",sans-serif; font-size: 44px; font-weight: 600; margin-top: 22px; }
+  .cover .titleen { font-size: 27px; font-style: italic; color: #B9AE9B; margin-top: 6px; letter-spacing: 0.01em; }
+  .cover .blurb { font-size: 17px; color: #D9D0C0; max-width: 24em; margin: 18px auto 0; line-height: 1.5; }
+
+  /* ---------- ARTICLE ---------- */
+  .arthead .tag { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  .artitle { font-size: 40px; line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; margin: 12px 0 0; }
+  .artdek { font-size: 18px; line-height: 1.45; font-style: italic; color: #43392E; margin: 14px 0 0; max-width: 30em; }
+  .byline { font-size: 11.5px; color: var(--muted); margin-top: 14px; }
+  .byline b { color: var(--ink); font-weight: 600; }
+  .cols { column-count: 2; column-gap: 26px; margin-top: 22px; font-size: 11.6px; line-height: 1.62; text-align: justify; }
+  .cols p { margin: 0 0 11px; }
+  .cols p:first-child:first-letter { font-size: 52px; float: left; line-height: 0.8; padding: 6px 8px 0 0; font-weight: 600; color: var(--accent); }
+  .pullquote { font-size: 19px; font-style: italic; line-height: 1.4; color: var(--ink); border-top: 2px solid var(--ink); border-bottom: 1px solid #E4DAC6; padding: 14px 0; margin: 6px 0 14px; break-inside: avoid; }
+
+  /* page number footer */
+  .folio { position: absolute; bottom: 0.5in; left: 0.8in; right: 0.8in; display: flex; justify-content: space-between; font-family: "Hanken Grotesk",sans-serif; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #948876; }
+  .page.dark .folio { color: #6A6253; }
+
+  /* TOC */
+  .toc-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid #E4DAC6; }
+  .toc-row .n { font-family: "Hanken Grotesk",sans-serif; color: var(--accent); font-weight: 600; font-size: 13px; }
+  .toc-row .t { font-size: 19px; font-weight: 500; }
+  .toc-row .k { font-family:"Hanken Grotesk",sans-serif; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+  /* section divider */
+  .divider { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+  .divider .big { font-size: 58px; font-weight: 500; line-height: 1.0; letter-spacing: -0.02em; max-width: 9.5em; }
+  .divider .bigfa { font-family:"Vazirmatn","B Nazanin",sans-serif; font-size: 34px; color: #B9AE9B; margin-top: 14px; }
+
+  @media screen { .toolbar { position: fixed; top: 14px; right: 14px; z-index: 9; } .toolbar button { font-family: "Hanken Grotesk",sans-serif; font-size: 13px; font-weight: 600; background: var(--black); color: #fff; border: 0; border-radius: 999px; padding: 11px 20px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.25); } }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { margin: 0; box-shadow: none; break-after: page; }
+    .page:last-child { break-after: auto; }
+    .toolbar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar"><button onclick="window.print()">↓ Save as PDF</button></div>
+
+<!-- ===================== PAGE 1 — COVER ===================== -->
+<section class="page dark bleed">
+  <div class="cover">
+    <div class="top sans">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600;">People and Mathematics</div>
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8C8474;">No. 01 · June 2026</div>
+    </div>
+    <div class="center">
+      <img class="logo" src="assets/logo.jpg" alt="آدم‌ها و ریاضیات">
+      <div class="titlefa">آدم‌ها و ریاضیات</div>
+      <div class="titleen">People and Mathematics</div>
+      <div class="blurb">A bilingual journal for teaching, thinking, and conversation in mathematics.</div>
+    </div>
+    <div class="sans" style="text-align: center; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8C8474;">A Mathswell publication · mathswell.com</div>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2 — MASTHEAD / COLOPHON ===================== -->
+<section class="page">
+  <div class="kicker sans">Masthead</div>
+  <h2 style="font-size: 30px; font-weight: 500; margin: 12px 0 4px; letter-spacing: -0.01em;">People and Mathematics</h2>
+  <div class="fa" style="font-size: 19px; color: var(--muted); margin-bottom: 22px;">آدم‌ها و ریاضیات</div>
+  <hr class="rule">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px 40px; margin-top: 22px; font-size: 12px; line-height: 1.7;">
+    <div><div class="sans" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px;">Editor</div>Amir Asghari</div>
+    <div><div class="sans" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px;">Published by</div>Mathswell · mathswell.com</div>
+    <div><div class="sans" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px;">Frequency</div>Monthly · bilingual (English &amp; فارسی)</div>
+    <div><div class="sans" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px;">Films</div>youtube.com/@asghariamir</div>
+  </div>
+  <hr class="rule" style="margin-top: 24px;">
+  <p style="font-size: 13px; line-height: 1.7; color: #43392E; margin-top: 22px; max-width: 32em;">This issue is offered freely as a PDF — to read, to print, and to share. <em>People and Mathematics</em> is reader-supported; if it gave you something, you are warmly invited to give back whatever it was worth to you, at mathswell.com.</p>
+  <p class="fa" style="font-size: 13px; line-height: 1.9; color: #43392E; margin-top: 14px; max-width: 32em;">این شماره به‌رایگان همچون یک پی‌دی‌اف عرضه می‌شود — برای خواندن، چاپ‌کردن و هم‌رسانی. «آدم‌ها و ریاضیات» با پشتیبانی خوانندگان می‌چرخد.</p>
+  <div class="folio sans"><span>People and Mathematics</span><span>02</span></div>
+</section>
+
+<!-- ===================== PAGE 3 — CONTENTS ===================== -->
+<section class="page">
+  <div class="kicker sans">Contents · فهرست</div>
+  <h2 style="font-size: 34px; font-weight: 500; margin: 12px 0 20px; letter-spacing: -0.015em;">In this issue</h2>
+  <div class="toc-row"><span class="n">01</span><div><div class="t">The Long Conversation</div><div class="fa" style="color: var(--muted); font-size: 14px;">گفت‌وگوی بلند</div></div><span class="k">Interview</span></div>
+  <div class="toc-row"><span class="n">02</span><div><div class="t">The Word That Became Algebra</div><div class="fa" style="color: var(--muted); font-size: 14px;">واژه‌ای که جبر شد</div></div><span class="k">History</span></div>
+  <div class="toc-row"><span class="n">03</span><div><div class="t">When Minus Times Minus Felt Wrong</div><div class="fa" style="color: var(--muted); font-size: 14px;">وقتی منفی در منفی نادرست می‌نمود</div></div><span class="k">Concepts</span></div>
+  <div class="toc-row"><span class="n">04</span><div><div class="t">Velocity, Drawn by Hand</div><div class="fa" style="color: var(--muted); font-size: 14px;">سرعت، کشیده‌شده با دست</div></div><span class="k">Classroom</span></div>
+  <div class="toc-row"><span class="n">05</span><div><div class="t">Tea, Chalk, and Proof</div><div class="fa" style="color: var(--muted); font-size: 14px;">چای، گچ، و برهان</div></div><span class="k">Photo essay</span></div>
+  <div class="toc-row"><span class="n">06</span><div><div class="t">A Letter from a Reader in Tabriz</div><div class="fa" style="color: var(--muted); font-size: 14px;">نامه‌ای از خواننده‌ای در تبریز</div></div><span class="k">Correspondence</span></div>
+  <div class="folio sans"><span>People and Mathematics</span><span>03</span></div>
+</section>
+
+<!-- ===================== PAGE 4 — EDITOR'S NOTE ===================== -->
+<section class="page dark">
+  <div class="kicker sans">From the Editors</div>
+  <h2 style="font-size: 34px; font-weight: 500; margin: 14px 0 18px; letter-spacing: -0.01em; max-width: 14em;">Why a bilingual journal</h2>
+  <p style="font-size: 14px; line-height: 1.75; color: #D9D0C0; max-width: 33em;">Mathematics is made by people, in places, in languages. We wanted a room where teaching and thinking could happen in Persian and English at once — not translated past one another, but side by side. <em>People and Mathematics</em> is monthly, and it belongs to its readers.</p>
+  <p style="font-size: 14px; line-height: 1.75; color: #D9D0C0; max-width: 33em;">We are interested in the human face of the subject: the teacher who begins with a question, the child whose objection is wiser than the rule, the manuscript that travelled, the room where chalk meets tea. Write to us.</p>
+  <div style="font-style: italic; color: #B9AE9B; margin-top: 8px;">— The Editors</div>
+  <hr class="rule" style="margin: 26px 0;">
+  <p class="fa" style="font-size: 14px; line-height: 2; color: #D9D0C0;">ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم اتاقی باشد که آموزش و اندیشیدن، هم‌زمان به فارسی و انگلیسی در آن رخ دهد — نه ترجمه‌ای از کنارِ هم، بلکه در کنارِ هم. «آدم‌ها و ریاضیات» ماهانه است و از آنِ خوانندگانش. برای ما بنویسید.</p>
+  <div class="fa" style="font-style: italic; color: #B9AE9B; margin-top: 8px;">— سردبیران</div>
+  <div class="folio sans"><span>From the Editors</span><span>04</span></div>
+</section>
+
+<!-- ===================== PAGE 5 — SECTION DIVIDER ===================== -->
+<section class="page">
+  <div class="divider">
+    <div class="kicker sans">Section · People &amp; Places</div>
+    <div class="big">The Long Conversation</div>
+    <div class="bigfa fa">گفت‌وگوی بلند</div>
+    <p style="font-size: 14px; color: var(--muted); margin-top: 22px; max-width: 26em; line-height: 1.6;">Forty years at the blackboard, and a teacher who still begins every class with a question.</p>
+  </div>
+  <div class="folio sans"><span>People &amp; Places</span><span>05</span></div>
+</section>
+
+<!-- ===================== PAGE 6 — ARTICLE (English) ===================== -->
+<section class="page">
+  <div class="arthead">
+    <div class="tag sans">Interview · People &amp; Places</div>
+    <h1 class="artitle">The Long Conversation</h1>
+    <p class="artdek">A teacher who has spent a working life at the blackboard on what it means to learn mathematics with, and not merely from, other people.</p>
+    <div class="byline sans"><b>Interview by the Editors</b> &nbsp;<span class="dot"></span>&nbsp; Photographs from Shemiran &nbsp;<span class="dot"></span>&nbsp; 18 min read</div>
+  </div>
+  <div class="imgbox" style="height: 2in; margin-top: 18px;"><span class="imglabel">photo — teacher at the blackboard, Shemiran (replace with real image)</span></div>
+  <div class="cols">
+    <p>He arrives early, before the students, and writes a single question on the board. Not the topic, not the date — a question. By the time the room fills, the question has already begun to do its work, and the lesson is less a delivery than a conversation that everyone has half-joined before sitting down.</p>
+    <p>“I never wanted to be the person who knows,” he says. “I wanted to be the person who is still curious in front of them. The moment a teacher stops being curious, the mathematics goes flat — it becomes a set of moves to memorise rather than a thing to wonder about.”</p>
+    <div class="pullquote">“The moment a teacher stops being curious, the mathematics goes flat.”</div>
+    <p>This is the placeholder body of the article. Replace it with the real interview text. The layout — two justified columns, a drop capital, a pull-quote that spans the column — will hold its shape no matter how long or short the final piece becomes.</p>
+    <p>We talked for an afternoon about the students who argued with him, the ones who were right to, and the slow patience of letting a wrong idea be spoken aloud so that it could be examined rather than buried. He keeps a notebook of objections — sentences students have said that, in his words, “were smarter than the rule they were breaking.”</p>
+    <p>Mathematics, in his telling, is something people do together in a room: a culture before it is a curriculum. The proof on the board matters, but so does the cup of tea afterward, the corridor argument, the letter that arrives months later from a student who finally understood.</p>
+  </div>
+  <div class="folio sans"><span>The Long Conversation</span><span>06</span></div>
+</section>
+
+<!-- ===================== PAGE 7 — ARTICLE (English, History) ===================== -->
+<section class="page">
+  <div class="arthead">
+    <div class="tag sans">History of Mathematics</div>
+    <h1 class="artitle">The Word That Became Algebra</h1>
+    <p class="artdek">How <em>al-jabr</em> — “the restoring” — travelled from a Baghdad manuscript into every classroom on earth.</p>
+    <div class="byline sans"><b>The Editors</b> &nbsp;<span class="dot"></span>&nbsp; 9 min read</div>
+  </div>
+  <div style="display: grid; grid-template-columns: 1.4in 1fr; gap: 18px; margin-top: 18px;">
+    <div class="imgbox" style="height: 1.9in;"><span class="imglabel">manuscript page — al-Khwārizmī</span></div>
+    <div style="font-size: 11.6px; line-height: 1.62; text-align: justify;">
+      <p style="margin: 0 0 11px;"><span style="font-size: 46px; float: left; line-height: 0.8; padding: 4px 8px 0 0; font-weight: 600; color: var(--accent);">A</span> word can carry a whole way of thinking across a thousand years. When a ninth-century scholar in Baghdad wrote of <em>al-jabr</em> — the restoring or completing of broken quantities — he was naming a method, not founding a brand. Yet the word outlived the method’s every particular and became the name of a discipline.</p>
+      <p style="margin: 0 0 11px;">This is placeholder text for the history feature. Replace it with the finished article; the image-and-text opening will reflow cleanly around whatever length you give it.</p>
+    </div>
+  </div>
+  <div class="cols" style="margin-top: 16px;">
+    <p>The journey is the point: from manuscript to translation to textbook, each generation receiving the idea slightly changed and passing it on. To teach algebra is to stand at one end of that long relay and hand the baton forward.</p>
+    <p>We trace the word through the rooms it passed: the House of Wisdom, the workshops of translators, the first European printers who set it in type, the schoolbooks that fixed its modern shape. At each step, people — named and unnamed — chose to carry it.</p>
+    <p>What survives is not only a technique for balancing equations but a habit of mind: that something broken can be restored, that the unknown can be held steady and reasoned with. The placeholder paragraphs here can be replaced freely.</p>
+  </div>
+  <div class="folio sans"><span>The Word That Became Algebra</span><span>07</span></div>
+</section>
+
+<!-- ===================== PAGE 8 — ARTICLE (Persian, RTL) ===================== -->
+<section class="page fa">
+  <div class="arthead" style="text-align: right;">
+    <div class="tag sans" style="font-family:'Vazirmatn',sans-serif;">مفاهیم و برداشت‌ها</div>
+    <h1 class="artitle" style="font-family:'Vazirmatn','B Nazanin',sans-serif; font-weight:600;">وقتی منفی در منفی نادرست می‌نمود</h1>
+    <p class="artdek" style="font-style: normal;">اعتراضِ سرسختانه‌ی یک کودک، و آنچه درباره‌ی جدی‌گرفتنِ برداشت‌ها به ما می‌آموزد.</p>
+    <div class="byline sans" style="font-family:'Vazirmatn',sans-serif;"><b>امیر اصغری</b> &nbsp;<span class="dot"></span>&nbsp; ۷ دقیقه خواندن</div>
+  </div>
+  <div class="imgbox" style="height: 1.9in; margin-top: 18px;"><span class="imglabel">photo — number line in chalk</span></div>
+  <div style="column-count: 2; column-gap: 26px; margin-top: 20px; font-size: 13px; line-height: 2; text-align: justify; direction: rtl;">
+    <p style="margin: 0 0 12px;">کودکی در ردیف آخر دستش را بالا می‌برد و می‌گوید این درست نیست. منفی در منفی چطور می‌تواند مثبت شود؟ او حق دارد که بپرسد؛ و وظیفه‌ی ما این نیست که اعتراضش را خاموش کنیم، بلکه این است که آن را جدی بگیریم.</p>
+    <p style="margin: 0 0 12px;">این متنِ جای‌گزین است. آن را با مقاله‌ی نهایی جایگزین کنید. ساختار دو ستونی و راست‌چین، شکلِ خود را برای هر اندازه از متن حفظ می‌کند.</p>
+    <p style="margin: 0 0 12px;">برداشت‌های نادرست، پنجره‌هایی به فهم‌اند. وقتی به‌جای پاک‌کردنِ آن‌ها، به آن‌ها گوش می‌دهیم، می‌بینیم که اغلب منطقی درونی دارند — منطقی که اگر دنبالش کنیم، به ریاضیاتِ درست‌تر می‌رسیم.</p>
+    <p style="margin: 0 0 12px;">گفت‌وگوی کلاس، نه برای رسیدن به پاسخِ سریع، بلکه برای آشکارکردنِ همین منطق‌هاست. این بخش را آزادانه ویرایش کنید.</p>
+  </div>
+  <div class="folio sans" style="direction: ltr;"><span style="font-family:'Vazirmatn',sans-serif;">آدم‌ها و ریاضیات</span><span>08</span></div>
+</section>
+
+<!-- ===================== PAGE 9 — PHOTO ESSAY ===================== -->
+<section class="page">
+  <div class="kicker sans">Photo Essay · Mathematical Culture</div>
+  <h2 style="font-size: 32px; font-weight: 500; margin: 12px 0 4px; letter-spacing: -0.01em;">Tea, Chalk, and Proof</h2>
+  <p style="font-size: 13px; color: var(--muted); margin: 0 0 18px; max-width: 30em;">The rooms where mathematics actually happens — in the space between people.</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 2.55in; gap: 12px;">
+    <div class="imgbox"><span class="imglabel">common room — afternoon</span></div>
+    <div class="imgbox"><span class="imglabel">blackboard, mid-argument</span></div>
+    <div class="imgbox"><span class="imglabel">corridor conversation</span></div>
+    <div class="imgbox"><span class="imglabel">tea and notebooks</span></div>
+  </div>
+  <div class="folio sans"><span>Tea, Chalk, and Proof</span><span>09</span></div>
+</section>
+
+<!-- ===================== PAGE 10 — BACK COVER ===================== -->
+<section class="page dark bleed">
+  <div class="cover" style="justify-content: center; gap: 26px;">
+    <div class="center">
+      <img class="logo" src="assets/logo.jpg" alt="" style="width: 150px; height: 150px;">
+      <div class="titlefa" style="font-size: 30px; margin-top: 16px;">آدم‌ها و ریاضیات</div>
+      <div class="titleen" style="font-size: 19px;">People and Mathematics</div>
+    </div>
+    <div class="center sans" style="font-size: 12px; line-height: 1.9; color: #B9AE9B;">
+      <div>A new issue, every month — free and bilingual.</div>
+      <div style="color: var(--accent); font-weight: 600; margin-top: 10px;">mathswell.com</div>
+      <div style="margin-top: 2px;">Films · youtube.com/@asghariamir</div>
+      <div style="margin-top: 16px; font-size: 11px; color: #8C8474;">Reader-supported · pay what you like</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

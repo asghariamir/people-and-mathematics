@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People and Mathematics · آدم‌ها و ریاضیات</title>
+<meta name="description" content="A bilingual journal for teaching, thinking, and conversation in mathematics. A Mathswell publication.">
+
+<!-- Social / link-preview card (shows when shared, e.g. from the mathswell.com banner) -->
+<meta property="og:title" content="People and Mathematics · آدم‌ها و ریاضیات">
+<meta property="og:description" content="A bilingual journal for teaching, thinking, and conversation in mathematics.">
+<meta property="og:image" content="assets/logo.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* === Self-hosted B Nazanin (Persian) ===
+     Drop a licensed B-Nazanin web font file at  fonts/BNazanin.woff2
+     and it will be used automatically. Until then, Persian text falls
+     back to Noto Naskh Arabic (a high-quality Google web font) so the
+     site always looks correct for every visitor. */
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("fonts/BNazanin.woff2") format("woff2"),
+         url("fonts/BNazanin.woff")  format("woff"),
+         url("fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700;
+    font-display: swap;
+  }
+
+  :root { --pm-accent: #C8633E; --pm-ink: #1C1814; --pm-paper: #FBF7EF; --pm-black: #0D0C0B; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif;
+    background: var(--pm-paper); color: var(--pm-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--pm-accent); color: var(--pm-paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", "B Nazanin", sans-serif; }
+  .persian, [dir="rtl"] .persian { font-family: "Vazirmatn", "B Nazanin", "Noto Naskh Arabic", sans-serif; }
+  [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  .pm-img { background-color: #EAE0CC; background-image: repeating-linear-gradient(135deg, #E6DAC1 0 13px, #EFE6D2 13px 26px); }
+  .accent { color: var(--pm-accent); }
+  a { color: inherit; }
+  button { font-family: inherit; }
+
+  /* Masthead — black top band */
+  .topband { background: var(--pm-black); color: var(--pm-paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 40px; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-logo { width: 54px; height: 54px; object-fit: contain; flex: 0 0 auto; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 21px; font-weight: 600; line-height: 1.1; }
+  .brand-en { font-size: 15px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  nav.menu { display: flex; align-items: center; gap: 24px; font-size: 13.5px; font-weight: 500; }
+  nav.menu span { cursor: pointer; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; margin-inline-start: 6px; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em; background: transparent; color: var(--pm-paper); }
+  .langtoggle button.on { background: var(--pm-paper); color: var(--pm-black); }
+
+  /* Sub-bar under the band */
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 40px; border-bottom: 1px solid var(--pm-ink); }
+  .subbar .kick { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
+  .subbar .pub { font-size: 13px; color: var(--pm-muted, #6B6155); }
+
+  /* Hero — on cream */
+  .hero { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; padding: 48px 40px; border-bottom: 1px solid var(--pm-ink); }
+  .lead { display: flex; flex-direction: column; gap: 20px; }
+  .lead h1 { margin: 0; font-size: 60px; line-height: 1.0; font-weight: 500; letter-spacing: -0.02em; max-width: 10em; }
+  .lead .dek { margin: 0; font-size: 21px; line-height: 1.45; font-style: italic; color: #43392E; max-width: 28em; }
+  .lead-img { height: 280px; border: 1px solid #DBD0BA; border-radius: 3px; display: flex; align-items: flex-end; padding: 12px; }
+  .imglabel { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; letter-spacing: 0.03em; color: #7C7160; background: rgba(251,247,239,0.8); padding: 3px 7px; border-radius: 3px; }
+  .dot { width: 4px; height: 4px; border-radius: 50%; background: #B7AC99; display: inline-block; }
+
+  /* Sections rail */
+  .rail-label, .toc-label { padding: 16px 40px 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  .rail { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--pm-ink); }
+  .rail-cell { padding: 18px 22px 30px; border-inline-start: 1px solid #E4DAC6; }
+
+  /* Features */
+  .features { padding: 44px 40px 8px; }
+  .features-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 2px solid var(--pm-ink); padding-bottom: 14px; margin-bottom: 30px; }
+  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
+  .feature { display: grid; grid-template-columns: 168px 1fr; gap: 22px; align-items: start; }
+  .feature .thumb { aspect-ratio: 4 / 5; border: 1px solid #DBD0BA; border-radius: 3px; display: flex; align-items: flex-end; padding: 9px; }
+  .feature h3 { margin: 8px 0 0; font-size: 25px; line-height: 1.12; font-weight: 500; letter-spacing: -0.01em; }
+
+  /* TOC + note */
+  .lower { padding: 50px 40px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; }
+  .toc-row { display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline; gap: 16px; padding: 15px 0; border-bottom: 1px solid #E4DAC6; }
+  .note { background: var(--pm-black); color: var(--pm-paper); border-radius: 4px; padding: 38px 36px; align-self: start; }
+  .note h3 { margin: 16px 0 14px; font-size: 30px; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+
+  /* Subscribe */
+  .subscribe { border-top: 1px solid var(--pm-ink); border-bottom: 1px solid var(--pm-ink); }
+  .subscribe-in { padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .subscribe h3 { margin: 0; font-size: 30px; font-weight: 500; letter-spacing: -0.01em; }
+  .subform { display: flex; align-items: stretch; border: 1px solid var(--pm-ink); border-radius: 999px; overflow: hidden; min-width: 360px; }
+  .subform input { border: 0; outline: none; background: transparent; padding: 14px 22px; font-size: 15px; flex: 1; color: var(--pm-ink); }
+  .subform button { border: 0; background: var(--pm-black); color: var(--pm-paper); padding: 14px 26px; font-size: 14px; font-weight: 600; cursor: pointer; }
+
+  /* Footer */
+  .footer { padding: 36px 40px 56px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { width: 40px; height: 40px; border-radius: 6px; overflow: hidden; background: var(--pm-black); }
+  .footer-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+  .footer-links { display: flex; gap: 26px; font-size: 13px; color: #43392E; }
+  .footer-links span { cursor: pointer; }
+  .yt { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font-size: 13px; font-weight: 600; color: var(--pm-ink); border: 1px solid var(--pm-ink); border-radius: 999px; padding: 8px 16px; white-space: nowrap; transition: background .15s, color .15s; }
+  .yt:hover { background: var(--pm-black); color: var(--pm-paper); }
+  .yt .play { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 14px; background: var(--pm-accent); border-radius: 3px; color: #fff; font-size: 8px; }
+
+  /* Get-the-issue band (free PDF + pay-what-you-like) */
+  .getissue { background: var(--pm-black); color: var(--pm-paper); border-top: 1px solid var(--pm-ink); }
+  .getissue-in { padding: 56px 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 48px; }
+  .getissue .kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
+  .getissue h3 { margin: 14px 0 12px; font-size: 36px; line-height: 1.05; font-weight: 500; letter-spacing: -0.015em; max-width: 13em; }
+  .getissue p { margin: 0; font-size: 17px; line-height: 1.6; color: #D9D0C0; max-width: 34em; }
+  .getissue-actions { display: flex; flex-direction: column; gap: 14px; min-width: 248px; }
+  .btn-pdf { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: var(--pm-paper); color: var(--pm-ink); border-radius: 999px; padding: 16px 26px; font-size: 16px; font-weight: 600; transition: transform .12s; }
+  .btn-pdf:hover { transform: translateY(-1px); }
+  .btn-donate { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: transparent; color: var(--pm-paper); border: 1px solid #4A443B; border-radius: 999px; padding: 15px 26px; font-size: 16px; font-weight: 600; transition: border-color .12s; }
+  .btn-donate:hover { border-color: var(--pm-accent); }
+  .btn-meta { text-align: center; font-size: 12px; color: #8C8474; margin-top: -4px; }
+  .btn-heart { color: var(--pm-accent); }
+
+  /* ---------- TABLET ---------- */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 28px; }
+    .lead h1 { font-size: 48px; }
+    .rail { grid-template-columns: repeat(3, 1fr); }
+    .rail-cell:nth-child(3n+1) { border-inline-start: 0; }
+    .features-grid { grid-template-columns: 1fr; gap: 32px; }
+    .lower { grid-template-columns: 1fr; gap: 36px; }
+    .getissue-in { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ---------- PHONE ---------- */
+  @media (max-width: 560px) {
+    .topband { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+    .subbar { flex-wrap: wrap; padding: 12px 20px; gap: 6px; }
+    .subbar .pub { display: none; }
+    nav.menu { gap: 16px; font-size: 12.5px; flex-wrap: wrap; }
+    .hero { padding: 28px 20px; }
+    .lead h1 { font-size: 38px; }
+    .lead .dek { font-size: 18px; }
+    .lead-img { height: 220px; }
+    .rail-label, .toc-label, .features, .lower, .subscribe-in, .footer { padding-left: 20px; padding-right: 20px; }
+    .rail { grid-template-columns: repeat(2, 1fr); }
+    .rail-cell { padding: 16px 16px 24px; }
+    .rail-cell:nth-child(3n+1) { border-inline-start: 1px solid #E4DAC6; }
+    .rail-cell:nth-child(2n+1) { border-inline-start: 0; }
+    .features { padding-top: 32px; }
+    .feature { grid-template-columns: 110px 1fr; gap: 16px; }
+    .feature h3 { font-size: 21px; }
+    .getissue-in { grid-template-columns: 1fr; gap: 28px; padding: 40px 20px; }
+    .getissue h3 { font-size: 28px; }
+    .getissue-actions { min-width: 0; }
+    .subscribe-in { padding: 28px 20px; }
+    .subform { min-width: 0; width: 100%; }
+    .footer { padding: 28px 20px 44px; }
+    .footer-right { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<!-- Your wording lives in content.js — edit that file, not this one. -->
+<script src="content.js"></script>
+<script>
+/* ---- Built-in fallback so the page never goes blank if content.js has a typo ---- */
+var FALLBACK = { en: { nav:{}, sections:[], features:[], toc:[], footerLinks:[] }, fa: { nav:{}, sections:[], features:[], toc:[], footerLinks:[] } };
+var DATA = (window.PM_CONTENT && window.PM_CONTENT.en && window.PM_CONTENT.fa) ? window.PM_CONTENT : FALLBACK;
+var YT = (window.PM_CONTENT && window.PM_CONTENT.youtubeUrl) || "https://www.youtube.com/@asghariamir";
+
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function render(lang){
+  var c = DATA[lang] || DATA.en;
+  var isFa = lang === "fa";
+  var dir = isFa ? "rtl" : "ltr";
+  var arrow = isFa ? "←" : "→";
+  document.documentElement.lang = lang;
+  document.documentElement.dir = dir;
+
+  var sectionsHtml = (c.sections||[]).map(function(s){
+    return '<div class="rail-cell">'
+      + '<div class="sans accent" style="font-size:12px;font-weight:600;">'+esc(s.n)+'</div>'
+      + '<div style="font-size:19px;font-weight:500;margin-top:10px;line-height:1.15;">'+esc(s.name)+'</div>'
+      + '<div class="sans" style="font-size:13px;color:#6B6155;margin-top:8px;line-height:1.4;">'+esc(s.blurb)+'</div>'
+      + '</div>';
+  }).join("");
+
+  var featuresHtml = (c.features||[]).map(function(f){
+    return '<article class="feature">'
+      + '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(f.img)+'</span></div>'
+      + '<div>'
+        + '<div class="sans accent" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;">'+esc(f.tag)+'</div>'
+        + '<h3>'+esc(f.title)+'</h3>'
+        + '<p style="margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#43392E;">'+esc(f.dek)+'</p>'
+        + '<div class="sans" style="display:flex;align-items:center;gap:12px;margin-top:14px;font-size:12.5px;color:#6B6155;">'
+          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(f.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(f.meta)+'</span>'
+        + '</div>'
+      + '</div></article>';
+  }).join("");
+
+  var tocHtml = (c.toc||[]).map(function(t){
+    return '<div class="toc-row">'
+      + '<span class="sans accent" style="font-size:14px;font-weight:600;">'+esc(t.n)+'</span>'
+      + '<span style="font-size:19px;font-weight:500;line-height:1.2;">'+esc(t.title)+'</span>'
+      + '<span class="sans" style="font-size:12px;color:#6B6155;text-transform:uppercase;letter-spacing:.06em;">'+esc(t.kind)+'</span>'
+      + '</div>';
+  }).join("");
+
+  var footerLinksHtml = (c.footerLinks||[]).map(function(l){ return '<span>'+esc(l)+'</span>'; }).join("");
+  var nav = c.nav || {};
+
+  var pdfUrl = (window.PM_CONTENT && window.PM_CONTENT.issuePdfUrl) || "";
+  var donateUrl = (window.PM_CONTENT && window.PM_CONTENT.donateUrl) || "";
+  var heart = isFa ? "♥" : "♥";
+  var getIssueHtml =
+    '<section class="getissue"><div class="getissue-in wrap">'
+      + '<div>'
+        + '<div class="kicker sans">'+esc(c.getKicker)+'</div>'
+        + '<h3>'+esc(c.getTitle)+'</h3>'
+        + '<p>'+esc(c.getBody)+'</p>'
+      + '</div>'
+      + '<div class="getissue-actions">'
+        + (pdfUrl ? '<a class="btn-pdf sans" href="'+esc(pdfUrl)+'" download><span>↓</span><span>'+esc(c.downloadCta)+'</span></a><div class="btn-meta sans">'+esc(c.downloadMeta)+'</div>' : '')
+        + (donateUrl ? '<a class="btn-donate sans" href="'+esc(donateUrl)+'" target="_blank" rel="noopener"><span class="btn-heart">'+heart+'</span><span>'+esc(c.donateCta)+'</span></a><div class="btn-meta sans">'+esc(c.donateMeta)+'</div>' : '')
+      + '</div>'
+    + '</div></section>';
+
+  document.getElementById("app").innerHTML =
+    '<div class="topband">'
+      + '<div class="brand">'
+        + '<img class="brand-logo" src="assets/logo.jpg" alt="People and Mathematics · آدم‌ها و ریاضیات">'
+        + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
+      + '</div>'
+      + '<nav class="menu sans">'
+        + '<span>'+esc(nav.issues)+'</span><span>'+esc(nav.sections)+'</span><span>'+esc(nav.about)+'</span><span>'+esc(nav.submit)+'</span>'
+        + '<div class="langtoggle">'
+          + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
+          + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
+        + '</div>'
+      + '</nav>'
+    + '</div>'
+
+    + '<div class="subbar">'
+      + '<div class="kick sans accent">'+esc(c.issueKicker)+'</div>'
+      + '<div class="pub sans">'+esc(c.subtitle)+'</div>'
+    + '</div>'
+
+    + '<section class="hero wrap">'
+      + '<div class="lead">'
+        + '<div class="sans accent" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">'+esc(c.heroEyebrow)+'</div>'
+        + '<h1>'+esc(c.leadTitle)+'</h1>'
+        + '<p class="dek">'+esc(c.leadDek)+'</p>'
+        + '<div class="sans" style="display:flex;align-items:center;gap:18px;font-size:13.5px;color:#6B6155;">'
+          + '<span style="font-weight:600;">'+esc(c.readCta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(c.leadByline)+'</span>'
+        + '</div>'
+      + '</div>'
+      + '<div class="lead-img pm-img"><span class="imglabel">'+esc(c.leadImgLabel)+'</span></div>'
+    + '</section>'
+
+    + '<section class="wrap" style="border-bottom:1px solid var(--pm-ink);">'
+      + '<div class="rail-label sans">'+esc(c.sectionsLabel)+'</div>'
+      + '<div class="rail">'+sectionsHtml+'</div>'
+    + '</section>'
+
+    + '<section class="features wrap">'
+      + '<div class="features-head"><h2 style="margin:0;font-size:30px;font-weight:500;letter-spacing:-.01em;">'+esc(c.featuresLabel)+'</h2><span class="sans" style="font-size:13px;color:#6B6155;">'+esc(c.issueTag)+'</span></div>'
+      + '<div class="features-grid">'+featuresHtml+'</div>'
+    + '</section>'
+
+    + '<section class="lower wrap">'
+      + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;">'+esc(c.tocLabel)+'</div>'+tocHtml+'</div>'
+      + '<aside class="note">'
+        + '<div class="sans accent" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;">'+esc(c.noteLabel)+'</div>'
+        + '<h3>'+esc(c.noteTitle)+'</h3>'
+        + '<p style="margin:0;font-size:17px;line-height:1.62;color:#D9D0C0;">'+esc(c.noteBody)+'</p>'
+        + '<div style="margin-top:22px;font-style:italic;font-size:16px;color:#B9AE9B;">— '+esc(c.noteSign)+'</div>'
+      + '</aside>'
+    + '</section>'
+
+    + getIssueHtml
+
+    + '<section class="subscribe"><div class="subscribe-in wrap">'
+      + '<div><h3>'+esc(c.subTitle)+'</h3><p class="sans" style="margin:8px 0 0;font-size:14px;color:#6B6155;">'+esc(c.subNote)+'</p></div>'
+      + '<form class="subform" onsubmit="return false;"><input class="sans" placeholder="'+esc(c.subPlaceholder)+'"><button class="sans">'+esc(c.subCta)+'</button></form>'
+    + '</div></section>'
+
+    + '<footer class="footer wrap">'
+      + '<div class="footer-brand"><div class="footer-logo"><img src="assets/logo.jpg" alt=""></div><div style="line-height:1.1;"><div style="font-size:17px;font-weight:600;">People and Mathematics · آدم‌ها و ریاضیات</div><div class="sans" style="font-size:12.5px;color:#6B6155;margin-top:3px;">'+esc(c.pubLine)+'</div></div></div>'
+      + '<div class="footer-right">'
+        + '<div class="footer-links sans">'+footerLinksHtml+'</div>'
+        + '<a class="yt sans" href="'+esc(YT)+'" target="_blank" rel="noopener"><span class="play">▶</span><span>'+esc(c.youtubeLabel)+'</span></a>'
+      + '</div>'
+    + '</footer>';
+
+  // wire language toggle + remember choice
+  document.querySelectorAll(".langtoggle button").forEach(function(b){
+    b.addEventListener("click", function(){
+      var l = b.getAttribute("data-lang");
+      try { localStorage.setItem("pm-lang", l); } catch(e){}
+      render(l);
+      window.scrollTo(0, 0);
+    });
+  });
+}
+
+var startLang = "en";
+try { var saved = localStorage.getItem("pm-lang"); if (saved === "en" || saved === "fa") startLang = saved; } catch(e){}
+render(startLang);
+</script>
+</body>
+</html>

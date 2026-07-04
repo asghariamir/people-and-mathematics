@@ -143,7 +143,7 @@ window.PM_CONTENT = {
             author: "یان استوارت", meta: "۹ دقیقه" } },
 
     /* ---- Classroom Ideas ---- */
-    { section: "classroom", featured: true,
+    { section: "classroom", featured: false,
       href: "articles/structure-in-your-gaze.html",
       added: "2026-07-03",
       img: "diagram — a parallelogram on a circular sheet",
@@ -155,7 +155,7 @@ window.PM_CONTENT = {
             dek: "نحوه‌ی نگاه‌کردن به یک شکل، ریاضیِ آن را تغییر می‌دهد. متوازی‌الاضلاعی را روی دایره بچرخانید، زاویه‌ای را بپوشانید، یک جمله را دو جور بخوانید — حرکت‌هایی کوچک و اکنون تعاملی، که در آن‌ها جابه‌جاییِ نگاه آموزش می‌دهد.",
             author: "امیر اصغری", meta: "تعاملی · یادداشت‌های کلاسی" } },
 
-    { section: "classroom", featured: false,
+    { section: "classroom", featured: true,
       href: "articles/spinner.html",
       added: "2026-06-15",
       imgSrc: "assets/pandi.jpg",

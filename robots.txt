@@ -1,0 +1,6 @@
+# People and Mathematics — REVIEW BUILD
+# Keep this site out of search engines while it is being reviewed privately.
+# ▸ When you go public: DELETE this file (or replace the two lines below with
+#   "Disallow:" left blank) so search engines can index the journal.
+User-agent: *
+Disallow: /

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>People and Mathematics · آدم‌ها و ریاضیات</title>
+    <link>https://mathswell.com/</link>
+    <atom:link href="https://mathswell.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>A bilingual journal for teaching, thinking, and conversation in mathematics.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Jul 2026 08:59:40 GMT</lastBuildDate>
+    <item>
+      <title>Sheaf · بافه</title>
+      <link>https://mathswell.com/articles/mathematical-conversations.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/mathematical-conversations.html</guid>
+      <category>Mathematical Conversations</category>
+      <dc:creator>Artan Sheshmani</dc:creator>
+      <pubDate>Wed, 01 Jul 2026 09:00:00 GMT</pubDate>
+      <description>One idea — how local pieces are glued into something global — met in a short film. Artan Sheshmani made it in Persian and, himself, in English; watch both and each carries something the other doesn’t. — Artan Sheshmani</description>
+    </item>
+    <item>
+      <title>What Shape Student Are You? · چه نوع دانشجویی هستید؟</title>
+      <link>https://mathswell.com/articles/wikiletter-stewart.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/wikiletter-stewart.html</guid>
+      <category>WikiLetter</category>
+      <dc:creator>Ian Stewart</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>Ian Stewart, in memory of David Tall, on “path-dependent logic” — how a student can follow every step faithfully and still reach a contradiction. — Ian Stewart</description>
+    </item>
+    <item>
+      <title>A model for recreating a spinner · مدلی برای بازآفرینی یک چرخنده</title>
+      <link>https://mathswell.com/articles/spinner.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/spinner.html</guid>
+      <category>Classroom Ideas</category>
+      <dc:creator>Zohreh Pandi</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>A class rebuilt a probability spinner from a box of beads — and, without being told, uncovered the structure hiding inside the answers. — Zohreh Pandi</description>
+    </item>
+    <item>
+      <title>The symbol x for the unknown · علامتِ x به‌جای مجهول</title>
+      <link>https://mathswell.com/articles/letter-x.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/letter-x.html</guid>
+      <category>History of Mathematics</category>
+      <dc:creator>Abbas Eqbal Āshtiāni</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>Where did the sign x, the word algebra, and the “Arabic” numerals come from? A short history from a 1930 Tehran journal — given here in full. — Abbas Eqbal Āshtiāni</description>
+    </item>
+    <item>
+      <title>The Silver Matrix · ماتریسِ نقره‌ای</title>
+      <link>https://mathswell.com/articles/history-corner-silver-matrix.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/history-corner-silver-matrix.html</guid>
+      <category>History of Mathematics</category>
+      <dc:creator>Yahya Tabesh</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver. — Yahya Tabesh</description>
+    </item>
+    <item>
+      <title>What is a circle? · دایره چیست؟</title>
+      <link>https://mathswell.com/articles/circle.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/circle.html</guid>
+      <category>Concepts &amp; Conceptions</category>
+      <dc:creator>Amir Asghari</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>It enters school in the first grade and returns every year after — yet a student can reach the end of school still unable to say what a circle is. A walk through nine years of textbooks. — Amir Asghari</description>
+    </item>
+    <item>
+      <title>Maryam Mirzakhani, in Your Own Hand · مریم میرزاخانی، به دستِ شما</title>
+      <link>https://mathswell.com/articles/mathematical-culture.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/mathematical-culture.html</guid>
+      <category>Mathematical Culture</category>
+      <dc:creator>A gallery</dc:creator>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
+      <description>A 1946 newspaper clipping set against Maryam Mirzakhani on the cover of the Notices, followed by portraits of her from artists around the world. The section stays open. — A gallery</description>
+    </item>
+  </channel>
+</rss>

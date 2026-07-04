@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>People and Mathematics · آدم‌ها و ریاضیات</title>
 <meta name="description" content="A bilingual journal for teaching, thinking, and conversation in mathematics. A Mathswell publication.">
+<link rel="alternate" type="application/rss+xml" title="People and Mathematics" href="feed.xml">
 
 <!-- Social / link-preview card (shows when shared, e.g. from the mathswell.com banner) -->
 <meta property="og:title" content="People and Mathematics · آدم‌ها و ریاضیات">
@@ -68,6 +69,13 @@
   .subbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 40px; border-bottom: 1px solid var(--pm-ink); }
   .subbar .kick { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
   .subbar .pub { font-size: 13px; color: var(--pm-muted, #6B6155); }
+
+  /* Slim dedication line */
+  .dedline { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 40px; border-bottom: 1px solid var(--pm-ink); text-decoration: none; color: var(--pm-ink); background: #F5EFE2; }
+  .dedline:hover .dedline-txt { color: var(--pm-accent); }
+  .dedline .heart { color: var(--pm-accent); font-size: 12px; }
+  .dedline .dedline-txt { font-size: 13.5px; font-style: italic; letter-spacing: .01em; transition: color .15s; }
+  .dedline .go { font-size: 12px; color: var(--pm-accent); font-weight: 600; }
 
   /* Hero — on cream */
   .hero { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; padding: 48px 40px; border-bottom: 1px solid var(--pm-ink); }
@@ -177,54 +185,93 @@
 <script src="content.js"></script>
 <script>
 /* ---- Built-in fallback so the page never goes blank if content.js has a typo ---- */
-var FALLBACK = { en: { nav:{}, sections:[], features:[], toc:[], footerLinks:[] }, fa: { nav:{}, sections:[], features:[], toc:[], footerLinks:[] } };
+var FALLBACK = { SECTIONS:[], WORKS:[], FLAGSHIP:{}, en: { nav:{}, footerLinks:[] }, fa: { nav:{}, footerLinks:[] } };
 var DATA = (window.PM_CONTENT && window.PM_CONTENT.en && window.PM_CONTENT.fa) ? window.PM_CONTENT : FALLBACK;
 var YT = (window.PM_CONTENT && window.PM_CONTENT.youtubeUrl) || "https://www.youtube.com/@asghariamir";
 
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function pick(o, lang){ return o ? (o[lang] != null ? o[lang] : o.en) : ""; }
+function toLocal(n, isFa){ n = String(n); return isFa ? n.replace(/[0-9]/g, function(d){ return "۰۱۲۳۴۵۶۷۸۹"[+d]; }) : n; }
+function worksIn(id){ return (DATA.WORKS||[]).filter(function(w){ return w.section === id; }); }
+function featuredOf(id){ var l = worksIn(id); return l.filter(function(w){ return w.featured; })[0] || l[l.length-1] || null; }
 
 function render(lang){
   var c = DATA[lang] || DATA.en;
   var isFa = lang === "fa";
   var dir = isFa ? "rtl" : "ltr";
   var arrow = isFa ? "←" : "→";
+  var fg = DATA.FLAGSHIP || {};
+  var fgt = fg[lang] || fg.en || {};
   document.documentElement.lang = lang;
   document.documentElement.dir = dir;
 
-  var sectionsHtml = (c.sections||[]).map(function(s){
-    return '<div class="rail-cell">'
-      + '<div class="sans accent" style="font-size:12px;font-weight:600;">'+esc(s.n)+'</div>'
-      + '<div style="font-size:19px;font-weight:500;margin-top:10px;line-height:1.15;">'+esc(s.name)+'</div>'
-      + '<div class="sans" style="font-size:13px;color:#6B6155;margin-top:8px;line-height:1.4;">'+esc(s.blurb)+'</div>'
-      + '</div>';
+  var sectionsHtml = (DATA.SECTIONS||[]).map(function(s){
+    var works = worksIn(s.id);
+    var count = works.length;
+    var countTxt = count === 0 ? c.sectionEmpty
+      : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
+    var live = count > 0;
+    var inner = '<div class="sans accent" style="font-size:12px;font-weight:600;">'+esc(pick(s.n,lang))+'</div>'
+      + '<div style="font-size:19px;font-weight:500;margin-top:10px;line-height:1.15;">'+esc(pick(s.name,lang))+(live?' <span class="accent" style="font-weight:600;">'+arrow+'</span>':'')+'</div>'
+      + '<div class="sans" style="font-size:13px;color:#6B6155;margin-top:8px;line-height:1.4;">'+esc(pick(s.blurb,lang))+'</div>'
+      + '<div class="sans" style="font-size:11.5px;letter-spacing:.04em;color:'+(live?'#948876':'#B7AC99')+';margin-top:12px;text-transform:uppercase;">'+esc(countTxt)+'</div>';
+    return live
+      ? '<a class="rail-cell" href="sections/section.html?id='+esc(s.id)+'" style="text-decoration:none;color:inherit;">'+inner+'</a>'
+      : '<div class="rail-cell">'+inner+'</div>';
   }).join("");
 
-  var featuresHtml = (c.features||[]).map(function(f){
-    return '<article class="feature">'
-      + '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(f.img)+'</span></div>'
+  function workCard(w){
+    var t = w[lang] || w.en || {};
+    var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
+    var thumb = w.imgSrc
+      ? '<div class="thumb" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(w.imgSrc)+'" alt="'+esc(t.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
+      : '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(w.img)+'</span></div>';
+    var inner = thumb
       + '<div>'
-        + '<div class="sans accent" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;">'+esc(f.tag)+'</div>'
-        + '<h3>'+esc(f.title)+'</h3>'
-        + '<p style="margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#43392E;">'+esc(f.dek)+'</p>'
+        + '<div class="sans accent" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;">'+esc(pick(sec.name,lang))+'</div>'
+        + '<h3>'+esc(t.title)+'</h3>'
+        + '<p style="margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#43392E;">'+esc(t.dek)+'</p>'
         + '<div class="sans" style="display:flex;align-items:center;gap:12px;margin-top:14px;font-size:12.5px;color:#6B6155;">'
-          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(f.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(f.meta)+'</span>'
+          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(t.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(t.meta)+(w.href?' <span class="accent" style="font-weight:600;">'+arrow+'</span>':'')+'</span>'
         + '</div>'
-      + '</div></article>';
-  }).join("");
+      + '</div>';
+    return w.href
+      ? '<a class="feature" href="'+esc(w.href)+'" style="text-decoration:none;color:inherit;">'+inner+'</a>'
+      : '<article class="feature">'+inner+'</article>';
+  }
 
-  var tocHtml = (c.toc||[]).map(function(t){
+  var featuredWorks = (DATA.SECTIONS||[]).map(function(s){ return featuredOf(s.id); }).filter(Boolean);
+  var featuresHtml = featuredWorks.map(workCard).join("");
+
+  var alsoWorks = (DATA.WORKS||[]).filter(function(w){ return featuredOf(w.section) !== w; });
+  var alsoHtml = alsoWorks.map(function(w, i){
+    var t = w[lang] || w.en || {};
+    var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
+    var titleHtml = w.href
+      ? '<a href="'+esc(w.href)+'" style="font-size:19px;font-weight:500;line-height:1.2;text-decoration:none;color:inherit;">'+esc(t.title)+' <span class="accent">'+arrow+'</span></a>'
+      : '<span style="font-size:19px;font-weight:500;line-height:1.2;">'+esc(t.title)+'</span>';
     return '<div class="toc-row">'
-      + '<span class="sans accent" style="font-size:14px;font-weight:600;">'+esc(t.n)+'</span>'
-      + '<span style="font-size:19px;font-weight:500;line-height:1.2;">'+esc(t.title)+'</span>'
-      + '<span class="sans" style="font-size:12px;color:#6B6155;text-transform:uppercase;letter-spacing:.06em;">'+esc(t.kind)+'</span>'
+      + '<span class="sans accent" style="font-size:14px;font-weight:600;">'+esc(toLocal(String(i+1).padStart(2,"0"), isFa))+'</span>'
+      + '<div>'+titleHtml+'<div class="sans" style="font-size:12px;color:#948876;margin-top:4px;">'+esc(w.date?pick(w.date,lang):"")+'</div></div>'
+      + '<span class="sans" style="font-size:12px;color:#6B6155;text-transform:uppercase;letter-spacing:.06em;">'+esc(pick(sec.name,lang))+'</span>'
       + '</div>';
   }).join("");
 
-  var footerLinksHtml = (c.footerLinks||[]).map(function(l){ return '<span>'+esc(l)+'</span>'; }).join("");
+  var contactEmail = (window.PM_CONTENT && window.PM_CONTENT.contactEmail) || "amir@mathswell.com";
+  var subscribeUrl = (window.PM_CONTENT && window.PM_CONTENT.subscribeUrl) || "";
+  var footerLinksHtml = (c.footerLinks||[]).map(function(l){
+    if (/contact|تماس/i.test(l)) return '<a href="mailto:'+esc(contactEmail)+'" style="text-decoration:none;">'+esc(l)+'</a>';
+    if (/rss/i.test(l)) return '<a href="feed.xml" style="text-decoration:none;">'+esc(l)+'</a>';
+    return '<span>'+esc(l)+'</span>';
+  }).join("");
   var nav = c.nav || {};
 
   var pdfUrl = (window.PM_CONTENT && window.PM_CONTENT.issuePdfUrl) || "";
   var donateUrl = (window.PM_CONTENT && window.PM_CONTENT.donateUrl) || "";
+  var dedUrl = (window.PM_CONTENT && window.PM_CONTENT.dedicationUrl) || "";
+  var dedHtml = (dedUrl && c.dedication)
+    ? '<a class="dedline sans" href="'+esc(dedUrl)+'"><span class="heart">♦</span><span class="dedline-txt">'+esc(c.dedication)+'</span><span class="go">'+arrow+'</span></a>'
+    : '';
   var heart = isFa ? "♥" : "♥";
   var getIssueHtml =
     '<section class="getissue"><div class="getissue-in wrap">'
@@ -234,7 +281,7 @@ function render(lang){
         + '<p>'+esc(c.getBody)+'</p>'
       + '</div>'
       + '<div class="getissue-actions">'
-        + (pdfUrl ? '<a class="btn-pdf sans" href="'+esc(pdfUrl)+'" download><span>↓</span><span>'+esc(c.downloadCta)+'</span></a><div class="btn-meta sans">'+esc(c.downloadMeta)+'</div>' : '')
+        + '<a class="btn-pdf sans" href="#sections"><span>→</span><span>'+esc(c.browseCta)+'</span></a><div class="btn-meta sans">'+esc(c.browseMeta)+'</div>'
         + (donateUrl ? '<a class="btn-donate sans" href="'+esc(donateUrl)+'" target="_blank" rel="noopener"><span class="btn-heart">'+heart+'</span><span>'+esc(c.donateCta)+'</span></a><div class="btn-meta sans">'+esc(c.donateMeta)+'</div>' : '')
       + '</div>'
     + '</div></section>';
@@ -259,43 +306,46 @@ function render(lang){
       + '<div class="pub sans">'+esc(c.subtitle)+'</div>'
     + '</div>'
 
-    + '<section class="hero wrap">'
+    + dedHtml
+
+    + (fg.href ? '<a class="hero wrap" href="'+esc(fg.href)+'" style="text-decoration:none;color:inherit;">' : '<section class="hero wrap">')
       + '<div class="lead">'
-        + '<div class="sans accent" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">'+esc(c.heroEyebrow)+'</div>'
-        + '<h1>'+esc(c.leadTitle)+'</h1>'
-        + '<p class="dek">'+esc(c.leadDek)+'</p>'
+        + '<div class="sans accent" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">'+esc(fgt.eyebrow)+'</div>'
+        + '<h1>'+esc(fgt.title)+'</h1>'
+        + '<p class="dek">'+esc(fgt.dek)+'</p>'
         + '<div class="sans" style="display:flex;align-items:center;gap:18px;font-size:13.5px;color:#6B6155;">'
-          + '<span style="font-weight:600;">'+esc(c.readCta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(c.leadByline)+'</span>'
+          + '<span style="font-weight:600;">'+esc(fgt.cta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(fgt.byline)+'</span>'
         + '</div>'
       + '</div>'
-      + '<div class="lead-img pm-img"><span class="imglabel">'+esc(c.leadImgLabel)+'</span></div>'
-    + '</section>'
+      + (fg.imgSrc
+          ? '<div class="lead-img" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(fg.imgSrc)+'" alt="'+esc(fgt.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
+          : '<div class="lead-img pm-img"><span class="imglabel">'+esc(fg.imgLabel)+'</span></div>')
+    + (fg.href ? '</a>' : '</section>')
 
-    + '<section class="wrap" style="border-bottom:1px solid var(--pm-ink);">'
+    + '<section class="wrap" id="sections" style="border-bottom:1px solid var(--pm-ink);">'
       + '<div class="rail-label sans">'+esc(c.sectionsLabel)+'</div>'
       + '<div class="rail">'+sectionsHtml+'</div>'
     + '</section>'
 
     + '<section class="features wrap">'
-      + '<div class="features-head"><h2 style="margin:0;font-size:30px;font-weight:500;letter-spacing:-.01em;">'+esc(c.featuresLabel)+'</h2><span class="sans" style="font-size:13px;color:#6B6155;">'+esc(c.issueTag)+'</span></div>'
+      + '<div class="features-head"><h2 style="margin:0;font-size:30px;font-weight:500;letter-spacing:-.01em;">'+esc(c.featuresLabel)+'</h2><span class="sans" style="font-size:13px;color:#6B6155;">'+esc(c.featuresTag)+'</span></div>'
       + '<div class="features-grid">'+featuresHtml+'</div>'
     + '</section>'
 
-    + '<section class="lower wrap">'
-      + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;">'+esc(c.tocLabel)+'</div>'+tocHtml+'</div>'
-      + '<aside class="note">'
-        + '<div class="sans accent" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;">'+esc(c.noteLabel)+'</div>'
-        + '<h3>'+esc(c.noteTitle)+'</h3>'
-        + '<p style="margin:0;font-size:17px;line-height:1.62;color:#D9D0C0;">'+esc(c.noteBody)+'</p>'
-        + '<div style="margin-top:22px;font-style:italic;font-size:16px;color:#B9AE9B;">— '+esc(c.noteSign)+'</div>'
-      + '</aside>'
+    + '<section class="lower wrap" style="grid-template-columns:1fr;">'
+      + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;display:flex;align-items:baseline;gap:12px;"><span>'+esc(c.alsoLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.alsoTag)+'</span></div>'+(alsoHtml || '<div class="sans" style="padding:16px 0;color:#948876;font-size:14px;">—</div>')+'</div>'
     + '</section>'
 
     + getIssueHtml
 
     + '<section class="subscribe"><div class="subscribe-in wrap">'
       + '<div><h3>'+esc(c.subTitle)+'</h3><p class="sans" style="margin:8px 0 0;font-size:14px;color:#6B6155;">'+esc(c.subNote)+'</p></div>'
-      + '<form class="subform" onsubmit="return false;"><input class="sans" placeholder="'+esc(c.subPlaceholder)+'"><button class="sans">'+esc(c.subCta)+'</button></form>'
+      + '<form class="subform" id="pm-subform">'
+        + '<input class="sans" name="name" placeholder="'+esc(c.subNamePlaceholder)+'" style="max-width:38%;">'
+        + '<span aria-hidden="true" style="width:1px;align-self:stretch;background:var(--pm-ink);opacity:.22;"></span>'
+        + '<input class="sans" name="email" type="email" required placeholder="'+esc(c.subPlaceholder)+'">'
+        + '<button class="sans" type="submit">'+esc(c.subCta)+'</button>'
+      + '</form>'
     + '</div></section>'
 
     + '<footer class="footer wrap">'
@@ -305,6 +355,20 @@ function render(lang){
         + '<a class="yt sans" href="'+esc(YT)+'" target="_blank" rel="noopener"><span class="play">▶</span><span>'+esc(c.youtubeLabel)+'</span></a>'
       + '</div>'
     + '</footer>';
+
+  // wire the subscribe form: post to a connected service if set, else open the visitor's email app
+  var sf = document.getElementById("pm-subform");
+  if (sf){
+    sf.addEventListener("submit", function(e){
+      if (subscribeUrl){ sf.setAttribute("action", subscribeUrl); sf.setAttribute("method", "post"); return; }
+      e.preventDefault();
+      var nm = (sf.querySelector('[name=name]')||{}).value || "";
+      var em = (sf.querySelector('[name=email]')||{}).value || "";
+      var subj = isFa ? "عضویت در آدم‌ها و ریاضیات" : "Subscribe: People and Mathematics";
+      var body = (nm ? ((isFa?"نام: ":"Name: ")+nm+"\n") : "") + (isFa?"ایمیل: ":"Email: ")+em;
+      window.location.href = "mailto:"+contactEmail+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    });
+  }
 
   // wire language toggle + remember choice
   document.querySelectorAll(".langtoggle button").forEach(function(b){

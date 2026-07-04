@@ -14,174 +14,337 @@
      • Don't change the words in green before the colon (title:, dek: …).
 
    The site has TWO languages:  en  = English   |   fa = فارسی (Persian)
-   Each one is filled in below. Edit whichever you need.
+
+   ─────────────────────────────────────────────────────────────────────
+   HOW THE JOURNAL IS ORGANISED  (read this once — it's simple)
+
+   This is an OPEN journal: there are no numbered monthly issues. There
+   are six permanent SECTIONS, and you add WORKS to them whenever a new
+   piece is ready. Everything on the home page builds itself from the
+   ONE list of works below — you never edit the home page by hand.
+
+     • Add a work  → put one block in  WORKS  (further down).
+     • Give it a   section:  (one of the six ids) and, if it should be
+       the one shown on the home page for that section, featured: true.
+     • It then appears automatically in the right places:
+         – "One from each section"  = the featured work of each section
+         – "Also in the sections"   = every other work
+         – the section's own page   = ALL of its works, as cards
+       Nothing ever shows up twice.
+
+   Mathematical Culture is pinned to the Mirzakhani gallery (featured).
    ===================================================================== */
 
 window.PM_CONTENT = {
 
+  /* ---- Where the site lives (used to build the RSS feed's links) ----
+     Set this to the address readers actually visit. */
+  siteUrl: "https://mathswell.com",
+
+  /* ---- Contact address, also the “from” for subscriber emails ---- */
+  contactEmail: "amir@mathswell.com",
+
+  /* ---- Subscribe form endpoint ----
+     A plain web page cannot store sign-ups by itself. Create a free list
+     on an email service (Buttondown is ideal — it can auto-email your
+     subscribers whenever a new piece appears), then paste the form's
+     POST address here. Until you do, the form opens the visitor's email
+     app addressed to contactEmail instead. Your subscribers' names and
+     addresses then live in that service's dashboard (exportable as CSV). */
+  subscribeUrl: "",
+
   /* ---- The link to Amir Asghari's YouTube channel ---- */
   youtubeUrl: "https://www.youtube.com/@asghariamir",
 
-  /* ---- The full-issue PDF (free download) ----
+  /* ---- The dedication page (set to "" to hide the line) ---- */
+  dedicationUrl: "dedication.html",
+
+  /* ---- The full-collection PDF (free download) ----
      Put your PDF file in the repo and write its file name here.
-     Example: "issue-01.pdf"  (the print page makes this for you). */
-  issuePdfUrl: "issue-01.pdf",
+     Hidden for the review build (issue-01.pdf not generated yet). To turn the
+     "Download the PDF" button back on, restore:  issuePdfUrl: "issue-01.pdf", */
+  issuePdfUrl: "",
 
   /* ---- "Pay what you like" support link (Stripe) ----
-     Create a Stripe PAYMENT LINK with "let customers choose what to pay"
-     turned ON, then paste its address here (starts with https://buy.stripe.com/...).
-     Until you paste it, the Support button is hidden automatically. */
-  donateUrl: "",
+     Paste a Stripe PAYMENT LINK here. Until you do, the button is hidden. */
+  donateUrl: "https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02",
 
-  /* =========================  ENGLISH  ============================= */
+
+  /* =====================================================================
+     THE SIX SECTIONS  (shared by both languages)
+     Order here = order everywhere. Don't remove any; the six are fixed.
+     ===================================================================== */
+  SECTIONS: [
+    { id: "wikiletter",
+      n:     { en: "01", fa: "۰۱" },
+      name:  { en: "WikiLetter",              fa: "ویکی‌نوشت" },
+      blurb: { en: "Short essays by mathematicians and teachers, for teachers.",
+               fa: "مقاله‌های کوتاهِ ریاضی‌دانان و آموزگاران، برای معلم‌ها." } },
+
+    { id: "classroom",
+      n:     { en: "02", fa: "۰۲" },
+      name:  { en: "Classroom Ideas",          fa: "ایده‌های کلاسی" },
+      blurb: { en: "Things to try on Monday.",
+               fa: "چیزهایی برای امتحان در کلاس." } },
+
+    { id: "history",
+      n:     { en: "03", fa: "۰۳" },
+      name:  { en: "History of Mathematics",   fa: "تاریخ ریاضیات" },
+      blurb: { en: "The people and ideas that shaped mathematics as a way of thinking.",
+               fa: "آدم‌ها و ایده‌هایی که ریاضی را همچون شیوه‌ای از اندیشیدن ساختند." } },
+
+    { id: "concepts",
+      n:     { en: "04", fa: "۰۴" },
+      name:  { en: "Concepts & Conceptions",   fa: "مفاهیم و برداشت‌ها" },
+      blurb: { en: "How understanding really forms.",
+               fa: "فهم چگونه شکل می‌گیرد." } },
+
+    { id: "conversations",
+      n:     { en: "05", fa: "۰۵" },
+      name:  { en: "Mathematical Conversations", fa: "مکالمات ریاضی" },
+      blurb: { en: "Talking mathematics — in essays, and now in short films, in Persian and English.",
+               fa: "گفت‌وگو درباره‌ی ریاضی — در نوشته، و اکنون در فیلم‌های کوتاه، به فارسی و انگلیسی." } },
+
+    { id: "culture",
+      n:     { en: "06", fa: "۰۶" },
+      name:  { en: "Mathematical Culture",     fa: "فرهنگ ریاضی" },
+      blurb: { en: "Life with mathematics and its people.",
+               fa: "زندگی با ریاضی و در کنارِ اهلِ آن." } }
+  ],
+
+
+  /* =====================================================================
+     THE WORKS  —  one block per piece. THIS is the list you grow.
+
+     Each block:
+       section:  which section it belongs to (an id from the six above)
+       featured: true  → it is the one shown for its section on the home
+                          page. Keep exactly ONE featured per section.
+       href:     the article/film page
+       imgSrc:   its picture (leave out to show a labelled placeholder)
+       img:      the placeholder label used when there is no imgSrc
+       date:     when it was added / updated  (shown when browsing)
+       en / fa:  the title, one-line dek, author, and a short meta tag
+     ===================================================================== */
+  WORKS: [
+
+    /* ---- WikiLetter ---- */
+    { section: "wikiletter", featured: true,
+      href: "articles/wikiletter-stewart.html",
+      added: "2026-06-15",
+      imgSrc: "assets/ian-stewart-portrait.jpg",
+      img: "drawing — what shape student are you?",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "What Shape Student Are You?",
+            dek: "Ian Stewart, in memory of David Tall, on “path-dependent logic” — how a student can follow every step faithfully and still reach a contradiction.",
+            author: "Ian Stewart", meta: "9 min read" },
+      fa: { title: "چه نوع دانشجویی هستید؟",
+            dek: "یان استوارت، به یادِ دیوید تال، درباره‌ی «منطقِ مسیروابسته» — اینکه چگونه دانشجو می‌تواند هر گام را درست بردارد و باز به تناقض برسد.",
+            author: "یان استوارت", meta: "۹ دقیقه" } },
+
+    /* ---- Classroom Ideas ---- */
+    { section: "classroom", featured: true,
+      href: "articles/structure-in-your-gaze.html",
+      added: "2026-07-03",
+      img: "diagram — a parallelogram on a circular sheet",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "Structure Is in Your Gaze",
+            dek: "The way we look at a figure changes its mathematics. Rotate a parallelogram on a circle, cover an angle, read one sentence two ways — small classroom moves, now interactive, where a shift of the gaze does the teaching.",
+            author: "Amir Asghari", meta: "Interactive · Classroom notes" },
+      fa: { title: "ساختار در نگاه است",
+            dek: "نحوه‌ی نگاه‌کردن به یک شکل، ریاضیِ آن را تغییر می‌دهد. متوازی‌الاضلاعی را روی دایره بچرخانید، زاویه‌ای را بپوشانید، یک جمله را دو جور بخوانید — حرکت‌هایی کوچک و اکنون تعاملی، که در آن‌ها جابه‌جاییِ نگاه آموزش می‌دهد.",
+            author: "امیر اصغری", meta: "تعاملی · یادداشت‌های کلاسی" } },
+
+    { section: "classroom", featured: false,
+      href: "articles/spinner.html",
+      added: "2026-06-15",
+      imgSrc: "assets/pandi.jpg",
+      img: "photo — Zohreh Pandi",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "A model for recreating a spinner",
+            dek: "A class rebuilt a probability spinner from a box of beads — and, without being told, uncovered the structure hiding inside the answers.",
+            author: "Zohreh Pandi", meta: "Classroom notes" },
+      fa: { title: "مدلی برای بازآفرینی یک چرخنده",
+            dek: "کلاسی یک چرخنده‌ی احتمال را از یک جعبه مهره بازساخت — و بی‌آنکه گفته شود، ساختارِ پنهان در پاسخ‌ها را کشف کرد.",
+            author: "زهره پندی", meta: "یادداشت‌های کلاسی" } },
+
+    /* ---- History of Mathematics  (featured) ---- */
+    { section: "history", featured: true,
+      href: "articles/letter-x.html",
+      added: "2026-06-15",
+      imgSrc: "assets/abbas-eqbal.jpg",
+      img: "photo — manuscript page, al-Khwārizmī",
+      date: { en: "1930 · added June 2026", fa: "۱۳۰۹ · افزوده خرداد ۱۴۰۵" },
+      en: { title: "The symbol x for the unknown",
+            dek: "Where did the sign x, the word algebra, and the “Arabic” numerals come from? A short history from a 1930 Tehran journal — given here in full.",
+            author: "Abbas Eqbal Āshtiāni", meta: "1930 · full text" },
+      fa: { title: "علامتِ x به‌جای مجهول",
+            dek: "علامتِ x، واژه‌ی «جبر» و ارقامِ «عربی» از کجا آمده‌اند؟ تاریخچه‌ای کوتاه از مجله‌ای در تهرانِ ۱۳۰۹ — اینجا به‌کامل.",
+            author: "عباس اقبالِ آشتیانی", meta: "۱۳۰۹ · متنِ کامل" } },
+
+    /* ---- History of Mathematics  (also — History Corner) ---- */
+    { section: "history", featured: false,
+      href: "articles/history-corner-silver-matrix.html",
+      added: "2026-06-15",
+      img: "photo — the 1997 IMO",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "The Silver Matrix",
+            dek: "How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver.",
+            author: "Yahya Tabesh", meta: "History Corner" },
+      fa: { title: "ماتریسِ نقره‌ای",
+            dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از ساحلِ نقره درآورد.",
+            author: "یحیی تابش", meta: "گوشهٔ تاریخ" } },
+
+    /* ---- Concepts & Conceptions ---- */
+    { section: "concepts", featured: true,
+      href: "articles/circle.html",
+      added: "2026-06-15",
+      imgSrc: "assets/amir.jpg",
+      img: "diagram — nine years of textbooks",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "What is a circle?",
+            dek: "It enters school in the first grade and returns every year after — yet a student can reach the end of school still unable to say what a circle is. A walk through nine years of textbooks.",
+            author: "Amir Asghari", meta: "Notes of a teacher" },
+      fa: { title: "دایره چیست؟",
+            dek: "دایره از همان سالِ اولِ دبستان وارد آموزش می‌شود و هر سال بازمی‌گردد — اما دانش‌آموز در پایانِ مدرسه هنوز نمی‌تواند بگوید دایره چیست. مروری بر نُه سال کتابِ درسی.",
+            author: "امیر اصغری", meta: "یادداشت‌های یک معلم" } },
+
+    /* ---- Mathematical Conversations ---- */
+    { section: "conversations", featured: true,
+      href: "articles/mathematical-conversations.html",
+      added: "2026-07-01",
+      imgSrc: "assets/artan-sheshmani.jpg",
+      img: "photo — Artan Sheshmani",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "Sheaf",
+            dek: "One idea — how local pieces are glued into something global — met in a short film. Artan Sheshmani made it in Persian and, himself, in English; watch both and each carries something the other doesn’t.",
+            author: "Artan Sheshmani", meta: "Film · فارسی + English" },
+      fa: { title: "بافه",
+            dek: "یک ایده — اینکه چگونه تکه‌های محلی به یک کلِ سراسری چسبانده می‌شوند — در فیلمی کوتاه. آرتان شش‌مانی آن را به فارسی ساخت و، خودش، به انگلیسی؛ هر دو را ببینید، هر کدام چیزی دارد که آن دیگری ندارد.",
+            author: "آرتان شش‌مانی", meta: "فیلم · فارسی + English" } },
+
+    /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
+    { section: "culture", featured: true,
+      href: "articles/mathematical-culture.html",
+      added: "2026-06-15",
+      imgSrc: "assets/mirzakhani-juan.jpg",
+      img: "artwork — Mirzakhani portrait",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "Maryam Mirzakhani, in Your Own Hand",
+            dek: "A 1946 newspaper clipping set against Maryam Mirzakhani on the cover of the Notices, followed by portraits of her from artists around the world. The section stays open.",
+            author: "A gallery", meta: "Open call" },
+      fa: { title: "مریم میرزاخانی، به دستِ شما",
+            dek: "یک برشِ روزنامه از ۱۳۲۵، در برابرِ جلدِ نشریهٔ انجمن ریاضیِ آمریکا با مریم میرزاخانی؛ و پرتره‌هایی از او به‌دستِ هنرمندانِ سراسرِ جهان. این بخش باز می‌مانَد.",
+            author: "یک نگارخانه", meta: "فراخوانِ باز" } }
+  ],
+
+
+  /* =====================================================================
+     THE FLAGSHIP  —  the lead essay at the top of the page.
+     This is the "People and Mathematics" section itself; swap it here
+     whenever you promote a new piece to the front.
+     ===================================================================== */
+  FLAGSHIP: {
+    href: "articles/firoozbakht.html",
+    imgSrc: "assets/farideh.jpg",
+    imgLabel: "photo — Farideh Firoozbakht, Isfahan",
+    en: { eyebrow: "People and Mathematics",
+          title: "Farideh Firoozbakht and a Conjecture About Primes",
+          dek: "She left almost no trace of herself — no photographs, barely a line of biography. What she left instead was one of the boldest unproven statements ever made about the prime numbers.",
+          cta: "Read the essay", byline: "Essay · Amir Asghari" },
+    fa: { eyebrow: "آدم‌ها و ریاضیات",
+          title: "فریده فیروزبخت و حدسی درباره‌ی اعداد اول",
+          dek: "از خودش تقریباً نشانی به‌جا نگذاشت — نه عکسی، نه چند سطر زندگی‌نامه. آنچه به‌جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود.",
+          cta: "خواندنِ مقاله", byline: "مقاله · امیر اصغری" }
+  },
+
+
+  /* =========================  ENGLISH CHROME  ===================== */
   en: {
-    /* Top menu links */
-    nav: { issues: "Issues", sections: "Sections", about: "About", submit: "Contribute" },
+    nav: { issues: "Sections", sections: "Read", about: "About", submit: "Contribute" },
 
-    /* The black cover panel on the left */
-    issueKicker: "Inaugural Issue · No. 01 · June 2026",
+    issueKicker: "An open journal · since June 2026",
     subtitle: "A bilingual journal for teaching, thinking, and conversation in mathematics.",
+    dedication: "Dedicated to the memory of Safoura Jafari",
 
-    /* The big lead story (top-right of the page) */
-    heroEyebrow: "People and Mathematics",
-    leadTitle: "The Long Conversation",
-    leadDek: "Forty years at the blackboard, and a teacher who still begins every class with a question. On mathematics as a way of being together.",
-    leadImgLabel: "photo — teacher at the blackboard, Shemiran",
-    readCta: "Read the interview",
-    leadByline: "Interview · 18 min read",
+    /* Section-rail heading, and the two browse blocks */
+    sectionsLabel: "The Sections",
+    featuresLabel: "One from each section",
+    featuresTag: "The editors’ pick, per section",
+    alsoLabel: "Also in the sections",
+    alsoTag: "Everything else, at a glance",
+    sectionCountOne: "1 piece",
+    sectionCountMany: "{n} pieces",
+    sectionEmpty: "coming soon",
+    onSection: "in",           /* "in History of Mathematics" */
 
-    /* The six sections row */
-    sectionsLabel: "Sections in every issue",
-    sections: [
-      { n: "01", name: "Short Articles",          blurb: "Brief, finished thoughts." },
-      { n: "02", name: "Classroom Ideas",         blurb: "Things to try on Monday." },
-      { n: "03", name: "History of Mathematics",  blurb: "Where the ideas came from." },
-      { n: "04", name: "Concepts & Conceptions",  blurb: "How understanding really forms." },
-      { n: "05", name: "People & Places",         blurb: "Portraits, interviews, journeys." },
-      { n: "06", name: "Mathematical Culture",    blurb: "Mathematics among people." }
-    ],
-
-    /* The four featured articles */
-    featuresLabel: "Selected from this issue",
-    issueTag: "Issue 01 — June 2026",
-    features: [
-      { tag: "History of Mathematics",   title: "The Word That Became Algebra",       dek: "How al-jabr — “the restoring” — travelled from a Baghdad manuscript into every classroom on earth.", author: "The Editors",  meta: "9 min read",     img: "photo — manuscript page, al-Khwārizmī" },
-      { tag: "Concepts & Conceptions",   title: "When Minus Times Minus Felt Wrong",  dek: "A child’s stubborn objection, and what it teaches us about taking conceptions seriously.",            author: "Amir Asghari", meta: "7 min read",     img: "photo — number line in chalk" },
-      { tag: "Classroom Ideas",          title: "Velocity, Drawn by Hand",            dek: "A strip of moving paper, after W. W. Sawyer, that turns the derivative into something you can feel.",     author: "Classroom",    meta: "5 min read",     img: "photo — paper strip on a graph" },
-      { tag: "Mathematical Culture",     title: "Tea, Chalk, and Proof",              dek: "A photo essay from the rooms where mathematics actually happens — in the space between people.",          author: "Photo Essay",  meta: "12 photographs", img: "photo essay — common rooms & corridors" }
-    ],
-
-    /* Table of contents */
-    tocLabel: "In this issue",
-    toc: [
-      { n: "01", title: "The Long Conversation",            kind: "Interview" },
-      { n: "02", title: "The Word That Became Algebra",     kind: "History" },
-      { n: "03", title: "When Minus Times Minus Felt Wrong", kind: "Concepts" },
-      { n: "04", title: "Velocity, Drawn by Hand",          kind: "Classroom" },
-      { n: "05", title: "Tea, Chalk, and Proof",            kind: "Photo essay" },
-      { n: "06", title: "A Letter from a Reader in Tabriz", kind: "Correspondence" }
-    ],
-
-    /* The black "From the Editors" note */
     noteLabel: "From the Editors",
     noteTitle: "Why a bilingual journal",
-    noteBody: "Mathematics is made by people, in places, in languages. We wanted a room where teaching and thinking could happen in Persian and English at once — not translated past one another, but side by side. People and Mathematics is monthly, and it belongs to its readers. Write to us.",
+    noteBody: "Mathematics is made by people, in places, in languages. We wanted a room where teaching and thinking could happen in Persian and English at once — not translated past one another, but side by side. People and Mathematics is an open journal: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
     noteSign: "The Editors",
 
-    /* "Read the whole issue" — free PDF + pay-what-you-like support */
-    getKicker: "The whole issue",
-    getTitle: "Read Issue 01, cover to cover.",
-    getBody: "The complete issue is a free PDF — yours to read, print, and share. People and Mathematics is reader-supported: if it gave you something, you’re warmly invited to pay whatever it was worth to you.",
-    downloadCta: "Download the PDF",
-    downloadMeta: "Free · bilingual · ~6 MB",
+    getKicker: "For teaching",
+    getTitle: "For teaching — for everyone who keeps trying.",
+    getBody: "Every article can be downloaded as a PDF from its own page — free to read, print, and share in class. And when you download one, you’re invited to support People and Mathematics: not only this journal, but something far larger than it.",
+    browseCta: "Browse the sections",
+    browseMeta: "Six sections · pick one",
     donateCta: "Pay what you like",
-    donateMeta: "A gift, never a gate",
+    donateMeta: "Support People and Mathematics",
 
-    /* Subscribe box */
-    subTitle: "A new issue, every month.",
-    subNote: "Free. Bilingual. No spam, ever.",
+    subTitle: "New work, whenever it’s ready.",
+    subNote: "An email whenever a new piece is added — from amir@mathswell.com. No spam, ever.",
+    subNamePlaceholder: "your name",
     subPlaceholder: "your@email",
     subCta: "Subscribe",
 
-    /* Footer */
     pubLine: "A Mathswell publication · mathswell.com",
-    footerLinks: ["About", "Submissions", "Archive", "Contact", "RSS"],
-    youtubeLabel: "Films on YouTube"
+    footerLinks: ["About", "Submissions", "Sections", "Contact", "RSS"],
+    youtubeLabel: "Films on YouTube",
+    backToJournal: "← Back to the journal",
+    readCta: "Read"
   },
 
-  /* =========================  فارسی  ============================== */
+  /* =========================  PERSIAN CHROME  ==================== */
   fa: {
-    /* منوی بالا */
-    nav: { issues: "آرشیو", sections: "بخش‌ها", about: "درباره", submit: "مشارکت" },
+    nav: { issues: "بخش‌ها", sections: "خواندن", about: "درباره", submit: "مشارکت" },
 
-    /* پنل مشکی سمت راست */
-    issueKicker: "نخستین شماره · شماره‌ی ۱ · خرداد ۱۴۰۵",
+    issueKicker: "مجله‌ای باز · از خرداد ۱۴۰۵",
     subtitle: "مجله‌ای دوزبانه برای آموزش، اندیشیدن و گفت‌وگو در ریاضیات.",
+    dedication: "به یادِ صفورا جعفری",
 
-    /* داستان اصلی */
-    heroEyebrow: "آدم‌ها و ریاضیات",
-    leadTitle: "گفت‌وگوی بلند",
-    leadDek: "چهل سال پای تخته، و معلمی که هنوز هر کلاس را با یک پرسش آغاز می‌کند. درباره‌ی ریاضیات همچون شیوه‌ای برای با هم بودن.",
-    leadImgLabel: "photo — teacher at the blackboard, Shemiran",
-    readCta: "خواندنِ گفت‌وگو",
-    leadByline: "گفت‌وگو · ۱۸ دقیقه خواندن",
+    sectionsLabel: "بخش‌ها",
+    featuresLabel: "از هر بخش، یکی",
+    featuresTag: "گزینشِ سردبیران، از هر بخش",
+    alsoLabel: "دیگر مطالبِ بخش‌ها",
+    alsoTag: "باقیِ مطالب، یک‌جا",
+    sectionCountOne: "۱ مطلب",
+    sectionCountMany: "{n} مطلب",
+    sectionEmpty: "به‌زودی",
+    onSection: "در",
 
-    /* شش بخش */
-    sectionsLabel: "بخش‌های هر شماره",
-    sections: [
-      { n: "۰۱", name: "یادداشت‌های کوتاه", blurb: "اندیشه‌هایی کوتاه و کامل." },
-      { n: "۰۲", name: "ایده‌های کلاسی",    blurb: "چیزهایی برای امتحان در کلاس." },
-      { n: "۰۳", name: "تاریخ ریاضیات",     blurb: "ایده‌ها از کجا آمدند." },
-      { n: "۰۴", name: "مفاهیم و برداشت‌ها", blurb: "فهم چگونه شکل می‌گیرد." },
-      { n: "۰۵", name: "آدم‌ها و مکان‌ها",   blurb: "چهره‌ها، گفت‌وگوها، سفرها." },
-      { n: "۰۶", name: "فرهنگ ریاضی",       blurb: "ریاضیات در میان مردم." }
-    ],
-
-    /* چهار مقاله‌ی برگزیده */
-    featuresLabel: "برگزیده‌ی این شماره",
-    issueTag: "شماره‌ی ۱ — خرداد ۱۴۰۵",
-    features: [
-      { tag: "تاریخ ریاضیات",      title: "واژه‌ای که جبر شد",                 dek: "چگونه «الجبر» — به‌معنای بازگرداندن — از دست‌نوشته‌ای در بغداد به هر کلاسِ درسِ جهان رسید.", author: "سردبیران",     meta: "۹ دقیقه",  img: "photo — manuscript page, al-Khwārizmī" },
-      { tag: "مفاهیم و برداشت‌ها", title: "وقتی منفی در منفی نادرست می‌نمود", dek: "اعتراضِ سرسختانه‌ی یک کودک، و آنچه درباره‌ی جدی‌گرفتنِ برداشت‌ها به ما می‌آموزد.",        author: "امیر اصغری",   meta: "۷ دقیقه",  img: "photo — number line in chalk" },
-      { tag: "ایده‌های کلاسی",     title: "سرعت، کشیده‌شده با دست",            dek: "نواری از کاغذِ متحرک، به‌الهام از و. و. سویر، که مشتق را به چیزی محسوس بدل می‌کند.",       author: "کلاس درس",     meta: "۵ دقیقه",  img: "photo — paper strip on a graph" },
-      { tag: "فرهنگ ریاضی",        title: "چای، گچ، و برهان",                 dek: "یک مقاله‌ی عکس از اتاق‌هایی که ریاضیات واقعاً در آن‌ها رخ می‌دهد — در فاصله‌ی میان آدم‌ها.", author: "مقاله‌ی عکس",  meta: "۱۲ عکس",   img: "photo essay — common rooms & corridors" }
-    ],
-
-    /* فهرست مطالب */
-    tocLabel: "در این شماره",
-    toc: [
-      { n: "۰۱", title: "گفت‌وگوی بلند",                  kind: "گفت‌وگو" },
-      { n: "۰۲", title: "واژه‌ای که جبر شد",             kind: "تاریخ" },
-      { n: "۰۳", title: "وقتی منفی در منفی نادرست می‌نمود", kind: "مفاهیم" },
-      { n: "۰۴", title: "سرعت، کشیده‌شده با دست",         kind: "کلاس" },
-      { n: "۰۵", title: "چای، گچ، و برهان",              kind: "مقاله‌ی عکس" },
-      { n: "۰۶", title: "نامه‌ای از خواننده‌ای در تبریز",  kind: "مکاتبات" }
-    ],
-
-    /* یادداشت سردبیران */
     noteLabel: "از سردبیران",
     noteTitle: "چرا مجله‌ای دوزبانه",
-    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم اتاقی باشد که آموزش و اندیشیدن، هم‌زمان به فارسی و انگلیسی در آن رخ دهد — نه ترجمه‌ای از کنارِ هم، بلکه در کنارِ هم. «آدم‌ها و ریاضیات» ماهانه است و از آنِ خوانندگانش. برای ما بنویسید.",
+    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم اتاقی باشد که آموزش و اندیشیدن، هم‌زمان به فارسی و انگلیسی در آن رخ دهد — نه ترجمه‌ای از کنارِ هم، بلکه در کنارِ هم. «آدم‌ها و ریاضیات» مجله‌ای باز است: هر گاه کاری تازه آماده شود به بخش‌هایش افزوده می‌شود و مقاله‌ی اصلی هرازگاهی تغییر می‌کند. از آنِ خوانندگانش است. برای ما بنویسید.",
     noteSign: "سردبیران",
 
-    /* «همه‌ی شماره» — پی‌دی‌اف رایگان + پرداختِ دلخواه */
-    getKicker: "همه‌ی شماره",
-    getTitle: "شماره‌ی ۱ را، از جلد تا جلد بخوانید.",
-    getBody: "شماره‌ی کامل، یک پی‌دی‌اف رایگان است — برای خواندن، چاپ‌کردن و هم‌رسانی. «آدم‌ها و ریاضیات» با پشتیبانی خوانندگان می‌چرخد: اگر چیزی به شما داد، به‌گرمی دعوت می‌شوید هر اندازه که برایتان ارزش داشت بپردازید.",
-    downloadCta: "دریافت پی‌دی‌اف",
-    downloadMeta: "رایگان · دوزبانه · حدود ۶ مگابایت",
+    getKicker: "برای آموزش",
+    getTitle: "برای آموزش، برای آن‌ها که می‌کوشند.",
+    getBody: "هر مقاله را می‌توانید از صفحهٔ خودش به شکلِ پی‌دی‌اف دانلود کنید — رایگان، برای خواندن، چاپ‌کردن و هم‌رسانی در کلاس. و آن‌گاه که یکی را دانلود می‌کنید، دعوت می‌شوید که از «آدم‌ها و ریاضیات» حمایت کنید: نه تنها این مجله، که چیزی بسیار فراتر از آن.",
+    browseCta: "مرورِ بخش‌ها",
+    browseMeta: "شش بخش · یکی را برگزینید",
     donateCta: "هر اندازه که دوست دارید",
-    donateMeta: "یک هدیه، نه یک دیوار",
+    donateMeta: "حمایت از آدم‌ها و ریاضیات",
 
-    /* جعبه‌ی عضویت */
-    subTitle: "هر ماه، یک شماره‌ی تازه.",
-    subNote: "رایگان. دوزبانه. بی‌هیچ هرزنامه‌ای.",
+    subTitle: "مطالبِ تازه، هر وقت آماده شود.",
+    subNote: "با افزودنِ هر عنوانِ تازه، ایمیلی از طرفِ amir@mathswell.com دریافت می‌کنید. بی‌هیچ هرزنامه‌ای.",
+    subNamePlaceholder: "نامِ شما",
     subPlaceholder: "نشانی ایمیل",
     subCta: "عضویت",
 
-    /* پاورقی */
     pubLine: "انتشاراتِ Mathswell · mathswell.com",
-    footerLinks: ["درباره", "ارسال مطلب", "آرشیو", "تماس", "RSS"],
-    youtubeLabel: "فیلم‌ها در یوتیوب"
+    footerLinks: ["درباره", "ارسال مطلب", "بخش‌ها", "تماس", "RSS"],
+    youtubeLabel: "فیلم‌ها در یوتیوب",
+    backToJournal: "بازگشت به مجله →",
+    readCta: "خواندن"
   }
 };

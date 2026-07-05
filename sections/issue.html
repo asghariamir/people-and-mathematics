@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Section · People and Mathematics</title>
-<meta name="description" content="A section of People and Mathematics — آدم‌ها و ریاضیات, a bilingual journal.">
+<title>Issue · People and Mathematics</title>
+<meta name="description" content="An issue of People and Mathematics — آدم‌ها و ریاضیات, a bilingual journal. The journal stays open; issues close.">
 <link rel="icon" href="../assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,8 +44,13 @@
   .sec-blurb { margin: 18px 0 0; font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; max-width: 34em; }
   [dir="rtl"] .sec-blurb { font-style: normal; }
   .sec-count { margin-top: 20px; font-size: 13px; color: #948876; letter-spacing: .04em; text-transform: uppercase; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--pm-accent); display: inline-block; margin-inline-end: 8px; animation: pmpulse 2.2s ease-in-out infinite; }
+  @keyframes pmpulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
 
-  .cards { padding: 44px 40px 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
+  .group-head { padding: 38px 40px 0; display: flex; align-items: baseline; gap: 14px; }
+  .group-head a { text-decoration: none; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
+  .group-head .gh-n { font-size: 12px; font-weight: 600; color: #948876; letter-spacing: .1em; }
+  .cards { padding: 26px 40px 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
   .card { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: start; text-decoration: none; color: inherit; }
   .card .thumb { aspect-ratio: 4 / 5; border: 1px solid #DBD0BA; border-radius: 3px; overflow: hidden; display: flex; align-items: flex-end; padding: 0; background: #0D0C0B; }
   .card .thumb.ph { background: none; padding: 9px; }
@@ -58,11 +63,10 @@
   .card .meta .who { font-weight: 600; color: var(--pm-ink); }
   .card .meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #B7AC99; display: inline-block; }
   .avatar-chip { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #DBD0BA; flex: 0 0 auto; }
-  .card .feat { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); border: 1px solid #E4C9B8; border-radius: 999px; padding: 3px 10px; }
 
   .empty { padding: 60px 40px 80px; font-size: 20px; color: #948876; font-style: italic; }
 
-  .footer { padding: 40px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; border-top: 1px solid var(--pm-ink); margin-top: 40px; }
+  .footer { padding: 40px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; border-top: 1px solid var(--pm-ink); margin-top: 48px; }
   .footer .fl { font-size: 13px; color: #6B6155; }
   .back { text-decoration: none; font-weight: 600; font-size: 14px; color: var(--pm-ink); border: 1px solid var(--pm-ink); border-radius: 999px; padding: 9px 18px; transition: background .15s, color .15s; }
   .back:hover { background: var(--pm-black); color: var(--pm-paper); }
@@ -74,6 +78,7 @@
   @media (max-width: 560px) {
     .topband { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
     .crumbbar, .sechead, .cards, .footer { padding-left: 20px; padding-right: 20px; }
+    .group-head { padding-left: 20px; padding-right: 20px; }
     .sec-title { font-size: 32px; }
     .card { grid-template-columns: 120px 1fr; gap: 16px; }
     .card h3 { font-size: 22px; }
@@ -90,20 +95,16 @@ function pick(o, lang){ return o ? (o[lang] != null ? o[lang] : o.en) : ""; }
 function toLocal(n, isFa){ n = String(n); return isFa ? n.replace(/[0-9]/g, function(d){ return "۰۱۲۳۴۵۶۷۸۹"[+d]; }) : n; }
 function up(href){ return (!href || /^https?:/.test(href)) ? href : "../" + href; }
 
-var DATA = window.PM_CONTENT || { SECTIONS:[], WORKS:[], en:{}, fa:{} };
-var YT = DATA.youtubeUrl || "https://www.youtube.com/@asghariamir";
+var DATA = window.PM_CONTENT || { SECTIONS:[], WORKS:[], ISSUES:[], en:{}, fa:{} };
 
 function openIssueN(){
   var iss = DATA.ISSUES || [];
   for (var k = iss.length - 1; k >= 0; k--) if (!iss[k].closed) return iss[k].n;
   return iss.length ? iss[iss.length-1].n + 1 : 1;
 }
-function issueByN(n){ return (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || null; }
-function issueOfWork(w){ return issueByN(w.issue != null ? w.issue : openIssueN()); }
-
-function currentId(){
-  var m = /[?&]id=([^&]+)/.exec(location.search);
-  return m ? decodeURIComponent(m[1]) : (DATA.SECTIONS[0] && DATA.SECTIONS[0].id);
+function currentN(){
+  var m = /[?&]n=([^&]+)/.exec(location.search);
+  return m ? parseInt(decodeURIComponent(m[1]), 10) : (DATA.ISSUES && DATA.ISSUES[0] ? DATA.ISSUES[0].n : 1);
 }
 
 function render(lang){
@@ -114,37 +115,52 @@ function render(lang){
   document.documentElement.lang = lang;
   document.documentElement.dir = dir;
 
-  var id = currentId();
-  var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === id; })[0] || (DATA.SECTIONS||[])[0] || {};
-  var works = (DATA.WORKS||[]).filter(function(w){ return w.section === sec.id; });
-  document.title = pick(sec.name, lang) + " · People and Mathematics";
+  var n = currentN();
+  var iss = (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || (DATA.ISSUES||[])[0] || { n: n, closed: "", label: {}, openedLabel: {}, closedLabel: {} };
+  var isOpen = !iss.closed;
+  var openN = openIssueN();
+  var works = (DATA.WORKS||[]).filter(function(w){ return (w.issue != null ? w.issue : openN) === iss.n; });
+  document.title = pick(iss.label, lang) + " · People and Mathematics";
 
   var count = works.length;
   var countTxt = count === 0 ? c.sectionEmpty
     : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
 
-  var cardsHtml = works.map(function(w){
-    var t = w[lang] || w.en || {};
-    var thumb = w.imgSrc
-      ? '<div class="thumb"><img src="'+esc(up(w.imgSrc))+'" alt="'+esc(t.title)+'"></div>'
-      : '<div class="thumb ph pm-img"><span class="imglabel">'+esc(w.img)+'</span></div>';
-    var avatar = (w.featured && w.authorImg && w.authorImg !== w.imgSrc)
-      ? '<img class="avatar-chip" src="'+esc(up(w.authorImg))+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
-    var iss = issueOfWork(w);
-    var issTag = (iss && iss.closed)
-      ? '<span class="dot"></span><span>'+esc(pick(iss.label,lang))+'</span>' : '';
-    var inner = thumb
-      + '<div>'
-        + '<div class="tag sans">'+esc(pick(sec.name,lang))+'</div>'
-        + '<h3>'+esc(t.title)+'</h3>'
-        + '<p class="dek">'+esc(t.dek)+'</p>'
-        + '<div class="meta sans">'+avatar+'<span class="who">'+esc(t.author)+'</span><span class="dot"></span><span>'+esc(t.meta)+'</span><span class="dot"></span><span>'+esc(w.date?pick(w.date,lang):"")+'</span>'+issTag+'</div>'
-        + (w.featured ? '<span class="feat sans">'+(isFa?'برگزیده':'Featured')+'</span>' : '')
+  var note = isOpen
+    ? (c.issueOpenNote || "")
+    : (c.issueClosedNote || "{d}").replace("{d}", pick(iss.closedLabel, lang) || iss.closed);
+
+  /* works grouped by section, in section order */
+  var groupsHtml = (DATA.SECTIONS||[]).map(function(sec){
+    var group = works.filter(function(w){ return w.section === sec.id; });
+    if (!group.length) return "";
+    var cards = group.map(function(w){
+      var t = w[lang] || w.en || {};
+      var thumb = w.imgSrc
+        ? '<div class="thumb"><img src="'+esc(up(w.imgSrc))+'" alt="'+esc(t.title)+'"></div>'
+        : '<div class="thumb ph pm-img"><span class="imglabel">'+esc(w.img)+'</span></div>';
+      var avatar = (w.featured && w.authorImg && w.authorImg !== w.imgSrc)
+        ? '<img class="avatar-chip" src="'+esc(up(w.authorImg))+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
+      var inner = thumb
+        + '<div>'
+          + '<div class="tag sans">'+esc(pick(sec.name,lang))+'</div>'
+          + '<h3>'+esc(t.title)+'</h3>'
+          + '<p class="dek">'+esc(t.dek)+'</p>'
+          + '<div class="meta sans">'+avatar+'<span class="who">'+esc(t.author)+'</span><span class="dot"></span><span>'+esc(t.meta)+'</span><span class="dot"></span><span>'+esc(w.date?pick(w.date,lang):"")+'</span></div>'
+        + '</div>';
+      return w.href ? '<a class="card" href="'+esc(up(w.href))+'">'+inner+'</a>' : '<div class="card">'+inner+'</div>';
+    }).join("");
+    return '<div class="group">'
+      + '<div class="group-head sans"><span class="gh-n">'+esc(pick(sec.n,lang))+'</span><a href="section.html?id='+esc(sec.id)+'">'+esc(pick(sec.name,lang))+' '+arrow+'</a></div>'
+      + '<div class="cards wrap">'+cards+'</div>'
       + '</div>';
-    return w.href ? '<a class="card" href="'+esc(up(w.href))+'">'+inner+'</a>' : '<div class="card">'+inner+'</div>';
   }).join("");
 
   var nav = c.nav || {};
+  var statusHtml = isOpen
+    ? '<span class="pulse"></span>'+esc(c.issueOpenStatus)
+    : esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang) || iss.closed);
+
   document.getElementById("app").innerHTML =
     '<div class="topband">'
       + '<a class="brand" href="../index.html"><img class="brand-logo" src="../assets/logo.jpg" alt="People and Mathematics"><div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div></a>'
@@ -158,19 +174,19 @@ function render(lang){
     + '</div>'
 
     + '<div class="crumbbar">'
-      + '<div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent">'+esc(pick(sec.name,lang))+'</span></div>'
-      + '<div class="crumb sans">'+esc(pick(sec.n,lang))+'</div>'
+      + '<div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent">'+esc(c.issuesLabel)+'</span> &nbsp;·&nbsp; <span>'+esc(pick(iss.label,lang))+'</span></div>'
+      + '<div class="crumb sans">'+statusHtml+'</div>'
     + '</div>'
 
     + '<header class="sechead wrap">'
-      + '<div class="sec-n sans">'+esc(c.sectionsLabel)+' · '+esc(pick(sec.n,lang))+'</div>'
-      + '<h1 class="sec-title">'+esc(pick(sec.name,lang))+'</h1>'
-      + '<p class="sec-blurb">'+esc(pick(sec.blurb,lang))+'</p>'
-      + '<div class="sec-count sans">'+esc(countTxt)+'</div>'
+      + '<div class="sec-n sans">'+esc(c.issuesLabel)+'</div>'
+      + '<h1 class="sec-title">'+esc(pick(iss.label,lang))+'</h1>'
+      + '<p class="sec-blurb">'+esc(note)+'</p>'
+      + '<div class="sec-count sans">'+esc((c.issueOpenedWord||"")+' '+(pick(iss.openedLabel,lang)||""))+' · '+esc(countTxt)+'</div>'
     + '</header>'
 
-    + (count ? '<section class="cards wrap">'+cardsHtml+'</section>'
-             : '<section class="empty wrap">'+(isFa?'به‌زودی مطالبی در این بخش منتشر می‌شود.':'New work will appear in this section soon.')+'</section>')
+    + (count ? groupsHtml
+             : '<section class="empty wrap">'+(isFa?'هنوز مطلبی در این دفتر نیست.':'No work has joined this issue yet.')+'</section>')
 
     + '<footer class="footer wrap">'
       + '<span class="fl sans">'+esc(c.pubLine)+'</span>'

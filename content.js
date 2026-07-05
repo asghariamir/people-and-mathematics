@@ -18,18 +18,23 @@
    ─────────────────────────────────────────────────────────────────────
    HOW THE JOURNAL IS ORGANISED  (read this once — it's simple)
 
-   This is an OPEN journal: there are no numbered monthly issues. There
-   are six permanent SECTIONS, and you add WORKS to them whenever a new
-   piece is ready. Everything on the home page builds itself from the
-   ONE list of works below — you never edit the home page by hand.
+   This is an OPEN journal with six permanent SECTIONS. You add WORKS
+   whenever a new piece is ready — no deadlines. New works gather in
+   the one OPEN ISSUE, and when the moment feels right YOU close that
+   issue (see ISSUES below): instead of a publication date, an issue
+   has a CLOSING date. Everything on the home page builds itself from
+   the ONE list of works below — you never edit the home page by hand.
 
      • Add a work  → put one block in  WORKS  (further down).
      • Give it a   section:  (one of the six ids) and, if it should be
        the one shown on the home page for that section, featured: true.
+     • Give it the  issue:  number of the currently open issue, and an
+       authorImg:  portrait if you have one (it shows when featured).
      • It then appears automatically in the right places:
          – "One from each section"  = the featured work of each section
          – "Also in the sections"   = every other work
          – the section's own page   = ALL of its works, as cards
+         – its issue's own page     = once you close that issue
        Nothing ever shows up twice.
 
    Mathematical Culture is pinned to the Mirzakhani gallery (featured).
@@ -60,10 +65,8 @@ window.PM_CONTENT = {
   dedicationUrl: "dedication.html",
 
   /* ---- The full-collection PDF (free download) ----
-     Put your PDF file in the repo and write its file name here.
-     Hidden for the review build (issue-01.pdf not generated yet). To turn the
-     "Download the PDF" button back on, restore:  issuePdfUrl: "issue-01.pdf", */
-  issuePdfUrl: "",
+     Put your PDF file in the repo and write its file name here. */
+  issuePdfUrl: "issue-01.pdf",
 
   /* ---- "Pay what you like" support link (Stripe) ----
      Paste a Stripe PAYMENT LINK here. Until you do, the button is hidden. */
@@ -114,12 +117,43 @@ window.PM_CONTENT = {
 
 
   /* =====================================================================
+     THE ISSUES  —  the journal stays open; issues CLOSE.
+
+     Works are added whenever they are ready and gather in the one OPEN
+     issue (the block whose  closed:  is ""). No date is announced in
+     advance — an issue has a CLOSING date, not a publication date.
+
+     HOW TO CLOSE AN ISSUE (three small steps):
+       1. Write the closing date into  closed:  (e.g. "2026-09-30")
+          and fill  closedLabel  in both languages.
+       2. Add the next issue block after it, with  closed: ""  —
+          that becomes the new open issue.
+       3. Any work you want to KEEP for the next issue: change its
+          issue: 1  to  issue: 2 .  The rest stay in the closed issue.
+
+     Closed issues appear on the home page shelf with their closing
+     date, each linking to its own page with everything inside it.
+     ===================================================================== */
+  ISSUES: [
+    { n: 1,
+      closed: "",                                 /* "" = still open */
+      label:       { en: "Issue 01",   fa: "دفترِ یکم" },
+      openedLabel: { en: "June 2026",  fa: "خرداد ۱۴۰۵" },
+      closedLabel: { en: "",           fa: "" } }
+  ],
+
+
+  /* =====================================================================
      THE WORKS  —  one block per piece. THIS is the list you grow.
 
      Each block:
        section:  which section it belongs to (an id from the six above)
        featured: true  → it is the one shown for its section on the home
                           page. Keep exactly ONE featured per section.
+       issue:    which issue it belongs to (see ISSUES above). Give new
+                 works the number of the currently OPEN issue.
+       authorImg: a small portrait of the author (optional). When the
+                 work is featured, the photo appears beside their name.
        href:     the article/film page
        imgSrc:   its picture (leave out to show a labelled placeholder)
        img:      the placeholder label used when there is no imgSrc
@@ -132,7 +166,9 @@ window.PM_CONTENT = {
     { section: "wikiletter", featured: true,
       href: "articles/wikiletter-stewart.html",
       added: "2026-06-15",
+      issue: 1,
       imgSrc: "assets/ian-stewart-portrait.jpg",
+      authorImg: "assets/ian-stewart-portrait.jpg",
       img: "drawing — what shape student are you?",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "What Shape Student Are You?",
@@ -146,6 +182,8 @@ window.PM_CONTENT = {
     { section: "classroom", featured: false,
       href: "articles/structure-in-your-gaze.html",
       added: "2026-07-03",
+      issue: 1,
+      authorImg: "assets/amir.jpg",
       img: "diagram — a parallelogram on a circular sheet",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
       en: { title: "Structure Is in Your Gaze",
@@ -158,7 +196,9 @@ window.PM_CONTENT = {
     { section: "classroom", featured: true,
       href: "articles/spinner.html",
       added: "2026-06-15",
+      issue: 1,
       imgSrc: "assets/pandi.jpg",
+      authorImg: "assets/pandi.jpg",
       img: "photo — Zohreh Pandi",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "A model for recreating a spinner",
@@ -172,7 +212,9 @@ window.PM_CONTENT = {
     { section: "history", featured: true,
       href: "articles/letter-x.html",
       added: "2026-06-15",
+      issue: 1,
       imgSrc: "assets/abbas-eqbal.jpg",
+      authorImg: "assets/abbas-eqbal.jpg",
       img: "photo — manuscript page, al-Khwārizmī",
       date: { en: "1930 · added June 2026", fa: "۱۳۰۹ · افزوده خرداد ۱۴۰۵" },
       en: { title: "The symbol x for the unknown",
@@ -186,6 +228,7 @@ window.PM_CONTENT = {
     { section: "history", featured: false,
       href: "articles/history-corner-silver-matrix.html",
       added: "2026-06-15",
+      issue: 1,
       img: "photo — the 1997 IMO",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "The Silver Matrix",
@@ -199,7 +242,9 @@ window.PM_CONTENT = {
     { section: "concepts", featured: true,
       href: "articles/circle.html",
       added: "2026-06-15",
+      issue: 1,
       imgSrc: "assets/amir.jpg",
+      authorImg: "assets/amir.jpg",
       img: "diagram — nine years of textbooks",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "What is a circle?",
@@ -210,10 +255,27 @@ window.PM_CONTENT = {
             author: "امیر اصغری", meta: "یادداشت‌های یک معلم" } },
 
     /* ---- Mathematical Conversations ---- */
+    { section: "conversations", featured: false,
+      href: "articles/topological-data-analysis.html",
+      added: "2026-07-05",
+      issue: 1,
+      imgSrc: "assets/mahdis-emami.jpg",
+      authorImg: "assets/mahdis-emami.jpg",
+      img: "photo — Mahdis Emami",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "When Topology Tames Data!",
+            dek: "A dataset is not just a table — it is a cloud of points with a shape. Mahdis Emami introduces topological data analysis: clusters, loops, and the structures that persist. With a persistent-homology playground to play with.",
+            author: "Mahdis Emami", meta: "Essay · Interactive" },
+      fa: { title: "وقتی توپولوژی داده‌ها را رام می‌کند!",
+            dek: "مجموعه‌داده فقط یک جدول نیست — ابری از نقطه‌هاست با یک شکل. مهدیس امامی تحلیل داده‌ی توپولوژیک را معرفی می‌کند: خوشه‌ها، حلقه‌ها و ساختارهایی که پایا می‌مانند. با یک اسباب‌بازیِ همولوژی پایا برای بازی.",
+            author: "مهدیس امامی", meta: "مقاله · تعاملی" } },
+
     { section: "conversations", featured: true,
       href: "articles/mathematical-conversations.html",
       added: "2026-07-01",
+      issue: 1,
       imgSrc: "assets/artan-sheshmani.jpg",
+      authorImg: "assets/artan-sheshmani.jpg",
       img: "photo — Artan Sheshmani",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
       en: { title: "Sheaf",
@@ -227,6 +289,7 @@ window.PM_CONTENT = {
     { section: "culture", featured: true,
       href: "articles/mathematical-culture.html",
       added: "2026-06-15",
+      issue: 1,
       imgSrc: "assets/mirzakhani-juan.jpg",
       img: "artwork — Mirzakhani portrait",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
@@ -278,6 +341,15 @@ window.PM_CONTENT = {
     sectionEmpty: "coming soon",
     onSection: "in",           /* "in History of Mathematics" */
 
+    issuesLabel: "The Issues",
+    issuesTag: "The journal stays open — issues close",
+    issueOpenStatus: "Open — gathering new work",
+    issueOpenedWord: "opened",
+    issueClosedWord: "Closed",
+    issueSee: "See the issue",
+    issueClosedNote: "This issue closed on {d}. Its pieces remain open to read — always.",
+    issueOpenNote: "This issue is open; new work is still joining it.",
+
     noteLabel: "From the Editors",
     noteTitle: "Why a bilingual journal",
     noteBody: "Mathematics is made by people, in places, in languages. We wanted a room where teaching and thinking could happen in Persian and English at once — not translated past one another, but side by side. People and Mathematics is an open journal: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
@@ -321,6 +393,15 @@ window.PM_CONTENT = {
     sectionCountMany: "{n} مطلب",
     sectionEmpty: "به‌زودی",
     onSection: "در",
+
+    issuesLabel: "دفترها",
+    issuesTag: "مجله باز می‌مانَد — دفترها بسته می‌شوند",
+    issueOpenStatus: "باز — در حالِ گردآوری",
+    issueOpenedWord: "گشوده از",
+    issueClosedWord: "بسته شد",
+    issueSee: "دیدنِ دفتر",
+    issueClosedNote: "این دفتر در {d} بسته شد. خواندنِ مطالبش همیشه باز است.",
+    issueOpenNote: "این دفتر باز است؛ مطالبِ تازه هنوز به آن می‌پیوندند.",
 
     noteLabel: "از سردبیران",
     noteTitle: "چرا مجله‌ای دوزبانه",

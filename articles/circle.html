@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -66,6 +69,7 @@
   .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
   .byline .dot { width: 3px; height: 3px; border-radius: 50%; background: #B7AC99; align-self: center; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -154,7 +158,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Concepts &amp; Conceptions" data-fa="مفاهیم و برداشت‌ها"></span></div>
-  <div class="crumb sans" data-en="Notes of a Teacher" data-fa="یادداشت‌های یک معلم"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · Notes of a Teacher" data-fa="ریاضیِ مدرسه · یادداشت‌های یک معلم"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -163,11 +167,8 @@
   <h1 class="title">What is a circle?</h1>
   <p class="standfirst">It enters school in the first grade and returns every year after — a luxury of time almost no other shape gets. So why does a student reach the end of school still unable to say what a circle is? A walk through nine years of textbooks.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="Amir Asghari">
     <span class="name">Amir Asghari</span>
-    <span class="dot"></span>
-    <span class="meta">Liverpool John Moores University</span>
-    <span class="dot"></span>
-    <span class="meta">Notes of a Teacher</span>
   </div>
 
   <!-- HERO -->
@@ -426,7 +427,7 @@
       <div class="role">
         <div class="lab">Author</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University · YouTube @asghariamir</div>
+        <div class="aff">YouTube @asghariamir</div>
       </div>
       <div class="role">
         <div class="lab">Series</div>
@@ -456,11 +457,8 @@
   <h1 class="title">دایره چیست؟</h1>
   <p class="standfirst">دایره از همان سالِ اولِ دبستان وارد آموزش رسمی می‌شود و هر سال بازمی‌گردد — فرصتی که کمتر شکلِ دیگری از آن برخوردار است. پس چرا دانش‌آموز در پایانِ مدرسه هنوز نمی‌تواند بگوید دایره چیست؟ مروری بر نُه سال کتابِ درسی.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="امیر اصغری">
     <span class="name">امیر اصغری</span>
-    <span class="dot"></span>
-    <span class="meta">دانشگاه لیورپول جان مورس</span>
-    <span class="dot"></span>
-    <span class="meta">یادداشت‌های یک معلم</span>
   </div>
 
   <!-- HERO -->
@@ -719,7 +717,7 @@
       <div class="role">
         <div class="lab">نویسنده</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس · یوتیوب ‎@asghariamir</div>
+        <div class="aff">یوتیوب ‎@asghariamir</div>
       </div>
       <div class="role">
         <div class="lab">مجموعه</div>
@@ -784,5 +782,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

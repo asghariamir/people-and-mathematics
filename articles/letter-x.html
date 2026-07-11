@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -78,6 +81,7 @@
   .plate img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 2px; box-shadow: 0 5px 20px rgba(28,24,20,.13); background: #fff; }
   .plate .cap { text-align: start; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -151,7 +155,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="History of Mathematics" data-fa="تاریخ ریاضیات"></span></div>
-  <div class="crumb sans" data-en="From ریاضیات · No. 4 · 1930" data-fa="از ریاضیات · شماره‌ی ۴ · ۱۳۰۹"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · From ریاضیات · No. 4 · 1930" data-fa="ریاضیِ مدرسه · از ریاضیات · شماره‌ی ۴ · ۱۳۰۹"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -160,11 +164,8 @@
   <h1 class="title">The symbol x for the unknown</h1>
   <p class="standfirst">Where did the sign x, the word <em>algebra</em>, and the “Arabic” numerals come from? A short history from a 1930 Tehran journal — given here in full, in Persian and English, with the original pages.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/abbas-eqbal.jpg" alt="Abbas Eqbal Āshtiāni">
     <span class="name">Abbas Eqbal Āshtiāni</span>
-    <span class="dot"></span>
-    <span class="meta">ریاضیات · No. 4 · December 1930</span>
-    <span class="dot"></span>
-    <span class="meta">Transcribed &amp; translated · Amir Asghari</span>
   </div>
 
   <div class="heroplate">
@@ -238,7 +239,6 @@
       <div class="role">
         <div class="lab">Transcription, translation &amp; introduction</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University</div>
       </div>
     </div>
     <div class="origin"><span class="lab">Note</span> &nbsp; Transcribed from the 1930 original and translated for <em>People and Mathematics</em>, History of Mathematics. The worked example in §2 has been typeset from the text; the spelling and emphasis of the original have been lightly modernised.</div>
@@ -258,11 +258,8 @@
   <h1 class="title">علامتِ x به‌جای مجهول</h1>
   <p class="standfirst">علامتِ x، واژه‌ی «جبر» و ارقامِ «عربی» از کجا آمده‌اند؟ تاریخچه‌ای کوتاه از مجله‌ای در تهرانِ ۱۳۰۹ — اینجا به‌کامل، به فارسی و انگلیسی، همراه با صفحاتِ اصل.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/abbas-eqbal.jpg" alt="عباس اقبالِ آشتیانی">
     <span class="name">عباس اقبالِ آشتیانی</span>
-    <span class="dot"></span>
-    <span class="meta">ریاضیات · شماره‌ی ۴ · آذرِ ۱۳۰۹</span>
-    <span class="dot"></span>
-    <span class="meta">نقل و ترجمه · امیر اصغری</span>
   </div>
 
   <div class="heroplate">
@@ -336,7 +333,6 @@
       <div class="role">
         <div class="lab">نقل، ترجمه و مقدمه</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس</div>
       </div>
     </div>
     <div class="origin"><span class="lab">یادداشت</span> &nbsp; از روی اصلِ ۱۳۰۹ نقل و برای «آدم‌ها و ریاضیات»، بخشِ تاریخِ ریاضیات، به انگلیسی ترجمه شده است. مثالِ بخشِ ۲ از متن حروف‌چینی شده، و املا و تأکیدهای متن اندکی امروزی شده است.</div>
@@ -391,5 +387,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

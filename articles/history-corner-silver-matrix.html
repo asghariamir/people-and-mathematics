@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -70,6 +73,7 @@
   .byline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
   .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -152,7 +156,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="History of Mathematics" data-fa="تاریخِ ریاضیات"></span></div>
-  <div class="crumb sans" data-en="History Corner · No. 1" data-fa="گوشهٔ تاریخ · شمارهٔ ۱"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · History Corner" data-fa="ریاضیِ مدرسه · گوشهٔ تاریخ"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -165,7 +169,8 @@
   <h1 class="title">The Silver Matrix</h1>
   <p class="standfirst">How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver.</p>
   <div class="byline">
-    <span class="name">Told by Yahya Tabesh</span>
+    <img class="avatar" src="../assets/yahya-tabesh.webp" alt="Yahya Tabesh">
+    <span class="name">Yahya Tabesh</span>
   </div>
 
   <div class="body">
@@ -223,7 +228,6 @@
       <div class="role">
         <div class="lab">Recorded by</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University</div>
       </div>
     </div>
     <div class="origin"><span class="lab">Note</span> &nbsp; The four problems are reproduced from <em>Nashr-e Riyāzi</em>, Year 8, No. 2 (&ldquo;Four Problems&rdquo;). The account is Yahya Tabesh&rsquo;s, told to the editors, who also owe to him the name of this corner.</div>
@@ -240,7 +244,8 @@
   <h1 class="title">ماتریسِ نقره‌ای</h1>
   <p class="standfirst">چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از ساحلِ نقره درآورد.</p>
   <div class="byline">
-    <span class="name">به روایتِ یحیی تابش</span>
+    <img class="avatar" src="../assets/yahya-tabesh.webp" alt="یحیی تابش">
+    <span class="name">یحیی تابش</span>
   </div>
 
   <div class="body">
@@ -298,7 +303,6 @@
       <div class="role">
         <div class="lab">به ثبتِ</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس</div>
       </div>
     </div>
     <div class="origin"><span class="lab">یادداشت</span> &nbsp; چهار مسئله از «نشرِ ریاضی»، سالِ ۸، شمارهٔ ۲ («چهار مسأله») بازنشر شده است. روایت از آنِ یحیی تابش است که برای سردبیران بازگفته؛ نامِ این گوشه را نیز از او داریم.</div>
@@ -346,5 +350,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

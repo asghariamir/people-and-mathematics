@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>When Topology Tames Data! — Mahdis Emami · Mathematical Conversations</title>
+<title>When Topology Tames Data! — Mahdis Emami · Face to Face with Mathematics</title>
 <meta name="description" content="An introduction to topological data analysis: from the architecture of data to the discovery of hidden structures. By Mahdis Emami. With an interactive persistent-homology playground.">
 
 <meta property="og:title" content="When Topology Tames Data! — Mahdis Emami">
-<meta property="og:description" content="Mathematical Conversations · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:description" content="Face to Face with Mathematics · People and Mathematics — آدم‌ها و ریاضیات">
 <meta property="og:image" content="../assets/tda-thumb.png">
 <meta property="og:type" content="article">
 
@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -157,13 +160,13 @@
   </div>
 </div>
 <div class="subbar">
-  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Mathematical Conversations" data-fa="مکالمات ریاضی"></span></div>
-  <div class="crumb sans" data-en="July 2026" data-fa="تیر ۱۴۰۵"></div>
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Face to Face with Mathematics" data-fa="رویارو با ریاضیات"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#B08A2E;display:inline-block;flex:0 0 auto;"></span><span data-en="Undergraduate maths · July 2026" data-fa="ریاضیِ کارشناسی · تیر ۱۴۰۵"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
-  <div class="kicker">Mathematical Conversations</div>
+  <div class="kicker">Face to Face with Mathematics</div>
   <h1 class="title">When Topology Tames Data!</h1>
   <p class="standfirst">An introduction to topological data analysis: from the architecture of data to the discovery of hidden structures — what it means to take the <em>shape</em> of a dataset seriously.</p>
   <div class="byline">
@@ -294,7 +297,7 @@
         <div class="aff">PhD student in Geometry &amp; Topology, University of Tehran · Data analyst and business-intelligence researcher</div>
       </div>
     </div>
-    <div class="origin"><span class="lab">Origin</span> &nbsp; Written for <em>People and Mathematics</em> · Mathematical Conversations · July 2026. The interactive playground is the journal’s addition.</div>
+    <div class="origin"><span class="lab">Origin</span> &nbsp; Written for <em>People and Mathematics</em> · Face to Face with Mathematics · July 2026. The interactive playground is the journal’s addition.</div>
   </div>
 
   <div class="refs">
@@ -315,7 +318,7 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
-  <div class="kicker">مکالمات ریاضی</div>
+  <div class="kicker">رویارو با ریاضیات</div>
   <h1 class="title">وقتی توپولوژی داده‌ها را رام می‌کند!</h1>
   <p class="standfirst">درآمدی بر تحلیل داده‌ی توپولوژیک؛ از معماری داده تا کشف ساختارهای پنهان — جدی‌گرفتنِ «شکلِ» یک مجموعه‌داده یعنی چه.</p>
   <div class="byline">
@@ -446,7 +449,7 @@
         <div class="aff">دانشجوی دکتری هندسه/توپولوژی، دانشگاه تهران · تحلیلگر داده و محقق هوش تجاری</div>
       </div>
     </div>
-    <div class="origin"><span class="lab">منبع</span> &nbsp; نوشته‌شده برای «آدم‌ها و ریاضیات» · مکالمات ریاضی · تیر ۱۴۰۵. اسباب‌بازیِ تعاملی افزوده‌ی مجله است.</div>
+    <div class="origin">نوشته‌شده برای «آدم‌ها و ریاضیات» · رویارو با ریاضیات · تیر ۱۴۰۵. اسباب‌بازیِ تعاملی افزوده‌ی مجله است.</div>
   </div>
 
   <div class="refs">
@@ -870,5 +873,6 @@
   refreshAll();
 })();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

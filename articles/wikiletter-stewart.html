@@ -77,6 +77,7 @@
   .katex { direction: ltr; unicode-bidi: isolate; }
   .katex-display { direction: ltr; unicode-bidi: isolate; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -134,6 +135,9 @@
     .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
     .pullquote { font-size: 21px; }
   }
+
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
 </style>
 </head>
 <body>
@@ -151,7 +155,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="WikiLetter" data-fa="ویکی‌نوشت"></span></div>
-  <div class="crumb sans" data-en="In memory of David Tall · September 2024" data-fa="به یادِ دیوید تال · شهریور ۱۴۰۳"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · In memory of David Tall · September 2024" data-fa="ریاضیِ مدرسه · به یادِ دیوید تال · شهریور ۱۴۰۳"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -160,6 +164,7 @@
   <h1 class="title">What Shape Student Are You?</h1>
   <p class="standfirst">A question David Tall and I once asked each other: if every step of a mathematical argument is logical, how can a student follow it faithfully and still end up confused — or simply wrong? An attempt to reconstruct an idea we worked out together and never published.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/ian-stewart-portrait.jpg" alt="Ian Stewart">
     <span class="name">Ian Stewart</span>
   </div>
 
@@ -228,7 +233,6 @@
       <div class="role">
         <div class="lab">Commissioned by</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University</div>
       </div>
     </div>
     <div class="origin"><span class="lab">Note</span> &nbsp; Written specially for <em>WikiLetter</em>, at the editor&rsquo;s request, in memory of David Tall. Received 26 September 2024.</div>
@@ -250,6 +254,7 @@
   <h1 class="title">چه نوع دانشجویی هستید؟</h1>
   <p class="standfirst">پرسشی که روزی من و دیوید تال از یکدیگر پرسیدیم: اگر هر گامِ یک استدلالِ ریاضی منطقی باشد، چگونه ممکن است دانشجویی صادقانه آن را دنبال کند و باز هم به تناقض برسد؟</p>
   <div class="byline">
+    <img class="avatar" src="../assets/ian-stewart-portrait.jpg" alt="یان استوارت">
     <span class="name">یان استوارت</span>
   </div>
 
@@ -318,7 +323,6 @@
       <div class="role">
         <div class="lab">به‌سفارشِ</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس</div>
       </div>
     </div>
     <div class="origin"><span class="lab">یادداشت</span> &nbsp; ویژه‌ی «ویکی‌نوشت»، به‌درخواستِ سردبیر و به یادِ دیوید تال نوشته شده است. دریافت‌شده در ۲۶ سپتامبر ۲۰۲۴.</div>
@@ -376,5 +380,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

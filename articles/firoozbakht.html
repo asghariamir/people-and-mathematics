@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Farideh Firoozbakht and a Conjecture About Primes — People and Mathematics</title>
-<meta name="description" content="Amir Asghari on Farideh Firoozbakht, the Isfahan pharmacist-turned-mathematician behind one of the boldest unproven statements about the prime numbers. With a guest essay by Ian Stewart. The lead feature of Issue 01.">
+<meta name="description" content="Amir Asghari on Farideh Firoozbakht, the Isfahan pharmacist-turned-mathematician behind one of the boldest unproven statements about the prime numbers. With a guest essay by Ian Stewart. The lead feature of People and Mathematics.">
 
 <meta property="og:title" content="Farideh Firoozbakht and a Conjecture About Primes">
-<meta property="og:description" content="Lead feature · Issue 01 · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:description" content="Lead feature · People and Mathematics — آدم‌ها و ریاضیات">
 <meta property="og:image" content="../assets/farideh.jpg">
 <meta property="og:type" content="article">
 
@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -73,10 +76,12 @@
   .portrait figcaption { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 11px; line-height: 1.5; padding-top: 10px; border-top: 1px solid var(--line); }
   .portrait figcaption b { color: var(--ink); font-weight: 600; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
   .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 42px 0 14px; padding-top: 8px; }
+  .body.nodrop p:first-of-type:first-letter { font-size: inherit; float: none; padding: 0; color: inherit; font-weight: inherit; }
 
   .eq { text-align: center; margin: 20px 0; font-size: 20px; }
   .eq.tight { margin: 12px 0; }
@@ -180,7 +185,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a></div>
-  <div class="crumb sans" data-en="Lead feature · June 2026" data-fa="مقاله‌ی اصلی · خرداد ۱۴۰۵"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · Lead feature · June 2026" data-fa="ریاضیِ مدرسه · مقاله‌ی اصلی · خرداد ۱۴۰۵"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -188,11 +193,8 @@
   <h1 class="title">Farideh Firoozbakht and a Conjecture About Primes</h1>
   <p class="standfirst">She left almost no trace of herself — no photographs, barely a line of biography. What she left instead was one of the boldest unproven statements ever made about the prime numbers. The story of a pharmacy student from Isfahan who could not put the primes down.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="Amir Asghari">
     <span class="name">Amir Asghari</span>
-    <span class="dot"></span>
-    <span class="meta">Liverpool John Moores University</span>
-    <span class="dot"></span>
-    <span class="meta">With a guest essay by Ian Stewart</span>
   </div>
   <p class="dedication">In memory of Farideh Firoozbakht, who would have preferred that we talk about the primes.</p>
 
@@ -360,13 +362,46 @@
     </div>
   </div>
 
+  <!-- ===== Among others (addendum) ===== -->
+  <div class="body nodrop">
+    <h2 class="subhead">Among others</h2>
+    <p>Ian Stewart points out that Firoozbakht’s conjecture is a bold one: if it turns out to be true, many other famous conjectures about primes will follow from it; and if it turns out to be false, it will open the way to new insights into the gaps between prime numbers. So let us end by looking at Firoozbakht among others.</p>
+    <p>Let us return to the example of <span class="sans">113</span>. We said that <span class="sans">113</span> is the 30th prime, and the next prime is <span class="sans">127</span>. So the actual gap between these two primes is</p>
+    <div class="eq">\[ 127-113=14. \]</div>
+    <p>Now let us see what ceiling Firoozbakht’s conjecture puts on the next prime. The conjecture says that</p>
+    <div class="eq">\[ p_{31}<113^{\frac{31}{30}}, \]</div>
+    <p>and since</p>
+    <div class="eq">\[ 113^{\frac{31}{30}}\approx 132.286, \]</div>
+    <p>the next prime must appear before we reach about <span class="sans">132</span>.</p>
+    <p>To say this in the language of gaps, write the gap between the \(n\)th prime and the next one as</p>
+    <div class="eq">\[ g_n=p_{n+1}-p_n. \]</div>
+    <p>So in this example \(g_{30}\) is the gap between the 30th prime and the 31st. Firoozbakht’s conjecture gives</p>
+    <div class="eq">\[ g_{30}<132.286-113\approx 19.286. \]</div>
+    <p>In other words, the gap between the 30th and the 31st primes must be less than <span class="sans">19.286</span> — or, more simply, less than <span class="sans">20</span>.</p>
+    <p>Now let us compare this with another famous conjecture: Andrica’s. It says that</p>
+    <div class="eq">\[ \sqrt{p_{31}}-\sqrt{113}<1. \]</div>
+    <p>Rearranging gives</p>
+    <div class="eq">\[ p_{31}<(\sqrt{113}+1)^2, \]</div>
+    <p>and since</p>
+    <div class="eq">\[ (\sqrt{113}+1)^2\approx 135.260, \]</div>
+    <p>Andrica’s conjecture allows the next prime to go up to about <span class="sans">135</span>. In the language of gaps, this gives</p>
+    <div class="eq">\[ g_{30}<135.260-113\approx 22.260. \]</div>
+    <p>So even in this small example, Firoozbakht’s conjecture offers the smaller worst-case window for finding the next prime:</p>
+    <div class="eq">\[ 19.286<22.260. \]</div>
+    <p>The next prime is in fact <span class="sans">127</span>, and the actual gap is <span class="sans">14</span>. Both conjectures are consistent with this example, but Firoozbakht makes the more optimistic prediction of where the next prime must appear.</p>
+    <p>This is why Firoozbakht’s conjecture is so strong. If this optimistic gap always works, then the less optimistic gaps work automatically too. That is why Firoozbakht’s conjecture implies conjectures such as Andrica’s, Legendre’s, Oppermann’s, and Brocard’s. Each of these, in its own language, says that the primes cannot drift too far apart; Firoozbakht’s is among the most optimistic and boldest of them all.</p>
+    <p>There are, of course, conjectures even more optimistic than Firoozbakht’s — the Nicholson and Farhadian conjectures among them. But the beauty of Firoozbakht’s conjecture is that it can be stated in very simple, almost school-level language, while still opening a rare window onto the complexity of the gaps between consecutive primes.</p>
+    <p>So whenever you come across a conjecture about the gaps between consecutive primes that looks rather complicated, you can always begin with one simple question: what does it predict for the gap between the 30th prime and the 31st?</p>
+    <p>Remember: the gap Firoozbakht predicts is less than <span class="sans">20</span>.</p>
+  </div>
+
+
   <!-- ===== Colophon ===== -->
   <div class="colophon">
     <div class="roles">
       <div class="role">
         <div class="lab">Essay</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University</div>
       </div>
       <div class="role">
         <div class="lab">Guest contribution</div>
@@ -379,7 +414,7 @@
         <div class="aff">The only known image of Farideh Firoozbakht.</div>
       </div>
     </div>
-    <div class="origin"><span class="lab">Note</span> &nbsp; The lead feature of <em>People and Mathematics</em>, Issue 01. The guest essay was written specially for this issue.</div>
+    <div class="origin"><span class="lab">Note</span> &nbsp; The lead feature of <em>People and Mathematics</em>. The guest essay was written specially for the journal.</div>
   </div>
 
   <div class="refs">
@@ -388,7 +423,9 @@
       <li>Firoozbakht’s conjecture. <em>Wikipedia.</em> <a href="https://en.wikipedia.org/wiki/Firoozbakht%27s_conjecture">en.wikipedia.org/wiki/Firoozbakht's_conjecture</a></li>
       <li>The Prime Puzzles &amp; Problems Connection. <a href="https://www.primepuzzles.net/">primepuzzles.net</a></li>
       <li>Alexei Kourbatov (2015). Verification of the Firoozbakht conjecture for primes up to four quintillion. <em>International Mathematical Forum.</em></li>
-      <li>Luan Alberto Ferreira &amp; Hugo Luiz Mariano (2021). On Firoozbakht’s and related conjectures about prime gaps.</li>
+      <li>Alexei Kourbatov (2015). Upper bounds for prime gaps related to Firoozbakht’s conjecture. <em>Journal of Integer Sequences, 18</em>, Article 15.11.2.</li>
+      <li>Luan Alberto Ferreira &amp; Hugo Luiz Mariano (2018). Prime gaps and the Firoozbakht conjecture. <em>São Paulo Journal of Mathematical Sciences.</em></li>
+      <li>Matt Visser (2019). Verifying the Firoozbakht, Nicholson, and Farhadian conjectures up to the 81st maximal prime gap. <em>Mathematics, 7</em>(8), 691.</li>
       <li>Apostolos Doxiadis (2000). <em>Uncle Petros and Goldbach’s Conjecture.</em> Faber &amp; Faber.</li>
     </ol>
   </div>
@@ -399,11 +436,8 @@
   <h1 class="title">فریده فیروزبخت و حدسی درباره‌ی اعداد اول</h1>
   <p class="standfirst">از خودش تقریباً هیچ نشانی به جا نگذاشت — نه عکسی، نه شرحِ زندگی‌ای. آنچه به جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود. داستانِ دانشجوی داروسازی‌ای از اصفهان که نتوانست دل از اعداد اول بکَند.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="امیر اصغری">
     <span class="name">امیر اصغری</span>
-    <span class="dot"></span>
-    <span class="meta">دانشگاه لیورپول جان مورس</span>
-    <span class="dot"></span>
-    <span class="meta">با متنی مهمان از یان استوارت</span>
   </div>
   <p class="dedication">به یادِ فریده فیروزبخت، که ترجیح می‌داد درباره‌ی اعداد اول حرف بزنیم.</p>
 
@@ -571,13 +605,46 @@
     </div>
   </div>
 
+  <!-- ===== در میان دیگران ===== -->
+  <div class="body nodrop">
+    <h2 class="subhead">در میانِ دیگران</h2>
+    <p>یان استوارت اشاره می‌کند که حدسِ فیروزبخت حدسی جسورانه است: اگر درست از کار دربیاید، درستیِ بسیاری از حدس‌های مشهورِ دیگر از آن نتیجه خواهد شد، و اگر اشتباه باشد، راه را برای بینش‌های تازه‌ای درباره‌ی فاصله‌ی اعداد اول باز خواهد کرد. پس اجازه دهید نوشته را با نگاهی به فیروزبخت در میانِ دیگران به پایان برسانیم.</p>
+    <p>برگردیم به همان مثالِ عددِ <span class="sans">۱۱۳</span>. گفتیم <span class="sans">۱۱۳</span> سی‌اُمین عددِ اول است و عددِ اولِ بعدی، <span class="sans">۱۲۷</span>. یعنی فاصله‌ی واقعیِ این دو عددِ اول برابر است با</p>
+    <div class="eq">\[ 127-113=14. \]</div>
+    <p>حالا ببینیم حدسِ فیروزبخت چه سقفی برای عددِ اولِ بعدی می‌گذارد. حدسِ فیروزبخت می‌گوید</p>
+    <div class="eq">\[ p_{31}<113^{\frac{31}{30}}, \]</div>
+    <p>و چون</p>
+    <div class="eq">\[ 113^{\frac{31}{30}}\approx 132.286, \]</div>
+    <p>پس طبقِ حدسِ فیروزبخت، عددِ اولِ بعدی باید پیش از رسیدن به حدودِ <span class="sans">۱۳۲</span> پیدا شود.</p>
+    <p>برای اینکه این را به زبانِ فاصله‌ها بگوییم، فاصله‌ی عددِ اولِ \(n\)اُم تا عددِ اولِ بعدی را با</p>
+    <div class="eq">\[ g_n=p_{n+1}-p_n \]</div>
+    <p>نشان می‌دهیم. پس در این مثال، \(g_{30}\) یعنی فاصله‌ی عددِ اولِ سی‌اُم تا عددِ اولِ سی‌ویکم. حدسِ فیروزبخت می‌گوید</p>
+    <div class="eq">\[ g_{30}<132.286-113\approx 19.286. \]</div>
+    <p>یعنی فاصله‌ی عددِ اولِ سی‌ویکم از عددِ اولِ سی‌اُم باید کمتر از <span class="sans">۱۹٫۲۸۶</span> باشد؛ یا ساده‌تر بگوییم، کمتر از <span class="sans">۲۰</span>.</p>
+    <p>حالا همین مثال را با یک حدسِ معروفِ دیگر مقایسه کنیم: حدسِ آندریکا. این حدس می‌گوید</p>
+    <div class="eq">\[ \sqrt{p_{31}}-\sqrt{113}<1. \]</div>
+    <p>اگر این را کمی جابه‌جا کنیم، به دست می‌آید که</p>
+    <div class="eq">\[ p_{31}<(\sqrt{113}+1)^2, \]</div>
+    <p>و چون</p>
+    <div class="eq">\[ (\sqrt{113}+1)^2\approx 135.260, \]</div>
+    <p>حدسِ آندریکا اجازه می‌دهد عددِ اولِ بعدی تا حدودِ <span class="sans">۱۳۵</span> جلو برود. یعنی به زبانِ فاصله‌ها:</p>
+    <div class="eq">\[ g_{30}<135.260-113\approx 22.260. \]</div>
+    <p>پس در همین مثالِ کوچک، حدسِ فیروزبخت بدترین حالتِ کوچک‌تری را برای یافتنِ عددِ اولِ بعدی پیشنهاد می‌کند:</p>
+    <div class="eq">\[ 19.286<22.260. \]</div>
+    <p>عددِ اولِ بعدی واقعاً <span class="sans">۱۲۷</span> است و فاصله‌ی واقعی، <span class="sans">۱۴</span>. هر دو حدس با این مثال سازگارند، اما فیروزبخت پیش‌بینیِ خوش‌بینانه‌تری از جایِ پیدا شدنِ عددِ اولِ بعدی به دست می‌دهد.</p>
+    <p>برای همین است که حدسِ فیروزبخت این‌قدر قوی است. اگر این فاصله‌ی خوش‌بینانه همیشه جواب بدهد، فاصله‌های کمتر خوش‌بینانه هم خودبه‌خود جواب می‌دهند. به همین دلیل است که از حدسِ فیروزبخت می‌توان به حدس‌هایی مثلِ آندریکا، لژاندر، اوپرمان و بروکار رسید. همه‌ی آن‌ها، هر کدام به زبانِ خودشان، درباره‌ی این حرف می‌زنند که عددهای اول بیش از حد از هم دور نمی‌شوند؛ اما حدسِ فیروزبخت یکی از خوش‌بینانه‌ترین و جسورانه‌ترینِ آن‌هاست.</p>
+    <p>البته حدس‌هایی حتی خوش‌بینانه‌تر از فیروزبخت هم وجود دارند، از جمله حدس‌های نیکلسون و فرهادیان. اما زیباییِ حدسِ فیروزبخت در این است که با زبانی بسیار ساده و دبیرستانی بیان می‌شود، و در عینِ حال پنجره‌ای کم‌نظیر به پیچیدگیِ فاصله‌ی بینِ اعداد اولِ متوالی باز می‌کند.</p>
+    <p>پس اگر جایی حدسی درباره‌ی فاصله‌ی بینِ اعداد اولِ متوالی دیدید که بسیار پیچیده به نظر می‌رسید، می‌توانید همیشه با این پرسشِ ساده شروع کنید: پیش‌بینیِ این حدس درباره‌ی فاصله‌ی عددِ اولِ سی‌ویکم از عددِ اولِ سی‌اُم چقدر است؟</p>
+    <p>یادتان باشد فاصله‌ای که فیروزبخت پیشنهاد می‌کند، کمتر از <span class="sans">۲۰</span> است.</p>
+  </div>
+
+
   <!-- ===== کارنامه‌ی دست‌اندرکاران ===== -->
   <div class="colophon">
     <div class="roles">
       <div class="role">
         <div class="lab">جستار</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس</div>
       </div>
       <div class="role">
         <div class="lab">متنِ مهمان</div>
@@ -590,7 +657,7 @@
         <div class="aff">تنها تصویرِ شناخته‌شده از فریده فیروزبخت.</div>
       </div>
     </div>
-    <div class="origin"><span class="lab">یادداشت</span> &nbsp; مقاله‌ی اصلیِ «آدم‌ها و ریاضیات»، شماره‌ی ۱. متنِ مهمان به‌طورِ ویژه برای همین شماره نوشته شده است.</div>
+    <div class="origin"><span class="lab">یادداشت</span> &nbsp; مقاله‌ی اصلیِ «آدم‌ها و ریاضیات». متنِ مهمان به‌طورِ ویژه برای مجله نوشته شده است.</div>
   </div>
 
   <div class="refs">
@@ -599,7 +666,9 @@
       <li>Firoozbakht’s conjecture. <em>Wikipedia.</em> <a href="https://en.wikipedia.org/wiki/Firoozbakht%27s_conjecture">en.wikipedia.org/wiki/Firoozbakht's_conjecture</a></li>
       <li>The Prime Puzzles &amp; Problems Connection. <a href="https://www.primepuzzles.net/">primepuzzles.net</a></li>
       <li>Alexei Kourbatov (2015). Verification of the Firoozbakht conjecture for primes up to four quintillion. <em>International Mathematical Forum.</em></li>
-      <li>Luan Alberto Ferreira &amp; Hugo Luiz Mariano (2021). On Firoozbakht’s and related conjectures about prime gaps.</li>
+      <li>Alexei Kourbatov (2015). Upper bounds for prime gaps related to Firoozbakht’s conjecture. <em>Journal of Integer Sequences, 18</em>, Article 15.11.2.</li>
+      <li>Luan Alberto Ferreira &amp; Hugo Luiz Mariano (2018). Prime gaps and the Firoozbakht conjecture. <em>São Paulo Journal of Mathematical Sciences.</em></li>
+      <li>Matt Visser (2019). Verifying the Firoozbakht, Nicholson, and Farhadian conjectures up to the 81st maximal prime gap. <em>Mathematics, 7</em>(8), 691.</li>
       <li>آپوستولوس دوکسیادیس (۲۰۰۰). <em>عمو پتروس و حدسِ گلدباخ.</em></li>
     </ol>
   </div>
@@ -646,5 +715,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

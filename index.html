@@ -103,12 +103,24 @@
   .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--pm-accent); display: inline-block; margin-inline-end: 7px; animation: pmpulse 2.2s ease-in-out infinite; }
   @keyframes pmpulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
 
-  /* Author portrait chip — shows on featured contributions */
+  /* Author portrait chip — shows on contributions */
   .avatar-chip { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #DBD0BA; flex: 0 0 auto; }
+  /* Maths-level chip — coloured dot + label */
+  .lvl { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .lvl .lvl-dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+  /* Contributors strip */
+  .people { padding: 10px 40px 46px; display: flex; gap: 30px 38px; flex-wrap: wrap; }
+  .person { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .person img, .person .ph-ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid #DBD0BA; }
+  .person .ph-ava { display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: #948876; background: #EFE6D2; }
+  .person:hover .p-name { color: var(--pm-accent); }
+  .p-name { font-size: 16.5px; font-weight: 500; transition: color .15s; }
+  .p-count { font-size: 11.5px; color: #948876; margin-top: 2px; }
   .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
   .feature { display: grid; grid-template-columns: 168px 1fr; gap: 22px; align-items: start; }
   .feature .thumb { aspect-ratio: 4 / 5; border: 1px solid #DBD0BA; border-radius: 3px; display: flex; align-items: flex-end; padding: 9px; }
   .feature h3 { margin: 8px 0 0; font-size: 25px; line-height: 1.12; font-weight: 500; letter-spacing: -0.01em; }
+  .feature p, .lead .dek, .note p, .getissue p { text-align: justify; }
 
   /* TOC + note */
   .lower { padding: 50px 40px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; }
@@ -215,6 +227,13 @@ function openIssueN(){
 function issueByN(n){ return (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || null; }
 function issueOfWork(w){ return issueByN(w.issue != null ? w.issue : openIssueN()); }
 
+/* ---- Maths-level chip: coloured dot + label ---- */
+function levelChip(levelId, lang){
+  var L = (DATA.LEVELS||[]).filter(function(x){ return x.id === levelId; })[0];
+  if (!L) return "";
+  return '<span class="lvl sans" title="'+esc(pick((DATA[lang]||DATA.en).levelLabel ? {en:DATA.en.levelLabel,fa:DATA.fa.levelLabel} : {}, lang))+'"><span class="lvl-dot" style="background:'+esc(L.color)+';"></span><span>'+esc(pick(L.name,lang))+'</span></span>';
+}
+
 function render(lang){
   var c = DATA[lang] || DATA.en;
   var isFa = lang === "fa";
@@ -246,11 +265,13 @@ function render(lang){
     var thumb = w.imgSrc
       ? '<div class="thumb" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(w.imgSrc)+'" alt="'+esc(t.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
       : '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(w.img)+'</span></div>';
-    var avatar = (w.featured && w.authorImg && w.authorImg !== w.imgSrc)
+    var avatar = (w.authorImg && w.authorImg !== w.imgSrc)
       ? '<img class="avatar-chip" src="'+esc(w.authorImg)+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
     var iss = issueOfWork(w);
     var issTag = (iss && iss.closed)
       ? '<span class="dot" style="width:3px;height:3px;"></span><span>'+esc(pick(iss.label,lang))+'</span>' : '';
+    var lvl = levelChip(w.level, lang);
+    var lvlTag = lvl ? '<span class="dot" style="width:3px;height:3px;"></span>'+lvl : '';
     var inner = thumb
       + '<div>'
         + '<div class="sans accent" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;">'+esc(pick(sec.name,lang))+'</div>'
@@ -258,7 +279,7 @@ function render(lang){
         + '<p style="margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#43392E;">'+esc(t.dek)+'</p>'
         + '<div class="sans" style="display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12.5px;color:#6B6155;">'
           + avatar
-          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(t.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(t.meta)+'</span>'+issTag
+          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(t.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(t.meta)+'</span>'+lvlTag+issTag
           + (w.href?'<span class="accent" style="font-weight:600;">'+arrow+'</span>':'')
         + '</div>'
       + '</div>';
@@ -276,12 +297,13 @@ function render(lang){
     var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
     var iss = issueOfWork(w);
     var issTxt = (iss && iss.closed) ? ' · ' + esc(pick(iss.label,lang)) : '';
+    var lvl = levelChip(w.level, lang);
     var titleHtml = w.href
       ? '<a href="'+esc(w.href)+'" style="font-size:19px;font-weight:500;line-height:1.2;text-decoration:none;color:inherit;">'+esc(t.title)+' <span class="accent">'+arrow+'</span></a>'
       : '<span style="font-size:19px;font-weight:500;line-height:1.2;">'+esc(t.title)+'</span>';
     return '<div class="toc-row">'
       + '<span class="sans accent" style="font-size:14px;font-weight:600;">'+esc(toLocal(String(i+1).padStart(2,"0"), isFa))+'</span>'
-      + '<div>'+titleHtml+'<div class="sans" style="font-size:12px;color:#948876;margin-top:4px;">'+esc(w.date?pick(w.date,lang):"")+issTxt+'</div></div>'
+      + '<div>'+titleHtml+'<div class="sans" style="display:flex;align-items:center;gap:10px;font-size:12px;color:#948876;margin-top:4px;flex-wrap:wrap;"><span>'+esc(w.date?pick(w.date,lang):"")+issTxt+'</span>'+lvl+'</div></div>'
       + '<span class="sans" style="font-size:12px;color:#6B6155;text-transform:uppercase;letter-spacing:.06em;">'+esc(pick(sec.name,lang))+'</span>'
       + '</div>';
   }).join("");
@@ -291,6 +313,8 @@ function render(lang){
   var footerLinksHtml = (c.footerLinks||[]).map(function(l){
     if (/contact|تماس/i.test(l)) return '<a href="mailto:'+esc(contactEmail)+'" style="text-decoration:none;">'+esc(l)+'</a>';
     if (/rss/i.test(l)) return '<a href="feed.xml" style="text-decoration:none;">'+esc(l)+'</a>';
+    if (/contributor|نویسندگان/i.test(l)) return '<a href="sections/contributors.html" style="text-decoration:none;">'+esc(l)+'</a>';
+    if (/sections|بخش/i.test(l)) return '<a href="#sections" style="text-decoration:none;">'+esc(l)+'</a>';
     return '<span>'+esc(l)+'</span>';
   }).join("");
   var nav = c.nav || {};
@@ -298,10 +322,10 @@ function render(lang){
   var pdfUrl = (window.PM_CONTENT && window.PM_CONTENT.issuePdfUrl) || "";
   var donateUrl = (window.PM_CONTENT && window.PM_CONTENT.donateUrl) || "";
 
-  /* ---- the issues shelf: closed issues + the one open issue ---- */
+  /* ---- the issues shelf: shown only once at least one issue has CLOSED ---- */
   var openN = openIssueN();
   var issuesShelf = "";
-  if ((DATA.ISSUES||[]).length){
+  if ((DATA.ISSUES||[]).some(function(i){ return !!i.closed; })){
     var cells = (DATA.ISSUES||[]).slice().reverse().map(function(iss){
       var isOpen = !iss.closed;
       var count = (DATA.WORKS||[]).filter(function(w){ return (w.issue != null ? w.issue : openN) === iss.n; }).length;
@@ -324,6 +348,31 @@ function render(lang){
       + '<div class="issues-row">'+cells+'</div>'
       + '</section>';
   }
+  /* ---- the contributors strip: every author, portrait + name ---- */
+  var seenAuthors = {};
+  var authors = [];
+  (DATA.WORKS||[]).forEach(function(w){
+    var key = (w.en && w.en.author) || "";
+    if (!key || !w.authorImg) return;
+    if (!seenAuthors[key]) { seenAuthors[key] = { img: w.authorImg, en: key, fa: (w.fa && w.fa.author) || key, count: 0 }; authors.push(seenAuthors[key]); }
+    seenAuthors[key].count++;
+  });
+  var peopleHtml = authors.map(function(a){
+    var nm = isFa ? a.fa : a.en;
+    var cnt = a.count === 1 ? c.contributorWorksOne : (c.contributorWorksMany||"{n}").replace("{n}", toLocal(a.count, isFa));
+    return '<a class="person" href="sections/contributors.html#'+encodeURIComponent(a.en.replace(/\s+/g,"-").toLowerCase())+'">'
+      + '<img src="'+esc(a.img)+'" alt="'+esc(nm)+'" loading="lazy">'
+      + '<span><span class="p-name" style="display:block;">'+esc(nm)+'</span><span class="p-count sans" style="display:block;">'+esc(cnt)+'</span></span>'
+      + '</a>';
+  }).join("");
+  var contributorsStrip = authors.length
+    ? '<section class="wrap" id="contributors" style="border-bottom:1px solid var(--pm-ink);">'
+      + '<div class="rail-label sans" style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span>'+esc(c.contributorsLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.contributorsTag)+'</span>'
+      + '<a class="sans" href="sections/contributors.html" style="margin-inline-start:auto;text-decoration:none;font-size:12px;font-weight:600;color:var(--pm-accent);text-transform:none;letter-spacing:.02em;">'+esc(c.contributorsAll)+' '+arrow+'</a></div>'
+      + '<div class="people">'+peopleHtml+'</div>'
+      + '</section>'
+    : "";
+
   var dedUrl = (window.PM_CONTENT && window.PM_CONTENT.dedicationUrl) || "";
   var dedHtml = (dedUrl && c.dedication)
     ? '<a class="dedline sans" href="'+esc(dedUrl)+'"><span class="heart">♦</span><span class="dedline-txt">'+esc(c.dedication)+'</span><span class="go">'+arrow+'</span></a>'
@@ -349,7 +398,7 @@ function render(lang){
         + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
       + '</div>'
       + '<nav class="menu sans">'
-        + '<span>'+esc(nav.issues)+'</span><span>'+esc(nav.sections)+'</span><span>'+esc(nav.about)+'</span><span>'+esc(nav.submit)+'</span>'
+        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><span>'+esc(nav.about)+'</span><span>'+esc(nav.submit)+'</span>'
         + '<div class="langtoggle">'
           + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
           + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
@@ -369,8 +418,8 @@ function render(lang){
         + '<div class="sans accent" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">'+esc(fgt.eyebrow)+'</div>'
         + '<h1>'+esc(fgt.title)+'</h1>'
         + '<p class="dek">'+esc(fgt.dek)+'</p>'
-        + '<div class="sans" style="display:flex;align-items:center;gap:18px;font-size:13.5px;color:#6B6155;">'
-          + '<span style="font-weight:600;">'+esc(fgt.cta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(fgt.byline)+'</span>'
+        + '<div class="sans" style="display:flex;align-items:center;gap:18px;font-size:13.5px;color:#6B6155;flex-wrap:wrap;">'
+          + '<span style="font-weight:600;">'+esc(fgt.cta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(fgt.byline)+'</span>'+(fg.level?'<span class="dot"></span>'+levelChip(fg.level,lang):'')
         + '</div>'
       + '</div>'
       + (fg.imgSrc
@@ -393,6 +442,8 @@ function render(lang){
     + '<section class="lower wrap" style="grid-template-columns:1fr;">'
       + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;display:flex;align-items:baseline;gap:12px;"><span>'+esc(c.alsoLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.alsoTag)+'</span></div>'+(alsoHtml || '<div class="sans" style="padding:16px 0;color:#948876;font-size:14px;">—</div>')+'</div>'
     + '</section>'
+
+    + contributorsStrip
 
     + getIssueHtml
 
@@ -443,5 +494,6 @@ var startLang = "en";
 try { var saved = localStorage.getItem("pm-lang"); if (saved === "en" || saved === "fa") startLang = saved; } catch(e){}
 render(startLang);
 </script>
+<script src="counter.js"></script>
 </body>
 </html>

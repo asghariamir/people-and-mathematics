@@ -66,6 +66,7 @@
   .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
   .byline .dot { width: 3px; height: 3px; border-radius: 50%; background: #B7AC99; align-self: center; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -194,6 +195,9 @@
     .printfoot { display: block !important; margin-top: 28px; padding-top: 12px; border-top: 1.5px solid var(--ink); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10.5px; line-height: 1.65; color: #333; }
     .printfoot .pf-strong { font-weight: 700; color: #000; }
   }
+
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
 </style>
 </head>
 <body>
@@ -212,7 +216,7 @@
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Classroom Ideas" data-fa="ایده‌های کلاسی"></span></div>
   <div class="subright">
-    <span class="crumb sans" data-en="June 2026" data-fa="خرداد ۱۴۰۵"></span>
+    <span class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · June 2026" data-fa="ریاضیِ مدرسه · خرداد ۱۴۰۵"></span></span>
     <button class="pdfbtn" onclick="window.print()"><span>↓</span><span data-en="PDF" data-fa="پی‌دی‌اف"></span></button>
   </div>
 </div>
@@ -221,15 +225,14 @@
 <article class="article" data-lang-block="en">
   <div class="printhead">
     <span class="ph-brand">People and Mathematics · آدم‌ها و ریاضیات</span>
-    <span class="ph-meta">Issue 01 · June 2026 &nbsp;—&nbsp; Classroom Ideas · mathswell.com</span>
+    <span class="ph-meta">June 2026 &nbsp;—&nbsp; Classroom Ideas · mathswell.com</span>
   </div>
-  <div class="kicker">Classroom Ideas · Issue 01</div>
+  <div class="kicker">Classroom Ideas</div>
   <h1 class="title">Educational tools are useful — sometimes by their presence, and sometimes by their absence</h1>
   <p class="standfirst"><b>A model for recreating a spinner.</b> Sometimes a new question helps learning more than any explanation. This is the narrative of a class that turned into a learning space with a single question.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/pandi.jpg" alt="Zohreh Pandi">
     <span class="name">Zohreh Pandi</span>
-    <span class="dot"></span>
-    <span class="meta">Written for Classroom Ideas · Issue 01</span>
   </div>
 
   <div class="body">
@@ -347,19 +350,10 @@
       <div class="role">
         <div class="lab">Author</div>
         <div class="who">Zohreh Pandi</div>
-        <div class="todo">Affiliation — to add</div>
         <a class="mail" href="mailto:zohrepandi@gmail.com">✉ zohrepandi@gmail.com</a>
       </div>
-      <div class="role">
-        <div class="lab">Translation</div>
-        <div class="todo">Translator — to add</div>
-      </div>
-      <div class="role">
-        <div class="lab">Editing &amp; layout</div>
-        <div class="todo">Editor — to add</div>
-      </div>
     </div>
-    <div class="origin"><span class="lab">Originally</span> &nbsp; Written for <em>People and Mathematics</em> — Classroom Ideas, Issue 01. Interactive spinner and box-and-beads by the journal, after the tool at <a href="https://mathink.ir/random/" target="_blank" rel="noopener">mathink.ir/random</a>.</div>
+    <div class="origin"><span class="lab">Originally</span> &nbsp; Written for <em>People and Mathematics</em> — Classroom Ideas. Interactive spinner and box-and-beads by the journal, after the tool at <a href="https://mathink.ir/random/" target="_blank" rel="noopener">mathink.ir/random</a>.</div>
   </div>
 
   <div class="refs">
@@ -371,7 +365,7 @@
   </div>
 
   <div class="printfoot">
-    <span class="pf-strong">People and Mathematics — آدم‌ها و ریاضیات</span>, a bilingual journal · Issue 01, June 2026 · Classroom Ideas.
+    <span class="pf-strong">People and Mathematics — آدم‌ها و ریاضیات</span>, a bilingual journal · June 2026 · Classroom Ideas.
     “Educational tools are useful — a model for recreating a spinner,” by Zohreh Pandi. © the author; published by People and Mathematics, a Mathswell publication.
     Read the online edition — with the interactive spinner and box-and-beads — and download other articles at mathswell.com.
   </div>
@@ -381,15 +375,14 @@
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
   <div class="printhead">
     <span class="ph-brand">آدم‌ها و ریاضیات · People and Mathematics</span>
-    <span class="ph-meta">شماره‌ی ۱ · خرداد ۱۴۰۵ &nbsp;—&nbsp; ایده‌های کلاسی · mathswell.com</span>
+    <span class="ph-meta">خرداد ۱۴۰۵ &nbsp;—&nbsp; ایده‌های کلاسی · mathswell.com</span>
   </div>
-  <div class="kicker">ایده‌های کلاسی · شماره‌ی ۱</div>
+  <div class="kicker">ایده‌های کلاسی</div>
   <h1 class="title">وسایل آموزشی مفیدند؛ گاهی با بودنشان و گاهی با نبودنشان!</h1>
   <p class="standfirst"><b>مدلی برای بازآفرینی یک چرخنده.</b> بعضی وقت‌ها یک سؤالِ جدید بیشتر از هر توضیحی به یادگیری کمک می‌کند. این نوشته، روایتِ کلاسی است که با یک سؤال به فضای یادگیری تبدیل شد.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/pandi.jpg" alt="زهره پندی">
     <span class="name">زهره پندی</span>
-    <span class="dot"></span>
-    <span class="meta">نوشته‌شده برای ایده‌های کلاسی · شماره‌ی ۱</span>
   </div>
 
   <div class="body">
@@ -507,19 +500,10 @@
       <div class="role">
         <div class="lab">نویسنده</div>
         <div class="who">زهره پندی</div>
-        <div class="todo">وابستگی سازمانی — برای افزودن</div>
         <a class="mail" href="mailto:zohrepandi@gmail.com">✉ zohrepandi@gmail.com</a>
       </div>
-      <div class="role">
-        <div class="lab">ترجمه</div>
-        <div class="todo">مترجم — برای افزودن</div>
-      </div>
-      <div class="role">
-        <div class="lab">ویرایش و صفحه‌آرایی</div>
-        <div class="todo">ویراستار — برای افزودن</div>
-      </div>
     </div>
-    <div class="origin"><span class="lab">منبع</span> &nbsp; نوشته‌شده برای «آدم‌ها و ریاضیات» — ایده‌های کلاسی، شماره‌ی ۱. چرخنده و جعبه‌ی تعاملی از مجله، برپایه‌ی ابزارِ <a href="https://mathink.ir/random/" target="_blank" rel="noopener">mathink.ir/random</a>.</div>
+    <div class="origin">نوشته‌شده برای «آدم‌ها و ریاضیات» — ایده‌های کلاسی. چرخنده و جعبه‌ی تعاملی از مجله، برپایه‌ی ابزارِ <a href="https://mathink.ir/random/" target="_blank" rel="noopener">mathink.ir/random</a>.</div>
   </div>
 
   <div class="refs">
@@ -531,7 +515,7 @@
   </div>
 
   <div class="printfoot">
-    <span class="pf-strong">آدم‌ها و ریاضیات — People and Mathematics</span>، مجله‌ای دوزبانه · شماره‌ی ۱، خرداد ۱۴۰۵ · ایده‌های کلاسی.
+    <span class="pf-strong">آدم‌ها و ریاضیات — People and Mathematics</span>، مجله‌ای دوزبانه · خرداد ۱۴۰۵ · ایده‌های کلاسی.
     «وسایل آموزشی مفیدند؛ مدلی برای بازآفرینی یک چرخنده» نوشته‌ی زهره پندی. © نویسنده؛ منتشرشده در «آدم‌ها و ریاضیات»، از انتشاراتِ Mathswell.
     نسخه‌ی آنلاین — همراه با چرخنده و جعبه‌ی تعاملی — و دیگر مقاله‌ها در mathswell.com در دسترس است.
   </div>
@@ -787,5 +771,6 @@
   try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
   setLang(start);
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

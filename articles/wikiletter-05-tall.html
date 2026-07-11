@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -147,7 +150,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="WikiLetter" data-fa="ویکی‌نوشت"></span></div>
-  <div class="crumb sans" data-en="No. 05 · July 2018" data-fa="شماره‌ی ۵ · تیر ۱۳۹۷"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · No. 05 · July 2018" data-fa="ریاضیِ مدرسه · شماره‌ی ۵ · تیر ۱۳۹۷"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -157,10 +160,6 @@
   <p class="standfirst">Challenging a few widely held beliefs about teaching: how humans actually make sense of arithmetic and algebra over the long run — through what we perceive, what we manipulate in the mind, and how we say things to one another.</p>
   <div class="byline">
     <span class="name">David Tall</span>
-    <span class="dot"></span>
-    <span class="meta">University of Warwick</span>
-    <span class="dot"></span>
-    <span class="meta">Written for WikiLetter · July 2018</span>
   </div>
   <p class="dedication">Dedicated to my grandson, Simon Tall, aged twelve.</p>
 
@@ -265,7 +264,6 @@
         <div class="who">Yasaman Baghaei</div>
         <div class="aff">Salam School, Tehran</div>
         <div class="who">Amir Asghari</div>
-        <div class="aff">Liverpool John Moores University</div>
       </div>
       <div class="role">
         <div class="lab">Editing &amp; layout</div>
@@ -294,10 +292,6 @@
   <p class="standfirst">به‌چالش‌کشیدن چند باور رایج درباره‌ی آموزش: اینکه انسان‌ها در بلندمدت چگونه حساب و جبر را ملموس می‌کنند — از راهِ آنچه حس می‌کنیم، آنچه در ذهن دست‌کاری می‌کنیم، و شیوه‌ای که با دیگران سخن می‌گوییم.</p>
   <div class="byline">
     <span class="name">دیوید تال</span>
-    <span class="dot"></span>
-    <span class="meta">دانشگاه واریک</span>
-    <span class="dot"></span>
-    <span class="meta">نوشته‌شده برای ویکی‌نوشت · تیر ۱۳۹۷</span>
   </div>
   <p class="dedication">تقدیم به نوه‌ی دوازده‌ساله‌ام، سایمون تال.</p>
 
@@ -402,7 +396,6 @@
         <div class="who">یاسمن بقایی</div>
         <div class="aff">مجموعه‌ی سلام، تهران</div>
         <div class="who">امیر اصغری</div>
-        <div class="aff">دانشگاه لیورپول جان مورس</div>
       </div>
       <div class="role">
         <div class="lab">ویرایش و صفحه‌آرایی</div>
@@ -466,5 +459,6 @@
   }
   renderMath();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

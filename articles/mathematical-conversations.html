@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mathematical Conversations — مکالمات ریاضی · People and Mathematics</title>
-<meta name="description" content="Mathematical Conversations: talking mathematics, in essays and in short three-minute films. One concept, three minutes. A People and Mathematics publication.">
+<title>Face to Face with Mathematics — رویارو با ریاضیات · People and Mathematics</title>
+<meta name="description" content="Face to Face with Mathematics: talking mathematics, in essays and in short three-minute films. One concept, three minutes. A People and Mathematics publication.">
 
-<meta property="og:title" content="Mathematical Conversations — مکالمات ریاضی">
+<meta property="og:title" content="Face to Face with Mathematics — رویارو با ریاضیات">
 <meta property="og:description" content="One concept, three minutes. Short films and conversations in mathematics. People and Mathematics — آدم‌ها و ریاضیات.">
 <meta property="og:image" content="../assets/logo.jpg">
 <meta property="og:type" content="article">
@@ -132,6 +132,9 @@
     h1.title { font-size: 36px; }
     .standfirst { font-size: 18px; }
   }
+
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
 </style>
 </head>
 <body>
@@ -148,13 +151,13 @@
   </div>
 </div>
 <div class="subbar">
-  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Mathematical Conversations" data-fa="مکالمات ریاضی"></span></div>
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Face to Face with Mathematics" data-fa="رویارو با ریاضیات"></span></div>
   <div class="crumb sans" data-en="Films" data-fa="فیلم‌ها"></div>
 </div>
 
 <!-- =================== ENGLISH (intro) =================== -->
 <section class="intro" data-lang-block="en">
-  <div class="kicker">Mathematical Conversations</div>
+  <div class="kicker">Face to Face with Mathematics</div>
   <h1 class="title">One concept, <em>one film.</em></h1>
   <p class="standfirst">This section talks mathematics — in essays, and now in a series of short films. A mathematician takes a single idea and gives it a film — anything up to twenty minutes: long enough to meet the idea, not so long that it hardens into a definition.</p>
   <p class="dedication">A growing series. New films are added as they arrive — some in both Persian and English, each version its own rather than a translation.</p>
@@ -162,7 +165,7 @@
 
 <!-- =================== فارسی (intro) =================== -->
 <section class="intro" data-lang-block="fa" dir="rtl" lang="fa">
-  <div class="kicker">مکالمات ریاضی</div>
+  <div class="kicker">رویارو با ریاضیات</div>
   <h1 class="title">یک مفهوم، <em>یک فیلم.</em></h1>
   <p class="standfirst">این بخش درباره‌ی ریاضی گفت‌وگو می‌کند — در نوشته، و اکنون در مجموعه‌ای از فیلم‌های کوتاه. یک ریاضی‌دان یک ایده‌ی واحد را برمی‌گزیند و فیلمی به آن می‌دهد — تا بیست دقیقه: به‌اندازه‌ای که با ایده آشنا شوی، نه آن‌قدر که به تعریفی خشک بدل شود.</p>
   <p class="dedication">مجموعه‌ای در حالِ رشد. فیلم‌های تازه به‌مرورِ رسیدنشان افزوده می‌شوند — برخی به فارسی و انگلیسی، و هر نسخه از آنِ خود، نه ترجمه.</p>
@@ -189,19 +192,20 @@
     <div class="film-frame film-v film-v-fa active">
       <iframe src="https://drive.google.com/file/d/1DYDH9BHu4i3EwW7Q24OuC5SLsTqUwzwF/preview"
               allow="autoplay; fullscreen" allowfullscreen
-              title="Mathematical Conversations — Sheaf (Persian), by Artan Sheshmani"></iframe>
+              title="Face to Face with Mathematics — Sheaf (Persian), by Artan Sheshmani"></iframe>
     </div>
     <!-- English film -->
     <div class="film-frame film-v film-v-en">
       <iframe src="https://drive.google.com/file/d/1mVCA6PSc2E5e2vrNidJ9m3NbgFYqBzKa/preview"
               allow="autoplay; fullscreen" allowfullscreen
-              title="Mathematical Conversations — Sheaf (English), by Artan Sheshmani"></iframe>
+              title="Face to Face with Mathematics — Sheaf (English), by Artan Sheshmani"></iframe>
     </div>
     <figcaption class="film-meta">
       <div>
         <div class="film-no" data-en="Film 01" data-fa="فیلم ۰۱"></div>
         <div class="series" data-en="One concept · one film" data-fa="یک مفهوم · یک فیلم"></div>
         <div class="film-concept">Sheaf <span class="plural" data-en="(pl. sheaves)" data-fa="(بافه)"></span></div>
+        <div class="sans" style="display:flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;color:#6B6155;"><span style="width:8px;height:8px;border-radius:50%;background:#C8633E;display:inline-block;flex:0 0 auto;"></span><span data-en="Graduate maths" data-fa="ریاضیِ تحصیلاتِ تکمیلی"></span></div>
         <p class="film-blurb" data-en="What is a sheaf? An idea for keeping local information consistent enough to be glued into something global — met here in three minutes." data-fa="بافه چیست؟ ایده‌ای برای آن‌که اطلاعاتِ محلی چنان سازگار بمانند که بتوان آن‌ها را به یک کلِ سراسری چسباند — در این‌جا در سه دقیقه با آن آشنا می‌شویم."></p>
         <div class="subnote">
           <span class="cc sans">EN / FA</span>
@@ -209,6 +213,7 @@
         </div>
       </div>
       <div class="speaker">
+        <img src="../assets/artan-sheshmani.jpg" alt="Artan Sheshmani" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:1.5px solid #DBD0BA;margin-bottom:8px;">
         <div class="speaker-by" data-en="With" data-fa="با"></div>
         <div class="speaker-name">Artan Sheshmani</div>
         <a class="speaker-mail" href="mailto:artan@bimsa.cn">artan@bimsa.cn</a>
@@ -290,5 +295,6 @@
   try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
   setLang(start);
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

@@ -66,11 +66,24 @@ window.PM_CONTENT = {
 
   /* ---- The full-collection PDF (free download) ----
      Put your PDF file in the repo and write its file name here. */
-  issuePdfUrl: "issue-01.pdf",
+  issuePdfUrl: "",
 
   /* ---- "Pay what you like" support link (Stripe) ----
      Paste a Stripe PAYMENT LINK here. Until you do, the button is hidden. */
   donateUrl: "https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02",
+
+
+  /* =====================================================================
+     STANDING TITLES  (optional)
+     A person's ONGOING role in the journal — e.g. Founding Editor — as
+     opposed to a per-work credit (translator of one piece, etc.). It shows
+     as a small badge beside their name on the Contributors page. Keyed by
+     the person's name EXACTLY as written in a work's author line.
+     Leave the { } empty if you don't want any.
+     ===================================================================== */
+  PEOPLE: {
+    "Amir Asghari": { en: "Founding Editor", fa: "سردبیرِ مؤسس" }
+  },
 
 
   /* =====================================================================
@@ -104,15 +117,32 @@ window.PM_CONTENT = {
 
     { id: "conversations",
       n:     { en: "05", fa: "۰۵" },
-      name:  { en: "Mathematical Conversations", fa: "مکالمات ریاضی" },
-      blurb: { en: "Talking mathematics — in essays, and now in short films, in Persian and English.",
-               fa: "گفت‌وگو درباره‌ی ریاضی — در نوشته، و اکنون در فیلم‌های کوتاه، به فارسی و انگلیسی." } },
+      name:  { en: "Face to Face with Mathematics", fa: "رویارو با ریاضیات" },
+      blurb: { en: "A space for direct encounters with mathematics—through writing, conversation, audio, or video.",
+               fa: "اینجا جایی است برای مواجهه‌ی مستقیم با ریاضیات؛ از راه نوشته، گفت‌وگو، صدا یا تصویر." } },
 
     { id: "culture",
       n:     { en: "06", fa: "۰۶" },
       name:  { en: "Mathematical Culture",     fa: "فرهنگ ریاضی" },
       blurb: { en: "Life with mathematics and its people.",
                fa: "زندگی با ریاضی و در کنارِ اهلِ آن." } }
+  ],
+
+
+  /* =====================================================================
+     THE LEVELS  —  how much mathematics a reader needs.
+     Every work carries a  level:  (one of the four ids below). It shows
+     as a small coloured dot + label on cards, lists and article pages.
+     ===================================================================== */
+  LEVELS: [
+    { id: "school",        color: "#567D46",
+      name: { en: "School maths",       fa: "ریاضیِ مدرسه" } },
+    { id: "undergraduate", color: "#B08A2E",
+      name: { en: "Undergraduate maths", fa: "ریاضیِ کارشناسی" } },
+    { id: "graduate",      color: "#C8633E",
+      name: { en: "Graduate maths",     fa: "ریاضیِ تحصیلاتِ تکمیلی" } },
+    { id: "research",      color: "#7D4A66",
+      name: { en: "Research maths",     fa: "ریاضیِ پژوهشی" } }
   ],
 
 
@@ -167,8 +197,14 @@ window.PM_CONTENT = {
       href: "articles/wikiletter-stewart.html",
       added: "2026-06-15",
       issue: 1,
+      level: "school",
       imgSrc: "assets/ian-stewart-portrait.jpg",
       authorImg: "assets/ian-stewart-portrait.jpg",
+      credits: [
+        { img: "assets/sharareh-taghi-dastjerdi.jpg",
+          en: { name: "Sharareh Taghi-Dastjerdi", role: "Translation (Persian)" },
+          fa: { name: "شراره تقی‌دستجردی", role: "مترجم" } }
+      ],
       img: "drawing — what shape student are you?",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "What Shape Student Are You?",
@@ -183,6 +219,7 @@ window.PM_CONTENT = {
       href: "articles/structure-in-your-gaze.html",
       added: "2026-07-03",
       issue: 1,
+      level: "school",
       authorImg: "assets/amir.jpg",
       img: "diagram — a parallelogram on a circular sheet",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
@@ -197,6 +234,7 @@ window.PM_CONTENT = {
       href: "articles/spinner.html",
       added: "2026-06-15",
       issue: 1,
+      level: "school",
       imgSrc: "assets/pandi.jpg",
       authorImg: "assets/pandi.jpg",
       img: "photo — Zohreh Pandi",
@@ -213,6 +251,7 @@ window.PM_CONTENT = {
       href: "articles/letter-x.html",
       added: "2026-06-15",
       issue: 1,
+      level: "school",
       imgSrc: "assets/abbas-eqbal.jpg",
       authorImg: "assets/abbas-eqbal.jpg",
       img: "photo — manuscript page, al-Khwārizmī",
@@ -229,7 +268,10 @@ window.PM_CONTENT = {
       href: "articles/history-corner-silver-matrix.html",
       added: "2026-06-15",
       issue: 1,
-      img: "photo — the 1997 IMO",
+      level: "school",
+      imgSrc: "assets/yahya-tabesh.webp",
+      authorImg: "assets/yahya-tabesh.webp",
+      img: "photo — Yahya Tabesh",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "The Silver Matrix",
             dek: "How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver.",
@@ -238,11 +280,29 @@ window.PM_CONTENT = {
             dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از ساحلِ نقره درآورد.",
             author: "یحیی تابش", meta: "گوشهٔ تاریخ" } },
 
+    /* ---- History of Mathematics  (companion to the Firoozbakht lead feature) ---- */
+    { section: "history", featured: false,
+      href: "articles/firoozbakht-and-the-machine.html",
+      added: "2026-07-10",
+      issue: 1,
+      level: "undergraduate",
+      imgSrc: "assets/behrooz-parhami.jpg",
+      authorImg: "assets/behrooz-parhami.jpg",
+      img: "photo — Behrooz Parhami",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "The Machine She Didn’t Have",
+            dek: "A companion to the lead feature: Behrooz Parhami takes Firoozbakht’s conjecture from what a prime is to the bounds it beats — then reckons what testing it on a 1982 mainframe would truly have cost, and proves brute force was never an option. With three interactive playgrounds.",
+            author: "Behrooz Parhami", meta: "Essay · Interactive" },
+      fa: { title: "ماشینی که نداشت",
+            dek: "همراهِ مقاله‌ی اصلی: بهروز پرهامی حدسِ فیروزبخت را از اینکه عددِ اول چیست تا کران‌هایی که پشتِ سر می‌گذارد پی می‌گیرد — سپس حساب می‌کند که آزمودنِ آن روی مِین‌فریمِ ۱۹۸۲ به‌راستی چه می‌طلبید، و نشان می‌دهد راهِ سرراست هرگز در کار نبود. با سه بخشِ تعاملی.",
+            author: "بهروز پرهامی", meta: "مقاله · تعاملی" } },
+
     /* ---- Concepts & Conceptions ---- */
     { section: "concepts", featured: true,
       href: "articles/circle.html",
       added: "2026-06-15",
       issue: 1,
+      level: "school",
       imgSrc: "assets/amir.jpg",
       authorImg: "assets/amir.jpg",
       img: "diagram — nine years of textbooks",
@@ -254,11 +314,44 @@ window.PM_CONTENT = {
             dek: "دایره از همان سالِ اولِ دبستان وارد آموزش می‌شود و هر سال بازمی‌گردد — اما دانش‌آموز در پایانِ مدرسه هنوز نمی‌تواند بگوید دایره چیست. مروری بر نُه سال کتابِ درسی.",
             author: "امیر اصغری", meta: "یادداشت‌های یک معلم" } },
 
-    /* ---- Mathematical Conversations ---- */
+    /* ---- Face to Face with Mathematics ---- */
+    { section: "conversations", featured: false,
+      href: "articles/topological-graph-theory.html",
+      added: "2026-07-09",
+      issue: 1,
+      level: "undergraduate",
+      imgSrc: "assets/aryan-hemmati.jpg",
+      authorImg: "assets/aryan-hemmati.jpg",
+      img: "photo — Aryan Hemmati",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "Graphs on Donuts",
+            dek: "Euler’s formula counts vertices, edges and regions, and always lands on 2 — until the graph refuses to be drawn flat. Aryan Hemmati follows the count onto donuts and beyond, where the answer belongs to the surface itself. An invitation to topological graph theory, with interactive experiments.",
+            author: "Aryan Hemmati", meta: "Essay · Interactive" },
+      fa: { title: "گراف‌ها روی دونات‌ها",
+            dek: "فرمول اویلر رأس‌ها، یال‌ها و ناحیه‌ها را می‌شمارد و همیشه به ۲ می‌رسد — تا وقتی که گراف تن به کشیده‌شدن در صفحه ندهد. آرین همتی این شمارش را تا روی دونات‌ها و فراتر دنبال می‌کند؛ آنجا که پاسخ از آنِ خودِ رویه است. دعوتی به نظریه‌ی گراف توپولوژیک، با آزمایش‌های تعاملی.",
+            author: "آرین همتی", meta: "مقاله · تعاملی" } },
+
+    { section: "conversations", featured: false,
+      href: "articles/fano-plane.html",
+      added: "2026-07-07",
+      issue: 1,
+      level: "undergraduate",
+      imgSrc: "assets/kianoosh-shokri.jpg",
+      authorImg: "assets/kianoosh-shokri.jpg",
+      img: "photo — Kianoosh Shokri",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "From a Plane That Is Not a Plane to a Code That Is a Code",
+            dek: "The Fano plane has seven points and seven lines — and, hiding inside it, block designs, orthogonal arrays, covering arrays and error-correcting codes. Kianoosh Shokri follows the connections, with interactive explorers along the way.",
+            author: "Kianoosh Shokri", meta: "Essay · Interactive" },
+      fa: { title: "از صفحه‌ای که صفحه نیست تا کدی که کد است",
+            dek: "صفحهٔ فانو هفت نقطه و هفت خط دارد — و در دلِ آن طرح‌های بلوکی، آرایه‌های متعامد، آرایه‌های پوشا و کدهای تصحیح خطا پنهان‌اند. کیانوش شکری این پیوندها را دنبال می‌کند؛ با ابزارهای تعاملی در طول راه.",
+            author: "کیانوش شکری", meta: "مقاله · تعاملی" } },
+
     { section: "conversations", featured: false,
       href: "articles/topological-data-analysis.html",
       added: "2026-07-05",
       issue: 1,
+      level: "undergraduate",
       imgSrc: "assets/mahdis-emami.jpg",
       authorImg: "assets/mahdis-emami.jpg",
       img: "photo — Mahdis Emami",
@@ -274,6 +367,7 @@ window.PM_CONTENT = {
       href: "articles/mathematical-conversations.html",
       added: "2026-07-01",
       issue: 1,
+      level: "graduate",
       imgSrc: "assets/artan-sheshmani.jpg",
       authorImg: "assets/artan-sheshmani.jpg",
       img: "photo — Artan Sheshmani",
@@ -285,11 +379,31 @@ window.PM_CONTENT = {
             dek: "یک ایده — اینکه چگونه تکه‌های محلی به یک کلِ سراسری چسبانده می‌شوند — در فیلمی کوتاه. آرتان شش‌مانی آن را به فارسی ساخت و، خودش، به انگلیسی؛ هر دو را ببینید، هر کدام چیزی دارد که آن دیگری ندارد.",
             author: "آرتان شش‌مانی", meta: "فیلم · فارسی + English" } },
 
+    /* ---- Mathematical Culture  (report — Women's Week in Mathematics, Sharif)
+       Bylined to the authors (Farnaz Manouchehri & Bamdad Torabi) at their wish;
+       the event logo stands in for a contributor photo. Not featured (the
+       Mirzakhani gallery is pinned). ---- */
+    { section: "culture", featured: false,
+      href: "articles/women-in-mathematics.html",
+      added: "2026-07-10",
+      issue: 1,
+      level: "school",
+      imgSrc: "assets/wim/wim-logo-mark.png",
+      img: "logo — Women's Week in Mathematics",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "Women's Week in Mathematics",
+            dek: "How students at Sharif built a two-year celebration of Maryam Mirzakhani — and everything it took to hold it. A report kept for the record, in the organizers' own words.",
+            author: "Farnaz Manouchehri & Bamdad Torabi", meta: "Report" },
+      fa: { title: "هفته‌ی زن در ریاضیات",
+            dek: "چگونه دانشجویانِ شریف بزرگداشتی دوساله برای مریم میرزاخانی برپا کردند — و آنچه برگزاری‌اش طلبید. گزارشی برای ثبتِ تاریخ، به زبانِ خودِ برگزارکنندگان.",
+            author: "فرناز منوچهری و بامداد ترابی", meta: "گزارش" } },
+
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,
       href: "articles/mathematical-culture.html",
       added: "2026-06-15",
       issue: 1,
+      level: "school",
       imgSrc: "assets/mirzakhani-juan.jpg",
       img: "artwork — Mirzakhani portrait",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
@@ -309,6 +423,7 @@ window.PM_CONTENT = {
      ===================================================================== */
   FLAGSHIP: {
     href: "articles/firoozbakht.html",
+    level: "school",
     imgSrc: "assets/farideh.jpg",
     imgLabel: "photo — Farideh Firoozbakht, Isfahan",
     en: { eyebrow: "People and Mathematics",
@@ -341,6 +456,13 @@ window.PM_CONTENT = {
     sectionEmpty: "coming soon",
     onSection: "in",           /* "in History of Mathematics" */
 
+    levelLabel: "Maths needed",
+    contributorsLabel: "The Contributors",
+    contributorsTag: "Find the people — then their work",
+    contributorsAll: "All contributors",
+    contributorWorksOne: "1 contribution",
+    contributorWorksMany: "{n} contributions",
+
     issuesLabel: "The Issues",
     issuesTag: "The journal stays open — issues close",
     issueOpenStatus: "Open — gathering new work",
@@ -370,7 +492,7 @@ window.PM_CONTENT = {
     subCta: "Subscribe",
 
     pubLine: "A Mathswell publication · mathswell.com",
-    footerLinks: ["About", "Submissions", "Sections", "Contact", "RSS"],
+    footerLinks: ["Contributors", "Sections", "Contact", "RSS"],
     youtubeLabel: "Films on YouTube",
     backToJournal: "← Back to the journal",
     readCta: "Read"
@@ -393,6 +515,13 @@ window.PM_CONTENT = {
     sectionCountMany: "{n} مطلب",
     sectionEmpty: "به‌زودی",
     onSection: "در",
+
+    levelLabel: "ریاضیِ لازم",
+    contributorsLabel: "نویسندگان و همکاران",
+    contributorsTag: "اول آدم‌ها را بیابید — بعد کارهایشان را",
+    contributorsAll: "همه‌ی همکاران",
+    contributorWorksOne: "۱ مشارکت",
+    contributorWorksMany: "{n} مشارکت",
 
     issuesLabel: "دفترها",
     issuesTag: "مجله باز می‌مانَد — دفترها بسته می‌شوند",
@@ -423,7 +552,7 @@ window.PM_CONTENT = {
     subCta: "عضویت",
 
     pubLine: "انتشاراتِ Mathswell · mathswell.com",
-    footerLinks: ["درباره", "ارسال مطلب", "بخش‌ها", "تماس", "RSS"],
+    footerLinks: ["نویسندگان و همکاران", "بخش‌ها", "تماس", "RSS"],
     youtubeLabel: "فیلم‌ها در یوتیوب",
     backToJournal: "بازگشت به مجله →",
     readCta: "خواندن"

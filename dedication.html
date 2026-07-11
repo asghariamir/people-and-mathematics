@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>In memoriam — Safoura Jafari · People and Mathematics</title>
-<meta name="description" content="Issue 01 of People and Mathematics is dedicated to the memory of Safoura Jafari — who, had she lived, might have been one of this journal's contributors, and a proud citizen of the world of mathematics.">
+<meta name="description" content="People and Mathematics is dedicated to the memory of Safoura Jafari — who, had she lived, might have been one of this journal's contributors, and a proud citizen of the world of mathematics.">
 
 <meta property="og:title" content="In memoriam — Safoura Jafari">
-<meta property="og:description" content="Issue 01 of People and Mathematics — آدم‌ها و ریاضیات — is dedicated to the memory of Safoura Jafari.">
+<meta property="og:description" content="People and Mathematics — آدم‌ها و ریاضیات — is dedicated to the memory of Safoura Jafari.">
 <meta property="og:image" content="assets/safoura-jafari.png">
 <meta property="og:type" content="article">
 
@@ -93,6 +93,9 @@
     [data-lang-block="fa"] blockquote.quote { font-size: 22px; }
     .tribute { font-size: 17px; }
   }
+
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
 </style>
 </head>
 <body>
@@ -115,27 +118,27 @@
 
 <!-- =================== ENGLISH =================== -->
 <section class="memoriam" data-lang-block="en">
-  <div class="kicker">This issue is dedicated to</div>
+  <div class="kicker">This journal is dedicated to</div>
   <div class="portrait"><img src="assets/safoura-jafari.png" alt="Safoura Jafari"></div>
   <h1 class="name">Safoura Jafari</h1>
   <div class="dates">17 January 2004 <span class="sep">—</span> 9 January 2026</div>
 
   <div class="rule"></div>
 
-  <p class="tribute">Issue 01 of <em>People and Mathematics</em> is dedicated to her memory. Had she lived, she might have been one of this journal's contributors — and she remains, in every sense, a proud citizen of the world of mathematics.</p>
+  <p class="tribute"><em>People and Mathematics</em> is dedicated to her memory. Had she lived, she might have been one of this journal's contributors — and she remains, in every sense, a proud citizen of the world of mathematics.</p>
   <p class="signoff">— The Editors</p>
 </section>
 
 <!-- =================== فارسی =================== -->
 <section class="memoriam" data-lang-block="fa" dir="rtl" lang="fa">
-  <div class="kicker">این شماره تقدیم می‌شود به</div>
+  <div class="kicker">این مجله تقدیم می‌شود به</div>
   <div class="portrait"><img src="assets/safoura-jafari.png" alt="صفورا جعفری"></div>
   <h1 class="name">صفورا جعفری</h1>
   <div class="dates">۲۷ دی ۱۳۸۲ <span class="sep">—</span> ۱۹ دی ۱۴۰۴</div>
 
   <div class="rule"></div>
 
-  <p class="tribute">شماره‌ی نخستِ «آدم‌ها و ریاضیات» به یادِ او تقدیم می‌شود. اگر زنده بود، شاید یکی از نویسندگانِ این مجله می‌شد — و او، به هر معنا، شهروندی سربلند از جهانِ ریاضیات است.</p>
+  <p class="tribute">«آدم‌ها و ریاضیات» به یادِ او تقدیم می‌شود. اگر زنده بود، شاید یکی از نویسندگانِ این مجله می‌شد — و او، به هر معنا، شهروندی سربلند از جهانِ ریاضیات است.</p>
   <p class="signoff">— سردبیران</p>
 </section>
 
@@ -168,5 +171,6 @@
   try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
   setLang(start);
 </script>
+<script src="counter.js"></script>
 </body>
 </html>

@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maryam Mirzakhani, in Your Own Hand — Mathematical Culture · People and Mathematics</title>
-<meta name="description" content="The Mathematical Culture section of Issue 01: a 1946 newspaper clipping, the Notices cover, and artworks of Maryam Mirzakhani contributed by artists around the world. A People and Mathematics publication.">
+<meta name="description" content="The Mathematical Culture section: a 1946 newspaper clipping, the Notices cover, and artworks of Maryam Mirzakhani contributed by artists around the world. A People and Mathematics publication.">
 
 <meta property="og:title" content="Maryam Mirzakhani, in Your Own Hand — Mathematical Culture">
 <meta property="og:description" content="Mathematical Culture · People and Mathematics — آدم‌ها و ریاضیات. A clipping from 1946, and its long answer.">
-<meta property="og:image" content="../assets/mirzakhani-amin.png">
+<meta property="og:image" content="../assets/mirzakhani-amin.jpg">
 <meta property="og:type" content="article">
 
 <link rel="icon" href="../assets/logo.jpg">
@@ -192,6 +192,9 @@
     .clip-head { font-size: 26px; }
     .bridge p { font-size: 19px; }
   }
+
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
 </style>
 </head>
 <body>
@@ -269,7 +272,7 @@
 <section class="gallery-head">
   <h2 data-lang-block="en" class="active">Maryam Mirzakhani, <em>in your own hand.</em></h2>
   <h2 data-lang-block="fa" dir="rtl" lang="fa">مریم میرزاخانی، <em>به دستِ شما.</em></h2>
-  <p data-en="This section gathers her portraits, drawn by artists around the world; and it stays open, so new works are added as they arrive." data-fa="این بخش پرتره‌های او را که هنرمندانی از سراسرِ جهان کشیده‌اند گرد می‌آورد؛ و باز می‌مانَد، تا آثارِ تازه به‌مرورِ رسیدنشان افزوده شوند."></p>
+  <p data-en="This section gathers her portraits, drawn by artists around the world; and it stays open, so new works are added as they arrive. All works appear with the artist’s permission." data-fa="این بخش پرتره‌های او را که هنرمندانی از سراسرِ جهان کشیده‌اند گرد می‌آورد؛ و باز می‌مانَد، تا آثارِ تازه به‌مرورِ رسیدنشان افزوده شوند. همه‌ی آثار با اجازه‌ی هنرمند منتشر می‌شوند."></p>
 </section>
 
 <div class="gallery">
@@ -277,11 +280,22 @@
   <!-- Feature — Amin Sarabadani -->
   <figure class="art">
     <div class="art-img">
-      <img src="../assets/mirzakhani-amin.png" alt="Maryam Mirzakhani, artwork by Amin Sarabadani">
+      <img src="../assets/mirzakhani-amin.jpg" alt="Maryam Mirzakhani, scribble portrait by Amin Sarabadani">
     </div>
     <figcaption>
-      <div class="art-artist">Amin Sarabadani<span class="en-sub" data-en="The Iranian Goddess of Mathematics" data-fa="ایزدبانوی ریاضیاتِ ایران"></span></div>
+      <div class="art-artist">Amin Sarabadani</div>
       <a class="art-handle" href="https://www.instagram.com/amin.sarabandi/" target="_blank" rel="noopener">@amin.sarabandi</a>
+    </figcaption>
+  </figure>
+
+  <!-- Daria Koshkina -->
+  <figure class="art">
+    <div class="art-img">
+      <img src="../assets/mirzakhani-daria.jpg" alt="Maryam Mirzakhani holding a rainbow hyperbolic surface, by Daria Koshkina">
+    </div>
+    <figcaption>
+      <div class="art-artist">Daria Koshkina<span class="en-sub" data-en="Originally drawn for @unwomen" data-fa="طراحی‌شده در آغاز برای @unwomen"></span></div>
+      <a class="art-handle" href="https://www.instagram.com/daria_draw_things/" target="_blank" rel="noopener">@daria_draw_things</a>
     </figcaption>
   </figure>
 
@@ -374,5 +388,6 @@
     real.forEach(function(el){ g.insertBefore(el, before); });
   })();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

@@ -22,7 +22,10 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
-.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }</style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
 
 <style>
   @font-face {
@@ -66,6 +69,7 @@
   .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
   .byline .dot { width: 3px; height: 3px; border-radius: 50%; background: #B7AC99; align-self: center; }
 
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
   .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
   .body p { margin: 0 0 20px; text-wrap: pretty; }
   .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
@@ -173,7 +177,7 @@
 </div>
 <div class="subbar">
   <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Classroom Ideas" data-fa="ایده‌های کلاسی"></span></div>
-  <div class="crumb sans" data-en="Classroom Ideas · July 2026" data-fa="ایده‌های کلاسی · تیر ۱۴۰۵"></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · July 2026" data-fa="ریاضیِ مدرسه · تیر ۱۴۰۵"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
@@ -182,6 +186,7 @@
   <h1 class="title">Structure Is in Your Gaze</h1>
   <p class="standfirst">The way we look at whatever we are about to mathematise changes the mathematics of the problem — and can make the path to understanding either hard or easy. A few classroom moves, now interactive, where a shift of the gaze does the teaching.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="Amir Asghari">
     <span class="name">Amir Asghari</span>
   </div>
 
@@ -317,6 +322,7 @@
   <h1 class="title">ساختار در نگاه تو است</h1>
   <p class="standfirst">نوعِ نگاهِ ما به هر آنچه قرار است ریاضی‌وارش کنیم، ریاضیاتِ مسئله را تغییر می‌دهد و می‌تواند مسیرِ فهمیدن را سخت یا آسان کند — چند مثالِ کلاسی، این‌بار تعاملی، که در آن‌ها جابه‌جاییِ نگاه خودْ آموزش می‌دهد.</p>
   <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="امیر اصغری">
     <span class="name">امیر اصغری</span>
   </div>
 
@@ -435,7 +441,7 @@
         <div class="who">متوازی‌الاضلاع روی دایره · پوشاندنِ زاویه‌های متقابل · قرینه نسبت به y = x</div>
       </div>
     </div>
-    <div class="origin"><span class="lab">منبع</span> &nbsp; مثال‌های متوازی‌الاضلاع و زاویه‌های متقابل به‌رأس نخستین‌بار در مقاله‌ی «a چه ساکت است!» (۱۳۸۸) در مجله‌ی رشدِ آموزشِ ریاضی آمده بودند. نوشته‌شده برای «آدم‌ها و ریاضیات».</div>
+    <div class="origin">مثال‌های متوازی‌الاضلاع و زاویه‌های متقابل به‌رأس نخستین‌بار در مقاله‌ی «a چه ساکت است!» (۱۳۸۸) در مجله‌ی رشدِ آموزشِ ریاضی آمده بودند. نوشته‌شده برای «آدم‌ها و ریاضیات».</div>
   </div>
 
   <div class="refs">
@@ -843,5 +849,6 @@
   else document.addEventListener("DOMContentLoaded", init);
 })();
 </script>
+<script src="../counter.js"></script>
 </body>
 </html>

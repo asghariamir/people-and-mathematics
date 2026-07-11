@@ -274,10 +274,10 @@ window.PM_CONTENT = {
       img: "photo — Yahya Tabesh",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "The Silver Matrix",
-            dek: "How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver.",
+            dek: "How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the Silver Sea.",
             author: "Yahya Tabesh", meta: "History Corner" },
       fa: { title: "ماتریسِ نقره‌ای",
-            dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از ساحلِ نقره درآورد.",
+            dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از دریای نقره درآورد.",
             author: "یحیی تابش", meta: "گوشهٔ تاریخ" } },
 
     /* ---- History of Mathematics  (companion to the Firoozbakht lead feature) ---- */
@@ -380,7 +380,7 @@ window.PM_CONTENT = {
             author: "آرتان شش‌مانی", meta: "فیلم · فارسی + English" } },
 
     /* ---- Mathematical Culture  (report — Women's Week in Mathematics, Sharif)
-       Bylined to the authors (Farnaz Manouchehri & Bamdad Torabi) at their wish;
+       Bylined to the authors (Farnaz Haj Manouchehri & Bamdad Torabi) at their wish;
        the event logo stands in for a contributor photo. Not featured (the
        Mirzakhani gallery is pinned). ---- */
     { section: "culture", featured: false,
@@ -389,14 +389,15 @@ window.PM_CONTENT = {
       issue: 1,
       level: "school",
       imgSrc: "assets/wim/wim-logo-mark.png",
+      authorImg: "assets/wim/authors-farnaz-bamdad.jpg",
       img: "logo — Women's Week in Mathematics",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
       en: { title: "Women's Week in Mathematics",
             dek: "How students at Sharif built a two-year celebration of Maryam Mirzakhani — and everything it took to hold it. A report kept for the record, in the organizers' own words.",
-            author: "Farnaz Manouchehri & Bamdad Torabi", meta: "Report" },
-      fa: { title: "هفته‌ی زن در ریاضیات",
+            author: "Farnaz Haj Manouchehri & Bamdad Torabi", meta: "Report" },
+      fa: { title: "رویدادِ زن در ریاضیات",
             dek: "چگونه دانشجویانِ شریف بزرگداشتی دوساله برای مریم میرزاخانی برپا کردند — و آنچه برگزاری‌اش طلبید. گزارشی برای ثبتِ تاریخ، به زبانِ خودِ برگزارکنندگان.",
-            author: "فرناز منوچهری و بامداد ترابی", meta: "گزارش" } },
+            author: "فرناز حاج‌منوچهری و بامداد ترابی", meta: "گزارش" } },
 
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,

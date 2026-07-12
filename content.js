@@ -220,6 +220,7 @@ window.PM_CONTENT = {
       added: "2026-07-03",
       issue: 1,
       level: "school",
+      imgSrc: "assets/amir.jpg",
       authorImg: "assets/amir.jpg",
       img: "diagram — a parallelogram on a circular sheet",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },

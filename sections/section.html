@@ -94,9 +94,11 @@ function up(href){ return (!href || /^https?:/.test(href)) ? href : "../" + href
 var DATA = window.PM_CONTENT || { SECTIONS:[], WORKS:[], en:{}, fa:{} };
 var YT = DATA.youtubeUrl || "https://www.youtube.com/@asghariamir";
 
+function todayISO(){ try { return new Date().toISOString().slice(0,10); } catch(e){ return ""; } }
+function effClosed(iss){ if (!iss) return ""; if (iss.closed) return iss.closed; if (iss.closes && todayISO() >= iss.closes) return iss.closes; return ""; }
 function openIssueN(){
   var iss = DATA.ISSUES || [];
-  for (var k = iss.length - 1; k >= 0; k--) if (!iss[k].closed) return iss[k].n;
+  for (var k = iss.length - 1; k >= 0; k--) if (!effClosed(iss[k])) return iss[k].n;
   return iss.length ? iss[iss.length-1].n + 1 : 1;
 }
 function issueByN(n){ return (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || null; }
@@ -137,7 +139,7 @@ function render(lang){
     var avatar = (w.authorImg && w.authorImg !== w.imgSrc)
       ? '<img class="avatar-chip" src="'+esc(up(w.authorImg))+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
     var iss = issueOfWork(w);
-    var issTag = (iss && iss.closed)
+    var issTag = (iss && effClosed(iss))
       ? '<span class="dot"></span><span>'+esc(pick(iss.label,lang))+'</span>' : '';
     var lvl = levelChip(w.level, lang);
     var lvlTag = lvl ? '<span class="dot"></span>'+lvl : '';
@@ -181,7 +183,7 @@ function render(lang){
              : '<section class="empty wrap">'+(isFa?'به‌زودی مطالبی در این بخش منتشر می‌شود.':'New work will appear in this section soon.')+'</section>')
 
     + '<footer class="footer wrap">'
-      + '<span class="fl sans">'+esc(c.pubLine)+'</span>'
+      + '<span class="fl sans">'+esc(c.pubLine).replace('mathswell.com','<a href="../index.html" style="color:inherit;">mathswell.com</a>')+'</span>'
       + '<a class="back sans" href="../index.html">'+esc(c.backToJournal)+'</a>'
     + '</footer>';
 

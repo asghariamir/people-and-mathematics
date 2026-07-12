@@ -6,7 +6,61 @@
     <atom:link href="https://mathswell.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>A bilingual journal for teaching, thinking, and conversation in mathematics.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Jul 2026 23:11:07 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2026 10:43:50 GMT</lastBuildDate>
+    <item>
+      <title>Counting Like a Beginner · موقعیت مشابه</title>
+      <link>https://mathswell.com/articles/counting-like-a-beginner.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/counting-like-a-beginner.html</guid>
+      <category>WikiLetter</category>
+      <dc:creator>Zohreh Pandi</dc:creator>
+      <pubDate>Sun, 12 Jul 2026 09:00:00 GMT</pubDate>
+      <description>Zohreh Pandi puts the teacher in the child's shoes: count with the words of a rhyme to feel what a beginner feels, then read a ten-frame without counting. In English for the first time, now interactive. Originally WikiLetter No. 15. — Zohreh Pandi</description>
+    </item>
+    <item>
+      <title>Long-term sense making in arithmetic and algebra · مسیر طولانی ملموس‌شدن حساب و جبر</title>
+      <link>https://mathswell.com/articles/long-term-sense-making.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/long-term-sense-making.html</guid>
+      <category>Concepts &amp; Conceptions</category>
+      <dc:creator>David Tall</dc:creator>
+      <pubDate>Sun, 12 Jul 2026 09:00:00 GMT</pubDate>
+      <description>David Tall on how a spoken pause carries meaning: slide the gap in 2 + 2 × 2 — and hear each reading aloud — to watch the answer change. First published as WikiLetter No. 5. — David Tall</description>
+    </item>
+    <item>
+      <title>The Machine She Didn’t Have · ماشینی که نداشت</title>
+      <link>https://mathswell.com/articles/firoozbakht-and-the-machine.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/firoozbakht-and-the-machine.html</guid>
+      <category>History of Mathematics</category>
+      <dc:creator>Behrooz Parhami</dc:creator>
+      <pubDate>Fri, 10 Jul 2026 09:00:00 GMT</pubDate>
+      <description>A companion to the lead feature: Behrooz Parhami takes Firoozbakht’s conjecture from what a prime is to the bounds it beats — then reckons what testing it on a 1982 mainframe would truly have cost, and proves brute force was never an option. With three interactive playgrounds. — Behrooz Parhami</description>
+    </item>
+    <item>
+      <title>Women's Week in Mathematics · رویدادِ زن در ریاضیات</title>
+      <link>https://mathswell.com/articles/women-in-mathematics.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/women-in-mathematics.html</guid>
+      <category>Mathematical Culture</category>
+      <dc:creator>Farnaz Haj Manouchehri &amp; Bamdad Torabi</dc:creator>
+      <pubDate>Fri, 10 Jul 2026 09:00:00 GMT</pubDate>
+      <description>How students at Sharif built a two-year celebration of Maryam Mirzakhani — and everything it took to hold it. A report kept for the record, in the organizers' own words. — Farnaz Haj Manouchehri &amp; Bamdad Torabi</description>
+    </item>
+    <item>
+      <title>Graphs on Donuts · گراف‌ها روی دونات‌ها</title>
+      <link>https://mathswell.com/articles/topological-graph-theory.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/topological-graph-theory.html</guid>
+      <category>Face to Face with Mathematics</category>
+      <dc:creator>Aryan Hemmati</dc:creator>
+      <pubDate>Thu, 09 Jul 2026 09:00:00 GMT</pubDate>
+      <description>Euler’s formula counts vertices, edges and regions, and always lands on 2 — until the graph refuses to be drawn flat. Aryan Hemmati follows the count onto donuts and beyond, where the answer belongs to the surface itself. An invitation to topological graph theory, with interactive experiments. — Aryan Hemmati</description>
+    </item>
+    <item>
+      <title>From a Plane That Is Not a Plane to a Code That Is a Code · از صفحه‌ای که صفحه نیست تا کدی که کد است</title>
+      <link>https://mathswell.com/articles/fano-plane.html</link>
+      <guid isPermaLink="true">https://mathswell.com/articles/fano-plane.html</guid>
+      <category>Face to Face with Mathematics</category>
+      <dc:creator>Kianoosh Shokri</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 09:00:00 GMT</pubDate>
+      <description>The Fano plane has seven points and seven lines — and, hiding inside it, block designs, orthogonal arrays, covering arrays and error-correcting codes. Kianoosh Shokri follows the connections, with interactive explorers along the way. — Kianoosh Shokri</description>
+    </item>
     <item>
       <title>When Topology Tames Data! · وقتی توپولوژی داده‌ها را رام می‌کند!</title>
       <link>https://mathswell.com/articles/topological-data-analysis.html</link>
@@ -68,7 +122,7 @@
       <category>History of Mathematics</category>
       <dc:creator>Yahya Tabesh</dc:creator>
       <pubDate>Mon, 15 Jun 2026 09:00:00 GMT</pubDate>
-      <description>How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the shore of silver. — Yahya Tabesh</description>
+      <description>How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the Silver Sea. — Yahya Tabesh</description>
     </item>
     <item>
       <title>What is a circle? · دایره چیست؟</title>

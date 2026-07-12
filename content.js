@@ -82,8 +82,24 @@ window.PM_CONTENT = {
      Leave the { } empty if you don't want any.
      ===================================================================== */
   PEOPLE: {
-    "Amir Asghari": { en: "Founding Editor", fa: "سردبیرِ مؤسس" }
+    "Amir Asghari": { en: "Founding Editor", fa: "سردبیرِ مؤسس" },
+    "David Tall": { en: "University of Warwick", fa: "دانشگاه واریک" }
   },
+
+
+  /* =====================================================================
+     WITH THANKS  —  groups & communities to acknowledge (not per-work
+     authors). They appear in a "With thanks" block at the foot of the
+     Contributors page. Each has an image (logo or photo), a name, a
+     short role, and a note — in both languages.
+     ===================================================================== */
+  ACKS: [
+    { img: "assets/baham-logo.jpg", logo: true,
+      en: { name: "Bāham · باهم", role: "First readers",
+            note: "A social-media gathering of Iranian mathematics teachers, enthusiasts, and mathematicians, united by one aim: to make the subject they love accessible, relevant, and meaningful to everyone. Before this issue went public, the people of Bāham read every piece and played with every interactive here — freely, and as friends." },
+      fa: { name: "باهم", role: "نخستین خوانندگان",
+            note: "گردهم‌آییِ مجازیِ معلمان، دوستداران و ریاضی‌دانانِ ایرانی، با یک آرمانِ مشترک: در دسترس، مرتبط و معنادار کردنِ ریاضی برای همه. پیش از عمومی‌شدنِ این دفتر، اهلِ «باهم» همه‌ی مطالب را خواندند و با همه‌ی برنامه‌های تعاملی بازی کردند — داوطلبانه و به‌رفاقت." } }
+  ],
 
 
   /* =====================================================================
@@ -163,13 +179,21 @@ window.PM_CONTENT = {
 
      Closed issues appear on the home page shelf with their closing
      date, each linking to its own page with everything inside it.
+
+     SCHEDULE A CLOSING (optional): instead of step 1 you may set
+       closes: "YYYY-MM-DD"  and fill  closedLabel  now. The issue then
+       shows as OPEN (with a small "closing …" note) until that date and
+       flips to closed by itself on the day — no edit needed. Leave
+       closed: ""  when you use  closes:  .
      ===================================================================== */
   ISSUES: [
     { n: 1,
-      closed: "",                                 /* "" = still open */
+      closed: "",                                 /* "" = still open (closes: schedules it) */
+      closes: "2026-07-15",                        /* the launch issue flips to closed by itself on this date */
       label:       { en: "Issue 01",   fa: "دفترِ یکم" },
+      title:       { en: "First Light", fa: "دفترِ نخست" },
       openedLabel: { en: "June 2026",  fa: "خرداد ۱۴۰۵" },
-      closedLabel: { en: "",           fa: "" } }
+      closedLabel: { en: "15 July 2026", fa: "۲۴ تیر ۱۴۰۵" } }
   ],
 
 
@@ -213,6 +237,22 @@ window.PM_CONTENT = {
       fa: { title: "چه نوع دانشجویی هستید؟",
             dek: "یان استوارت، به یادِ دیوید تال، درباره‌ی «منطقِ مسیروابسته» — اینکه چگونه دانشجو می‌تواند هر گام را درست بردارد و باز به تناقض برسد.",
             author: "یان استوارت", meta: "۹ دقیقه" } },
+
+    { section: "wikiletter", featured: false,
+      href: "articles/counting-like-a-beginner.html",
+      added: "2026-07-12",
+      issue: 1,
+      level: "school",
+      imgSrc: "assets/tenframe-seven.png",
+      authorImg: "assets/pandi.jpg",
+      img: "diagram — a ten-frame of seven",
+      date: { en: "2022 · in English July 2026", fa: "۱۴۰۱ · انگلیسی تیر ۱۴۰۵" },
+      en: { title: "Counting Like a Beginner",
+            dek: "Zohreh Pandi puts the teacher in the child's shoes: count with the words of a rhyme to feel what a beginner feels, then read a ten-frame without counting. In English for the first time, now interactive. Originally WikiLetter No. 15.",
+            author: "Zohreh Pandi", meta: "Interactive · Classroom notes" },
+      fa: { title: "موقعیت مشابه",
+            dek: "زهره پندی معلم را جای کودک می‌نشاند: با کلماتِ یک شعر بشمار تا حسِ یک نوآموز را بچشی، بعد قابِ ده‌تایی را بی‌شمارش بخوان. اکنون تعاملی. نخست ویکی‌نوشتِ شماره‌ی ۱۵.",
+            author: "زهره پندی", meta: "تعاملی · یادداشت‌های کلاسی" } },
 
     /* ---- Classroom Ideas ---- */
     { section: "classroom", featured: false,
@@ -300,6 +340,27 @@ window.PM_CONTENT = {
 
     /* ---- Concepts & Conceptions ---- */
     { section: "concepts", featured: true,
+      href: "articles/long-term-sense-making.html",
+      added: "2026-07-12",
+      issue: 1,
+      level: "school",
+      imgSrc: "assets/david-tall.png",
+      authorImg: "assets/david-tall.png",
+      credits: [
+        { img: "assets/yasaman-baghaei.jpg",
+          en: { name: "Yasaman Baghaei", role: "Translation" },
+          fa: { name: "یاسمن بقایی", role: "مترجم" } }
+      ],
+      img: "photo — David Tall",
+      date: { en: "2018 · republished July 2026", fa: "۱۳۹۷ · بازنشرِ تیر ۱۴۰۵" },
+      en: { title: "Long-term sense making in arithmetic and algebra",
+            dek: "David Tall on how a spoken pause carries meaning: slide the gap in 2 + 2 × 2 — and hear each reading aloud — to watch the answer change. First published as WikiLetter No. 5.",
+            author: "David Tall", meta: "Interactive · essay" },
+      fa: { title: "مسیر طولانی ملموس‌شدن حساب و جبر",
+            dek: "دیوید تال درباره‌ی اینکه یک مکثِ کلامی چگونه معنا می‌سازد: مکث را در ۲ + ۲ × ۲ جابه‌جا کن — و هر خوانش را بشنو — تا ببینی جواب چگونه عوض می‌شود. نخست به‌صورتِ ویکی‌نوشتِ شماره‌ی ۵ منتشر شد.",
+            author: "دیوید تال", meta: "تعاملی · مقاله" } },
+
+    { section: "concepts", featured: false,
       href: "articles/circle.html",
       added: "2026-06-15",
       issue: 1,
@@ -445,7 +506,7 @@ window.PM_CONTENT = {
 
     issueKicker: "An open journal · since June 2026",
     subtitle: "A bilingual journal for teaching, thinking, and conversation in mathematics.",
-    dedication: "Dedicated to the memory of Safoura Jafari",
+    dedication: "Dedicated to the memory of Safoura Jafari and David Tall",
 
     /* Section-rail heading, and the two browse blocks */
     sectionsLabel: "The Sections",
@@ -464,12 +525,15 @@ window.PM_CONTENT = {
     contributorsAll: "All contributors",
     contributorWorksOne: "1 contribution",
     contributorWorksMany: "{n} contributions",
+    acksLabel: "With thanks",
+    acksTag: "Who read it first",
 
     issuesLabel: "The Issues",
     issuesTag: "The journal stays open — issues close",
     issueOpenStatus: "Open — gathering new work",
     issueOpenedWord: "opened",
     issueClosedWord: "Closed",
+    issueClosesWord: "Closing",
     issueSee: "See the issue",
     issueClosedNote: "This issue closed on {d}. Its pieces remain open to read — always.",
     issueOpenNote: "This issue is open; new work is still joining it.",
@@ -506,7 +570,7 @@ window.PM_CONTENT = {
 
     issueKicker: "مجله‌ای باز · از خرداد ۱۴۰۵",
     subtitle: "مجله‌ای دوزبانه برای آموزش، اندیشیدن و گفت‌وگو در ریاضیات.",
-    dedication: "به یادِ صفورا جعفری",
+    dedication: "به یادِ صفورا جعفری و دیوید تال",
 
     sectionsLabel: "بخش‌ها",
     featuresLabel: "از هر بخش، یکی",
@@ -524,12 +588,15 @@ window.PM_CONTENT = {
     contributorsAll: "همه‌ی همکاران",
     contributorWorksOne: "۱ مشارکت",
     contributorWorksMany: "{n} مشارکت",
+    acksLabel: "با سپاس",
+    acksTag: "کسانی که پیش از همه خواندند",
 
     issuesLabel: "دفترها",
     issuesTag: "مجله باز می‌مانَد — دفترها بسته می‌شوند",
     issueOpenStatus: "باز — در حالِ گردآوری",
     issueOpenedWord: "گشوده از",
     issueClosedWord: "بسته شد",
+    issueClosesWord: "بسته می‌شود",
     issueSee: "دیدنِ دفتر",
     issueClosedNote: "این دفتر در {d} بسته شد. خواندنِ مطالبش همیشه باز است.",
     issueOpenNote: "این دفتر باز است؛ مطالبِ تازه هنوز به آن می‌پیوندند.",

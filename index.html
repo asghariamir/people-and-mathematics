@@ -221,11 +221,14 @@ function featuredOf(id){ var l = worksIn(id); return l.filter(function(w){ retur
 /* ---- Issues: the journal stays open, issues close ---- */
 function openIssueN(){
   var iss = DATA.ISSUES || [];
-  for (var k = iss.length - 1; k >= 0; k--) if (!iss[k].closed) return iss[k].n;
+  for (var k = iss.length - 1; k >= 0; k--) if (!effClosed(iss[k])) return iss[k].n;
   return iss.length ? iss[iss.length-1].n + 1 : 1;   /* all closed → works without a home fall past the last */
 }
 function issueByN(n){ return (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || null; }
 function issueOfWork(w){ return issueByN(w.issue != null ? w.issue : openIssueN()); }
+function todayISO(){ try { return new Date().toISOString().slice(0,10); } catch(e){ return ""; } }
+/* effective closed date: an explicit  closed:  OR a scheduled  closes:  that has arrived */
+function effClosed(iss){ if (!iss) return ""; if (iss.closed) return iss.closed; if (iss.closes && todayISO() >= iss.closes) return iss.closes; return ""; }
 
 /* ---- Maths-level chip: coloured dot + label ---- */
 function levelChip(levelId, lang){
@@ -268,7 +271,7 @@ function render(lang){
     var avatar = (w.authorImg && w.authorImg !== w.imgSrc)
       ? '<img class="avatar-chip" src="'+esc(w.authorImg)+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
     var iss = issueOfWork(w);
-    var issTag = (iss && iss.closed)
+    var issTag = (iss && effClosed(iss))
       ? '<span class="dot" style="width:3px;height:3px;"></span><span>'+esc(pick(iss.label,lang))+'</span>' : '';
     var lvl = levelChip(w.level, lang);
     var lvlTag = lvl ? '<span class="dot" style="width:3px;height:3px;"></span>'+lvl : '';
@@ -296,7 +299,7 @@ function render(lang){
     var t = w[lang] || w.en || {};
     var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
     var iss = issueOfWork(w);
-    var issTxt = (iss && iss.closed) ? ' · ' + esc(pick(iss.label,lang)) : '';
+    var issTxt = (iss && effClosed(iss)) ? ' · ' + esc(pick(iss.label,lang)) : '';
     var lvl = levelChip(w.level, lang);
     var titleHtml = w.href
       ? '<a href="'+esc(w.href)+'" style="font-size:19px;font-weight:500;line-height:1.2;text-decoration:none;color:inherit;">'+esc(t.title)+' <span class="accent">'+arrow+'</span></a>'
@@ -322,25 +325,25 @@ function render(lang){
   var pdfUrl = (window.PM_CONTENT && window.PM_CONTENT.issuePdfUrl) || "";
   var donateUrl = (window.PM_CONTENT && window.PM_CONTENT.donateUrl) || "";
 
-  /* ---- the issues shelf: shown only once at least one issue has CLOSED ---- */
+  /* ---- the issues shelf: the live/launch issue, plus any that have closed ---- */
   var openN = openIssueN();
   var issuesShelf = "";
-  if ((DATA.ISSUES||[]).some(function(i){ return !!i.closed; })){
+  if ((DATA.ISSUES||[]).some(function(i){ return !!effClosed(i) || !!i.closes; })){
     var cells = (DATA.ISSUES||[]).slice().reverse().map(function(iss){
-      var isOpen = !iss.closed;
+      var ecl = effClosed(iss);
+      var isOpen = !ecl;
       var count = (DATA.WORKS||[]).filter(function(w){ return (w.issue != null ? w.issue : openN) === iss.n; }).length;
       var countTxt = count === 0 ? c.sectionEmpty : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
+      var closesHint = (isOpen && iss.closes) ? '<span style="color:#8C8474;font-weight:500;"> · '+esc(c.issueClosesWord)+' '+esc(pick(iss.closedLabel,lang)||iss.closes)+'</span>' : '';
       var status = isOpen
-        ? '<span class="sans" style="font-size:12.5px;color:var(--pm-accent);font-weight:600;"><span class="pulse"></span>'+esc(c.issueOpenStatus)+'</span>'
-        : '<span class="sans" style="font-size:12.5px;color:#43392E;font-weight:600;">'+esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang)||iss.closed)+'</span>';
+        ? '<span class="sans" style="font-size:12.5px;color:var(--pm-accent);font-weight:600;"><span class="pulse"></span>'+esc(c.issueOpenStatus)+closesHint+'</span>'
+        : '<span class="sans" style="font-size:12.5px;color:#43392E;font-weight:600;">'+esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang)||ecl)+'</span>';
       var metaLine = '<span class="sans" style="font-size:11.5px;letter-spacing:.05em;color:#948876;text-transform:uppercase;">'+esc(c.issueOpenedWord)+' '+esc(pick(iss.openedLabel,lang))+' · '+esc(countTxt)+'</span>';
       var inner =
-        '<span style="font-size:30px;font-weight:500;letter-spacing:-.01em;line-height:1;">'+esc(pick(iss.label,lang))+'</span>'
+        '<span style="font-size:30px;font-weight:500;letter-spacing:-.01em;line-height:1;">'+esc(pick(iss.title||iss.label,lang))+'</span>'
         + status + metaLine
-        + (isOpen ? '' : '<span class="issue-see sans" style="font-size:12.5px;font-weight:600;">'+esc(c.issueSee)+' '+arrow+'</span>');
-      return isOpen
-        ? '<div class="issue-cell">'+inner+'</div>'
-        : '<a class="issue-cell" href="sections/issue.html?n='+esc(iss.n)+'">'+inner+'</a>';
+        + '<span class="issue-see sans" style="font-size:12.5px;font-weight:600;">'+esc(c.issueSee)+' '+arrow+'</span>';
+      return '<a class="issue-cell" href="sections/issue.html?n='+esc(iss.n)+'">'+inner+'</a>';
     }).join("");
     issuesShelf =
       '<section class="wrap" id="issues" style="border-bottom:1px solid var(--pm-ink);">'
@@ -378,6 +381,13 @@ function render(lang){
     ? '<a class="dedline sans" href="'+esc(dedUrl)+'"><span class="heart">♦</span><span class="dedline-txt">'+esc(c.dedication)+'</span><span class="go">'+arrow+'</span></a>'
     : '';
   var heart = isFa ? "♥" : "♥";
+  var noteHtml =
+    '<aside class="note" id="about">'
+      + '<div class="sans accent" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;">'+esc(c.noteLabel)+'</div>'
+      + '<h3>'+esc(c.noteTitle)+'</h3>'
+      + '<p class="sans" style="margin:0;font-size:15px;line-height:1.7;color:#D9D0C0;">'+esc(c.noteBody)+'</p>'
+      + '<div class="sans" style="margin-top:18px;font-size:13px;color:#8C8474;">— '+esc(c.noteSign)+'</div>'
+    + '</aside>';
   var getIssueHtml =
     '<section class="getissue"><div class="getissue-in wrap">'
       + '<div>'
@@ -398,7 +408,7 @@ function render(lang){
         + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
       + '</div>'
       + '<nav class="menu sans">'
-        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><span>'+esc(nav.about)+'</span><span>'+esc(nav.submit)+'</span>'
+        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="mailto:'+esc(contactEmail)+'?subject='+encodeURIComponent(isFa?"مشارکت در آدم‌ها و ریاضیات":"Contributing to People and Mathematics")+'" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
         + '<div class="langtoggle">'
           + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
           + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
@@ -439,8 +449,9 @@ function render(lang){
       + '<div class="features-grid">'+featuresHtml+'</div>'
     + '</section>'
 
-    + '<section class="lower wrap" style="grid-template-columns:1fr;">'
+    + '<section class="lower wrap">'
       + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;display:flex;align-items:baseline;gap:12px;"><span>'+esc(c.alsoLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.alsoTag)+'</span></div>'+(alsoHtml || '<div class="sans" style="padding:16px 0;color:#948876;font-size:14px;">—</div>')+'</div>'
+      + noteHtml
     + '</section>'
 
     + contributorsStrip
@@ -458,7 +469,7 @@ function render(lang){
     + '</div></section>'
 
     + '<footer class="footer wrap">'
-      + '<div class="footer-brand"><div class="footer-logo"><img src="assets/logo.jpg" alt=""></div><div style="line-height:1.1;"><div style="font-size:17px;font-weight:600;">People and Mathematics · آدم‌ها و ریاضیات</div><div class="sans" style="font-size:12.5px;color:#6B6155;margin-top:3px;">'+esc(c.pubLine)+'</div></div></div>'
+      + '<div class="footer-brand"><div class="footer-logo"><img src="assets/logo.jpg" alt=""></div><div style="line-height:1.1;"><div style="font-size:17px;font-weight:600;">People and Mathematics · آدم‌ها و ریاضیات</div><div class="sans" style="font-size:12.5px;color:#6B6155;margin-top:3px;">'+esc(c.pubLine).replace('mathswell.com','<a href="index.html" style="color:inherit;">mathswell.com</a>')+'</div></div></div>'
       + '<div class="footer-right">'
         + '<div class="footer-links sans">'+footerLinksHtml+'</div>'
         + '<a class="yt sans" href="'+esc(YT)+'" target="_blank" rel="noopener"><span class="play">▶</span><span>'+esc(c.youtubeLabel)+'</span></a>'

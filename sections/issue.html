@@ -99,9 +99,11 @@ function up(href){ return (!href || /^https?:/.test(href)) ? href : "../" + href
 
 var DATA = window.PM_CONTENT || { SECTIONS:[], WORKS:[], ISSUES:[], en:{}, fa:{} };
 
+function todayISO(){ try { return new Date().toISOString().slice(0,10); } catch(e){ return ""; } }
+function effClosed(iss){ if (!iss) return ""; if (iss.closed) return iss.closed; if (iss.closes && todayISO() >= iss.closes) return iss.closes; return ""; }
 function openIssueN(){
   var iss = DATA.ISSUES || [];
-  for (var k = iss.length - 1; k >= 0; k--) if (!iss[k].closed) return iss[k].n;
+  for (var k = iss.length - 1; k >= 0; k--) if (!effClosed(iss[k])) return iss[k].n;
   return iss.length ? iss[iss.length-1].n + 1 : 1;
 }
 function currentN(){
@@ -124,7 +126,8 @@ function render(lang){
 
   var n = currentN();
   var iss = (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || (DATA.ISSUES||[])[0] || { n: n, closed: "", label: {}, openedLabel: {}, closedLabel: {} };
-  var isOpen = !iss.closed;
+  var ecl = effClosed(iss);
+  var isOpen = !ecl;
   var openN = openIssueN();
   var works = (DATA.WORKS||[]).filter(function(w){ return (w.issue != null ? w.issue : openN) === iss.n; });
   document.title = pick(iss.label, lang) + " · People and Mathematics";
@@ -134,8 +137,8 @@ function render(lang){
     : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
 
   var note = isOpen
-    ? (c.issueOpenNote || "")
-    : (c.issueClosedNote || "{d}").replace("{d}", pick(iss.closedLabel, lang) || iss.closed);
+    ? ((c.issueOpenNote || "") + (iss.closes ? " — " + (c.issueClosesWord||"Closing") + " " + (pick(iss.closedLabel,lang) || iss.closes) : ""))
+    : (c.issueClosedNote || "{d}").replace("{d}", pick(iss.closedLabel, lang) || ecl);
 
   /* works grouped by section, in section order */
   var groupsHtml = (DATA.SECTIONS||[]).map(function(sec){
@@ -167,8 +170,8 @@ function render(lang){
 
   var nav = c.nav || {};
   var statusHtml = isOpen
-    ? '<span class="pulse"></span>'+esc(c.issueOpenStatus)
-    : esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang) || iss.closed);
+    ? '<span class="pulse"></span>'+esc(c.issueOpenStatus)+(iss.closes?' · '+esc(c.issueClosesWord)+' '+esc(pick(iss.closedLabel,lang)||iss.closes):'')
+    : esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang) || ecl);
 
   document.getElementById("app").innerHTML =
     '<div class="topband">'
@@ -198,7 +201,7 @@ function render(lang){
              : '<section class="empty wrap">'+(isFa?'هنوز مطلبی در این دفتر نیست.':'No work has joined this issue yet.')+'</section>')
 
     + '<footer class="footer wrap">'
-      + '<span class="fl sans">'+esc(c.pubLine)+'</span>'
+      + '<span class="fl sans">'+esc(c.pubLine).replace('mathswell.com','<a href="../index.html" style="color:inherit;">mathswell.com</a>')+'</span>'
       + '<a class="back sans" href="../index.html">'+esc(c.backToJournal)+'</a>'
     + '</footer>';
 

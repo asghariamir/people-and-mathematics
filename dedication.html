@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>In memoriam — Safoura Jafari · People and Mathematics</title>
-<meta name="description" content="People and Mathematics is dedicated to the memory of Safoura Jafari — who, had she lived, might have been one of this journal's contributors, and a proud citizen of the world of mathematics.">
+<title>In memoriam — Safoura Jafari &amp; David Tall · People and Mathematics</title>
+<meta name="description" content="People and Mathematics is dedicated to the memory of Safoura Jafari and of David Tall (1941–2024), a great mathematics educator — marked on the second anniversary of his passing.">
 
-<meta property="og:title" content="In memoriam — Safoura Jafari">
-<meta property="og:description" content="People and Mathematics — آدم‌ها و ریاضیات — is dedicated to the memory of Safoura Jafari.">
+<meta property="og:title" content="In memoriam — Safoura Jafari &amp; David Tall">
+<meta property="og:description" content="People and Mathematics — آدم‌ها و ریاضیات — is dedicated to the memory of Safoura Jafari and David Tall.">
 <meta property="og:image" content="assets/safoura-jafari.png">
 <meta property="og:type" content="article">
 
@@ -49,7 +49,13 @@
   .crumb .accent { color: var(--accent); font-weight: 600; }
 
   /* ---------- Memorial ---------- */
-  .memoriam { max-width: 760px; margin: 0 auto; padding: 84px 40px 40px; text-align: center; }
+  .memoriam { max-width: 1000px; margin: 0 auto; padding: 84px 40px 40px; text-align: center; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 56px; margin-top: 40px; align-items: start; }
+  .person { margin: 0; }
+  .person .portrait { margin-top: 0; }
+  .person .name { margin-top: 22px; }
+  .person .tribute { margin: 20px auto 0; text-align: center; max-width: 25em; }
+  @media (max-width: 760px) { .pair { grid-template-columns: 1fr; gap: 54px; } }
   .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
   [dir="rtl"] .kicker { letter-spacing: .05em; }
 
@@ -119,26 +125,44 @@
 <!-- =================== ENGLISH =================== -->
 <section class="memoriam" data-lang-block="en">
   <div class="kicker">This journal is dedicated to</div>
-  <div class="portrait"><img src="assets/safoura-jafari.png" alt="Safoura Jafari"></div>
-  <h1 class="name">Safoura Jafari</h1>
-  <div class="dates">17 January 2004 <span class="sep">—</span> 9 January 2026</div>
+  <div class="pair">
+    <figure class="person">
+      <div class="portrait"><img src="assets/safoura-jafari.png" alt="Safoura Jafari"></div>
+      <div class="name">Safoura Jafari</div>
+      <div class="dates">17 January 2004 <span class="sep">—</span> 9 January 2026</div>
+      <p class="tribute">Had she lived, she might have been one of this journal's contributors — and she remains, in every sense, a proud citizen of the world of mathematics.</p>
+    </figure>
+    <figure class="person">
+      <div class="portrait"><img src="assets/david-tall.png" alt="David Tall"></div>
+      <div class="name">David Tall</div>
+      <div class="dates">15 May 1941 <span class="sep">—</span> 15 July 2024</div>
+      <p class="tribute">A great mathematics educator; a supportive, thoughtful, talkative supervisor; and, above all, a unique human being.</p>
+    </figure>
+  </div>
 
   <div class="rule"></div>
-
-  <p class="tribute"><em>People and Mathematics</em> is dedicated to her memory. Had she lived, she might have been one of this journal's contributors — and she remains, in every sense, a proud citizen of the world of mathematics.</p>
   <p class="signoff">— The Editors</p>
 </section>
 
 <!-- =================== فارسی =================== -->
 <section class="memoriam" data-lang-block="fa" dir="rtl" lang="fa">
   <div class="kicker">این مجله تقدیم می‌شود به</div>
-  <div class="portrait"><img src="assets/safoura-jafari.png" alt="صفورا جعفری"></div>
-  <h1 class="name">صفورا جعفری</h1>
-  <div class="dates">۲۷ دی ۱۳۸۲ <span class="sep">—</span> ۱۹ دی ۱۴۰۴</div>
+  <div class="pair">
+    <figure class="person">
+      <div class="portrait"><img src="assets/safoura-jafari.png" alt="صفورا جعفری"></div>
+      <div class="name">صفورا جعفری</div>
+      <div class="dates">۲۷ دی ۱۳۸۲ <span class="sep">—</span> ۱۹ دی ۱۴۰۴</div>
+      <p class="tribute">اگر زنده بود، شاید یکی از نویسندگانِ این مجله می‌شد — و او، به هر معنا، شهروندی سربلند از جهانِ ریاضیات است.</p>
+    </figure>
+    <figure class="person">
+      <div class="portrait"><img src="assets/david-tall.png" alt="دیوید تال"></div>
+      <div class="name">دیوید تال</div>
+      <div class="dates">۲۵ اردیبهشت ۱۳۲۰ <span class="sep">—</span> ۲۵ تیر ۱۴۰۳</div>
+      <p class="tribute">آموزگارِ بزرگِ ریاضی؛ استادِ راهنمایی پشتیبان، ژرف‌اندیش و خوش‌صحبت؛ و بیش از همه، انسانی بی‌همتا.</p>
+    </figure>
+  </div>
 
   <div class="rule"></div>
-
-  <p class="tribute">«آدم‌ها و ریاضیات» به یادِ او تقدیم می‌شود. اگر زنده بود، شاید یکی از نویسندگانِ این مجله می‌شد — و او، به هر معنا، شهروندی سربلند از جهانِ ریاضیات است.</p>
   <p class="signoff">— سردبیران</p>
 </section>
 

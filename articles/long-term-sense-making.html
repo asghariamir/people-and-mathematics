@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Long-term sense making in arithmetic and algebra — David Tall · WikiLetter 05</title>
-<meta name="description" content="David Tall on how humans make sense of arithmetic and algebra over the long term. WikiLetter No. 5, a People and Mathematics publication.">
+<title>Long-term sense making in arithmetic and algebra — David Tall · People and Mathematics</title>
+<meta name="description" content="David Tall on how humans make sense of arithmetic and algebra over the long term — with an interactive way to move a spoken pause and hear how it changes an expression's meaning. In Concepts &amp; Conceptions; originally WikiLetter No. 5 (2018).">
 
 <meta property="og:title" content="Long-term sense making in arithmetic and algebra — David Tall">
-<meta property="og:description" content="WikiLetter No. 5 · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:description" content="Concepts &amp; Conceptions · People and Mathematics — آدم‌ها و ریاضیات">
 <meta property="og:image" content="../assets/logo.jpg">
 <meta property="og:type" content="article">
 
@@ -132,7 +132,41 @@
     .body { font-size: 17.5px; }
     .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
     .pullquote { font-size: 21px; }
+    .expr { font-size: 32px; }
   }
+
+  /* ===== Interactive articulation lab ===== */
+  .artic-slot { margin: 28px 0; }
+  .lab { border: 1px solid var(--line); background: #FCF8F0; border-radius: 8px; padding: 22px 22px 20px; box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 16px 34px -26px rgba(28,24,20,.5); }
+  .lab-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .lab-kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+  [dir="rtl"] .lab-kicker { letter-spacing: 0; }
+  .lab-hint { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .lab-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .lab-chip { white-space: nowrap; font-family: "Newsreader", "Vazirmatn", serif; font-size: 15px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 15px; transition: background .15s, color .15s, border-color .15s; }
+  .lab-chip:hover { border-color: var(--accent); }
+  .lab-chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .lab-stage { text-align: center; margin: 24px 0 4px; }
+  .expr { font-family: "Newsreader", serif; font-size: 42px; line-height: 1; display: inline-flex; align-items: center; gap: 1px; direction: ltr; flex-wrap: wrap; justify-content: center; }
+  .expr .tok { padding: 0 7px; }
+  .expr .tok.op { color: #8C8172; }
+  .gapslot { font-family: "Newsreader", serif; font-size: 34px; line-height: 1; border: 0; background: transparent; cursor: pointer; color: #CBC0A9; padding: 0 3px; transition: color .15s, transform .15s; }
+  .gapslot:hover { color: var(--accent); }
+  .gapslot.on { color: var(--accent); font-weight: 700; transform: translateY(-2px); }
+  .reading { font-family: "Newsreader", serif; font-size: 23px; color: #43392E; margin-top: 18px; direction: ltr; }
+  .reading .b { color: var(--accent); }
+  .reading .result { margin-inline-start: 8px; }
+  .reading .rv { font-weight: 600; font-size: 30px; color: var(--ink); display: inline-block; }
+  .lab-note { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; line-height: 1.5; color: var(--muted); margin-top: 12px; min-height: 2.4em; max-width: 30em; margin-inline: auto; }
+  .lab-foot { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+  .hear-btn { white-space: nowrap; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); border-radius: 999px; padding: 10px 20px; display: inline-flex; align-items: center; gap: 9px; transition: background .15s, border-color .15s; }
+  .hear-btn:hover { background: #33291f; }
+  .hear-btn.speaking { background: var(--accent); border-color: var(--accent); }
+  .hear-note { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; color: #948876; max-width: 18em; }
+  .expr.speaking { animation: labpulse 1.1s ease infinite; }
+  @keyframes labpulse { 0%,100% { opacity: 1; } 50% { opacity: .62; } }
+  .result-pop { animation: labpop .32s cubic-bezier(.2,.9,.3,1.3); }
+  @keyframes labpop { 0% { transform: scale(.7); opacity: .3; } 100% { transform: scale(1); opacity: 1; } }
 </style>
 </head>
 <body>
@@ -149,13 +183,13 @@
   </div>
 </div>
 <div class="subbar">
-  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="WikiLetter" data-fa="ویکی‌نوشت"></span></div>
-  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · No. 05 · July 2018" data-fa="ریاضیِ مدرسه · شماره‌ی ۵ · تیر ۱۳۹۷"></span></div>
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Concepts &amp; Conceptions" data-fa="مفاهیم و برداشت‌ها"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · Originally WikiLetter No. 5, 2018" data-fa="ریاضیِ مدرسه · نخست: ویکی‌نوشتِ ۵، ۱۳۹۷"></span></div>
 </div>
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
-  <div class="kicker">WikiLetter · No. 05</div>
+  <div class="kicker">Concepts &amp; Conceptions</div>
   <h1 class="title">Long-term sense making in arithmetic and algebra</h1>
   <p class="standfirst">Challenging a few widely held beliefs about teaching: how humans actually make sense of arithmetic and algebra over the long run — through what we perceive, what we manipulate in the mind, and how we say things to one another.</p>
   <div class="byline">
@@ -202,10 +236,9 @@
 
     <h2 class="subhead">Making sense of arithmetic by how we <em>say</em> it</h2>
 
-    <p>It turns out we can make sense of these procedural rules simply by attending to how we speak them, and how others hear what we say. There are (at least) two different ways to speak the expression \(2+2\times 2\), by leaving tiny gaps between the words. To show where the gap falls, I will mark it with a coloured break:</p>
+    <p>It turns out we can make sense of these procedural rules simply by attending to how we speak them, and how others hear what we say. There are (at least) two different ways to speak the expression \(2+2\times 2\), by leaving tiny gaps between the words. Move the pause below to see — and hear — how each reading changes its meaning:</p>
 
-    <div class="eq artic">2 + 2 <span class="gap">‹·›</span> × 2 &nbsp;&nbsp;means&nbsp;&nbsp; ( 2 + 2 ) × 2 = 8</div>
-    <div class="eq artic">2 <span class="gap">‹·›</span> + 2 × 2 &nbsp;&nbsp;means&nbsp;&nbsp; 2 + ( 2 × 2 ) = 6</div>
+    <div class="artic-slot" data-lang-slot="en"></div>
 
     <p>Say the two aloud — to yourself, and to someone else — and notice how the placing of the gap gives two clearly different meanings. Do this now, before reading on. This leads to a further principle, which applies not only in arithmetic but also in algebra:</p>
 
@@ -220,7 +253,7 @@
 
     <p>At a stroke, this young child had opened the door to a whole new way of making sense of operations. Instead of learning arbitrary rules of precedence, he offered a way of making <em>meaningful</em> sense — by focusing on how to speak mathematical expressions, and to communicate ideas in ways other people can hear.</p>
 
-    <p>Problematic aspects of operations other than addition and multiplication occur throughout mathematics. Subtraction, for instance, can be articulated to different meanings. The subtraction \(5-3-1\) has different answers: spoken as "5 minus <span class="gap">‹·›</span> 3 minus 1" it reads as \(5-(3-1)=4\); spoken as "5 minus 3 <span class="gap">‹·›</span> minus 1" it is \((5-3)-1 = 1\).</p>
+    <p>Problematic aspects of operations other than addition and multiplication occur throughout mathematics. Subtraction, for instance, can be articulated to different meanings. The subtraction \(5-3-1\) has different answers: spoken as "5 minus <span class="gap">‹·›</span> 3 minus 1" it reads as \(5-(3-1)=3\); spoken as "5 minus 3 <span class="gap">‹·›</span> minus 1" it is \((5-3)-1 = 1\).</p>
 
     <h2 class="subhead">General applications of the articulation principle</h2>
 
@@ -262,7 +295,6 @@
       <div class="role">
         <div class="lab">Translation</div>
         <div class="who">Yasaman Baghaei</div>
-        <div class="aff">Salam School, Tehran</div>
         <div class="who">Amir Asghari</div>
       </div>
       <div class="role">
@@ -287,7 +319,7 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
-  <div class="kicker">ویکی‌نوشت · شماره‌ی ۵</div>
+  <div class="kicker">مفاهیم و برداشت‌ها</div>
   <h1 class="title">مسیر طولانی ملموس‌شدن حساب و جبر</h1>
   <p class="standfirst">به‌چالش‌کشیدن چند باور رایج درباره‌ی آموزش: اینکه انسان‌ها در بلندمدت چگونه حساب و جبر را ملموس می‌کنند — از راهِ آنچه حس می‌کنیم، آنچه در ذهن دست‌کاری می‌کنیم، و شیوه‌ای که با دیگران سخن می‌گوییم.</p>
   <div class="byline">
@@ -334,10 +366,9 @@
 
     <h2 class="subhead">ملموس‌شدنِ حساب از راهِ نحوه‌ی <em>بیانِ</em> آن</h2>
 
-    <p>می‌توان رویه‌ها را با توجه به نحوه‌ی بیانِ آن‌ها توسطِ ما و نحوه‌ی شنیدنشان توسطِ دیگران درک کرد. دستِ‌کم دو روش برای خواندنِ عبارتِ \(2+2\times 2\) وجود دارد، با مکث‌های کوتاهِ متفاوت میانِ کلمات. برای نشان‌دادنِ جای مکث، آن را با یک شکافِ رنگی علامت می‌زنم:</p>
+    <p>می‌توان رویه‌ها را با توجه به نحوه‌ی بیانِ آن‌ها توسطِ ما و نحوه‌ی شنیدنشان توسطِ دیگران درک کرد. دستِ‌کم دو روش برای خواندنِ عبارتِ \(2+2\times 2\) وجود دارد، با مکث‌های کوتاهِ متفاوت میانِ کلمات. مکث را جابه‌جا کن تا ببینی — و بشنوی — که هر خوانش چگونه معنا را عوض می‌کند:</p>
 
-    <div class="eq artic">۲ + ۲ <span class="gap">‹·›</span> × ۲ &nbsp;&nbsp;یعنی&nbsp;&nbsp; (۲ + ۲) × ۲ = ۸</div>
-    <div class="eq artic">۲ <span class="gap">‹·›</span> + ۲ × ۲ &nbsp;&nbsp;یعنی&nbsp;&nbsp; ۲ + (۲ × ۲) = ۶</div>
+    <div class="artic-slot" data-lang-slot="fa"></div>
 
     <p>این دو را با صدای بلند بخوان — برای خودت و برای کسی دیگر — تا ببینی جای مکث چگونه دو معنیِ کاملاً متفاوت را منتقل می‌کند. این کار را پیش از ادامه‌ی مقاله انجام بده. این تفاوت، اصلِ کلی‌تری را نشان می‌دهد که نه‌تنها در حساب که در جبر هم به‌کار می‌رود:</p>
 
@@ -352,7 +383,7 @@
 
     <p>خیلی غافل‌گیرانه، نوه‌ام دریچه‌ی جدیدی برای درکِ عملگرها در حساب و جبر گشود. او راهِ تازه‌ای برای درکِ معنی‌دار به من آموخت: اینکه به‌جای یادگرفتنِ قواعدِ تقدمِ دل‌بخواهی، می‌توان روی نحوه‌ی صحبت‌کردن درباره‌ی عبارت‌های ریاضی — و بیانِ ایده‌ها به‌گونه‌ای که دیگران بتوانند بشنوند — تمرکز کرد.</p>
 
-    <p>آنچه در موردِ جمع و ضرب برقرار است، در موردِ عملگرهای دیگر مشکل‌ساز می‌شود. مثلاً تفریق می‌تواند با بخش‌بندی‌های متفاوت معانیِ متفاوت بدهد. اگر \(5-3-1\) را «۵ منهای <span class="gap">‹·›</span> ۳ منهای ۱» بخوانیم، یعنی \(5-(3-1)=4\)؛ و اگر «۵ منهای ۳ <span class="gap">‹·›</span> منهای ۱» بگوییم، یعنی \((5-3)-1 = 1\).</p>
+    <p>آنچه در موردِ جمع و ضرب برقرار است، در موردِ عملگرهای دیگر مشکل‌ساز می‌شود. مثلاً تفریق می‌تواند با بخش‌بندی‌های متفاوت معانیِ متفاوت بدهد. اگر \(5-3-1\) را «۵ منهای <span class="gap">‹·›</span> ۳ منهای ۱» بخوانیم، یعنی \(5-(3-1)=3\)؛ و اگر «۵ منهای ۳ <span class="gap">‹·›</span> منهای ۱» بگوییم، یعنی \((5-3)-1 = 1\).</p>
 
     <h2 class="subhead">کاربردهای عمومیِ اصلِ بخش‌بندیِ کلامی</h2>
 
@@ -394,7 +425,6 @@
       <div class="role">
         <div class="lab">ترجمه</div>
         <div class="who">یاسمن بقایی</div>
-        <div class="aff">مجموعه‌ی سلام، تهران</div>
         <div class="who">امیر اصغری</div>
       </div>
       <div class="role">
@@ -441,6 +471,7 @@
     });
     applyLabels(lang);
     try { localStorage.setItem('pm-lang', lang); } catch(e){}
+    if (window.__onLang) window.__onLang(lang);
   }
   var start = 'en';
   try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
@@ -458,6 +489,151 @@
     });
   }
   renderMath();
+</script>
+<script>
+/* ===== Interactive articulation lab — move the pause, hear the difference ===== */
+(function(){
+  var EX = [
+    { id:'precedence', chip:{en:'2 + 2 \u00d7 2', fa:'\u06f2 + \u06f2 \u00d7 \u06f2'},
+      tokens:['2','+','2','\u00d7','2'], gaps:[1,3],
+      readings:[
+        { gap:3, bracket:{en:'(2 + 2) \u00d7 2', fa:'(\u06f2 + \u06f2) \u00d7 \u06f2'}, value:{en:'8', fa:'\u06f8'},
+          note:{en:'Straight left to right \u2014 the way we say it and hear it.', fa:'\u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0632 \u0686\u067e \u0628\u0647 \u0631\u0627\u0633\u062a \u2014 \u0647\u0645\u0627\u0646\u200c\u0637\u0648\u0631 \u06a9\u0647 \u0645\u06cc\u200c\u06af\u0648\u06cc\u06cc\u0645 \u0648 \u0645\u06cc\u200c\u0634\u0646\u0648\u06cc\u0645.'},
+          say:{en:{chunks:['two plus two','times two'], result:'eight'}, fa:{chunks:['\u062f\u0648 \u0628\u0647\u200c\u0639\u0644\u0627\u0648\u0647\u200c\u06cc \u062f\u0648','\u0636\u0631\u0628\u062f\u0631 \u062f\u0648'], result:'\u0647\u0634\u062a'}} },
+        { gap:1, bracket:{en:'2 + (2 \u00d7 2)', fa:'\u06f2 + (\u06f2 \u00d7 \u06f2)'}, value:{en:'6', fa:'\u06f6'},
+          note:{en:'\u201cMultiply first\u201d \u2014 the textbook precedence rule.', fa:'\u00ab\u0627\u0648\u0644 \u0636\u0631\u0628\u00bb \u2014 \u0647\u0645\u0627\u0646 \u0642\u0627\u0646\u0648\u0646\u0650 \u062a\u0642\u062f\u0645\u0650 \u06a9\u062a\u0627\u0628\u0650 \u062f\u0631\u0633\u06cc.'},
+          say:{en:{chunks:['two','plus two times two'], result:'six'}, fa:{chunks:['\u062f\u0648','\u0628\u0647\u200c\u0639\u0644\u0627\u0648\u0647\u200c\u06cc \u062f\u0648 \u0636\u0631\u0628\u062f\u0631 \u062f\u0648'], result:'\u0634\u0634'}} }
+      ] },
+    { id:'subtraction', chip:{en:'5 \u2212 3 \u2212 1', fa:'\u06f5 \u2212 \u06f3 \u2212 \u06f1'},
+      tokens:['5','\u2212','3','\u2212','1'], gaps:[2,3],
+      readings:[
+        { gap:3, bracket:{en:'(5 \u2212 3) \u2212 1', fa:'(\u06f5 \u2212 \u06f3) \u2212 \u06f1'}, value:{en:'1', fa:'\u06f1'},
+          note:{en:'Left to right \u2014 subtract in the order written.', fa:'\u0627\u0632 \u0686\u067e \u0628\u0647 \u0631\u0627\u0633\u062a \u2014 \u0628\u0647 \u0647\u0645\u0627\u0646 \u062a\u0631\u062a\u06cc\u0628\u0650 \u0646\u0648\u0634\u062a\u0647\u200c\u0634\u062f\u0647.'},
+          say:{en:{chunks:['five minus three','minus one'], result:'one'}, fa:{chunks:['\u067e\u0646\u062c \u0645\u0646\u0647\u0627\u06cc \u0633\u0647','\u0645\u0646\u0647\u0627\u06cc \u06cc\u06a9'], result:'\u06cc\u06a9'}} },
+        { gap:2, bracket:{en:'5 \u2212 (3 \u2212 1)', fa:'\u06f5 \u2212 (\u06f3 \u2212 \u06f1)'}, value:{en:'3', fa:'\u06f3'},
+          note:{en:'A pause after the first \u201cminus\u201d regroups everything that follows.', fa:'\u06cc\u06a9 \u0645\u06a9\u062b \u0628\u0639\u062f \u0627\u0632 \u00ab\u0645\u0646\u0647\u0627\u06cc\u00bb \u0646\u062e\u0633\u062a\u060c \u0647\u0631 \u0686\u0647 \u0631\u0627 \u067e\u0633 \u0627\u0632 \u0622\u0646 \u0645\u06cc\u200c\u0622\u06cc\u062f \u06cc\u06a9\u200c\u062c\u0627 \u0645\u06cc\u200c\u06a9\u0646\u062f.'},
+          say:{en:{chunks:['five minus','three minus one'], result:'three'}, fa:{chunks:['\u067e\u0646\u062c \u0645\u0646\u0647\u0627\u06cc','\u0633\u0647 \u0645\u0646\u0647\u0627\u06cc \u06cc\u06a9'], result:'\u0633\u0647'}} }
+      ] },
+    { id:'root', chip:{en:'\u221a9 \u00d7 9', fa:'\u221a\u06f9 \u00d7 \u06f9'},
+      tokens:['\u221a','9','\u00d7','9'], gaps:[1,2],
+      readings:[
+        { gap:2, bracket:{en:'(\u221a9) \u00d7 9', fa:'(\u221a\u06f9) \u00d7 \u06f9'}, value:{en:'27', fa:'\u06f2\u06f7'},
+          note:{en:'The boy\u2019s reading: \u201csquare root of nine \u2026 times nine.\u201d', fa:'\u062e\u0648\u0627\u0646\u0634\u0650 \u0622\u0646 \u067e\u0633\u0631: \u00ab\u0631\u06cc\u0634\u0647\u200c\u06cc \u062f\u0648\u0645\u0650 \u0646\u0647 \u2026 \u0636\u0631\u0628\u062f\u0631\u0650 \u0646\u0647.\u00bb'},
+          say:{en:{chunks:['square root of nine','times nine'], result:'twenty seven'}, fa:{chunks:['\u0631\u06cc\u0634\u0647\u200c\u06cc \u062f\u0648\u0645\u0650 \u0646\u0647','\u0636\u0631\u0628\u062f\u0631\u0650 \u0646\u0647'], result:'\u0628\u06cc\u0633\u062a \u0648 \u0647\u0641\u062a'}} },
+        { gap:1, bracket:{en:'\u221a(9 \u00d7 9)', fa:'\u221a(\u06f9 \u00d7 \u06f9)'}, value:{en:'9', fa:'\u06f9'},
+          note:{en:'The root reaches over everything: \u201csquare root of \u2026 nine times nine.\u201d', fa:'\u0631\u06cc\u0634\u0647 \u0631\u0648\u06cc \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u06a9\u0634\u06cc\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f: \u00ab\u0631\u06cc\u0634\u0647\u200c\u06cc \u062f\u0648\u0645\u0650 \u2026 \u0646\u0647 \u0636\u0631\u0628\u062f\u0631 \u0646\u0647.\u00bb'},
+          say:{en:{chunks:['square root of','nine times nine'], result:'nine'}, fa:{chunks:['\u0631\u06cc\u0634\u0647\u200c\u06cc \u062f\u0648\u0645\u0650','\u0646\u0647 \u0636\u0631\u0628\u062f\u0631 \u0646\u0647'], result:'\u0646\u0647'}} }
+      ] }
+  ];
+  var LAB = {
+    en:{ kicker:'Try it \u2014 the articulation principle', hint:'Move the pause. Hear the difference.', hear:'Hear it', speaking:'Speaking\u2026', novoice:'No Persian voice on this device \u2014 English audio still works.' },
+    fa:{ kicker:'\u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646 \u2014 \u0627\u0635\u0644\u0650 \u0628\u062e\u0634\u200c\u0628\u0646\u062f\u06cc\u0650 \u06a9\u0644\u0627\u0645\u06cc', hint:'\u0645\u06a9\u062b \u0631\u0627 \u062c\u0627\u0628\u0647\u200c\u062c\u0627 \u06a9\u0646. \u062a\u0641\u0627\u0648\u062a \u0631\u0627 \u0628\u0634\u0646\u0648.', hear:'\u0628\u0634\u0646\u0648', speaking:'\u062f\u0631 \u062d\u0627\u0644\u0650 \u062e\u0648\u0627\u0646\u062f\u0646\u2026', novoice:'\u0627\u06cc\u0646 \u062f\u0633\u062a\u06af\u0627\u0647 \u0635\u062f\u0627\u06cc \u0641\u0627\u0631\u0633\u06cc \u0646\u062f\u0627\u0631\u062f \u2014 \u0635\u062f\u0627\u06cc \u0627\u0646\u06af\u0644\u06cc\u0633\u06cc \u06a9\u0627\u0631 \u0645\u06cc\u200c\u06a9\u0646\u062f.' }
+  };
+
+  var state = { ex:0, rd:0 };
+  var curLang = (document.documentElement.lang === 'fa') ? 'fa' : 'en';
+  var VOICES = [];
+  var synth = window.speechSynthesis || null;
+
+  function loadVoices(){ if(synth){ try { VOICES = synth.getVoices() || []; } catch(e){ VOICES = []; } } }
+  if(synth){ loadVoices(); synth.addEventListener('voiceschanged', function(){ loadVoices(); render(); }); }
+
+  function voiceFor(lang){
+    if(!VOICES.length) return null;
+    if(lang==='fa') return VOICES.filter(function(v){ return /^fa(\b|-|_)/i.test(v.lang) || /persian|farsi/i.test(v.name); })[0] || null;
+    return VOICES.filter(function(v){ return /^en-GB/i.test(v.lang); })[0]
+        || VOICES.filter(function(v){ return /^en/i.test(v.lang); })[0] || null;
+  }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function bracketHtml(s){ return esc(s).replace(/\(/g,'<span class="b">(</span>').replace(/\)/g,'<span class="b">)</span>'); }
+
+  function build(ex, rd, lang){
+    var T = LAB[lang];
+    var chips = EX.map(function(e,i){ return '<button class="lab-chip'+(i===state.ex?' on':'')+'" data-ex="'+i+'">'+esc(e.chip[lang])+'</button>'; }).join('');
+    var exprHtml = '';
+    ex.tokens.forEach(function(t,i){
+      if(ex.gaps.indexOf(i) >= 0){
+        var on = (i===rd.gap);
+        exprHtml += '<button class="gapslot'+(on?' on':'')+'" data-gap="'+i+'" aria-label="place the pause here">'+(on?'\u2039\u00b7\u203a':'\u00b7')+'</button>';
+      }
+      var isop = (t==='+'||t==='\u00d7'||t==='\u2212');
+      exprHtml += '<span class="tok'+(isop?' op':'')+'">'+esc(t)+'</span>';
+    });
+    var faMissing = (lang==='fa' && synth && !voiceFor('fa'));
+    return '<div class="lab">'
+      + '<div class="lab-head"><span class="lab-kicker">'+esc(T.kicker)+'</span><span class="lab-hint">'+esc(T.hint)+'</span></div>'
+      + '<div class="lab-presets">'+chips+'</div>'
+      + '<div class="lab-stage">'
+      +   '<div class="expr" id="labExpr">'+exprHtml+'</div>'
+      +   '<div class="reading">'+bracketHtml(rd.bracket[lang])+'<span class="result">= <span class="rv" id="labVal">'+esc(rd.value[lang])+'</span></span></div>'
+      +   '<div class="lab-note">'+esc(rd.note[lang])+'</div>'
+      + '</div>'
+      + '<div class="lab-foot"><button class="hear-btn" id="labHear"><span class="ico" aria-hidden="true">\uD83D\uDD0A</span><span class="lbl">'+esc(T.hear)+'</span></button>'
+      +   (faMissing ? '<span class="hear-note">'+esc(T.novoice)+'</span>' : '')
+      + '</div>'
+      + '</div>';
+  }
+
+  function render(){
+    var lang = curLang;
+    document.querySelectorAll('.artic-slot').forEach(function(s){ if(s.getAttribute('data-lang-slot')!==lang) s.innerHTML=''; });
+    var slot = document.querySelector('.artic-slot[data-lang-slot="'+lang+'"]');
+    if(!slot) return;
+    var ex = EX[state.ex], rd = ex.readings[state.rd];
+    slot.innerHTML = build(ex, rd, lang);
+    wire(slot, ex);
+  }
+
+  function wire(slot, ex){
+    slot.querySelectorAll('.lab-chip').forEach(function(b){
+      b.addEventListener('click', function(){ state.ex = +b.getAttribute('data-ex'); state.rd = 0; stop(); render(); });
+    });
+    slot.querySelectorAll('.gapslot').forEach(function(b){
+      b.addEventListener('click', function(){
+        var g = +b.getAttribute('data-gap');
+        var idx = -1;
+        ex.readings.forEach(function(r,i){ if(r.gap===g) idx=i; });
+        if(idx>=0 && idx!==state.rd){ state.rd = idx; stop(); render(); var v=document.getElementById('labVal'); if(v){ void v.offsetWidth; v.classList.add('result-pop'); } }
+      });
+    });
+    var hb = slot.querySelector('#labHear');
+    if(hb) hb.addEventListener('click', speak);
+  }
+
+  var speakingBtn = null;
+  function stop(){
+    if(synth){ try { synth.cancel(); } catch(e){} }
+    if(speakingBtn){ speakingBtn.classList.remove('speaking'); var l=speakingBtn.querySelector('.lbl'); if(l) l.textContent=LAB[curLang].hear; speakingBtn=null; }
+    var e=document.getElementById('labExpr'); if(e) e.classList.remove('speaking');
+  }
+
+  function speak(){
+    if(!synth){ return; }
+    stop();
+    var ex = EX[state.ex], rd = ex.readings[state.rd], lang = curLang;
+    var say = rd.say[lang];
+    var v = voiceFor(lang);
+    var code = (lang==='fa') ? 'fa-IR' : ((v && v.lang) || 'en-GB');
+    var equalsWord = (lang==='fa') ? ('\u0645\u06cc\u200c\u0634\u0648\u062f '+say.result) : ('equals '+say.result);
+    var parts = [ {t:say.chunks[0], gap:580}, {t:say.chunks[1], gap:380}, {t:equalsWord, gap:0} ];
+    var btn = document.getElementById('labHear'); speakingBtn = btn;
+    if(btn){ btn.classList.add('speaking'); var l=btn.querySelector('.lbl'); if(l) l.textContent=LAB[lang].speaking; }
+    var expr = document.getElementById('labExpr'); if(expr) expr.classList.add('speaking');
+    var i = 0;
+    (function nextPart(){
+      if(i >= parts.length){ stop(); return; }
+      var u = new SpeechSynthesisUtterance(parts[i].t);
+      u.lang = code; if(v) u.voice = v; u.rate = (lang==='fa') ? 0.9 : 0.95; u.pitch = 1;
+      var gap = parts[i].gap;
+      u.onend = function(){ i++; setTimeout(nextPart, gap); };
+      u.onerror = function(){ i++; setTimeout(nextPart, 60); };
+      try { synth.speak(u); } catch(e){ i++; setTimeout(nextPart, 60); }
+    })();
+  }
+
+  window.__onLang = function(lang){ curLang = (lang==='fa') ? 'fa' : 'en'; stop(); render(); };
+  render();
+})();
 </script>
 <script src="../counter.js"></script>
 </body>

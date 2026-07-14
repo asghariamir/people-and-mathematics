@@ -199,6 +199,17 @@
     .footer { padding: 28px 20px 44px; }
     .footer-right { align-items: flex-start; }
   }
+
+  /* Contribute modal */
+  .pm-modal-backdrop { position: fixed; inset: 0; background: rgba(13,12,11,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+  .pm-modal-backdrop.open { display: flex; }
+  .pm-modal { background: var(--pm-paper); border: 1px solid var(--pm-ink); border-radius: 12px; max-width: 430px; width: 100%; padding: 32px 32px 28px; box-shadow: 0 24px 60px rgba(13,12,11,0.35); position: relative; }
+  .pm-modal h3 { margin: 0 0 12px; font-size: 25px; font-weight: 500; letter-spacing: -0.01em; }
+  .pm-modal p { margin: 0 0 18px; font-size: 15.5px; line-height: 1.65; color: #43392E; }
+  .pm-modal a.email { display: inline-block; font-weight: 600; color: var(--pm-accent); font-size: 18px; text-decoration: none; word-break: break-all; }
+  .pm-modal a.email:hover { text-decoration: underline; }
+  .pm-modal-close { position: absolute; top: 10px; inset-inline-end: 14px; background: none; border: 0; font-size: 26px; line-height: 1; color: #6B6155; cursor: pointer; padding: 4px; }
+  .pm-modal-close:hover { color: var(--pm-ink); }
 </style>
 </head>
 <body>
@@ -403,6 +414,19 @@ function render(lang){
       + '</div>'
     + '</div></section>';
 
+  var contribBody = isFa
+    ? "اگر احساس می‌کنید چیزی برای هم‌رساندن دارید، آن را با سردبیر در میان بگذارید:"
+    : "If you feel you have something to share, please share it with the editor:";
+  var contributeModalHtml =
+    '<div class="pm-modal-backdrop" id="pm-contribute-modal" dir="'+(isFa?'rtl':'ltr')+'">'
+      + '<div class="pm-modal">'
+        + '<button class="pm-modal-close" type="button" id="pm-contribute-close" aria-label="'+(isFa?'بستن':'Close')+'">\u00d7</button>'
+        + '<h3>'+esc(nav.submit)+'</h3>'
+        + '<p>'+esc(contribBody)+'</p>'
+        + '<a class="email sans" href="mailto:'+esc(contactEmail)+'">'+esc(contactEmail)+'</a>'
+      + '</div>'
+    + '</div>';
+
   document.getElementById("app").innerHTML =
     '<div class="topband">'
       + '<div class="brand">'
@@ -410,7 +434,7 @@ function render(lang){
         + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
       + '</div>'
       + '<nav class="menu sans">'
-        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="#why-donate" style="text-decoration:none;color:inherit;">'+esc(nav.donate)+'</a><a href="mailto:'+esc(contactEmail)+'?subject='+encodeURIComponent(isFa?"مشارکت در آدم‌ها و ریاضیات":"Contributing to People and Mathematics")+'" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
+        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="#why-donate" style="text-decoration:none;color:inherit;">'+esc(nav.donate)+'</a><a href="#" id="pm-contribute-link" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
         + '<div class="langtoggle">'
           + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
           + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
@@ -473,7 +497,8 @@ function render(lang){
       + '</div>'
     + '</footer>'
 
-    + aboutCardHtml;
+    + aboutCardHtml
+    + contributeModalHtml;
 
   // wire the subscribe form: post to a connected service if set, else open the visitor's email app
   var sf = document.getElementById("pm-subform");
@@ -487,6 +512,17 @@ function render(lang){
       var body = (nm ? ((isFa?"نام: ":"Name: ")+nm+"\n") : "") + (isFa?"ایمیل: ":"Email: ")+em;
       window.location.href = "mailto:"+contactEmail+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
     });
+  }
+
+  var cLink = document.getElementById("pm-contribute-link");
+  var cModal = document.getElementById("pm-contribute-modal");
+  if (cLink && cModal){
+    var closeC = function(){ cModal.classList.remove("open"); };
+    cLink.addEventListener("click", function(e){ e.preventDefault(); cModal.classList.add("open"); });
+    var cClose = document.getElementById("pm-contribute-close");
+    if (cClose) cClose.addEventListener("click", closeC);
+    cModal.addEventListener("click", function(e){ if (e.target === cModal) closeC(); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeC(); });
   }
 
   // wire language toggle + remember choice

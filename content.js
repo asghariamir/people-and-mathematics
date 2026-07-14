@@ -49,6 +49,15 @@ window.PM_CONTENT = {
   /* ---- Contact address, also the “from” for subscriber emails ---- */
   contactEmail: "amir@mathswell.com",
 
+  /* ---- Card image (automatic) ----
+     A work's card / lead thumbnail is the author's photo by default: whenever
+     a work has an  authorImg , that portrait is used as its picture — so a
+     new piece by a contributor automatically shows their face, and you never
+     have to copy the portrait into  imgSrc  by hand. Set  cardImg  only to
+     override this (e.g. a report that should show an event logo instead).
+     Falls back to  imgSrc , then to the labelled placeholder ( img ). */
+  cardImage: function (w) { return (w && (w.cardImg || w.authorImg || w.imgSrc)) || ""; },
+
   /* ---- Subscribe form endpoint ----
      A plain web page cannot store sign-ups by itself. Create a free list
      on an email service (Buttondown is ideal — it can auto-email your
@@ -250,7 +259,7 @@ window.PM_CONTENT = {
       en: { title: "Counting Like a Beginner",
             dek: "Zohreh Pandi puts the teacher in the child's shoes: count with the words of a rhyme to feel what a beginner feels, then read a ten-frame without counting. In English for the first time, now interactive. Originally WikiLetter No. 15.",
             author: "Zohreh Pandi", meta: "Interactive · Classroom notes" },
-      fa: { title: "موقعیت مشابه",
+      fa: { title: "موقعیت مشابه؛ برای همدلی با کودکی که می‌شمارد!",
             dek: "زهره پندی معلم را جای کودک می‌نشاند: با کلماتِ یک شعر بشمار تا حسِ یک نوآموز را بچشی، بعد قابِ ده‌تایی را بی‌شمارش بخوان. اکنون تعاملی. نخست ویکی‌نوشتِ شماره‌ی ۱۵.",
             author: "زهره پندی", meta: "تعاملی · یادداشت‌های کلاسی" } },
 
@@ -362,19 +371,19 @@ window.PM_CONTENT = {
 
     { section: "concepts", featured: false,
       href: "articles/circle.html",
-      added: "2026-06-15",
+      added: "2026-07-13",
       issue: 1,
       level: "school",
       imgSrc: "assets/amir.jpg",
       authorImg: "assets/amir.jpg",
-      img: "diagram — nine years of textbooks",
-      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
-      en: { title: "What is a circle?",
-            dek: "It enters school in the first grade and returns every year after — yet a student can reach the end of school still unable to say what a circle is. A walk through nine years of textbooks.",
-            author: "Amir Asghari", meta: "Notes of a teacher" },
-      fa: { title: "دایره چیست؟",
-            dek: "دایره از همان سالِ اولِ دبستان وارد آموزش می‌شود و هر سال بازمی‌گردد — اما دانش‌آموز در پایانِ مدرسه هنوز نمی‌تواند بگوید دایره چیست. مروری بر نُه سال کتابِ درسی.",
-            author: "امیر اصغری", meta: "یادداشت‌های یک معلم" } },
+      img: "the circle, the disk, and the ring",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "The circle and its look-alikes",
+            dek: "It arrives on the first days of school and comes back every single year — yet students leave unable to say what it is. An essay, with figures you can play with, on the definition they were never let experience from both sides.",
+            author: "Amir Asghari", meta: "Interactive essay" },
+      fa: { title: "دایره و دایره‌نماها",
+            dek: "از نخستین روزهای مدرسه می‌آید و هر سال بازمی‌گردد — اما دانش‌آموز در پایان نمی‌تواند بگوید دایره چیست. جستاری، با شکل‌هایی که می‌توان با آن‌ها کار کرد، درباره‌ی تعریفی که هرگز از هر دو سو تجربه نشد.",
+            author: "امیر اصغری", meta: "جستارِ تعاملی" } },
 
     /* ---- Face to Face with Mathematics ---- */
     { section: "conversations", featured: false,
@@ -451,10 +460,11 @@ window.PM_CONTENT = {
       issue: 1,
       level: "school",
       imgSrc: "assets/wim/wim-logo-mark.png",
+      cardImg: "assets/wim/wim-logo-mark.png",
       authorImg: "assets/wim/authors-farnaz-bamdad.jpg",
-      img: "logo — Women's Week in Mathematics",
+      img: "logo — Women in Mathematics Event",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
-      en: { title: "Women's Week in Mathematics",
+      en: { title: "Women in Mathematics Event",
             dek: "How students at Sharif built a two-year celebration of Maryam Mirzakhani — and everything it took to hold it. A report kept for the record, in the organizers' own words.",
             author: "Farnaz Haj Manouchehri & Bamdad Torabi", meta: "Report" },
       fa: { title: "رویدادِ زن در ریاضیات",
@@ -502,7 +512,7 @@ window.PM_CONTENT = {
 
   /* =========================  ENGLISH CHROME  ===================== */
   en: {
-    nav: { issues: "Sections", sections: "Read", about: "About", submit: "Contribute" },
+    nav: { issues: "Sections", sections: "Read", about: "About", submit: "Contribute", donate: "Why donate" },
 
     issueKicker: "An open journal · since June 2026",
     subtitle: "A bilingual journal for teaching, thinking, and conversation in mathematics.",
@@ -540,12 +550,12 @@ window.PM_CONTENT = {
 
     noteLabel: "From the Editors",
     noteTitle: "Why a bilingual journal",
-    noteBody: "Mathematics is made by people, in places, in languages. We wanted a room where teaching and thinking could happen in Persian and English at once — not translated past one another, but side by side. People and Mathematics is an open journal: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
+    noteBody: "Mathematics is made by people, in places, in languages. We wanted a place where the location we are in and the language we speak are no barrier to us — people who want to share their love of mathematics, and through it learn about each other. People and Mathematics is an open journal: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
     noteSign: "The Editors",
 
-    getKicker: "For teaching",
+    getKicker: "Why donate",
     getTitle: "For teaching — for everyone who keeps trying.",
-    getBody: "Every article can be downloaded as a PDF from its own page — free to read, print, and share in class. And when you download one, you’re invited to support People and Mathematics: not only this journal, but something far larger than it.",
+    getBody: "The journal is free to use. Every article can be downloaded as a PDF from its own page — free to read, print, and share in class. And yet, without your support, our passion might not carry us far enough. So please consider supporting People and Mathematics — to keep it alive not only for those who might learn from it, but also for those whose contribution to the journal is their own way to freedom.",
     browseCta: "Browse the sections",
     browseMeta: "Six sections · pick one",
     donateCta: "Pay what you like",
@@ -566,7 +576,7 @@ window.PM_CONTENT = {
 
   /* =========================  PERSIAN CHROME  ==================== */
   fa: {
-    nav: { issues: "بخش‌ها", sections: "خواندن", about: "درباره", submit: "مشارکت" },
+    nav: { issues: "بخش‌ها", sections: "خواندن", about: "درباره", submit: "مشارکت", donate: "چرا حمایت؟" },
 
     issueKicker: "مجله‌ای باز · از خرداد ۱۴۰۵",
     subtitle: "مجله‌ای دوزبانه برای آموزش، اندیشیدن و گفت‌وگو در ریاضیات.",
@@ -603,12 +613,12 @@ window.PM_CONTENT = {
 
     noteLabel: "از سردبیران",
     noteTitle: "چرا مجله‌ای دوزبانه",
-    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم اتاقی باشد که آموزش و اندیشیدن، هم‌زمان به فارسی و انگلیسی در آن رخ دهد — نه ترجمه‌ای از کنارِ هم، بلکه در کنارِ هم. «آدم‌ها و ریاضیات» مجله‌ای باز است: هر گاه کاری تازه آماده شود به بخش‌هایش افزوده می‌شود و مقاله‌ی اصلی هرازگاهی تغییر می‌کند. از آنِ خوانندگانش است. برای ما بنویسید.",
+    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم جایی باشد که مکانی که در آن هستیم و زبانی که به آن سخن می‌گوییم مانعِ ما نباشد — ما، آدم‌هایی که می‌خواهیم عشقمان به ریاضی را با هم قسمت کنیم و از این راه یکدیگر را بشناسیم. «آدم‌ها و ریاضیات» مجله‌ای باز است: هر گاه کاری تازه آماده شود به بخش‌هایش افزوده می‌شود و مقاله‌ی اصلی هرازگاهی تغییر می‌کند. از آنِ خوانندگانش است. برای ما بنویسید.",
     noteSign: "سردبیران",
 
-    getKicker: "برای آموزش",
+    getKicker: "چرا حمایت؟",
     getTitle: "برای آموزش، برای آن‌ها که می‌کوشند.",
-    getBody: "هر مقاله را می‌توانید از صفحهٔ خودش به شکلِ پی‌دی‌اف دانلود کنید — رایگان، برای خواندن، چاپ‌کردن و هم‌رسانی در کلاس. و آن‌گاه که یکی را دانلود می‌کنید، دعوت می‌شوید که از «آدم‌ها و ریاضیات» حمایت کنید: نه تنها این مجله، که چیزی بسیار فراتر از آن.",
+    getBody: "این مجله رایگان است. هر مقاله را می‌توانید از صفحهٔ خودش به‌شکلِ پی‌دی‌اف دانلود کنید — برای خواندن، چاپ‌کردن و هم‌رسانی در کلاس. و با این‌همه، بی‌پشتیبانیِ شما، شورِ ما شاید ما را چندان دور نبرد. پس اگر می‌توانید، از «آدم‌ها و ریاضیات» حمایت کنید — تا زنده بماند؛ نه تنها برای آن‌ها که از آن می‌آموزند، که برای آن‌ها نیز که مشارکت در این مجله راهِ آزادیِ آنان است.",
     browseCta: "مرورِ بخش‌ها",
     browseMeta: "شش بخش · یکی را برگزینید",
     donateCta: "هر اندازه که دوست دارید",

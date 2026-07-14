@@ -265,10 +265,11 @@ function render(lang){
   function workCard(w){
     var t = w[lang] || w.en || {};
     var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
-    var thumb = w.imgSrc
-      ? '<div class="thumb" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(w.imgSrc)+'" alt="'+esc(t.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
+    var ci = DATA.cardImage(w);
+    var thumb = ci
+      ? '<div class="thumb" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(ci)+'" alt="'+esc(t.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
       : '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(w.img)+'</span></div>';
-    var avatar = (w.authorImg && w.authorImg !== w.imgSrc)
+    var avatar = (w.authorImg && w.authorImg !== ci)
       ? '<img class="avatar-chip" src="'+esc(w.authorImg)+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
     var iss = issueOfWork(w);
     var issTag = (iss && effClosed(iss))
@@ -381,23 +382,24 @@ function render(lang){
     ? '<a class="dedline sans" href="'+esc(dedUrl)+'"><span class="heart">♦</span><span class="dedline-txt">'+esc(c.dedication)+'</span><span class="go">'+arrow+'</span></a>'
     : '';
   var heart = isFa ? "♥" : "♥";
-  var noteHtml =
-    '<aside class="note" id="about">'
-      + '<div class="sans accent" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;">'+esc(c.noteLabel)+'</div>'
-      + '<h3>'+esc(c.noteTitle)+'</h3>'
-      + '<p class="sans" style="margin:0;font-size:15px;line-height:1.7;color:#D9D0C0;">'+esc(c.noteBody)+'</p>'
-      + '<div class="sans" style="margin-top:18px;font-size:13px;color:#8C8474;">— '+esc(c.noteSign)+'</div>'
-    + '</aside>';
+  var aboutCardHtml =
+    '<section class="getissue" id="about"><div class="getissue-in wrap" style="grid-template-columns:1fr;">'
+      + '<div>'
+        + '<div class="kicker sans">'+esc(c.noteLabel)+'</div>'
+        + '<h3>'+esc(c.noteTitle)+'</h3>'
+        + '<p>'+esc(c.noteBody)+'</p>'
+        + '<div class="sans" style="margin-top:18px;font-size:14px;color:#8C8474;">— '+esc(c.noteSign)+'</div>'
+      + '</div>'
+    + '</div></section>';
   var getIssueHtml =
-    '<section class="getissue"><div class="getissue-in wrap">'
+    '<section class="getissue" id="why-donate"><div class="getissue-in wrap">'
       + '<div>'
         + '<div class="kicker sans">'+esc(c.getKicker)+'</div>'
         + '<h3>'+esc(c.getTitle)+'</h3>'
         + '<p>'+esc(c.getBody)+'</p>'
       + '</div>'
       + '<div class="getissue-actions">'
-        + '<a class="btn-pdf sans" href="#sections"><span>→</span><span>'+esc(c.browseCta)+'</span></a><div class="btn-meta sans">'+esc(c.browseMeta)+'</div>'
-        + (donateUrl ? '<a class="btn-donate sans" href="'+esc(donateUrl)+'" target="_blank" rel="noopener"><span class="btn-heart">'+heart+'</span><span>'+esc(c.donateCta)+'</span></a><div class="btn-meta sans">'+esc(c.donateMeta)+'</div>' : '')
+        + (donateUrl ? '<a class="btn-pdf sans" href="'+esc(donateUrl)+'" target="_blank" rel="noopener"><span class="btn-heart">'+heart+'</span><span>'+esc(c.donateCta)+'</span></a><div class="btn-meta sans">'+esc(c.donateMeta)+'</div>' : '')
       + '</div>'
     + '</div></section>';
 
@@ -408,7 +410,7 @@ function render(lang){
         + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
       + '</div>'
       + '<nav class="menu sans">'
-        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="mailto:'+esc(contactEmail)+'?subject='+encodeURIComponent(isFa?"مشارکت در آدم‌ها و ریاضیات":"Contributing to People and Mathematics")+'" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
+        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="#why-donate" style="text-decoration:none;color:inherit;">'+esc(nav.donate)+'</a><a href="mailto:'+esc(contactEmail)+'?subject='+encodeURIComponent(isFa?"مشارکت در آدم‌ها و ریاضیات":"Contributing to People and Mathematics")+'" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
         + '<div class="langtoggle">'
           + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
           + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
@@ -449,11 +451,6 @@ function render(lang){
       + '<div class="features-grid">'+featuresHtml+'</div>'
     + '</section>'
 
-    + '<section class="lower wrap">'
-      + '<div><div class="toc-label sans" style="padding-left:0;padding-right:0;display:flex;align-items:baseline;gap:12px;"><span>'+esc(c.alsoLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.alsoTag)+'</span></div>'+(alsoHtml || '<div class="sans" style="padding:16px 0;color:#948876;font-size:14px;">—</div>')+'</div>'
-      + noteHtml
-    + '</section>'
-
     + contributorsStrip
 
     + getIssueHtml
@@ -474,7 +471,9 @@ function render(lang){
         + '<div class="footer-links sans">'+footerLinksHtml+'</div>'
         + '<a class="yt sans" href="'+esc(YT)+'" target="_blank" rel="noopener"><span class="play">▶</span><span>'+esc(c.youtubeLabel)+'</span></a>'
       + '</div>'
-    + '</footer>';
+    + '</footer>'
+
+    + aboutCardHtml;
 
   // wire the subscribe form: post to a connected service if set, else open the visitor's email app
   var sf = document.getElementById("pm-subform");

@@ -222,7 +222,7 @@
 
     <h2 class="subhead">Primes in a nutshell</h2>
 
-    <p>That simple indexing raises immediate questions. <em>Is the sequence infinite?</em> Yes — by Euclid's theorem, given any prime we can always find a larger one. <em>How large is the <span class="ltr">\(n\)</span>th prime?</em> Roughly <span class="ltr">\(n \log n\)</span>, so <span class="ltr">\(p_n\)</span> grows faster than <span class="ltr">\(n\)</span> but slower than <span class="ltr">\(n^2\)</span>; for instance <span class="ltr">\(p_{100}=541\)</span> and <span class="ltr">\(p_{10{,}000}=104{,}729\)</span>. <em>How many primes lie below a given <span class="ltr">\(x\)</span>?</em> By the Prime Number Theorem, the counting function is asymptotically <span class="ltr">\(x/\log x\)</span>.</p>
+    <p>That simple indexing raises immediate questions. <em>Is the sequence infinite?</em> Yes — by Euclid's theorem, given any prime we can always find a larger one. <em>How large is the <span class="ltr">\(n\)</span>th prime?</em> Roughly <span class="ltr">\(n \log n\)</span>, so <span class="ltr">\(p_n\)</span> grows faster than <span class="ltr">\(n\)</span> but slower than <span class="ltr">\(n^2\)</span>; for instance <span class="ltr">\(p_{100}=541\)</span> and <span class="ltr">\(p_{10{,}000}=104{,}729\)</span>. <em>How many primes lie below a given <span class="ltr">\(x\)</span>?</em> By the Prime Number Theorem, the counting function <span class="ltr">\(\pi(x)\)</span> is asymptotically <span class="ltr">\(x/\log x\)</span>.</p>
 
     <p>Apart from the anomaly at the start — <span class="sans">2</span> being the only even prime — primes are odd and their gaps are even. The gap between successive primes can be as small as <span class="sans">2</span> (twin primes) and can grow arbitrarily large. I use the common definition <span class="ltr">\(g_n = p_{n+1} - p_n\)</span>. A superficial glance suggests the gaps have no pattern; in truth, primes are far from randomly distributed. The Prime Number Theorem even hands us the average gap between consecutive primes up to <span class="ltr">\(p_n\)</span>, namely <span class="ltr">\(\log n\)</span>.</p>
 
@@ -248,9 +248,9 @@
         <span class="rd"><span class="k">prime <i class="sym">p<sub>n</sub></i></span><b id="rd-pn">113</b></span>
         <span class="rd"><span class="k">gap <i class="sym">g<sub>n</sub></i></span><b id="rd-gn">14</b></span>
         <span class="rd"><span class="k">max gap <i class="sym">G<sub>n</sub></i></span><b id="rd-Gn">14</b></span>
-        <span class="rd big"><span class="k">nth root <i class="sym">p<sub>n</sub><sup>1/n</sup></i></span><b id="rd-root">1.170673</b></span>
+        <span class="rd big"><span class="k">nth root of <i class="sym">p<sub>n</sub></i></span><b id="rd-root">1.170673</b></span>
       </div>
-      <div class="pg-hint">Drag the slider or hover the curve. Every step down is Firoozbakht's claim in action: <i class="sym">p<sub>n</sub><sup>1/n</sup></i> never rises again — the curve dips hardest exactly where a large gap appears.</div>
+      <div class="pg-hint">Drag the slider or hover the curve. Every step down is Firoozbakht's claim in action: <i class="sym">p<sub>n</sub><sup>1/n</sup></i> never rises — the curve dips hardest exactly where a large gap appears.</div>
     </div>
 
     <p>Primes are not mere curiosities: they appear across mathematics and underpin the security of computers and communications. Their study goes back at least 2,300 years, to Euclid's proof by contradiction that there are infinitely many. Around 240 BCE, Eratosthenes gave a sieve — still bearing his name — for finding every prime up to a given <span class="ltr">\(x\)</span>. We will return to that sieve at the end, because it sits at the heart of the puzzle this essay is really about.</p>
@@ -278,7 +278,7 @@
 
     <div class="eq">\[ p_n^{1/n} \;>\; p_{n+1}^{1/(n+1)} \qquad\text{for every } n. \]</div>
 
-    <p>Rearranged, this says <span class="ltr">\(p_{n+1} < p_n^{\,(n+1)/n}\)</span>, or in terms of the gap, <span class="ltr">\(g_n < p_n\bigl(p_n^{1/n}-1\bigr)\)</span>. If we define the <em>relative</em> gap <span class="ltr">\(r_n = p_{n+1}/p_n\)</span>, the conjecture says simply that <span class="ltr">\(r_n\)</span> is bounded above by <span class="ltr">\(p_n^{1/n}\)</span>. What makes it striking is how it compares to other proposed bounds on the maximum gap. The figure below — which I would normally reproduce from Wikipedia as a static image — is here alive: three conjectured bounds due to Firoozbakht, Cramér and Granville, drawn against the actual record gaps.</p>
+    <p>Rearranged, this says <span class="ltr">\(p_{n+1} < p_n^{\,1 + 1/n}\)</span>, or in terms of the gap, <span class="ltr">\(g_n < p_n\bigl(p_n^{1/n}-1\bigr)\)</span>. If we define the <em>relative</em> gap <span class="ltr">\(r_n = p_{n+1}/p_n\)</span>, the conjecture says simply that <span class="ltr">\(r_n\)</span> is bounded above by <span class="ltr">\(p_n^{1/n}\)</span>. What makes it striking is how it compares to other proposed bounds on the maximum gap. The figure below — which I would normally reproduce from Wikipedia as a static image — is here alive: three conjectured bounds due to Firoozbakht, Cramér and Granville, drawn against the actual record gaps.</p>
 
     <!-- INTERACTIVE 2 -->
     <div class="playground" id="pg-bounds">
@@ -290,7 +290,7 @@
       </div>
       <div class="pg-canvas-wrap"><canvas id="boundsCanvas" height="440"></canvas></div>
       <div class="pg-legend" id="bnd-legend"></div>
-      <div class="pg-hint" data-en="Axes follow the original figure: gap size across, prime size (log scale) up. A point (g, p) means a gap of g first opens at prime p. Click a legend item to toggle it; hover the chart to read every series at a given gap. Firoozbakht's bound (green) sits highest — for a given gap it demands the largest prime, which is why it is the tightest ceiling on how far primes can drift apart." data-fa="محورها مطابقِ شکلِ اصلی‌اند: اندازه‌ی فاصله در افق، اندازه‌ی عددِ اول (مقیاسِ لگاریتمی) در قائم. نقطه‌ی (g, p) یعنی فاصله‌ای به بزرگیِ g نخستین‌بار نزدِ عددِ اولِ p باز می‌شود. برای خاموش‌وروشن‌کردن روی هر عنوان در راهنما بزنید؛ برای خواندنِ همه‌ی خط‌ها در یک فاصله، روی نمودار بایستید. کرانِ فیروزبخت (سبز) بالاتر از همه است — برای یک فاصله‌ی معین بزرگ‌ترین عددِ اول را می‌طلبد، و به همین دلیل تنگ‌ترین سقف بر دورشدنِ اعداد اول از هم است."></div>
+      <div class="pg-hint" data-en="Axes follow the original figure: gap size across, prime size (log scale) up. A point (g, p) means a gap of g first opens at prime p. Hover the chart to read every series at a given gap. Firoozbakht's bound (green) sits highest — for a given gap it demands the largest prime, which is why it is the tightest ceiling on how far primes can drift apart." data-fa="محورها مطابقِ شکلِ اصلی‌اند: اندازه‌ی فاصله در افق، اندازه‌ی عددِ اول (مقیاسِ لگاریتمی) در قائم. نقطه‌ی (g, p) یعنی فاصله‌ای به بزرگیِ g نخستین‌بار نزدِ عددِ اولِ p باز می‌شود. برای خواندنِ همه‌ی خط‌ها در یک فاصله، روی نمودار بایستید. کرانِ فیروزبخت (سبز) بالاتر از همه است — برای یک فاصله‌ی معین بزرگ‌ترین عددِ اول را می‌طلبد، و به همین دلیل تنگ‌ترین سقف بر دورشدنِ اعداد اول از هم است."></div>
     </div>
 
     <p>These three are not the only bounds, of course. Bertrand's postulate — that there is always a prime between <span class="ltr">\(x\)</span> and <span class="ltr">\(2x\)</span>, conjectured in 1845 and proved by Chebyshev in 1852 — already gives <span class="ltr">\(g_n < p_n\)</span>, but that is far looser than Firoozbakht's and the others now available.</p>
@@ -331,7 +331,7 @@
         <span class="rd"><span class="k" data-en="candidates remaining" data-fa="نامزدهای باقی‌مانده"></span><b id="sv-primes">0</b></span>
         <span class="rd"><span class="k" data-en="elimination operations" data-fa="عملیاتِ حذف"></span><b id="sv-ops">0</b></span>
       </div>
-      <div class="pg-hint" data-en="Accent squares are primes; faded squares have been struck out as multiples. The real cost of the sieve is almost linear in x — cheap. The trouble is never the arithmetic. It is the memory the vector needs, and the alternative if you have none, as the next panel makes plain." data-fa="مربع‌های پررنگ عددِ اول‌اند؛ مربع‌های کم‌رنگ به‌عنوانِ مضرب حذف شده‌اند. هزینه‌ی واقعیِ غربال تقریباً خطی نسبت به x است — ارزان. دردسر هرگز خودِ محاسبه نیست؛ حافظه‌ای است که بردار می‌طلبد، و راهِ جایگزین اگر حافظه‌ای در کار نباشد — که پنل بعدی آن را روشن می‌کند."></div>
+      <div class="pg-hint" data-en="Click the ringed square — the next number still standing, which is always the next prime — to strike out its multiples yourself; or press Step to take one prime at a time, or Run to let it finish. Accent squares are primes; faded squares have been struck out as multiples. The real cost is never the arithmetic — it is the memory the vector needs, and the alternative if you have none, as the next panel makes plain." data-fa="روی مربعِ حلقه‌دار — نخستین عددِ هنوز ایستاده، که همواره عددِ اولِ بعدی است — کلیک کنید تا خودتان مضرب‌هایش را حذف کنید؛ یا «یک گام» را بزنید تا هر بار یک عددِ اول پیش برود، یا «اجرا» تا کار تمام شود. مربع‌های پررنگ عددِ اول‌اند و مربع‌های کم‌رنگ به‌عنوانِ مضرب حذف شده‌اند. دردسرِ واقعی هرگز خودِ محاسبه نیست؛ حافظه‌ای است که بردار می‌طلبد، و راهِ جایگزین اگر حافظه‌ای در کار نباشد — که پنل بعدی آن را روشن می‌کند."></div>
     </div>
 
     <p>The number of strike-outs is <span class="ltr">\(x\bigl(\tfrac12+\tfrac13+\tfrac15+\tfrac17+\cdots\bigr)\)</span>, and Euler showed the sum in brackets grows only double-logarithmically — so the sieve's running time is nearly linear in <span class="ltr">\(x\)</span>. Cheap. But there are two catches, and both were fatal in 1982. The first is memory: the bit-vector needs <span class="ltr">\(x/8\)</span> bytes. The second is that <em>verifying primality by brute force</em> — dividing each candidate by the primes up to its square root, which is what you must do if you have no table — costs about <span class="ltr">\(x\cdot \pi(\sqrt{x}) \approx x\sqrt{x}/\log\sqrt{x}\)</span> operations. Dial <span class="ltr">\(x\)</span> up to Firoozbakht's limit and see what her one computer in all of the University of Isfahan would have faced:</p>
@@ -429,7 +429,7 @@
 
     <h2 class="subhead">اعداد اول، به‌اختصار</h2>
 
-    <p>همین اندیس‌گذاریِ ساده پرسش‌هایی فوری پیش می‌کشد. <em>آیا دنباله بی‌نهایت است؟</em> بله — طبقِ قضیه‌ی اقلیدس، به‌ازای هر عددِ اول همیشه می‌توان عددِ اولِ بزرگ‌تری یافت. <em><span class="ltr">\(n\)</span>اُمین عددِ اول چقدر بزرگ است؟</em> تقریباً <span class="ltr">\(n \log n\)</span>؛ پس <span class="ltr">\(p_n\)</span> تندتر از <span class="ltr">\(n\)</span> اما کندتر از <span class="ltr">\(n^2\)</span> رشد می‌کند؛ برای نمونه <span class="ltr"><i class="sym">p</i><sub>۱۰۰</sub> = ۵۴۱</span> و <span class="ltr"><i class="sym">p</i><sub>۱۰,۰۰۰</sub> = ۱۰۴,۷۲۹</span>. <em>چند عددِ اول کوچک‌تر از عددِ <span class="ltr">\(x\)</span> وجود دارد؟</em> طبقِ قضیه‌ی اعداد اول، تابعِ شمارنده به‌طورِ مجانبی برابرِ <span class="ltr">\(x/\log x\)</span> است.</p>
+    <p>همین اندیس‌گذاریِ ساده پرسش‌هایی فوری پیش می‌کشد. <em>آیا دنباله بی‌نهایت است؟</em> بله — طبقِ قضیه‌ی اقلیدس، به‌ازای هر عددِ اول همیشه می‌توان عددِ اولِ بزرگ‌تری یافت. <em><span class="ltr">\(n\)</span>اُمین عددِ اول چقدر بزرگ است؟</em> تقریباً <span class="ltr">\(n \log n\)</span>؛ پس <span class="ltr">\(p_n\)</span> تندتر از <span class="ltr">\(n\)</span> اما کندتر از <span class="ltr">\(n^2\)</span> رشد می‌کند؛ برای نمونه <span class="ltr"><i class="sym">p</i><sub>۱۰۰</sub> = ۵۴۱</span> و <span class="ltr"><i class="sym">p</i><sub>۱۰,۰۰۰</sub> = ۱۰۴,۷۲۹</span>. <em>چند عددِ اول کوچک‌تر از عددِ <span class="ltr">\(x\)</span> وجود دارد؟</em> طبقِ قضیه‌ی اعداد اول، تابعِ شمارنده‌ی <span class="ltr">\(\pi(x)\)</span> به‌طورِ مجانبی برابرِ <span class="ltr">\(x/\log x\)</span> است.</p>
 
     <p>جز ناهنجاریِ آغازِ دنباله — که <span class="sans">۲</span> تنها عددِ اولِ زوج است — اعداد اول فردند و فاصله‌هایشان زوج. فاصله‌ی میانِ دو عددِ اولِ متوالی می‌تواند به کوچکیِ <span class="sans">۲</span> باشد (اعداد اولِ دوقلو) و می‌تواند هر اندازه بزرگ شود. من از تعریفِ رایج استفاده می‌کنم: <span class="ltr">\(g_n = p_{n+1} - p_n\)</span>. نگاهی سطحی می‌گوید فاصله‌ها الگویی ندارند؛ اما در حقیقت اعداد اول به‌هیچ‌رو تصادفی توزیع نشده‌اند. قضیه‌ی اعداد اول حتی میانگینِ فاصله‌ی اعداد اولِ متوالی تا <span class="ltr">\(p_n\)</span> را هم به دستمان می‌دهد: <span class="ltr">\(\log n\)</span>.</p>
 
@@ -455,7 +455,7 @@
         <span class="rd"><span class="k">عددِ اول <i class="sym">p<sub>n</sub></i></span><b id="rd-pn-fa">۱۱۳</b></span>
         <span class="rd"><span class="k">فاصله <i class="sym">g<sub>n</sub></i></span><b id="rd-gn-fa">۱۴</b></span>
         <span class="rd"><span class="k">بیشینه <i class="sym">G<sub>n</sub></i></span><b id="rd-Gn-fa">۱۴</b></span>
-        <span class="rd big"><span class="k">ریشه‌ی nاُم <i class="sym">p<sub>n</sub><sup>۱/n</sup></i></span><b id="rd-root-fa">۱٫۱۷۰۶۷۳</b></span>
+        <span class="rd big"><span class="k">ریشه‌ی nاُمِ <i class="sym">p<sub>n</sub></i></span><b id="rd-root-fa">۱٫۱۷۰۶۷۳</b></span>
       </div>
       <div class="pg-hint" dir="rtl">لغزنده را بکشید یا روی نمودار بایستید. هر پله‌ی روبه‌پایین، همان حدسِ فیروزبخت است در عمل: <i class="sym">p<sub>n</sub><sup>۱/n</sup></i> دیگر هرگز بالا نمی‌رود. ببینید که نمودار درست همان‌جا که فاصله‌ای بزرگ پیدا می‌شود، بیشترین افت را دارد.</div>
     </div>
@@ -485,7 +485,7 @@
 
     <div class="eq">\[ p_n^{1/n} \;>\; p_{n+1}^{1/(n+1)} \]<div style="font-size:14px;color:#6B6155;margin-top:4px;">برای هر \(n\)</div></div>
 
-    <p>با جابه‌جایی، این می‌گوید <span class="ltr">\(p_{n+1} < p_n^{\,(n+1)/n}\)</span>، یا به زبانِ فاصله، <span class="ltr">\(g_n < p_n\bigl(p_n^{1/n}-1\bigr)\)</span>. اگر فاصله‌ی <em>نسبی</em> را <span class="ltr">\(r_n = p_{n+1}/p_n\)</span> تعریف کنیم، حدس به‌سادگی می‌گوید <span class="ltr">\(r_n\)</span> از بالا با <span class="ltr">\(p_n^{1/n}\)</span> کران خورده است. آنچه حدس را چشمگیر می‌کند، مقایسه‌ی آن با دیگر کران‌های پیشنهادی برای بیشینه‌ی فاصله است. شکلِ زیر — که معمولاً آن را همچون تصویری ثابت از ویکی‌پدیا می‌آوردم — اینجا زنده است: سه کرانِ حدسیِ فیروزبخت، کرامِر و گرانویل، در برابرِ فاصله‌های رکوردِ واقعی رسم شده‌اند.</p>
+    <p>با جابه‌جایی، این می‌گوید <span class="ltr">\(p_{n+1} < p_n^{\,1 + 1/n}\)</span>، یا به زبانِ فاصله، <span class="ltr">\(g_n < p_n\bigl(p_n^{1/n}-1\bigr)\)</span>. اگر فاصله‌ی <em>نسبی</em> را <span class="ltr">\(r_n = p_{n+1}/p_n\)</span> تعریف کنیم، حدس به‌سادگی می‌گوید <span class="ltr">\(r_n\)</span> از بالا با <span class="ltr">\(p_n^{1/n}\)</span> کران خورده است. آنچه حدس را چشمگیر می‌کند، مقایسه‌ی آن با دیگر کران‌های پیشنهادی برای بیشینه‌ی فاصله است. شکلِ زیر — که معمولاً آن را همچون تصویری ثابت از ویکی‌پدیا می‌آوردم — اینجا زنده است: سه کرانِ حدسیِ فیروزبخت، کرامِر و گرانویل، در برابرِ فاصله‌های رکوردِ واقعی رسم شده‌اند.</p>
 
     <!-- INTERACTIVE 2 (fa mirror) -->
     <div class="playground" id="pg-bounds-fa">
@@ -497,7 +497,7 @@
       </div>
       <div class="pg-canvas-wrap"><canvas id="boundsCanvasFa" height="440"></canvas></div>
       <div class="pg-legend" id="bnd-legend-fa"></div>
-      <div class="pg-hint" dir="rtl">محورها مطابقِ شکلِ اصلی‌اند: اندازه‌ی فاصله در افق، اندازه‌ی عددِ اول (مقیاسِ لگاریتمی) در قائم. نقطه‌ی (g, p) یعنی فاصله‌ای به بزرگیِ g نخستین‌بار نزدِ عددِ اولِ p باز می‌شود. برای خاموش‌وروشن‌کردن روی هر عنوان در راهنما بزنید؛ برای خواندنِ همه‌ی خط‌ها در یک فاصله، روی نمودار بایستید. کرانِ فیروزبخت (سبز) بالاتر از همه است — برای یک فاصله‌ی معین بزرگ‌ترین عددِ اول را می‌طلبد، و به همین دلیل تنگ‌ترین سقف بر دورشدنِ اعداد اول از هم است.</div>
+      <div class="pg-hint" dir="rtl">محورها مطابقِ شکلِ اصلی‌اند: اندازه‌ی فاصله در افق، اندازه‌ی عددِ اول (مقیاسِ لگاریتمی) در قائم. نقطه‌ی (g, p) یعنی فاصله‌ای به بزرگیِ g نخستین‌بار نزدِ عددِ اولِ p باز می‌شود. برای خواندنِ همه‌ی خط‌ها در یک فاصله، روی نمودار بایستید. کرانِ فیروزبخت (سبز) بالاتر از همه است — برای یک فاصله‌ی معین بزرگ‌ترین عددِ اول را می‌طلبد، و به همین دلیل تنگ‌ترین سقف بر دورشدنِ اعداد اول از هم است.</div>
     </div>
 
     <p>البته این سه، تنها کران‌ها نیستند. اصلِ برتراند — که همیشه میانِ <span class="ltr"><i class="sym">x</i></span> و <span class="ltr">۲<i class="sym">x</i></span> عددی اول هست، در ۱۸۴۵ حدس زده شد و در ۱۸۵۲ به‌دستِ چِبیشُف اثبات شد — همین حالا <span class="ltr">\(g_n < p_n\)</span> را می‌دهد، اما این بسیار سست‌تر از کرانِ فیروزبخت و دیگر کران‌های در دسترسِ امروز است.</p>
@@ -538,7 +538,7 @@
         <span class="rd"><span class="k">نامزدهای باقی‌مانده</span><b id="sv-primes-fa">۰</b></span>
         <span class="rd"><span class="k">عملیاتِ حذف</span><b id="sv-ops-fa">۰</b></span>
       </div>
-      <div class="pg-hint" dir="rtl">مربع‌های پررنگ عددِ اول‌اند؛ مربع‌های کم‌رنگ به‌عنوانِ مضرب حذف شده‌اند. هزینه‌ی واقعیِ غربال تقریباً خطی نسبت به x است — ارزان. دردسر هرگز خودِ محاسبه نیست؛ حافظه‌ای است که بردار می‌طلبد، و راهِ جایگزین اگر حافظه‌ای در کار نباشد — که پنل بعدی آن را روشن می‌کند.</div>
+      <div class="pg-hint" dir="rtl">روی مربعِ حلقه‌دار — نخستین عددِ هنوز ایستاده، که همواره عددِ اولِ بعدی است — کلیک کنید تا خودتان مضرب‌هایش را حذف کنید؛ یا «یک گام» را بزنید تا هر بار یک عددِ اول پیش برود، یا «اجرا» تا کار تمام شود. مربع‌های پررنگ عددِ اول‌اند و مربع‌های کم‌رنگ به‌عنوانِ مضرب حذف شده‌اند. دردسرِ واقعی هرگز خودِ محاسبه نیست؛ حافظه‌ای است که بردار می‌طلبد، و راهِ جایگزین اگر حافظه‌ای در کار نباشد — که پنل بعدی آن را روشن می‌کند.</div>
     </div>
 
     <p>شمارِ خط‌زدن‌ها برابرِ <span class="ltr">\(x\bigl(\tfrac12+\tfrac13+\tfrac15+\tfrac17+\cdots\bigr)\)</span> است، و اویلر نشان داد که مجموعِ داخلِ پرانتز تنها دولگاریتمی رشد می‌کند — پس زمانِ اجرای غربال تقریباً خطی نسبت به <span class="ltr">\(x\)</span> است. ارزان. اما دو گیر وجود دارد، و هر دو در ۱۹۸۲ کُشنده بودند. نخست حافظه: بردارِ بیتی به <span class="ltr"><i class="sym">x</i>/۸</span> بایت نیاز دارد. دوم اینکه <em>تأییدِ اول‌بودن به‌روشِ سرراست</em> — تقسیمِ هر نامزد بر اعداد اولِ تا ریشه‌ی دومش، که اگر جدولی نداشته باشید ناچار به آن هستید — حدودِ <span class="ltr">\(x\cdot \pi(\sqrt{x}) \approx x\sqrt{x}/\log\sqrt{x}\)</span> عملیات می‌طلبد. <span class="ltr">\(x\)</span> را تا مرزِ فیروزبخت بالا ببرید و ببینید تنها کامپیوترِ کلِ دانشگاهِ اصفهان با چه چیزی روبه‌رو می‌شد:</p>
@@ -887,36 +887,51 @@ var COL = { paper:'#FDFAF3', ink:'#1C1814', accent:'#C8633E', line:'#E4DAC6', mu
   function build(ids){
     var cv=document.getElementById(ids.canvas); if(!cv) return null;
     var x=+document.getElementById(ids.x).value;
-    var state, primeIdx, timer=null;
+    var state, primeIdx, timer=null, rafId=null, nudgeUntil=0;
 
+    function geom(){
+      var cols=Math.ceil(Math.sqrt(x*2.2)); cols=Math.max(cols,15);
+      var pad=10; var wrapW=cv.parentElement.clientWidth;
+      var cell=Math.floor((wrapW-pad*2)/cols);
+      return { cols:cols, cell:cell, pad:pad };
+    }
     function reset(){
       x=+document.getElementById(ids.x).value;
       state=new Uint8Array(x+1); // 0 unknown, 1 prime, 2 composite
       for(var i=2;i<=x;i++) state[i]=1;
       state[0]=2; state[1]=2;
-      primeIdx=2; // current prime being processed
-      set(ids.xval, x); set(ids.cur,'—'); set(ids.ops,0); countPrimes(); draw();
+      primeIdx=2; nudgeUntil=0;
+      set(ids.xval, x); set(ids.cur,'—'); set(ids.ops,0); countPrimes(); draw(); startPulse();
     }
     function countPrimes(){ var c=0; for(var i=2;i<=x;i++) if(state[i]===1)c++; set(ids.primes,c); return c; }
     var ops=0;
-    function step(){
-      // advance primeIdx to next surviving number that is still prime and <= sqrt(x)
-      while(primeIdx*primeIdx<=x && state[primeIdx]!==1) primeIdx++;
-      if(primeIdx*primeIdx>x){ set(ids.cur, curLang()==='fa'?'تمام':'done'); countPrimes(); draw(); stop(); return false; }
-      set(ids.cur, primeIdx);
-      for(var m=primeIdx*primeIdx; m<=x; m+=primeIdx){ if(state[m]===1){ state[m]=2; ops++; } }
+    // the next standing number to process — always the next prime, taken in order
+    function target(){ var p=primeIdx; while(2*p<=x && state[p]!==1) p++; return (2*p<=x)? p : 0; }
+    // strike every multiple of p from 2p up to x. Numbers already crossed out (e.g. 6, met again
+    // via 3) are eliminated redundantly, and each elimination is an operation — so it is counted.
+    // Total strike-outs = x(1/2+1/3+1/5+...).
+    function strike(p){
+      set(ids.cur, p);
+      for(var m=2*p; m<=x; m+=p){ ops++; if(state[m]===1) state[m]=2; }
       set(ids.ops, ops);
-      primeIdx++;
-      countPrimes(); draw(); return true;
+      primeIdx=p+1; countPrimes();
     }
-    function run(){ if(timer){ stop(); return; } var btn=document.getElementById(ids.run); if(btn)btn.classList.add('on'); timer=setInterval(function(){ if(!step()) stop(); }, 420); }
-    function stop(){ if(timer){ clearInterval(timer); timer=null; } var btn=document.getElementById(ids.run); if(btn)btn.classList.remove('on'); }
+    function step(){
+      var t=target();
+      if(!t){ set(ids.cur, curLang()==='fa'?'تمام':'done'); countPrimes(); draw(); stop(); return false; }
+      strike(t); draw(); return true;
+    }
+    function run(){ if(timer){ stop(); return; } var btn=document.getElementById(ids.run); if(btn)btn.classList.add('on'); stopPulse(); timer=setInterval(function(){ if(!step()) stop(); }, 420); }
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } var btn=document.getElementById(ids.run); if(btn)btn.classList.remove('on'); startPulse(); }
+
+    // a gentle pulse on the square the reader should pick next
+    function startPulse(){ if(rafId==null && !timer && target()) rafId=requestAnimationFrame(pulseTick); }
+    function stopPulse(){ if(rafId!=null){ cancelAnimationFrame(rafId); rafId=null; } }
+    function pulseTick(){ rafId=null; draw(); if(!timer && (target() || performance.now()<nudgeUntil)) rafId=requestAnimationFrame(pulseTick); }
 
     function draw(){
-      var cols=Math.ceil(Math.sqrt(x*2.2)); cols=Math.max(cols,15);
+      var g=geom(), cols=g.cols, cell=g.cell, pad=g.pad;
       var rows=Math.ceil((x-1)/cols);
-      var pad=10; var wrapW=cv.parentElement.clientWidth;
-      var cell=Math.floor((wrapW-pad*2)/cols);
       var H=rows*cell+pad*2;
       var f=fitCanvas(cv,H), ctx=f.ctx, W=f.w;
       ctx.clearRect(0,0,W,H);
@@ -928,13 +943,36 @@ var COL = { paper:'#FDFAF3', ink:'#1C1814', accent:'#C8633E', line:'#E4DAC6', mu
         var st=state[n];
         ctx.fillStyle = st===1? COL.accent : (st===2? '#EDE3CF' : COL.paper);
         roundRect(ctx,cx+1,cy+1,cell-2,cell-2,3); ctx.fill();
-        if(n===primeIdx-1 || (n===primeIdx)){ }
         ctx.fillStyle = st===1? '#fff' : COL.dim;
         if(cell>=14) ctx.fillText(locNum(n), cx+cell/2, cy+cell/2+0.5);
+      }
+      // ring the next pick so the reader knows where to click
+      var tg=target();
+      if(tg && !timer){
+        var now=performance.now(), ph=(now%1400)/1400, nudging=now<nudgeUntil;
+        var a=nudging? 1 : 0.35+0.5*(0.5+0.5*Math.sin(ph*Math.PI*2));
+        var i2=tg-2, r2=Math.floor(i2/cols), c2=i2%cols;
+        var bx=pad+c2*cell, by=pad+r2*cell;
+        ctx.save();
+        ctx.strokeStyle=COL.ink; ctx.globalAlpha=a; ctx.lineWidth=nudging?3:2.2;
+        roundRect(ctx,bx+1.5,by+1.5,cell-3,cell-3,3); ctx.stroke();
+        ctx.restore();
       }
     }
     function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
     function set(id,v){ var el=document.getElementById(id); if(el) el.textContent = (v==='—'||v==='done'||v==='تمام')? v : locNum(v); }
+
+    cv.style.cursor='pointer';
+    cv.addEventListener('click', function(e){
+      if(timer) return; // let the auto-run finish before hand control resumes
+      var g=geom(), rect=cv.getBoundingClientRect();
+      var cc=Math.floor((e.clientX-rect.left-g.pad)/g.cell), rr=Math.floor((e.clientY-rect.top-g.pad)/g.cell);
+      if(cc<0||cc>=g.cols||rr<0) return;
+      var n=rr*g.cols+cc+2;
+      if(n<2||n>x) return;
+      if(n===target()){ strike(n); draw(); startPulse(); }
+      else { nudgeUntil=performance.now()+650; startPulse(); } // wrong pick: flash the right one
+    });
 
     document.getElementById(ids.step).addEventListener('click', function(){ stop(); step(); });
     document.getElementById(ids.run).addEventListener('click', run);

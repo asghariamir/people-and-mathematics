@@ -146,10 +146,11 @@ function render(lang){
     if (!group.length) return "";
     var cards = group.map(function(w){
       var t = w[lang] || w.en || {};
-      var thumb = w.imgSrc
-        ? '<div class="thumb"><img src="'+esc(up(w.imgSrc))+'" alt="'+esc(t.title)+'"></div>'
+      var ci = DATA.cardImage(w);
+      var thumb = ci
+        ? '<div class="thumb"><img src="'+esc(up(ci))+'" alt="'+esc(t.title)+'"></div>'
         : '<div class="thumb ph pm-img"><span class="imglabel">'+esc(w.img)+'</span></div>';
-      var avatar = (w.authorImg && w.authorImg !== w.imgSrc)
+      var avatar = (w.authorImg && w.authorImg !== ci)
         ? '<img class="avatar-chip" src="'+esc(up(w.authorImg))+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
       var lvl = levelChip(w.level, lang);
       var lvlTag = lvl ? '<span class="dot"></span>'+lvl : '';

@@ -534,6 +534,13 @@
   var curLang = (document.documentElement.lang === 'fa') ? 'fa' : 'en';
   var VOICES = [];
   var synth = window.speechSynthesis || null;
+  var curAudio = null;
+  /* Recorded Persian voice-overs (a friend's reading), indexed [example][reading] */
+  var AUDIO = [
+    ['../assets/david-say-precedence-a.mp3','../assets/david-say-precedence-b.mp3'],
+    ['../assets/david-say-subtraction-a.mp3','../assets/david-say-subtraction-b.mp3'],
+    ['../assets/david-say-root-a.mp3','../assets/david-say-root-b.mp3']
+  ];
 
   function loadVoices(){ if(synth){ try { VOICES = synth.getVoices() || []; } catch(e){ VOICES = []; } } }
   if(synth){ loadVoices(); synth.addEventListener('voiceschanged', function(){ loadVoices(); render(); }); }
@@ -559,7 +566,7 @@
       var isop = (t==='+'||t==='\u00d7'||t==='\u2212');
       exprHtml += '<span class="tok'+(isop?' op':'')+'">'+esc(t)+'</span>';
     });
-    var faMissing = (lang==='fa' && synth && !voiceFor('fa'));
+    var faMissing = false; /* Persian now has recorded audio */
     return '<div class="lab">'
       + '<div class="lab-head"><span class="lab-kicker">'+esc(T.kicker)+'</span><span class="lab-hint">'+esc(T.hint)+'</span></div>'
       + '<div class="lab-presets">'+chips+'</div>'
@@ -603,14 +610,31 @@
   var speakingBtn = null;
   function stop(){
     if(synth){ try { synth.cancel(); } catch(e){} }
+    if(curAudio){ try { curAudio.pause(); } catch(e){} curAudio=null; }
     if(speakingBtn){ speakingBtn.classList.remove('speaking'); var l=speakingBtn.querySelector('.lbl'); if(l) l.textContent=LAB[curLang].hear; speakingBtn=null; }
     var e=document.getElementById('labExpr'); if(e) e.classList.remove('speaking');
   }
 
+  function playAudio(src){
+    var btn = document.getElementById('labHear'); speakingBtn = btn;
+    if(btn){ btn.classList.add('speaking'); var l=btn.querySelector('.lbl'); if(l) l.textContent=LAB[curLang].speaking; }
+    var expr = document.getElementById('labExpr'); if(expr) expr.classList.add('speaking');
+    try {
+      curAudio = new Audio(src);
+      curAudio.onended = function(){ stop(); };
+      curAudio.onerror = function(){ stop(); };
+      var pr = curAudio.play(); if(pr && pr.catch) pr.catch(function(){ stop(); });
+    } catch(e){ stop(); }
+  }
+
   function speak(){
-    if(!synth){ return; }
     stop();
     var ex = EX[state.ex], rd = ex.readings[state.rd], lang = curLang;
+    if(lang==='fa'){
+      var src = (AUDIO[state.ex]||[])[state.rd];
+      if(src){ playAudio(src); return; }
+    }
+    if(!synth){ return; }
     var say = rd.say[lang];
     var v = voiceFor(lang);
     var code = (lang==='fa') ? 'fa-IR' : ((v && v.lang) || 'en-GB');

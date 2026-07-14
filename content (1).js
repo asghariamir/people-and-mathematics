@@ -567,7 +567,7 @@ window.PM_CONTENT = {
     subPlaceholder: "your@email",
     subCta: "Subscribe",
 
-    pubLine: "A Mathswell publication · mathswell.com",
+    pubLine: "A publication of mathswell.com",
     footerLinks: ["Contributors", "Sections", "Contact", "RSS"],
     youtubeLabel: "Films on YouTube",
     backToJournal: "← Back to the journal",
@@ -630,7 +630,7 @@ window.PM_CONTENT = {
     subPlaceholder: "نشانی ایمیل",
     subCta: "عضویت",
 
-    pubLine: "انتشاراتِ Mathswell · mathswell.com",
+    pubLine: "منتشرشده در mathswell.com",
     footerLinks: ["نویسندگان و همکاران", "بخش‌ها", "تماس", "RSS"],
     youtubeLabel: "فیلم‌ها در یوتیوب",
     backToJournal: "بازگشت به مجله →",

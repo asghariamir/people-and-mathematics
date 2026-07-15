@@ -500,11 +500,11 @@ window.PM_CONTENT = {
     imgSrc: "assets/farideh.jpg",
     imgLabel: "photo — Farideh Firoozbakht, Isfahan",
     en: { eyebrow: "People and Mathematics",
-          title: "Farideh Firoozbakht and a Conjecture About Primes",
+          title: "Farideh Firoozbakht and Her Conjecture About Primes",
           dek: "She left almost no trace of herself — no photographs, barely a line of biography. What she left instead was one of the boldest unproven statements ever made about the prime numbers.",
           cta: "Read the essay", byline: "Essay · Amir Asghari" },
     fa: { eyebrow: "آدم‌ها و ریاضیات",
-          title: "فریده فیروزبخت و حدسی درباره‌ی اعداد اول",
+          title: "فریده فیروزبخت و حدسِ او درباره‌ی اعداد اول",
           dek: "از خودش تقریباً نشانی به‌جا نگذاشت — نه عکسی، نه چند سطر زندگی‌نامه. آنچه به‌جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود.",
           cta: "خواندنِ مقاله", byline: "مقاله · امیر اصغری" }
   },

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thābit ibn Qurra’s Rule for Finding Amicable Numbers — Abulghasem Ghorbani (1983) · History of Mathematics</title>
+<meta name="description" content="Abulghasem Ghorbani’s 1983 article from فرهنگ و اندیشهٔ ریاضی on Thābit ibn Qurra’s rule for amicable numbers — full Persian text and English translation, now interactive, with an afterword. A People and Mathematics publication.">
+
+<meta property="og:title" content="Thābit ibn Qurra’s Rule for Finding Amicable Numbers — Abulghasem Ghorbani, 1983">
+<meta property="og:description" content="History of Mathematics · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/ghorbani-title.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- KaTeX for crisp typeset mathematics -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+/* Site rule: body text is justified, in both languages */
+.standfirst, .body p, .body li { text-align: justify; }
+</style>
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; --green: #567D46; --red: #A6392E; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand:hover { color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  h1.title { font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+
+  .heroplate { margin: 32px 0 6px; display: flex; justify-content: center; }
+  .heroplate figure { margin: 0; max-width: 440px; width: 100%; }
+  .heroplate img { width: 100%; display: block; border: 1px solid #D8C9AE; border-radius: 2px; box-shadow: 0 14px 34px rgba(28,24,20,.20); }
+  .cap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 12px; line-height: 1.55; text-align: center; }
+  .cap .lab { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 5px; }
+  [dir="rtl"] .cap .lab { letter-spacing: 0; }
+  .platerow { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 4px; }
+  .plate { margin: 0; }
+  .plate img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 2px; box-shadow: 0 5px 20px rgba(28,24,20,.13); background: #fff; }
+  .plate .cap { text-align: start; }
+  .plates-head { display: flex; align-items: center; gap: 16px; margin: 48px 0 18px; }
+  .plates-head .t { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  [dir="rtl"] .plates-head .t { letter-spacing: 0; }
+  .plates-head .rule { height: 1px; background: var(--line); flex: 1; }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 40px 0 14px; padding-top: 8px; }
+  .defn { margin: 0 0 20px; }
+  .defn .dn { color: var(--accent); font-weight: 600; }
+  .defn .dt { font-weight: 600; border-bottom: 2px solid var(--line); }
+  .eq { text-align: center; margin: 20px 0; font-size: 20px; direction: ltr; }
+  .num { direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+  .thm { border: 1.5px solid var(--ink); background: #FFFDF8; padding: 20px 24px 8px; margin: 26px 0; }
+  .thm .tlab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+  [dir="rtl"] .thm .tlab { letter-spacing: 0; }
+  .ednote { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 14px; color: var(--muted); border-inline-start: 2px solid var(--line); padding: 2px 14px; margin: 18px 0 22px; line-height: 1.6; }
+
+  /* ---------- interactive playgrounds ---------- */
+  .widget { border: 1.5px solid var(--ink); background: #FFFDF8; padding: 20px 22px 22px; margin: 30px 0; }
+  .wlab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  [dir="rtl"] .wlab { letter-spacing: 0; }
+  .whint { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; color: var(--muted); margin: 0 0 14px; line-height: 1.55; }
+  .wrow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .winp { font-family: "Hanken Grotesk", sans-serif; font-size: 17px; font-weight: 600; width: 130px; padding: 8px 12px; border: 1.5px solid var(--ink); border-radius: 8px; background: #fff; color: var(--ink); direction: ltr; text-align: center; }
+  .winp:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .wbtn { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer; border: 1.5px solid var(--ink); background: var(--black); color: var(--paper); border-radius: 999px; padding: 9px 18px; }
+  .wbtn:hover { background: var(--accent); border-color: var(--accent); }
+  .chipbtn { font-family: "Hanken Grotesk", sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #C9BCA2; background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 13px; direction: ltr; }
+  .chipbtn:hover { border-color: var(--accent); color: var(--accent); }
+  .stepbtn { font-family: "Hanken Grotesk", sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; border: 1.5px solid var(--ink); background: #fff; color: var(--ink); border-radius: 50%; width: 36px; height: 36px; line-height: 1; }
+  .stepbtn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .stepbtn:disabled { opacity: .35; cursor: default; background: #fff; color: var(--ink); border-color: var(--ink); }
+  .nshow { font-family: "Hanken Grotesk", sans-serif; font-size: 21px; font-weight: 700; min-width: 46px; text-align: center; direction: ltr; }
+  .wout { margin-top: 16px; }
+  .parts { display: flex; flex-wrap: wrap; gap: 7px; direction: ltr; }
+  .part { font-family: "Hanken Grotesk", sans-serif; font-size: 13.5px; font-weight: 600; border: 1px solid #DBD0BA; background: #fff; border-radius: 7px; padding: 4px 9px; }
+  .sumline { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; margin-top: 13px; line-height: 1.7; }
+  .verdict { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; margin-top: 10px; padding: 10px 14px; border-radius: 9px; line-height: 1.65; }
+  .verdict.good { background: rgba(86,125,70,.12); color: #3E5A32; }
+  .verdict.info { background: rgba(200,99,62,.10); color: #96482B; }
+  .verdict.plain { background: #F3EBDA; color: var(--ink); font-weight: 500; }
+  .pqr { display: grid; gap: 9px; margin-top: 16px; }
+  .pqr-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; font-family: "Hanken Grotesk", sans-serif; font-size: 14.5px; direction: ltr; }
+  .pqr-row .frm { color: var(--muted); min-width: 168px; }
+  .pqr-row .val { font-weight: 700; }
+  .pill { font-size: 11.5px; font-weight: 700; letter-spacing: .04em; border-radius: 999px; padding: 3px 10px; }
+  .pill.p { background: rgba(86,125,70,.14); color: #3E5A32; }
+  .pill.c { background: rgba(166,57,46,.12); color: var(--red); }
+  .hk { margin-top: 16px; border-top: 1px dashed #C9BCA2; padding-top: 14px; }
+  .hkline { font-family: "Hanken Grotesk", sans-serif; font-size: 16px; font-weight: 700; direction: ltr; margin: 4px 0; }
+  .hkline .who { color: var(--accent); }
+  .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; direction: ltr; font-family: "Hanken Grotesk", sans-serif; font-size: 14.5px; font-weight: 600; }
+  .chain .arrow { color: var(--accent); font-weight: 400; }
+  .chain .cyc { border: 1.5px solid var(--accent); border-radius: 7px; padding: 2px 8px; background: rgba(200,99,62,.07); }
+
+  .body .fn sup { color: var(--accent); font-weight: 600; }
+  .fnotes { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 14px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; color: #43392E; line-height: 1.65; }
+  .fnotes p { margin: 0 0 8px; }
+  .fnotes .fn { color: var(--accent); font-weight: 700; }
+
+  /* afterword */
+  .afterword { margin-top: 48px; border-top: 2px solid var(--ink); padding-top: 8px; }
+  .aw-lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin: 14px 0 4px; }
+  [dir="rtl"] .aw-lab { letter-spacing: 0; }
+  .aw-sub { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  .bignum { font-family: "Hanken Grotesk", sans-serif; font-weight: 700; color: var(--accent); direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .colophon .role .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  [dir="rtl"] .colophon .role .lab { letter-spacing: 0; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .colophon .role .aff a { color: var(--accent); text-decoration: none; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+
+  .refs { margin-top: 40px; }
+  .refs h3 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  [dir="rtl"] .refs h3 { letter-spacing: 0; }
+  .refs ol { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; line-height: 1.6; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 10px; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.1; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 22px 32px; }
+    h1.title { font-size: 31px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .platerow { grid-template-columns: 1fr; gap: 26px; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+    .pqr-row .frm { min-width: 0; }
+  }
+  @media print {
+    .widget, .langtoggle { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" class="persian" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="History of Mathematics" data-fa="تاریخ ریاضیات"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · From فرهنگ و اندیشهٔ ریاضی · No. 3 · 1983" data-fa="ریاضیِ مدرسه · بازنشر از «فرهنگ و اندیشهٔ ریاضی» · شمارهٔ ۳ · ۱۳۶۲ [۱۹۸۳]"></span></div>
+</div>
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">History of Mathematics</div>
+  <h1 class="title">Thābit ibn Qurra’s Rule for Finding Amicable Numbers</h1>
+  <p class="standfirst">The oldest known rule for producing amicable numbers, stated and proved in the ninth century — and set out here, in 1983, by the great historian of Persian mathematics. Given in full, in Persian and English, now interactive, with an afterword on everything that has happened to the friendly numbers since.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/abulghasem-ghorbani.jpg" alt="Abulghasem Ghorbani">
+    <span class="name">Abulghasem Ghorbani</span>
+  </div>
+
+  <div class="heroplate">
+    <figure>
+      <img src="../assets/ghorbani-title.jpg" alt="The opening page of the 1983 article, typewritten Persian: Thābit ibn Qurra’s rule for finding amicable numbers, by Abulghasem Ghorbani.">
+      <figcaption class="cap">
+        <span class="lab">The artifact</span>
+        <em>Farhang va Andisheh-ye Riāzi</em> (Mathematical Culture and Thought), No. 3 — 1362 [1983]. The journal of the Iranian Mathematical Society. Opening page of the article, p. 20.
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="body">
+    <p>I have written the definition and the history of the amicable numbers in the book <em>Two Iranian Mathematicians</em>, published in 1347 [1968] by the Iran Girls’ College. The oldest rule in existence for finding a family of amicable numbers is due to Thābit ibn Qurra, who lived in the third century AH (the ninth century CE). He stated and proved this rule in a treatise whose Arabic title is <em>Fī istikhrāj al-aʿdād al-mutaḥābba bi-suhūlat al-maslak ilā dhālik</em>.<span class="fn"><sup>1</sup></span> That treatise — important for the history of the theory of numbers — I have examined in detail in a part of the book <em>Fārsī-nāma: on the life of Kamāl al-Dīn Fārisī and a study of his mathematical masterpiece</em>, which has not yet been printed. Here I shall present the rule in today’s mathematical symbols and terms; and so that the reader of this piece need not turn to any other book while reading it, I shall recall all the preliminaries required for its proof, however elementary they may be.</p>
+
+    <h2 class="subhead">Definitions and preliminary theorems</h2>
+
+    <p class="defn"><span class="dn">1 —</span> <span class="dt">The parts of a natural number</span> that is not prime are the numbers that measure it and are smaller than it. For example, the parts of the number 6 are 1, 2 and 3, and the parts of the number 8 are 1, 2 and 4. Clearly the parts of any number are its divisors, with the exception of the number itself.</p>
+
+    <p class="defn"><span class="dn">2 —</span> Two natural numbers are called <span class="dt">amicable</span><span class="fn"><sup>2</sup></span> when each of them equals the sum of the parts of the other. For example, the two numbers 220 and 284 are amicable: the parts of the first number, 220, are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110, and the sum of these parts equals the second number, 284. Likewise the parts of the second number, 284, are 1, 2, 4, 71 and 142, and the sum of these parts equals the first number, 220.</p>
+
+    <p class="defn"><span class="dn">3 —</span> <span class="dt">Finding all the divisors of a natural number</span> — If the natural number \(n\) has been decomposed into its prime factors \(a\), \(b\) and \(c\) in the form \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\), then all the divisors of \(n\) are the terms of the collection obtained by carrying out the multiplication</p>
+    <div class="eq">\[(1+a+\cdots+a^{\alpha})\,(1+b+\cdots+b^{\beta})\,(1+c+\cdots+c^{\gamma}).\]</div>
+    <p>For example, all the divisors of the number \(18 = 2\times 3^{2}\) are the terms of the product \((1+2)(1+3+3^{2})\), namely 1, 3, 9, 2, 6 and 18.</p>
+
+    <p class="defn"><span class="dn">4 —</span> <span class="dt">Finding the number of divisors of a natural number</span> — If the natural number \(n\) has been decomposed into its prime factors in the form \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\), the number of its divisors equals</p>
+    <div class="eq">\[(\alpha+1)(\beta+1)(\gamma+1).\]</div>
+    <p>For example, the number of divisors of \(18 = 2\times 3^{2}\) equals \((1+1)(2+1) = 6\).</p>
+
+    <p class="defn"><span class="dn">5 —</span> <span class="dt">Finding the sum of the divisors of a natural number</span> — If the natural number \(n\) has been decomposed into its prime factors in the form \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\), the sum of its divisors, denoted by the symbol \(\sigma(n)\), equals</p>
+    <div class="eq">\[\sigma(n) = \frac{a^{\alpha+1}-1}{a-1}\times\frac{b^{\beta+1}-1}{b-1}\times\frac{c^{\gamma+1}-1}{c-1}.\]</div>
+    <p>For example, the sum of the divisors of the number \(18 = 2\times 3^{2}\) equals</p>
+    <div class="eq">\[\frac{2^{2}-1}{2-1}\times\frac{3^{3}-1}{3-1} = 39.\]</div>
+
+    <p class="defn"><span class="dn">6 —</span> <span class="dt">A special case</span> — If one of the exponents \(\alpha\), \(\beta\), \(\gamma\) — say \(\beta\) — equals 1, then in place of \(\dfrac{b^{2}-1}{b-1}\) we write \(b+1\).</p>
+
+    <p class="defn"><span class="dn">7 —</span> <span class="dt">Finding the sum of the parts of a natural number</span> — The sum of the parts of any natural number \(n\) equals the sum of its divisors, \(\sigma(n)\), minus the number itself. If we denote the sum of the parts of the natural number \(n\) by the symbol \(S(n)\), we shall have:</p>
+    <div class="eq">\[S(n) = \sigma(n) - n.\]</div>
+
+    <!-- playground A -->
+    <div class="widget" id="wA-en">
+      <div class="wlab">Playground · The parts of a number</div>
+      <p class="whint">Type a number and watch definitions 1–7 come alive: its parts, their sum \(S(n)\) — and where that sum leads.</p>
+      <div class="wrow">
+        <input class="winp" type="text" inputmode="numeric" value="220" aria-label="a natural number">
+        <button class="wbtn">Compute</button>
+        <button class="chipbtn">220</button><button class="chipbtn">284</button><button class="chipbtn">6</button><button class="chipbtn">18</button><button class="chipbtn">1184</button>
+      </div>
+      <div class="wout" aria-live="polite"></div>
+    </div>
+
+    <h2 class="subhead">A rule for finding a family of amicable numbers</h2>
+
+    <div class="thm">
+      <div class="tlab">8 — The theorem of Thābit ibn Qurra</div>
+      <p>If the three numbers</p>
+      <div class="eq">\[p = 3\times 2^{n-1}-1, \qquad q = 3\times 2^{n}-1, \qquad r = 9\times 2^{2n-1}-1\]</div>
+      <p>are all prime, then the two numbers below will be amicable:</p>
+      <div class="eq">\[H = 2^{n}pq = 2^{n}\,(3\times 2^{n-1}-1)(3\times 2^{n}-1)\]</div>
+      <div class="eq">\[K = 2^{n}r = 2^{n}\,(9\times 2^{2n-1}-1).\]</div>
+    </div>
+
+    <p>Thābit ibn Qurra wrote this theorem in lengthy Arabic sentences; for its proof he set out nine preliminary propositions, and he used the method of the ancients, who considered line segments in place of numbers. Using the preliminaries above, his theorem can be proved in the following way (perhaps a simpler proof may yet be found):</p>
+
+    <p><strong>(a) Proof that the sum of the parts of \(K\) equals \(H\).</strong> By what was said in No. 6 — since, in the decomposition of \(K\), the exponent of the prime factor \(9\times 2^{2n-1}-1\) is one — we have:</p>
+    <div class="eq">\[\sigma(K) = \frac{2^{n+1}-1}{2-1}\,\bigl(9\times 2^{2n-1}\bigr)\]</div>
+    <p>Therefore</p>
+    <div class="eq">\[S(K) = \sigma(K) - K = \bigl(2^{n+1}-1\bigr)\bigl(9\times 2^{2n-1}\bigr) - 2^{n}\bigl(9\times 2^{2n-1}-1\bigr)\]</div>
+    <div class="eq">\[= 9\times 2^{3n} - 9\times 2^{2n-1} - 9\times 2^{3n-1} + 2^{n}\]</div>
+    <p>and, taking into account that \(9\times 2^{3n} - 9\times 2^{3n-1} = 9\times 2^{3n-1}\), we have:</p>
+    <div class="eq">\[S(K) = 2^{n}\bigl(9\times 2^{2n-1} - 9\times 2^{n-1} + 1\bigr).\]</div>
+    <p>But the quantity inside the parentheses can be written thus:</p>
+    <div class="eq">\[\bigl(3\times 2^{n-1}-1\bigr)\bigl(3\times 2^{n}-1\bigr)\]</div>
+    <p>Therefore</p>
+    <div class="eq">\[S(K) = 2^{n}\,\bigl(3\times 2^{n-1}-1\bigr)\bigl(3\times 2^{n}-1\bigr) = 2^{n}pq = H\]</div>
+    <p>and this is exactly what we wished to prove.</p>
+
+    <p><strong>(b) Proof that the sum of the parts of \(H\) equals \(K\).</strong> By rule No. 5, and taking No. 6 into account — since, in the decomposition of \(H\), the exponent of each of the prime factors \(3\times 2^{n-1}-1\) and \(3\times 2^{n}-1\) is one — we have:</p>
+    <div class="eq">\[\sigma(H) = \frac{2^{n+1}-1}{2-1}\,\bigl(3\times 2^{n-1}\bigr)\bigl(3\times 2^{n}\bigr)\]</div>
+    <div class="eq">\[= \bigl(2^{n+1}-1\bigr)\bigl(9\times 2^{2n-1}\bigr) = 9\times 2^{3n} - 9\times 2^{2n-1}\]</div>
+    <p>and, taking into account that</p>
+    <div class="eq">\[H = 2^{n}\bigl(9\times 2^{2n-1} - 9\times 2^{n-1} + 1\bigr) = 9\times 2^{3n-1} - 9\times 2^{2n-1} + 2^{n},\]</div>
+    <p>we obtain:</p>
+    <div class="eq">\[S(H) = \sigma(H) - H = 9\times 2^{3n-1} - 2^{n} = 2^{n}\bigl(9\times 2^{2n-1}-1\bigr) = 2^{n}r = K\]</div>
+    <p>and this is exactly what we wished to prove.</p>
+
+    <div class="ednote">A note from this republication: parts (a) and (b) show, along the way, that \(\sigma(H) = \sigma(K) = H + K\) — an equality that holds for every amicable pair, and a handy test for one.</div>
+
+    <!-- playground B -->
+    <div class="widget" id="wB-en">
+      <div class="wlab">Playground · Thābit’s machine</div>
+      <p class="whint">Choose \(n\). The machine builds \(p\), \(q\), \(r\) and checks whether each is prime. Whenever all three are, out comes an amicable pair — exactly as the theorem promises.</p>
+      <div class="wrow" style="justify-content:center;">
+        <span class="sans" style="font-size:15px;font-weight:600;">n =</span>
+        <button class="stepbtn" data-d="-1" aria-label="decrease n">−</button>
+        <span class="nshow">2</span>
+        <button class="stepbtn" data-d="1" aria-label="increase n">+</button>
+      </div>
+      <div class="wout" aria-live="polite"></div>
+    </div>
+
+    <h2 class="subhead">Some examples of amicable numbers</h2>
+
+    <p>The Greeks attributed the discovery of the two amicable numbers 220 and 284 to Pythagoras.</p>
+
+    <p>Around the year 700 AH (corresponding to 1300 CE), Kamāl al-Dīn Fārisī — the Iranian mathematician and student of optics — obtained the two amicable numbers below in the treatise <em>Tadhkirat al-aḥbāb fī bayān al-taḥābb</em>:</p>
+    <div class="eq"><span class="num">17296 = 2⁴ × 23 × 47</span> &nbsp;&nbsp;and&nbsp;&nbsp; <span class="num">18416 = 2⁴ × 1151</span></div>
+    <p>In the year 1636 — that is, some 336 years after Kamāl al-Dīn Fārisī — the Frenchman Fermat<span class="fn"><sup>3</sup></span> computed these same two numbers.</p>
+
+    <p>Two years after Fermat, in 1638, the Frenchman Descartes<span class="fn"><sup>4</sup></span> found the two amicable numbers below:</p>
+    <div class="eq"><span class="num">9363584 = 2⁷ × 191 × 383</span> &nbsp;&nbsp;and&nbsp;&nbsp; <span class="num">9437056 = 2⁷ × 73727</span></div>
+    <p>At the same time as Descartes — and perhaps a little before him — Mullā Muhammad Bāqir Yazdī, the author of the book <em>ʿUyūn al-ḥisāb</em>, obtained these same two numbers.</p>
+
+    <p>In the year 1750 (1164 AH), the Swiss Euler<span class="fn"><sup>5</sup></span> compiled a list of 62 pairs of amicable numbers (you will find these numbers in the first volume of the <em>History of the Theory of Numbers</em>, by Dickson<span class="fn"><sup>6</sup></span>).</p>
+
+    <p>In the year 1867, a sixteen-year-old boy from Italy computed the amicable pair 1184 and 1210 — small numbers, compared with the amicable numbers known up to that date.</p>
+
+    <p>Today, more than a thousand pairs of amicable numbers are known.</p>
+
+    <div class="fnotes">
+      <p><span class="fn">1.</span> That is: “On the derivation of amicable numbers by an easy path.” Note that in Arabic one says <em>aʿdād mutaḥābba</em>, while in Persian one should say <em>ʿadad-hā-ye motaḥāb</em>.</p>
+      <p><span class="fn">2.</span> <em>Motaḥāb</em> means “loving one another.”</p>
+      <p><span class="fn">3.</span> Pierre de Fermat (1601–1665).</p>
+      <p><span class="fn">4.</span> René Descartes (1596–1650).</p>
+      <p><span class="fn">5.</span> Leonhard Euler (1707–1783).</p>
+      <p><span class="fn">6.</span> Dickson, L.&nbsp;E.: <em>History of the Theory of Numbers</em>.</p>
+    </div>
+
+    <div class="plates-head"><span class="t">From the original</span><span class="rule"></span></div>
+    <div class="platerow">
+      <figure class="plate">
+        <img src="../assets/ghorbani-defs.jpg" alt="Page 21 of the original: definitions and preliminary theorems, typewritten Persian with handwritten formulas.">
+        <figcaption class="cap"><span class="lab">Page 21</span>The definitions, with the formulas set by hand between the typewritten lines — 220 and 284 worked out part by part.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../assets/ghorbani-last.jpg" alt="Page 25 of the original: the closing page with the note on the sixteen-year-old boy and the count of known pairs.">
+        <figcaption class="cap"><span class="lab">Page 25</span>The closing page: the sixteen-year-old’s pair, and the line this republication’s afterword answers — “today more than a thousand pairs are known.”</figcaption>
+      </figure>
+    </div>
+
+    <!-- ===== Afterword ===== -->
+    <div class="afterword">
+      <div class="aw-lab">Afterword</div>
+      <div class="aw-sub">Added for this republication · July 2026 · Amir Asghari</div>
+
+      <p>Ghorbani closed with a count: <em>more than a thousand pairs</em>. Forty-odd years later the count reads differently. Distributed-computing searches have since found <strong>every</strong> amicable pair whose smaller member is below \(10^{21}\), and the running list — kept by Sergei Chernykh, fed by volunteers’ computers around the world — holds <span class="bignum">more than 1.2 billion pairs</span>. The largest known pair has over 56,000 digits. Against that flood, one thing has not moved at all: the only values currently known to make Thābit’s rule work are \(n = 2, 4, 7\) — the three pairs of this article; no fourth has been found. Euler generalised the rule in the eighteenth century, and for his generalisation, too, only two further cases are known.</p>
+
+      <p>Euler increased the number of genuine known pairs from three to sixty-two, although his published tables also contained duplicate and erroneous entries; two purported pairs were rejected in the early twentieth century. And the sixteen-year-old boy from Italy now has a name. In 1866–67, B.&nbsp;Nicolò&nbsp;I.&nbsp;Paganini — not to be confused with the violinist — computed his little pair (1184, 1210), sitting just past the ancients’ (220, 284); it had been overlooked by everyone: by Thābit’s rule (it cannot produce it), by Fermat, by Descartes, and by Euler himself.</p>
+
+      <p>History has kept moving backwards as well as forwards. The historian Jan Hogendijk has argued, from the text of Thābit’s treatise, that Thābit himself very likely knew the pair 17296 and 18416 — six centuries before Kamāl al-Dīn Fārisī derived it. And Fārisī, it turns out, had a contemporary companion: Ibn al-Bannāʾ of Marrakesh obtained the same pair at almost the same time, at the other end of the Islamic world. The pair Europe long credited to Fermat had been found — twice, perhaps three times — centuries earlier.</p>
+
+      <p>What nobody knows is almost everything else. Are there infinitely many amicable pairs? Unknown. Does a pair exist with one number even and one odd? None has been found. Do two <em>coprime</em> amicable numbers exist? None is known — and if such a pair exists, the product of its members must exceed \(10^{67}\). Every single known pair shares a prime factor. The one deep general theorem is austere: Erdős proved in 1955 that the amicable numbers have density zero — friendship, among numbers, is rare.</p>
+
+      <p>The friendship also comes in longer rings. Follow the sum of parts again and again — \(n \to S(n) \to S(S(n)) \to \cdots\) — and a perfect number is a loop of length one, an amicable pair a loop of length two. In 1918 Paul Poulet found loops of length five and twenty-eight; such numbers are now called <em>sociable</em>. And some chains guard their secret completely: nobody knows whether the chain starting at 276 ever comes home.</p>
+
+      <!-- playground C -->
+      <div class="widget" id="wC-en">
+        <div class="wlab">Playground · The chain of parts</div>
+        <p class="whint">Start anywhere and keep taking the sum of parts. A loop of length 1 is a perfect number; length 2, an amicable pair; longer, a sociable ring. Try 276 — its fate is an open problem.</p>
+        <div class="wrow">
+          <input class="winp" type="text" inputmode="numeric" value="12496" aria-label="a natural number">
+          <button class="wbtn">Follow the chain</button>
+          <button class="chipbtn">220</button><button class="chipbtn">6</button><button class="chipbtn">95</button><button class="chipbtn">12496</button><button class="chipbtn">276</button>
+        </div>
+        <div class="wout" aria-live="polite"></div>
+      </div>
+
+      <p>One last note, about the author. The <em>Fārsī-nāma</em> that this article mentions as “not yet printed” did reach print, and Abulghasem Ghorbani (1912–2001) — a schoolteacher before he was a historian — went on to complete the work he is best known for, the <em>Biographies of the Mathematicians of the Islamic Period</em>. The Iranian Mathematical Society, whose journal first carried the article you have just read, today awards a prize in his name to the best writing on the history of mathematics. This article is an early specimen of exactly that tradition.</p>
+    </div>
+  </div>
+
+  <!-- ===== Contributor colophon ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">Author</div>
+        <div class="who">Abulghasem Ghorbani</div>
+        <div class="aff">Historian of mathematics · 1912–2001 · <a href="https://fa.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A7%D9%84%D9%82%D8%A7%D8%B3%D9%85_%D9%82%D8%B1%D8%A8%D8%A7%D9%86%DB%8C" target="_blank" rel="noopener">ویکی‌پدیا</a></div>
+      </div>
+      <div class="role">
+        <div class="lab">Originally in</div>
+        <div class="who">فرهنگ و اندیشهٔ ریاضی · No. 3</div>
+        <div class="aff">1362 [1983] · Journal of the Iranian Mathematical Society · pp. 20–25</div>
+      </div>
+      <div class="role">
+        <div class="lab">Transcription, translation, interactives &amp; afterword</div>
+        <div class="who">Amir Asghari</div>
+      </div>
+    </div>
+    <div class="origin">Transcribed from the 1983 original and translated for <em>People and Mathematics</em>, History of Mathematics. The formulas — handwritten between the typewritten lines of the original — have been typeset; spelling and emphasis have been lightly modernised. The playgrounds and the afterword are additions of this republication and are marked as such.</div>
+  </div>
+
+  <div class="refs">
+    <h3>Sources</h3>
+    <ol>
+      <li>Abulghasem Ghorbani. «دستور ثابت بن قره برای پیدا کردن عددهای متحاب.» <em>Farhang va Andisheh-ye Riāzi</em> (فرهنگ و اندیشهٔ ریاضی), No. 3 (1362 [1983]), pp. 20–25. Iranian Mathematical Society.</li>
+      <li>L. E. Dickson. <em>History of the Theory of Numbers</em>, Vol. I: Divisibility and Primality. Washington, 1919.</li>
+      <li>J. P. Hogendijk. “Thābit ibn Qurra and the pair of amicable numbers 17296, 18416.” <em>Historia Mathematica</em> 12 (1985), 269–273.</li>
+      <li>W. Borho. “On Thabit ibn Kurrah’s formula for amicable numbers.” <em>Mathematics of Computation</em> 26 (1972), 571–578.</li>
+      <li>L. Euler. “De numeris amicabilibus” (1750). English translation: <em>On Amicable Numbers</em>, trans. Jonathan David Evans, School of Mathematical Sciences, Lancaster University.</li>
+      <li>S. Chernykh. <em>Amicable pairs list</em> — the running database of all known pairs, sech.me/ap.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">تاریخِ ریاضیات</div>
+  <h1 class="title">دستور ثابت بن قره برای پیدا کردن عددهای متحاب</h1>
+  <p class="standfirst">کهن‌ترین دستورِ شناخته‌شده برای ساختن عددهای متحاب در سدهٔ سوم هجری بیان و اثبات شد. ابوالقاسم قربانی این دستور را در سال ۱۳۶۲، با زبان و نمادهای امروزی، برای خوانندهٔ فارسی‌زبان شرح داد. در این بازنشر، متن کامل مقاله را به فارسی و انگلیسی می‌خوانید، همراه با بخش‌هایی تعاملی و پس‌گفتاری دربارهٔ سرگذشت عددهای متحاب از آن زمان تا امروز.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/abulghasem-ghorbani.jpg" alt="ابوالقاسم قربانی">
+    <span class="name">ابوالقاسم قربانی</span>
+  </div>
+
+  <div class="heroplate">
+    <figure>
+      <img src="../assets/ghorbani-title.jpg" alt="صفحهٔ آغاز مقالهٔ ۱۳۶۲ با حروفچینیِ ماشین‌تحریر: دستور ثابت بن قره برای پیدا کردن عددهای متحاب، ابوالقاسم قربانی.">
+      <figcaption class="cap">
+        <span class="lab">اصلِ مقاله</span>
+        <em>فرهنگ و اندیشهٔ ریاضی</em>، شمارهٔ ۳، ۱۳۶۲؛ نشریهٔ انجمن ریاضی ایران. صفحهٔ نخست مقاله، ص. ۲۰.
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="body">
+    <p>تعریف و تاریخچهٔ عددهای متحاب را در کتاب «دو ریاضیدان ایرانی» که در سال ۱۳۴۷ ه‍.ش توسط مدرسهٔ عالی دختران ایران منتشر شد نوشته‌ام. قدیمی‌ترین دستوری که برای یافتن عده‌ای از عددهای متحاب وجود دارد از ثابت بن قره است که در سدهٔ سوم هجری (نهم میلادی) می‌زیست. وی این دستور را در مقاله‌ای که عنوان عربی آن «فی استخراج الاعداد المتحابة بسهولة المسلک الی ذلک»<span class="fn"><sup>۱</sup></span> است بیان و ثابت کرده است. این مقاله را، که از جهت تاریخ تئوری اعداد مهم است، در بخشی از کتاب «فارسی‌نامه — در شرح احوال کمال‌الدین فارسی و بررسی شاهکار ریاضی او» که هنوز به چاپ نرسیده است به تفصیل مورد بررسی قرار داده‌ام. در اینجا به ذکر دستور مذکور، با رمزها و اصطلاحات ریاضی امروزی، می‌پردازم و برای آنکه خوانندهٔ این نوشته در حین خواندنِ آن مجبور نباشد به کتاب دیگری رجوع کند، همهٔ مقدمات لازم برای اثبات آن را، ولو آنکه مقدماتی باشد، یادآوری می‌کنم.</p>
+
+    <h2 class="subhead">تعریف‌ها و قضیه‌های مقدماتی</h2>
+
+    <p class="defn"><span class="dn">۱ —</span> <span class="dt">اجزای یک عدد طبیعیِ غیرِ اول</span> اعدادی هستند که آن عدد را می‌شمرند و از آن کوچک‌ترند. مثلاً اجزای عدد ۶ عبارت‌اند از ۱ و ۲ و ۳، و اجزای عدد ۸، ۱ و ۲ و ۴ هستند. واضح است که اجزای هر عدد عبارت‌اند از شمارنده‌های آن عدد به استثنای خودِ آن.</p>
+
+    <p class="defn"><span class="dn">۲ —</span> دو عدد طبیعی را در صورتی <span class="dt">متحاب</span><span class="fn"><sup>۲</sup></span> می‌نامند که هر یک از آنها مساوی باشد با مجموعِ اجزای دیگری. مثلاً دو عدد ۲۲۰ و ۲۸۴ متحاب هستند؛ زیرا اجزای عدد نخست، یعنی ۲۲۰، عبارت‌اند از ۱ و ۲ و ۴ و ۵ و ۱۰ و ۱۱ و ۲۰ و ۲۲ و ۴۴ و ۵۵ و ۱۱۰، و مجموع این اجزا مساوی است با عدد دوم یعنی ۲۸۴. همچنین اجزای عدد دوم، یعنی ۲۸۴، عبارت‌اند از ۱ و ۲ و ۴ و ۷۱ و ۱۴۲، و مجموع این اجزا مساوی است با عدد نخست یعنی ۲۲۰.</p>
+
+    <p class="defn"><span class="dn">۳ —</span> <span class="dt">تعیین همهٔ شمارنده‌های یک عدد طبیعی</span> — اگر عدد طبیعی \(n\) به عامل‌های اول \(a\) و \(b\) و \(c\) به صورت \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\) تجزیه شده باشد، همهٔ شمارنده‌های عدد \(n\) عبارت‌اند از جمله‌های مجموعه‌ای که از انجام‌دادنِ عمل ضرب زیر به دست می‌آید:</p>
+    <div class="eq">\[(1+a+\cdots+a^{\alpha})\,(1+b+\cdots+b^{\beta})\,(1+c+\cdots+c^{\gamma}).\]</div>
+    <p>مثلاً همهٔ شمارنده‌های عدد <span class="num">۱۸ = ۲ × ۳²</span> عبارت‌اند از جمله‌های حاصل‌ضرب \((1+2)(1+3+3^{2})\)، یعنی ۱ و ۳ و ۹ و ۲ و ۶ و ۱۸.</p>
+
+    <p class="defn"><span class="dn">۴ —</span> <span class="dt">تعیین عدّهٔ شمارنده‌های یک عدد طبیعی</span> — اگر عدد طبیعی \(n\) به صورت \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\) به عامل‌های اول خود تجزیه شده باشد، عدّهٔ شمارنده‌های آن مساوی است با</p>
+    <div class="eq">\[(\alpha+1)(\beta+1)(\gamma+1).\]</div>
+    <p>مثلاً عدّهٔ شمارنده‌های عدد <span class="num">۱۸ = ۲ × ۳²</span> مساوی است با <span class="num">۶ = (۱+۱)(۲+۱)</span>.</p>
+
+    <p class="defn"><span class="dn">۵ —</span> <span class="dt">تعیین مجموع شمارنده‌های یک عدد طبیعی</span> — اگر عدد طبیعی \(n\) به صورت \(n = a^{\alpha}\, b^{\beta}\, c^{\gamma}\) به عامل‌های اول خود تجزیه شده باشد، مجموعِ شمارنده‌های آن، که با رمز \(\sigma(n)\) نشان داده می‌شود، مساوی است با:</p>
+    <div class="eq">\[\sigma(n) = \frac{a^{\alpha+1}-1}{a-1}\times\frac{b^{\beta+1}-1}{b-1}\times\frac{c^{\gamma+1}-1}{c-1}.\]</div>
+    <p>مثلاً مجموع شمارنده‌های عدد <span class="num">۱۸ = ۲ × ۳²</span> مساوی است با</p>
+    <div class="eq">\[\frac{2^{2}-1}{2-1}\times\frac{3^{3}-1}{3-1} = 39.\]</div>
+
+    <p class="defn"><span class="dn">۶ —</span> <span class="dt">حالت خاص</span> — اگر یکی از نماینده‌های \(\alpha\) و \(\beta\) و \(\gamma\)، مثلاً \(\beta\)، مساوی با ۱ باشد، آنگاه به جای \(\dfrac{b^{2}-1}{b-1}\) می‌نویسیم \(b+1\).</p>
+
+    <p class="defn"><span class="dn">۷ —</span> <span class="dt">تعیین مجموع اجزای یک عدد طبیعی</span> — مجموع اجزای هر عدد طبیعی \(n\) مساوی است با مجموع شمارنده‌های آن، یعنی \(\sigma(n)\)، منهای خودِ آن عدد. اگر مجموع اجزای عدد طبیعی \(n\) را با رمز \(S(n)\) نشان دهیم، خواهیم داشت:</p>
+    <div class="eq">\[S(n) = \sigma(n) - n.\]</div>
+
+    <!-- playground A -->
+    <div class="widget" id="wA-fa">
+      <div class="wlab">میدانِ بازی · اجزای یک عدد</div>
+      <p class="whint">عددی بنویسید تا تعریف‌های ۱ تا ۷ جان بگیرند: اجزای آن، مجموعشان \(S(n)\) — و اینکه این مجموع به کجا می‌بَرد.</p>
+      <div class="wrow">
+        <input class="winp" type="text" inputmode="numeric" value="220" aria-label="یک عدد طبیعی">
+        <button class="wbtn">حساب کن</button>
+        <button class="chipbtn">220</button><button class="chipbtn">284</button><button class="chipbtn">6</button><button class="chipbtn">18</button><button class="chipbtn">1184</button>
+      </div>
+      <div class="wout" aria-live="polite"></div>
+    </div>
+
+    <h2 class="subhead">دستورِ یافتنِ عده‌ای از عددهای متحاب</h2>
+
+    <div class="thm">
+      <div class="tlab">۸ — قضیهٔ ثابت بن قره</div>
+      <p>اگر سه عدد</p>
+      <div class="eq">\[p = 3\times 2^{n-1}-1, \qquad q = 3\times 2^{n}-1, \qquad r = 9\times 2^{2n-1}-1\]</div>
+      <p>هر سه اول باشند، آنگاه دو عدد زیر متحاب خواهند بود:</p>
+      <div class="eq">\[H = 2^{n}pq = 2^{n}\,(3\times 2^{n-1}-1)(3\times 2^{n}-1)\]</div>
+      <div class="eq">\[K = 2^{n}r = 2^{n}\,(9\times 2^{2n-1}-1).\]</div>
+    </div>
+
+    <p>ثابت بن قره این قضیه را با عبارات عربیِ مفصل نوشته و برای اثبات آن ۹ قضیهٔ مقدماتی ذکر کرده و روش قدما را، که به جای عددها خط‌ها را در نظر می‌گرفتند، به کار برده است. با استفاده از مقدماتی که گذشت می‌توان قضیهٔ ثابت بن قره را به طریق زیر ثابت کرد (شاید هم اثباتِ ساده‌تری برای آن پیدا شود):</p>
+
+    <p><strong>الف — اثبات اینکه مجموع اجزای \(K\) مساوی است با \(H\).</strong> بنا بر آنچه در شمارهٔ ۶ گفته شد — چون در تجزیهٔ \(K\) نمایندهٔ عامل اولِ \(9\times 2^{2n-1}-1\) عدد یک است — داریم:</p>
+    <div class="eq">\[\sigma(K) = \frac{2^{n+1}-1}{2-1}\,\bigl(9\times 2^{2n-1}\bigr)\]</div>
+    <p>بنابراین</p>
+    <div class="eq">\[S(K) = \sigma(K) - K = \bigl(2^{n+1}-1\bigr)\bigl(9\times 2^{2n-1}\bigr) - 2^{n}\bigl(9\times 2^{2n-1}-1\bigr)\]</div>
+    <div class="eq">\[= 9\times 2^{3n} - 9\times 2^{2n-1} - 9\times 2^{3n-1} + 2^{n}\]</div>
+    <p>و با در نظر گرفتن اینکه \(9\times 2^{3n} - 9\times 2^{3n-1} = 9\times 2^{3n-1}\)، داریم:</p>
+    <div class="eq">\[S(K) = 2^{n}\bigl(9\times 2^{2n-1} - 9\times 2^{n-1} + 1\bigr).\]</div>
+    <p>اما مقدارِ داخل پرانتز را می‌توان چنین نوشت:</p>
+    <div class="eq">\[\bigl(3\times 2^{n-1}-1\bigr)\bigl(3\times 2^{n}-1\bigr)\]</div>
+    <p>بنابراین</p>
+    <div class="eq">\[S(K) = 2^{n}\,\bigl(3\times 2^{n-1}-1\bigr)\bigl(3\times 2^{n}-1\bigr) = 2^{n}pq = H\]</div>
+    <p>و این همان چیزی است که می‌خواستیم ثابت کنیم.</p>
+
+    <p><strong>ب — اثبات اینکه مجموع اجزای عدد \(H\) مساوی است با \(K\).</strong> مطابق دستور شمارهٔ ۵ و با در نظر گرفتن مطلب شمارهٔ ۶ — چون در تجزیهٔ \(H\) نمایندهٔ هر یک از عامل‌های اولِ \(3\times 2^{n-1}-1\) و \(3\times 2^{n}-1\) عدد یک است — داریم:</p>
+    <div class="eq">\[\sigma(H) = \frac{2^{n+1}-1}{2-1}\,\bigl(3\times 2^{n-1}\bigr)\bigl(3\times 2^{n}\bigr)\]</div>
+    <div class="eq">\[= \bigl(2^{n+1}-1\bigr)\bigl(9\times 2^{2n-1}\bigr) = 9\times 2^{3n} - 9\times 2^{2n-1}\]</div>
+    <p>و با در نظر گرفتن اینکه</p>
+    <div class="eq">\[H = 2^{n}\bigl(9\times 2^{2n-1} - 9\times 2^{n-1} + 1\bigr) = 9\times 2^{3n-1} - 9\times 2^{2n-1} + 2^{n}\]</div>
+    <p>حاصل می‌شود:</p>
+    <div class="eq">\[S(H) = \sigma(H) - H = 9\times 2^{3n-1} - 2^{n} = 2^{n}\bigl(9\times 2^{2n-1}-1\bigr) = 2^{n}r = K\]</div>
+    <p>و این همان چیزی است که می‌خواستیم ثابت کنیم.</p>
+
+    <div class="ednote">یادداشتِ بازنشر: از دو بخشِ اثبات نتیجه می‌شود که \(\sigma(H) = \sigma(K) = H + K\). این رابطه برای هر جفت عدد متحاب برقرار است و می‌توان از آن برای آزمودن یک جفت پیشنهادی استفاده کرد.</div>
+
+    <!-- playground B -->
+    <div class="widget" id="wB-fa">
+      <div class="wlab">میدانِ بازی · ماشینِ ثابت بن قره</div>
+      <p class="whint">\(n\) را انتخاب کنید. ماشین \(p\) و \(q\) و \(r\) را می‌سازد و اول‌بودنِ هر یک را می‌آزماید. هرگاه هر سه اول شدند، جفتِ متحاب بیرون می‌آید — درست همان‌طور که قضیه قول می‌دهد.</p>
+      <div class="wrow" style="justify-content:center;">
+        <span class="sans" style="font-size:15px;font-weight:600;">n =</span>
+        <button class="stepbtn" data-d="-1" aria-label="کاهش n">−</button>
+        <span class="nshow">2</span>
+        <button class="stepbtn" data-d="1" aria-label="افزایش n">+</button>
+      </div>
+      <div class="wout" aria-live="polite"></div>
+    </div>
+
+    <h2 class="subhead">چند مثال از عددهای متحاب</h2>
+
+    <p>یونانیان کشفِ دو عدد متحاب ۲۲۰ و ۲۸۴ را به فیثاغورس نسبت داده‌اند.</p>
+
+    <p>در حدود سال ۷۰۰ ه‍.ق (مطابق با ۱۳۰۰ میلادی) کمال‌الدین فارسی، ریاضیدان و نورشناسِ ایرانی، دو عدد متحاب زیر را در رسالهٔ «تذکرة الاحباب فی بیان التحاب» به دست آورد:</p>
+    <div class="eq"><span class="num">۱۷۲۹۶ = ۲⁴ × ۲۳ × ۴۷</span> &nbsp;&nbsp;و&nbsp;&nbsp; <span class="num">۱۸۴۱۶ = ۲⁴ × ۱۱۵۱</span></div>
+    <p>در سال ۱۶۳۶ میلادی، یعنی در حدود ۳۳۶ سال بعد از کمال‌الدین فارسی، همین دو عدد را فِرمای فرانسوی<span class="fn"><sup>۳</sup></span> حساب کرد.</p>
+
+    <p>دو سال بعد از فرما، یعنی در سال ۱۶۳۸، دکارتِ فرانسوی<span class="fn"><sup>۴</sup></span> دو عدد متحاب زیر را پیدا کرد:</p>
+    <div class="eq"><span class="num">۹۳۶۳۵۸۴ = ۲⁷ × ۱۹۱ × ۳۸۳</span> &nbsp;&nbsp;و&nbsp;&nbsp; <span class="num">۹۴۳۷۰۵۶ = ۲⁷ × ۷۳۷۲۷</span></div>
+    <p>همزمان با دکارت، و شاید کمی پیش از وی، ملامحمدباقر یزدی، صاحب کتاب «عیون الحساب»، همین دو عدد را به دست آورد.</p>
+
+    <p>در سال ۱۷۵۰ میلادی (۱۱۶۴ ه‍.ق) اویلرِ سوئیسی<span class="fn"><sup>۵</sup></span> فهرست ۶۲ جفت عدد متحاب را فراهم آورد (این اعداد را در جلد اول کتاب تاریخ تئوری اعداد، تألیف دیکسن<span class="fn"><sup>۶</sup></span>، خواهید یافت).</p>
+
+    <p>در سال ۱۸۶۷ میلادی پسر ۱۶ ساله‌ای از اهالی ایتالیا دو عدد متحاب ۱۱۸۴ و ۱۲۱۰ را، که نسبت به اعداد متحاب شناخته‌شده تا آن تاریخ کوچک هستند، حساب کرد.</p>
+
+    <p>امروزه بیش از هزار جفت از عددهای متحاب شناخته شده است.</p>
+
+    <div class="fnotes">
+      <p><span class="fn">۱.</span> یعنی: «دربارهٔ به‌دست‌آوردنِ عددهای متحاب به آسان‌ترین روش». توجه کنید که در زبان عربی می‌گویند «اعداد متحابه»، ولی در زبان فارسی باید گفت «عددهای متحاب».</p>
+      <p><span class="fn">۲.</span> متحاب یعنی دوست‌دارندهٔ یکدیگر.</p>
+      <p><span class="fn">۳.</span> <span class="num">Pierre de Fermat (1601–1665)</span></p>
+      <p><span class="fn">۴.</span> <span class="num">René Descartes (1596–1650)</span></p>
+      <p><span class="fn">۵.</span> <span class="num">Leonhard Euler (1707–1783)</span></p>
+      <p><span class="fn">۶.</span> <span class="num">Dickson, L. E.: History of the Theory of Numbers</span></p>
+    </div>
+
+    <div class="plates-head"><span class="t">از روی اصل</span><span class="rule"></span></div>
+    <div class="platerow">
+      <figure class="plate">
+        <img src="../assets/ghorbani-defs.jpg" alt="صفحهٔ ۲۱ اصل: تعریف‌ها و قضیه‌های مقدماتی، حروفچینی ماشین‌تحریر با فرمول‌های دست‌نویس.">
+        <figcaption class="cap"><span class="lab">صفحهٔ ۲۱</span>تعریف‌ها و فرمول‌هایی که با دست در میان سطرهای ماشین‌شده نوشته شده‌اند؛ محاسبهٔ مرحله‌به‌مرحلهٔ اجزای ۲۲۰ و ۲۸۴.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../assets/ghorbani-last.jpg" alt="صفحهٔ ۲۵ اصل: صفحهٔ پایانی با خبرِ پسر ۱۶ ساله و شمارِ جفت‌های شناخته‌شده.">
+        <figcaption class="cap"><span class="lab">صفحهٔ ۲۵</span>صفحهٔ پایانی مقاله: جفت عددیِ یافتهٔ آن نوجوان شانزده‌ساله و جمله‌ای که این پس‌گفتار، بیش از چهل سال بعد، ادامهٔ آن را روایت می‌کند: «امروزه بیش از هزار جفت شناخته شده است.»</figcaption>
+      </figure>
+    </div>
+
+    <!-- ===== پس‌گفتار ===== -->
+    <div class="afterword">
+      <div class="aw-lab">پس‌گفتار</div>
+      <div class="aw-sub">افزودهٔ این بازنشر · تیر ۱۴۰۵ · امیر اصغری</div>
+
+      <p>قربانی مقاله را با این جمله به پایان می‌برد: «امروزه بیش از هزار جفت از عددهای متحاب شناخته شده است.» بیش از چهل سال گذشته و این رقم اکنون به‌کلی دگرگون شده است. جست‌وجوهای محاسباتیِ توزیع‌شده تا امروز همهٔ جفت‌های متحابی را یافته‌اند که عضو کوچک‌ترشان از \(10^{21}\) کمتر است. فهرستی که سرگئی چرنیخ گرد می‌آورد و پیوسته با کمک رایانه‌های داوطلبان سراسر جهان کامل‌تر می‌شود، اکنون <span class="bignum">بیش از ۱٫۲ میلیارد جفت</span> را در بر می‌گیرد. هر یک از دو عددِ بزرگ‌ترین جفتِ شناخته‌شده ۵۶٬۲۵۹ رقم دارد. با این همه، دربارهٔ دستور ثابت بن قره هنوز همان سه مقدارِ <span class="num">n = 2, 4, 7</span> شناخته شده‌اند؛ همان سه جفتی که در این مقاله آمده‌اند. مقدار چهارمی پیدا نشده است. اویلر در سدهٔ هجدهم این دستور را تعمیم داد، اما از تعمیم او نیز در نزدیک به دو قرن و نیم فقط دو جفت دیگر به دست آمده است.</p>
+
+      <p>در ماجرای فهرست اویلر نیز دو نکتهٔ خواندنی هست. او شمار جفت‌های درستِ شناخته‌شده را به ۶۲ رساند، اما در جدول‌هایش دو مدخل نادرست هم راه یافته بود که در سال‌های ۱۹۰۹ و ۱۹۱۴ خطای آن‌ها آشکار شد؛ حتی حساب اویلر نیز گاه لغزش داشت. و آن نوجوان شانزده‌سالهٔ ایتالیایی که قربانی از او نام می‌برد، اکنون برای ما بی‌نام نیست: ب. نیکولو ای. پاگانینی. نباید او را با نوازندهٔ مشهور ویولن اشتباه گرفت. جفت کوچک او، <span class="num">(1184, 1210)</span>، در میان جفت‌های مرتب‌شده درست پس از جفت باستانیِ <span class="num">(220, 284)</span> قرار می‌گیرد، اما تا آن زمان از نظر همه دور مانده بود: دستور ثابت آن را نمی‌سازد و فرما و دکارت و حتی اویلر نیز آن را ندیده بودند.</p>
+
+      <p>پژوهش تاریخی نیز داستان را به گذشته‌های دورتر برده است. یان هوخندایک با تکیه بر متن رسالهٔ ثابت بن قره استدلال کرده است که خودِ ثابت به احتمال زیاد جفتِ ۱۷۲۹۶ و ۱۸۴۱۶ را می‌شناخته؛ یعنی شش قرن پیش از آنکه کمال‌الدین فارسی آن را به دست آورد. از سوی دیگر، اکنون می‌دانیم که فارسی تنها نبود: ابن‌البنّای مراکشی تقریباً در همان زمان و در سوی دیگر جهان اسلام به همان جفت رسید. بنابراین جفتی که در اروپا مدت‌ها کشف آن را به فرما نسبت می‌دادند، سده‌ها پیش از او دست‌کم دو بار، و شاید سه بار، پیدا شده بود.</p>
+
+      <p>با وجود این همه کشف، پرسش‌های بنیادی بی‌پاسخ مانده‌اند. آیا بی‌نهایت جفت متحاب وجود دارد؟ نمی‌دانیم. آیا ممکن است در یک جفت، یکی از دو عدد زوج و دیگری فرد باشد؟ هنوز هیچ نمونه‌ای پیدا نشده است. آیا دو عدد متحاب می‌توانند نسبت به هم اول باشند؟ چنین جفتی نیز شناخته نشده است؛ و اگر وجود داشته باشد، حاصل‌ضرب دو عدد باید از \(10^{67}\) بزرگ‌تر باشد. همهٔ جفت‌های شناخته‌شده دست‌کم یک عامل اول مشترک دارند. مهم‌ترین نتیجهٔ کلی در این زمینه نیز کوتاه و سخت‌گیرانه است: اردوش در ۱۹۵۵ ثابت کرد که چگالی عددهای متحاب صفر است. دوستی، در میان عددها، پدیده‌ای کمیاب است.</p>
+
+      <p>این دوستی گاهی به جای یک جفت، حلقه‌ای بلندتر می‌سازد. اگر از عددی آغاز کنیم و بارها مجموع اجزای آن را بگیریم،</p>
+      <div class="eq">\[n \to S(n) \to S(S(n)) \to \cdots\]</div>
+      <p>عدد تام حلقه‌ای یک‌عضوی می‌سازد و دو عدد متحاب حلقه‌ای دوعضوی. پل پوله در ۱۹۱۸ حلقه‌هایی با پنج و بیست‌وهشت عضو یافت؛ چنین عددهایی را امروز «عددهای اجتماعی» می‌نامند. برخی زنجیره‌ها نیز هنوز پایان خود را آشکار نکرده‌اند: مثلاً نمی‌دانیم زنجیره‌ای که از ۲۷۶ آغاز می‌شود، سرانجام بسته می‌شود یا نه.</p>
+
+      <!-- playground C -->
+      <div class="widget" id="wC-fa">
+        <div class="wlab">میدانِ بازی · زنجیرهٔ اجزا</div>
+        <p class="whint">از هر جا آغاز کنید و پیوسته مجموعِ اجزا بگیرید. حلقهٔ به طولِ ۱، عددِ تام است؛ به طولِ ۲، جفتِ متحاب؛ بلندتر، حلقهٔ اجتماعی. ۲۷۶ را بیازمایید — سرنوشتش مسئله‌ای باز است.</p>
+        <div class="wrow">
+          <input class="winp" type="text" inputmode="numeric" value="12496" aria-label="یک عدد طبیعی">
+          <button class="wbtn">زنجیره را دنبال کن</button>
+          <button class="chipbtn">220</button><button class="chipbtn">6</button><button class="chipbtn">95</button><button class="chipbtn">12496</button><button class="chipbtn">276</button>
+        </div>
+        <div class="wout" aria-live="polite"></div>
+      </div>
+
+      <p>و سرانجام، چند کلمه دربارهٔ نویسنده. «فارسی‌نامه»ای که قربانی در این مقاله آن را «هنوز به چاپ نرسیده» می‌خواند، بعدها منتشر شد. ابوالقاسم قربانی (۱۲۹۰–۱۳۸۰)، که پیش از روی‌آوردن به تاریخ ریاضیات دبیر ریاضی بود، اثر بزرگ و شناخته‌شدهٔ خود، «زندگینامهٔ ریاضیدانان دورهٔ اسلامی»، را نیز به پایان رساند. انجمن ریاضی ایران، همان انجمنی که این مقاله نخستین بار در نشریه‌اش منتشر شد، امروز جایزه‌ای به نام او به بهترین نوشته در تاریخ ریاضیات می‌دهد. مقاله‌ای که خواندید از نمونه‌های آغازین همین سنت است.</p>
+    </div>
+  </div>
+
+  <!-- ===== کارنامه‌ی دست‌اندرکاران ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">نویسنده</div>
+        <div class="who">ابوالقاسم قربانی</div>
+        <div class="aff">تاریخ‌نگارِ ریاضیات · ۱۲۹۰–۱۳۸۰ · <a href="https://fa.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A7%D9%84%D9%82%D8%A7%D8%B3%D9%85_%D9%82%D8%B1%D8%A8%D8%A7%D9%86%DB%8C" target="_blank" rel="noopener">ویکی‌پدیا</a></div>
+      </div>
+      <div class="role">
+        <div class="lab">منبعِ اصلی</div>
+        <div class="who">فرهنگ و اندیشهٔ ریاضی · شمارهٔ ۳</div>
+        <div class="aff">۱۳۶۲ · نشریهٔ انجمن ریاضی ایران · صص ۲۰–۲۵</div>
+      </div>
+      <div class="role">
+        <div class="lab">پیاده‌سازیِ متن، ترجمه، بخش‌های تعاملی و نگارشِ پس‌گفتار</div>
+        <div class="who">امیر اصغری</div>
+      </div>
+    </div>
+    <div class="origin">این متن از روی نسخهٔ چاپ‌شدهٔ سال ۱۳۶۲ پیاده شده و برای بخش «تاریخ ریاضیات» مجلهٔ «آدم‌ها و ریاضیات» به انگلیسی ترجمه شده است. فرمول‌هایی که در اصل با دست میان سطرهای ماشین‌شده نوشته شده بودند، حروف‌چینی شده‌اند. رسم‌الخط و شیوهٔ تأکیدگذاری نیز اندکی به رسم امروز نزدیک شده است. بخش‌های تعاملی و پس‌گفتار از افزوده‌های این بازنشرند و در متن به‌روشنی از اصل مقاله جدا شده‌اند.</div>
+  </div>
+
+  <div class="refs">
+    <h3>منابع</h3>
+    <ol>
+      <li>ابوالقاسم قربانی، «دستور ثابت بن قره برای پیدا کردن عددهای متحاب»، <em>فرهنگ و اندیشهٔ ریاضی</em>، شمارهٔ ۳، ۱۳۶۲، صص. ۲۰–۲۵، انجمن ریاضی ایران.</li>
+      <li><span class="num">L. E. Dickson. <em>History of the Theory of Numbers</em>, Vol. I: Divisibility and Primality. Washington, 1919.</span></li>
+      <li><span class="num">J. P. Hogendijk. “Thābit ibn Qurra and the pair of amicable numbers 17296, 18416.” <em>Historia Mathematica</em> 12 (1985), 269–273.</span></li>
+      <li><span class="num">W. Borho. “On Thabit ibn Kurrah’s formula for amicable numbers.” <em>Mathematics of Computation</em> 26 (1972), 571–578.</span></li>
+      <li><span class="num">L. Euler. “De numeris amicabilibus” (1750). English translation: <em>On Amicable Numbers</em>, trans. Jonathan David Evans, School of Mathematical Sciences, Lancaster University.</span></li>
+      <li><span class="num">S. Chernykh. <em>Amicable pairs list</em> — sech.me/ap.</span></li>
+    </ol>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="javascript:window.print()" data-en="↓ Download PDF" data-fa="↓ دریافت نسخهٔ پی‌دی‌اف"></a><a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a></span>
+</footer>
+
+<script>
+  function applyLabels(lang){
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+      var v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+  }
+  function setLang(lang){
+    var isFa = lang === 'fa';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-lang-block]').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+    });
+    document.querySelectorAll('.langtoggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    applyLabels(lang);
+    try { localStorage.setItem('pm-lang', lang); } catch(e){}
+  }
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+
+  function renderMath(){
+    if (!window.renderMathInElement) { setTimeout(renderMath, 60); return; }
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  renderMath();
+
+  /* ================= number theory helpers ================= */
+  function normDigits(s){
+    var fa = '۰۱۲۳۴۵۶۷۸۹', ar = '٠١٢٣٤٥٦٧٨٩', out = '';
+    s = String(s || '');
+    for (var i = 0; i < s.length; i++){
+      var ch = s[i], k = fa.indexOf(ch); if (k < 0) k = ar.indexOf(ch);
+      out += (k >= 0) ? String(k) : ch;
+    }
+    return out.replace(/[^0-9]/g, '');
+  }
+  function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; }); }
+  function fmt(n, isFa){
+    var s = Number(n).toLocaleString('en-US');
+    if (isFa) s = faDigits(s).replace(/,/g, '\u066C');
+    return s;
+  }
+  function divisorsOf(n){
+    var out = [];
+    for (var d = 1; d * d <= n; d++){
+      if (n % d === 0){ out.push(d); if (d !== n / d) out.push(n / d); }
+    }
+    return out.sort(function(a, b){ return a - b; });
+  }
+  function sigmaOf(n){
+    if (n < 1) return 0;
+    var s = 1, m = n, p, e, term, k;
+    for (p = 2; p * p <= m; p += (p === 2 ? 1 : 2)){
+      if (m % p === 0){
+        e = 0; while (m % p === 0){ m /= p; e++; }
+        term = 1; for (k = 1; k <= e; k++) term = term * p + 1; /* 1+p+...+p^e */
+        s *= term;
+      }
+    }
+    if (m > 1) s *= (m + 1);
+    return s;
+  }
+  function Sparts(n){ return sigmaOf(n) - n; }
+  function smallestFactor(n){
+    if (n % 2 === 0) return 2;
+    for (var d = 3; d * d <= n; d += 2) if (n % d === 0) return d;
+    return n;
+  }
+  function isPrime(n){ return n >= 2 && smallestFactor(n) === n; }
+
+  /* ================= playground A: parts of a number ================= */
+  var L_A = {
+    en: {
+      partsOf: 'The parts of', are: 'are', sum: 'Sum of the parts',
+      none: 'The number 1 has no parts.',
+      prime: 'is prime — its only part is 1.',
+      perfect: 'The sum of the parts of {n} is {n} itself — a perfect number!',
+      amicable: 'And the sum of the parts of {s} is {n} — so {n} and {s} are amicable!',
+      not: 'And the sum of the parts of {s} is {ss}, not {n} — so {n} and {s} are not amicable.',
+      tooBig: 'Please use a number up to 10,000,000.', bad: 'Type a natural number greater than 1.'
+    },
+    fa: {
+      partsOf: 'اجزای', are: 'عبارت‌اند از', sum: 'مجموعِ اجزا',
+      none: 'عددِ ۱ جزئی ندارد.',
+      prime: 'عددی اول است — تنها جزءِ آن ۱ است.',
+      perfect: 'مجموعِ اجزای {n} خودِ {n} است — عددی تام!',
+      amicable: 'و مجموعِ اجزای {s} برابر است با {n} — پس {n} و {s} متحاب‌اند!',
+      not: 'و مجموعِ اجزای {s} برابر است با {ss} نه {n} — پس {n} و {s} متحاب نیستند.',
+      tooBig: 'لطفاً عددی تا ۱۰٬۰۰۰٬۰۰۰ بنویسید.', bad: 'عددی طبیعی و بزرگ‌تر از ۱ بنویسید.'
+    }
+  };
+  function initA(id, lang){
+    var box = document.getElementById(id); if (!box) return;
+    var isFa = lang === 'fa', T = L_A[lang];
+    var inp = box.querySelector('.winp'), out = box.querySelector('.wout');
+    function tpl(s, n, sv, ss){ return s.replace(/\{n\}/g, fmt(n, isFa)).replace(/\{s\}/g, fmt(sv, isFa)).replace(/\{ss\}/g, fmt(ss, isFa)); }
+    function run(){
+      var n = parseInt(normDigits(inp.value), 10);
+      if (!n || n < 2){ out.innerHTML = '<div class="verdict plain">' + (n === 1 ? T.none : T.bad) + '</div>'; return; }
+      if (n > 10000000){ out.innerHTML = '<div class="verdict plain">' + T.tooBig + '</div>'; return; }
+      var divs = divisorsOf(n), parts = divs.slice(0, -1), sum = parts.reduce(function(a, b){ return a + b; }, 0);
+      var chips = parts.map(function(d){ return '<span class="part">' + fmt(d, isFa) + '</span>'; }).join('');
+      var html = '<div class="sumline"><strong>' + T.partsOf + ' ' + fmt(n, isFa) + '</strong> ' + T.are + ':</div>'
+               + '<div class="parts" style="margin-top:8px;">' + chips + '</div>'
+               + '<div class="sumline">' + T.sum + ': <strong>S(' + fmt(n, isFa) + ') = ' + fmt(sum, isFa) + '</strong></div>';
+      if (parts.length === 1){ html += '<div class="verdict plain">' + fmt(n, isFa) + ' ' + T.prime + '</div>'; }
+      else if (sum === n){ html += '<div class="verdict good">' + tpl(T.perfect, n, sum, 0) + '</div>'; }
+      else {
+        var back = Sparts(sum);
+        html += (back === n)
+          ? '<div class="verdict good">' + tpl(T.amicable, n, sum, back) + '</div>'
+          : '<div class="verdict plain">' + tpl(T.not, n, sum, back) + '</div>';
+      }
+      out.innerHTML = html;
+    }
+    box.querySelector('.wbtn').addEventListener('click', run);
+    inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') run(); });
+    box.querySelectorAll('.chipbtn').forEach(function(b){ b.addEventListener('click', function(){ inp.value = b.textContent; run(); }); });
+    run();
+  }
+
+  /* ================= playground B: Thābit's machine ================= */
+  var L_B = {
+    en: {
+      prime: 'prime', comp: 'not prime', factor: 'divisible by',
+      fail: 'For n = {n} the rule gives no pair — {who} {isare} not prime.',
+      ok: 'All three are prime — the theorem hands us an amicable pair:',
+      check: 'Check: S(H) = K and S(K) = H, and σ(H) = σ(K) = H + K = {sum}.',
+      hist2: 'The pair of the Greeks — the one attributed to Pythagoras.',
+      hist4: 'The pair of Kamāl al-Dīn Fārisī (later Fermat, 1636) — and, Hogendijk argues, perhaps of Thābit himself.',
+      hist7: 'The pair of Muhammad Bāqir Yazdī (and Descartes, 1638).',
+      note: 'To this day, n = 2, 4 and 7 are the only values known to work.'
+    },
+    fa: {
+      prime: 'اول', comp: 'اول نیست', factor: 'بخش‌پذیر بر',
+      fail: 'برای n = {n} دستور جفتی نمی‌دهد — {who} اول {isare}.',
+      ok: 'هر سه اول‌اند — قضیه جفتِ متحاب را تحویل می‌دهد:',
+      check: 'بررسی: S(H) = K و S(K) = H، و σ(H) = σ(K) = H + K = {sum}.',
+      hist2: 'جفتِ یونانیان — همان که به فیثاغورس نسبت داده‌اند.',
+      hist4: 'جفتِ کمال‌الدین فارسی (و بعدها فرما، ۱۶۳۶) — و به استدلالِ هوخندایک، شاید جفتِ خودِ ثابت.',
+      hist7: 'جفتِ محمدباقر یزدی (و دکارت، ۱۶۳۸).',
+      note: 'تا امروز فقط n = ۲، ۴، ۷ جواب داده است.'
+    }
+  };
+  function initB(id, lang){
+    var box = document.getElementById(id); if (!box) return;
+    var isFa = lang === 'fa', T = L_B[lang];
+    var out = box.querySelector('.wout'), nshow = box.querySelector('.nshow');
+    var n = 2, NMIN = 2, NMAX = 15;
+    function pow2(k){ return Math.pow(2, k); }
+    function row(name, formula, v){
+      var prime = isPrime(v), f = prime ? 0 : smallestFactor(v);
+      var pill = prime ? '<span class="pill p">' + T.prime + ' ✓</span>'
+                       : '<span class="pill c">' + T.comp + ' — ' + T.factor + ' ' + fmt(f, isFa) + '</span>';
+      return { prime: prime,
+        html: '<div class="pqr-row"><span class="frm">' + name + ' = ' + formula + '</span><span class="val">= ' + fmt(v, isFa) + '</span>' + pill + '</div>' };
+    }
+    function render(){
+      nshow.textContent = isFa ? faDigits(n) : String(n);
+      box.querySelectorAll('.stepbtn').forEach(function(b){
+        b.disabled = (b.getAttribute('data-d') === '-1' && n <= NMIN) || (b.getAttribute('data-d') === '1' && n >= NMAX);
+      });
+      var p = 3 * pow2(n - 1) - 1, q = 3 * pow2(n) - 1, r = 9 * pow2(2 * n - 1) - 1;
+      var R1 = row('p', '3×2<sup>n−1</sup> − 1', p), R2 = row('q', '3×2<sup>n</sup> − 1', q), R3 = row('r', '9×2<sup>2n−1</sup> − 1', r);
+      var html = '<div class="pqr">' + R1.html + R2.html + R3.html + '</div>';
+      if (R1.prime && R2.prime && R3.prime){
+        var H = pow2(n) * p * q, K = pow2(n) * r;
+        var sig = (pow2(n + 1) - 1) * 9 * pow2(2 * n - 1); /* σ(H) = σ(K) */
+        html += '<div class="hk"><div class="verdict good" style="margin-top:0;">' + T.ok + '</div>'
+             + '<div class="hkline" style="margin-top:10px;"><span class="who">H</span> = 2<sup>' + n + '</sup>·p·q = ' + fmt(H, isFa) + '</div>'
+             + '<div class="hkline"><span class="who">K</span> = 2<sup>' + n + '</sup>·r = ' + fmt(K, isFa) + '</div>'
+             + '<div class="sumline">' + T.check.replace('{sum}', fmt(sig, isFa)) + '</div>';
+        var hist = n === 2 ? T.hist2 : n === 4 ? T.hist4 : n === 7 ? T.hist7 : '';
+        if (hist) html += '<div class="verdict info">' + hist + '</div>';
+        html += '</div>';
+      } else {
+        var bad = [R1, R2, R3].map(function(R, i){ return R.prime ? null : ['p', 'q', 'r'][i]; }).filter(Boolean);
+        var who = bad.join(isFa ? ' و ' : ' and ');
+        var isare = isFa ? (bad.length > 1 ? 'نیستند' : 'نیست') : (bad.length > 1 ? 'are' : 'is');
+        html += '<div class="verdict plain">' + T.fail.replace('{n}', isFa ? faDigits(n) : n).replace('{who}', who).replace('{isare}', isare) + '</div>'
+             + '<div class="sumline" style="color:var(--muted);">' + T.note + '</div>';
+      }
+      out.innerHTML = html;
+    }
+    box.querySelectorAll('.stepbtn').forEach(function(b){
+      b.addEventListener('click', function(){ n = Math.min(NMAX, Math.max(NMIN, n + parseInt(b.getAttribute('data-d'), 10))); render(); });
+    });
+    render();
+  }
+
+  /* ================= playground C: the chain of parts ================= */
+  var L_C = {
+    en: {
+      perfect: 'A loop of length 1 — {a} is perfect.',
+      amicable: 'A loop of length 2 — {a} and {b} are amicable.',
+      sociable: 'A loop of length {k} — a sociable ring!',
+      dies: 'The chain reaches 1 and dies — most numbers end this way.',
+      open: 'No loop within {k} steps… For 276, nobody on Earth knows how this ends — one of the open “Lehmer five.”',
+      wander: 'No loop within {k} steps — the chain wanders on.',
+      big: 'The numbers grew beyond 10¹² — stopping here.',
+      bad: 'Type a natural number greater than 1 (up to 10,000,000).'
+    },
+    fa: {
+      perfect: 'حلقه‌ای به طولِ ۱ — {a} تام است.',
+      amicable: 'حلقه‌ای به طولِ ۲ — {a} و {b} متحاب‌اند.',
+      sociable: 'حلقه‌ای به طولِ {k} — حلقهٔ اجتماعی!',
+      dies: 'زنجیره به ۱ می‌رسد و می‌میرد — سرنوشتِ بیشترِ عددها همین است.',
+      open: 'در {k} گام حلقه‌ای پیدا نشد… برای ۲۷۶ هیچ‌کس در زمین نمی‌داند این زنجیره چگونه تمام می‌شود — یکی از «پنج‌تاییِ لِمِر».',
+      wander: 'در {k} گام حلقه‌ای پیدا نشد — زنجیره همچنان سرگردان است.',
+      big: 'عددها از ۱۰¹² گذشتند — همین‌جا می‌ایستیم.',
+      bad: 'عددی طبیعی و بزرگ‌تر از ۱ بنویسید (تا ۱۰٬۰۰۰٬۰۰۰).'
+    }
+  };
+  function initC(id, lang){
+    var box = document.getElementById(id); if (!box) return;
+    var isFa = lang === 'fa', T = L_C[lang];
+    var inp = box.querySelector('.winp'), out = box.querySelector('.wout');
+    var MAXSTEP = 14, CAP = 1e12;
+    function run(){
+      var n0 = parseInt(normDigits(inp.value), 10);
+      if (!n0 || n0 < 2 || n0 > 10000000){ out.innerHTML = '<div class="verdict plain">' + T.bad + '</div>'; return; }
+      var chain = [n0], verdict = '', cls = 'plain', cycleAt = -1, i, v;
+      for (i = 0; i < MAXSTEP; i++){
+        v = Sparts(chain[chain.length - 1]);
+        if (v > CAP){ verdict = T.big; break; }
+        var seen = chain.indexOf(v);
+        chain.push(v);
+        if (v === 0 || v === 1){ verdict = T.dies; break; }
+        if (seen >= 0){ cycleAt = seen; break; }
+      }
+      if (cycleAt >= 0){
+        var len = chain.length - 1 - cycleAt;
+        cls = 'good';
+        verdict = len === 1 ? T.perfect.replace('{a}', fmt(chain[cycleAt], isFa))
+                : len === 2 ? T.amicable.replace('{a}', fmt(chain[cycleAt], isFa)).replace('{b}', fmt(chain[cycleAt + 1], isFa))
+                : T.sociable.replace('{k}', fmt(len, isFa));
+      } else if (!verdict){
+        verdict = (n0 === 276 ? T.open : T.wander).replace('{k}', fmt(MAXSTEP, isFa));
+        if (n0 === 276) cls = 'info';
+      }
+      var inCycle = function(idx){ return cycleAt >= 0 && idx >= cycleAt; };
+      var html = '<div class="chain">' + chain.map(function(x, idx){
+        return (idx ? '<span class="arrow">→</span>' : '') + '<span class="' + (inCycle(idx) ? 'cyc' : '') + '">' + fmt(x, isFa) + '</span>';
+      }).join('') + (cycleAt < 0 && verdict !== T.dies ? ' <span class="arrow">→ ⋯</span>' : '') + '</div>';
+      html += '<div class="verdict ' + cls + '">' + verdict + '</div>';
+      out.innerHTML = html;
+    }
+    box.querySelector('.wbtn').addEventListener('click', run);
+    inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') run(); });
+    box.querySelectorAll('.chipbtn').forEach(function(b){ b.addEventListener('click', function(){ inp.value = b.textContent; run(); }); });
+    run();
+  }
+
+  initA('wA-en', 'en'); initA('wA-fa', 'fa');
+  initB('wB-en', 'en'); initB('wB-fa', 'fa');
+  initC('wC-en', 'en'); initC('wC-fa', 'fa');
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

@@ -52,6 +52,8 @@
   .person-title { display: inline-block; white-space: nowrap; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); border: 1px solid var(--pm-accent); border-radius: 999px; padding: 3px 11px; }
   [dir="rtl"] .person-title { letter-spacing: 0; text-transform: none; }
   .person-count { font-size: 12px; color: #948876; letter-spacing: .05em; text-transform: uppercase; }
+  .person-link { display: inline-block; white-space: nowrap; margin-top: 10px; font-size: 12px; font-weight: 600; color: var(--pm-accent); text-decoration: none; border: 1px solid #DBD0BA; border-radius: 999px; padding: 3px 11px; transition: border-color .15s; }
+  .person-link:hover { border-color: var(--pm-accent); }
 
   .work-row { display: grid; grid-template-columns: 1fr auto; gap: 8px 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #EFE6D2; text-decoration: none; }
   .work-row:last-child { border-bottom: 0; }
@@ -148,6 +150,8 @@ function render(lang){
     var nm = isFa ? a.fa : a.en;
     var title = (DATA.PEOPLE && DATA.PEOPLE[a.en]) ? (isFa ? DATA.PEOPLE[a.en].fa : DATA.PEOPLE[a.en].en) : "";
     var cnt = a.works.length === 1 ? c.contributorWorksOne : (c.contributorWorksMany||"{n}").replace("{n}", toLocal(a.works.length, isFa));
+    var bio = (DATA.PEOPLE && DATA.PEOPLE[a.en] && DATA.PEOPLE[a.en].url) || "";
+    var bioHtml = bio ? '<a class="person-link sans" href="'+esc(bio)+'" target="_blank" rel="noopener">'+(isFa?'ویکی‌پدیا':'Wikipedia')+' ↗</a>' : '';
     var ava = a.img
       ? '<img src="'+esc(up(a.img))+'" alt="'+esc(nm)+'" loading="lazy">'
       : '<div class="ph-ava">'+esc(a.en.charAt(0))+'</div>';
@@ -163,7 +167,7 @@ function render(lang){
       return w.href ? '<a class="work-row" href="'+esc(up(w.href))+'">'+inner+'</a>' : '<div class="work-row">'+inner+'</div>';
     }).join("");
     return '<section class="person-row wrap" id="'+esc(slug(a.en))+'">'
-      + '<div class="person-id">'+ava+'<div><div class="person-name">'+esc(nm)+'</div>'+(title?'<div class="person-title sans" style="margin-top:9px;">'+esc(title)+'</div>':'')+'<div class="person-count sans" style="margin-top:'+(title?'9px':'6px')+';">'+esc(cnt)+'</div></div></div>'
+      + '<div class="person-id">'+ava+'<div><div class="person-name">'+esc(nm)+'</div>'+(title?'<div class="person-title sans" style="margin-top:9px;">'+esc(title)+'</div>':'')+'<div class="person-count sans" style="margin-top:'+(title?'9px':'6px')+';">'+esc(cnt)+'</div>'+bioHtml+'</div></div>'
       + '<div>'+worksHtml+'</div>'
       + '</section>';
   }).join("");

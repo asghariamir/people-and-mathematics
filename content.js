@@ -88,11 +88,20 @@ window.PM_CONTENT = {
      opposed to a per-work credit (translator of one piece, etc.). It shows
      as a small badge beside their name on the Contributors page. Keyed by
      the person's name EXACTLY as written in a work's author line.
+     A person may also carry  url:  — a link to their Wikipedia entry (or
+     another reliable account of their life). It shows as a small
+     "Wikipedia" chip under their name on the Contributors page.
      Leave the { } empty if you don't want any.
      ===================================================================== */
   PEOPLE: {
     "Amir Asghari": { en: "Founding Editor", fa: "سردبیرِ مؤسس" },
-    "David Tall": { en: "University of Warwick", fa: "دانشگاه واریک" }
+    "David Tall": { en: "University of Warwick", fa: "دانشگاه واریک", url: "https://en.wikipedia.org/wiki/David_Tall" },
+    "Abulghasem Ghorbani": { en: "Historian of mathematics · 1912–2001", fa: "تاریخ‌نگارِ ریاضیات · ۱۲۹۰–۱۳۸۰", url: "https://fa.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A7%D9%84%D9%82%D8%A7%D8%B3%D9%85_%D9%82%D8%B1%D8%A8%D8%A7%D9%86%DB%8C" },
+    "Ian Stewart": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Ian_Stewart_(mathematician)" },
+    "Abbas Eqbal Āshtiāni": { en: "", fa: "", url: "https://fa.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%B3_%D8%A7%D9%82%D8%A8%D8%A7%D9%84_%D8%A2%D8%B4%D8%AA%DB%8C%D8%A7%D9%86%DB%8C" },
+    "Artan Sheshmani": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Artan_Sheshmani" },
+    "Behrooz Parhami": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Behrooz_Parhami" },
+    "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" }
   },
 
 
@@ -197,12 +206,18 @@ window.PM_CONTENT = {
      ===================================================================== */
   ISSUES: [
     { n: 1,
-      closed: "",                                 /* "" = still open (closes: schedules it) */
-      closes: "2026-07-15",                        /* the launch issue flips to closed by itself on this date */
+      closed: "2026-07-15",
       label:       { en: "Issue 01",   fa: "دفترِ یکم" },
       title:       { en: "First Light", fa: "دفترِ نخست" },
       openedLabel: { en: "June 2026",  fa: "خرداد ۱۴۰۵" },
-      closedLabel: { en: "15 July 2026", fa: "۲۴ تیر ۱۴۰۵" } }
+      closedLabel: { en: "15 July 2026", fa: "۲۴ تیر ۱۴۰۵" } },
+
+    { n: 2,
+      closed: "",                                 /* "" = the open issue */
+      label:       { en: "Issue 02",     fa: "دفترِ دوم" },
+      title:       { en: "Second Nature", fa: "دفترِ دوم" },
+      openedLabel: { en: "July 2026",    fa: "تیر ۱۴۰۵" },
+      closedLabel: { en: "", fa: "" } }
   ],
 
 
@@ -296,8 +311,24 @@ window.PM_CONTENT = {
             dek: "کلاسی یک چرخنده‌ی احتمال را از یک جعبه مهره بازساخت — و بی‌آنکه گفته شود، ساختارِ پنهان در پاسخ‌ها را کشف کرد.",
             author: "زهره پندی", meta: "یادداشت‌های کلاسی" } },
 
-    /* ---- History of Mathematics  (featured) ---- */
+    /* ---- History of Mathematics  (featured — opens Issue 02) ---- */
     { section: "history", featured: true,
+      href: "articles/thabit-amicable.html",
+      added: "2026-07-17",
+      issue: 2,
+      level: "school",
+      imgSrc: "assets/abulghasem-ghorbani.jpg",
+      authorImg: "assets/abulghasem-ghorbani.jpg",
+      img: "photo — Abulghasem Ghorbani",
+      date: { en: "1983 · republished July 2026", fa: "۱۳۶۲ · بازنشرِ تیر ۱۴۰۵" },
+      en: { title: "Thābit ibn Qurra’s Rule for Finding Amicable Numbers",
+            dek: "The oldest rule for producing amicable numbers, set out in 1983 by the historian of Persian mathematics Abulghasem Ghorbani — given in full, now interactive: build 220 & 284 yourself, then read an afterword on the billion-plus pairs known today.",
+            author: "Abulghasem Ghorbani", meta: "1983 · full text · interactive" },
+      fa: { title: "دستور ثابت بن قره برای پیدا کردن عددهای متحاب",
+            dek: "کهن‌ترین دستورِ ساختنِ عددهای متحاب، به قلمِ ابوالقاسم قربانی در ۱۳۶۲ — اینجا به‌کامل و اکنون تعاملی: ۲۲۰ و ۲۸۴ را خودتان بسازید؛ با پس‌گفتاری درباره‌ی بیش از یک میلیارد جفتِ امروز.",
+            author: "ابوالقاسم قربانی", meta: "۱۳۶۲ · متنِ کامل · تعاملی" } },
+
+    { section: "history", featured: false,
       href: "articles/letter-x.html",
       added: "2026-06-15",
       issue: 1,

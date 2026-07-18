@@ -102,7 +102,7 @@ window.PM_CONTENT = {
     "Artan Sheshmani": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Artan_Sheshmani" },
     "Behrooz Parhami": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Behrooz_Parhami" },
     "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" },
-    "Ali Enayat": { en: "University of Gothenburg", fa: "دانشگاه گوتنبرگ", url: "https://www.gu.se/en/about/find-staff/alienayat" },
+    "Ali Enayat": { en: "", fa: "" },
     "Donald R. Weidman": { en: "Boston College · the 1965 letter", fa: "بوستون‌کالج · نامهٔ ۱۹۶۵" }
   },
 
@@ -515,6 +515,7 @@ window.PM_CONTENT = {
       imgSrc: "assets/ali-enayat.jpg",
       authorImg: "assets/ali-enayat.jpg",
       img: "photo — Ali Enayat",
+      contribAuthor: { en: "Ali Enayat", fa: "علی عنایت" },
       date: { en: "1965 · 2025 · in English July 2026", fa: "۱۹۶۵ · ۱۴۰۴ · انگلیسی تیر ۱۴۰۵" },
       en: { title: "Emotional Perils of Mathematics: An Imaginary Conversation",
             dek: "In 1965 Donald Weidman told Science readers why the mathematical life is emotionally perilous. Translating him sixty years later, Ali Enayat talks back — with Hafez, Brodsky, and artificial intelligence joining the conversation. Weidman answers in his own 1965 words.",

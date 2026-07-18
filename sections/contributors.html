@@ -128,9 +128,11 @@ function render(lang){
   (DATA.WORKS||[]).forEach(function(w){
     var t = w.en || {};
     if (!t.author) return;
-    if (!seen[t.author]){ seen[t.author] = { en: t.author, fa: (w.fa && w.fa.author) || t.author, img: w.authorImg || "", works: [], roles: {} }; authors.push(seen[t.author]); }
-    if (!seen[t.author].img && w.authorImg) seen[t.author].img = w.authorImg;
-    seen[t.author].works.push(w);
+    var key = (w.contribAuthor && w.contribAuthor.en) || t.author;
+    var keyFa = (w.contribAuthor && w.contribAuthor.fa) || (w.fa && w.fa.author) || t.author;
+    if (!seen[key]){ seen[key] = { en: key, fa: keyFa, img: w.authorImg || "", works: [], roles: {} }; authors.push(seen[key]); }
+    if (!seen[key].img && w.authorImg) seen[key].img = w.authorImg;
+    seen[key].works.push(w);
   });
   /* … and the credited contributors (translation, editing, …) declared on works */
   (DATA.WORKS||[]).forEach(function(w){

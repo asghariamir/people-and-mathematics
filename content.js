@@ -101,7 +101,9 @@ window.PM_CONTENT = {
     "Abbas Eqbal Āshtiāni": { en: "", fa: "", url: "https://fa.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%B3_%D8%A7%D9%82%D8%A8%D8%A7%D9%84_%D8%A2%D8%B4%D8%AA%DB%8C%D8%A7%D9%86%DB%8C" },
     "Artan Sheshmani": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Artan_Sheshmani" },
     "Behrooz Parhami": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Behrooz_Parhami" },
-    "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" }
+    "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" },
+    "Ali Enayat": { en: "University of Gothenburg", fa: "دانشگاه گوتنبرگ", url: "https://www.gu.se/en/about/find-staff/alienayat" },
+    "Donald R. Weidman": { en: "Boston College · the 1965 letter", fa: "بوستون‌کالج · نامهٔ ۱۹۶۵" }
   },
 
 
@@ -501,6 +503,25 @@ window.PM_CONTENT = {
       fa: { title: "رویدادِ زن در ریاضیات",
             dek: "چگونه دانشجویانِ شریف بزرگداشتی دوساله برای مریم میرزاخانی برپا کردند — و آنچه برگزاری‌اش طلبید. گزارشی برای ثبتِ تاریخ، به زبانِ خودِ برگزارکنندگان.",
             author: "فرناز حاج‌منوچهری و بامداد ترابی", meta: "گزارش" } },
+
+    /* ---- Mathematical Culture  (Weidman–Enayat imaginary conversation, from the
+       IMS Newsletter no. 182, Spring 1404 — republished with the author's permission.
+       Not featured (the Mirzakhani gallery is pinned). ---- */
+    { section: "culture", featured: false,
+      href: "articles/emotional-perils.html",
+      added: "2026-07-18",
+      issue: 2,
+      level: "school",
+      imgSrc: "assets/ali-enayat.jpg",
+      authorImg: "assets/ali-enayat.jpg",
+      img: "photo — Ali Enayat",
+      date: { en: "1965 · 2025 · in English July 2026", fa: "۱۹۶۵ · ۱۴۰۴ · انگلیسی تیر ۱۴۰۵" },
+      en: { title: "Emotional Perils of Mathematics: An Imaginary Conversation",
+            dek: "In 1965 Donald Weidman told Science readers why the mathematical life is emotionally perilous. Translating him sixty years later, Ali Enayat talks back — with Hafez, Brodsky, and artificial intelligence joining the conversation. Weidman answers in his own 1965 words.",
+            author: "Donald R. Weidman & Ali Enayat", meta: "Dialogue" },
+      fa: { title: "چالش‌های روحیِ ریاضیات: یک گفتگوی خیالی",
+            dek: "در ۱۹۶۵ دونالد وایدمن به خوانندگان Science گفت چرا زندگی با ریاضیاتِ محض از نظر روحی پرمخاطره است. علی عنایت، شصت سال بعد و در میانهٔ ترجمهٔ نامه، پاسخش را می‌دهد — گفتگویی خیالی که پای حافظ و برادسکی و هوش مصنوعی هم به آن باز می‌شود.",
+            author: "دونالد وایدمن و علی عنایت", meta: "گفتگو" } },
 
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,

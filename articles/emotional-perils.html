@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emotional Perils of Mathematics: An Imaginary Conversation — Donald R. Weidman &amp; Ali Enayat · Mathematical Culture</title>
+<meta name="description" content="Donald Weidman's 1965 Science letter on the emotional perils of the mathematical life, answered sixty years later by Ali Enayat in an imaginary conversation — in Persian and English. A People and Mathematics publication.">
+
+<meta property="og:title" content="Emotional Perils of Mathematics: An Imaginary Conversation — Donald R. Weidman &amp; Ali Enayat">
+<meta property="og:description" content="Mathematical Culture · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/weidman-science-1048.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+  .standfirst, .body p { text-align: justify; }
+
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand:hover { color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  [dir="rtl"] .kicker { letter-spacing: 0; }
+  h1.title { font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 40px 0 14px; padding-top: 8px; }
+  .seclab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin: 36px 0 12px; }
+  [dir="rtl"] .seclab { letter-spacing: 0; }
+  .ednote { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 14px; color: var(--muted); border-inline-start: 2px solid var(--line); padding: 2px 14px; margin: 18px 0 26px; line-height: 1.6; }
+
+  /* facsimile in the margin */
+  .sideplate { float: inline-end; width: 305px; margin-block: 6px 20px; margin-inline-start: 28px; }
+  .sideplate a { display: block; }
+  .sideplate img { width: 100%; display: block; border: 1px solid #D8C9AE; border-radius: 2px; box-shadow: 0 10px 26px rgba(28,24,20,.16); background: #fff; }
+  .cap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 11px; line-height: 1.55; }
+  .cap .lab { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 5px; }
+  [dir="rtl"] .cap .lab { letter-spacing: 0; }
+
+  /* the conversation */
+  .turn { margin: 0 0 6px; }
+  .spk { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 700; font-size: 15px; }
+  .spk.dw { color: var(--accent); }
+  .spk.ae { color: var(--ink); }
+  .verse { text-align: center !important; font-style: italic; margin: 6px 0 20px; line-height: 2; }
+  [dir="rtl"] .verse { font-style: normal; }
+  .verse .l { display: block; }
+
+  .body .fn sup { color: var(--accent); font-weight: 600; font-style: normal; }
+  .fnotes { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 14px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; color: #43392E; line-height: 1.65; }
+  .fnotes p { margin: 0 0 8px; }
+  .fnotes .fn { color: var(--accent); font-weight: 700; }
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; clear: both; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .colophon .role .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  [dir="rtl"] .colophon .role .lab { letter-spacing: 0; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .colophon .role .aff a { color: var(--accent); text-decoration: none; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+
+  .refs { margin-top: 40px; }
+  .refs h3 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  [dir="rtl"] .refs h3 { letter-spacing: 0; }
+  .refs ol { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; line-height: 1.6; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 10px; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.1; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 22px 32px; }
+    h1.title { font-size: 31px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .sideplate { float: none; width: 100%; margin-inline-start: 0; margin-block: 8px 24px; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+  }
+  @media print {
+    .langtoggle { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" class="persian" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Mathematical Culture" data-fa="فرهنگ ریاضی"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="For everyone · From the Newsletter of the Iranian Mathematical Society · No. 182 · Spring 1404 [2025]" data-fa="برای همه · بازنشر از خبرنامهٔ انجمن ریاضی ایران · شمارهٔ پیاپی ۱۸۲ · بهار ۱۴۰۴"></span></div>
+</div>
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">Mathematical Culture</div>
+  <h1 class="title">Emotional Perils of Mathematics: An Imaginary Conversation</h1>
+  <p class="standfirst">In 1965, <em>Science</em> printed a short letter by a mathematician at Boston College on the emotional perils of the mathematical life. Sixty years later, translating it into Persian, the logician Ali Enayat found himself talking back — and the translation grew into a conversation across time, with Hafez, Brodsky, and artificial intelligence joining in. Weidman speaks here in his own 1965 words.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/ali-enayat.jpg" alt="Ali Enayat">
+    <span class="name">Donald R. Weidman &amp; Ali Enayat</span>
+  </div>
+
+  <div class="body">
+    <figure class="sideplate">
+      <a href="../assets/weidman-science-1048.jpg" target="_blank" rel="noopener">
+        <img src="../assets/weidman-science-1048.jpg" alt="Page 1048 of Science, 3 September 1965 — Weidman's letter “Emotional Perils of Mathematics” begins partway down the first column.">
+      </a>
+      <figcaption class="cap">
+        <span class="lab">The letter as it ran</span>
+        <em>Science</em>, vol. 149, no. 3688 — 3 September 1965, p. 1048. Weidman’s letter opens partway down the first column, between a note on federal research funding and a thought experiment on force-free bodies. Click to enlarge.
+      </figcaption>
+    </figure>
+
+    <div class="seclab">Introduction — by Ali Enayat</div>
+    <p>In 1965 a letter by Donald Weidman,<span class="fn"><sup>1</sup></span> an American mathematician, appeared in the journal <em>Science</em> under the title “Emotional Perils of Mathematics” [1]. The letter was later reprinted in an anthology on the many faces of mathematics [2] and found a wide echo. In it, Weidman takes up sides of the mathematical profession that receive little attention. The text first reached me some forty years ago, just as I was finishing my doctoral dissertation. I have gone back to it every so often since; recently, returning to it after a long while, I found it riper and more absorbing than ever — I suspect because how deeply one takes in its content depends directly on the breadth of one’s own experience and observation. The thoughts that came to me while translating it are presented below, as an imaginary conversation between “D.W.” (Donald Weidman) and “A.E.” (myself). With thanks to Dr. Siavash Shahshahani, who helped me prepare the final version of this piece.</p>
+
+    <h2 class="subhead">An imaginary conversation</h2>
+    <div class="ednote">“D.W.” speaks below in Weidman’s own words, reproduced verbatim from the 1965 letter; “A.E.” replies are translated from the Persian of this piece’s first publication.</div>
+
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> People are turned aside from being mathematicians — by which I mean “pure” mathematicians — far more by temperament than by any intellectual problems. There are certain emotional difficulties which are intrinsic to the mathematical life, and only a few people are able to live with them all their lives.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> I agree with the general frame of your claim, but let me add two complementary points. First: a person’s moral and ideological measures form, together with what we call temperament, a single interwoven inner whole. The second point — obvious, but worth the stress — concerns outer circumstances: even in prosperous societies, the particular temperament, manner, and way of being that mathematics demands is smothered in some cultural and social settings, and in others finds room to grow and flourish.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> First of all, the mathematician must be capable of total involvement in a specific problem. To do mathematics, you must immerse yourself completely in a situation, studying it from all aspects, toying with it day and night, and devoting every scrap of available energy to understanding it. You can permit yourself occasional breaks, and probably should; nevertheless the state of immersion must go on for somewhat extended periods, usually several days or weeks.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> Let us not pass too quickly over those breaks you mention, because the mental and bodily activity of these so-called rest periods plays a great part in the long-run quality of a mathematician’s work. In mathematics, moreover, it is often only after pen, paper, and books have been set aside and the usual methods exhausted that fresh ideas and “nonlinear” advances get their chance to take shape — intuitively, and in part unconsciously. So what looks from the outside like a mathematician’s rest may play a decisive role in the making of the work. These days psychologists and cognitive scientists speak constantly of the complex, vital processing that takes shape in the brain’s neural networks during rest — and above all in sleep.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> Second, the mathematician must risk frustration. Most of the time, in fact, he finds himself, after weeks or months of ceaseless searching, with exactly nothing: no results, no ideas, no energy. Since some of this time, at least, has been spent in total involvement, the resulting frustration is very nearly total. Certainly it seriously affects his attitude toward all other affairs. This factor is a more important hindrance than any other, I believe; to risk total frustration, and to be almost certain to lose, is a psychological problem of the first rank.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> I doubt there is an experienced mathematician who has not tasted the pain you describe. Often, when a problem defeats me despite bout after bout of wrestling with it, I console myself with a royal verse of Hafez, the master of Shiraz:</p>
+      <p class="verse"><span class="l">A thousand subtleties Hafez devised from thought,</span><span class="l">in the longing that his beloved be tamed — and she was not.</span></p>
+      <p>And let us not forget this either: whoever has truly taken in Saadi’s counsel that <em>no treasure comes without toil borne</em>, or Rudaki’s line that <em>in hard affliction appear excellence, greatness, and command</em>, and counts hardship an inseparable part of the road to high aims, can better withstand what you have called a psychological problem of the first rank. At the same time, I grant that this psychological problem admits no straightforward, generalisable solution.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> Next, even the most successful mathematician suffers from lack of appreciation. Naturally his family and his friends have no feeling for the significance of his accomplishments, but it is even worse than this. Other mathematicians don’t appreciate the blood, sweat, and tears that have gone into a result that appears simple, straightforward, almost trivial. Mathematical terminology is designed to eliminate extraneous things and focus on fundamental processes, but the method of finding results is far different from these fundamental processes. Mathematical writing doesn’t permit any indication of the labor behind the results.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> The sides you point to are familiar to artists. Anyone acquainted with the history of art and literature knows the fierce rivalry and jealousy that run among artists, which often leave them inattentive to one another’s work, or belittling it. Great writers, famously, do not read one another. And just as one cannot guess, from reading a mathematical paper, what a winding road — full of dread and potholes — its author has travelled, so too one cannot guess the wellspring of inspiration, the tangled process of gestation, and the toils and trials-and-errors that lie behind the creation of a work of art.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> Finally, the mathematician must face the fact that he will almost certainly be dissatisfied with himself. This is partly because he is running head-on into problems which are too vast ever to be solved completely. More important, it is because he knows that his own contributions actually have little significance. The history of mathematics makes plain that all the general outlines and most of the major results have been obtained by a few geniuses who are not the ordinary run of mathematicians. These few big men make the long strides forward, then the lesser lights come scurrying in to fill the chinks, make generalizations, and find some new applications; meanwhile the giants are making further strides.</p>
+      <p>Furthermore, these giants always appear at an early age — most major mathematical advances have been made by people who were not yet forty — so it is hard to tell yourself that you are one of these geniuses lying undiscovered. Maybe it is important for someone to fill in the little gaps and to make the generalizations, and it is probably necessary to create an atmosphere of mathematical thought so that the geniuses can find themselves and thrive. But no run-of-the-mill mathematician expects in his heart to prove a major theorem himself.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> On your fourth point, too, the resemblance to the arts is striking. Contemporary poets — in every language, and especially in Persian — know perfectly well that what they write will not reach the heaven-sent verse of their forebears, and that the truly great arrive only once in a long while. Yet this not only does not damp their ardour; it heartens them that they have set foot in a boundless, heart-opening country whose highways were laid down by the masters of the past, but on which no bound can be imagined to the growth and cultivation of new paths. So here again the surrounding culture, and a mathematician’s own moral and ideological measures, play a decisive part in his estimate of his work, and in its relation to the fabric of the mathematical community around him.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> I wonder how much of this psychological difficulty is present in other scholarly fields. I suspect that no other field suffers so acutely from all four problems. The experimental sciences in particular, I think, are pretty well preserved from the second and third difficulties. An experimentalist can perform an experiment and, at the end, will have a set of data; and these data at least will indicate that such-and-such either is or is not significant. He knows before he starts the experiment that, except for equipment failure, he will finally have <em>something</em>. He is not faced with nearly certain frustration. Furthermore, publication standards permit experimentalists to describe details of procedures followed and difficulties encountered.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> I agree with you entirely, and all that comes to mind is a remark of Brodsky, the Russian poet: in finance, or piloting a plane, he says, you know that enough experience guarantees profit, or safe landings; but in the business of writing [poetry], what one accumulates is not expertise but uncertainty — which is but another name for the artistic profession. In that terrain, dread is the mind’s ordinary state.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">“D.W.”:</span> I also think the experimentalist has a reasonable hope for personal satisfaction. Experimental advances are frequently made by unknowns; in fact, there aren’t many experimentalists in history who have consistently made important discoveries, if we don’t count those who have been lucky enough to head active research organizations for long periods. Whether other speculative disciplines are immune from the four emotional problems I’ve outlined isn’t clear to me. But I feel that differing standards of precision may ease the problem of frustration, in the sense that it is often possible in these other fields to hide the fact that you don’t have anything to say. A mathematician who says nothing in an obscure manner is usually caught quickly — but, alas, not always.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">“A.E.”:</span> Since I have been talking with you through a “time tunnel”, I may point to something little discussed in your day — or not at all. Pure and applied mathematics no longer have the clear, sharp border they had sixty years ago, in your time. The chief reason is the spectacular growth of computing technologies and their entanglement with branches of pure mathematics that in your day nobody imagined would ever have applications (category theory, for instance). Some pure mathematicians have thereby found far broader and more visible openings for engagement with the world around them. From the other side, the contemporary technologies by which computers discover and present proofs of new mathematical theorems are changing the fabric of mathematics, and the entry of a formidable rival onto the field of reasoning, in the guise of artificial intelligence, has added to mathematicians’ preoccupations [3]. It may well be that, in a not-so-distant future, the profession we have been discussing takes on an altogether different shape, and the mathematical culture familiar to you and me becomes of interest only to historians of science and to psychologists. And yet, at the bottom of my heart, I think the wayfarers of the path of pure mathematics will keep its flame alive, whatever it takes.</p>
+    </div>
+
+    <div class="fnotes">
+      <p><span class="fn">1</span> — Donald R. Weidman, then of the Department of Mathematics, Boston College, Chestnut Hill, Massachusetts.</p>
+    </div>
+  </div>
+
+  <!-- ===== Contributor colophon ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">Introduction &amp; conversation</div>
+        <div class="who">Ali Enayat</div>
+        <div class="aff">University of Gothenburg · <a href="https://www.gu.se/en/about/find-staff/alienayat" target="_blank" rel="noopener">gu.se</a></div>
+      </div>
+      <div class="role">
+        <div class="lab">The 1965 letter</div>
+        <div class="who">Donald R. Weidman</div>
+        <div class="aff">Department of Mathematics, Boston College · <em>Science</em>, 3 September 1965</div>
+      </div>
+      <div class="role">
+        <div class="lab">English rendering &amp; this edition</div>
+        <div class="who">Amir Asghari</div>
+      </div>
+    </div>
+    <div class="origin">First published, in Persian, in خبرنامهٔ انجمن ریاضی ایران — the Newsletter of the Iranian Mathematical Society — no. 182 (Spring 1404 [2025]), pp. 3–5; republished here, with the author’s permission and with reference to the original source, for Mathematical Culture. In the English text above, “D.W.”’s turns are reproduced verbatim from Weidman’s letter in <em>Science</em>; the introduction and “A.E.”’s replies are translated from the Persian by the journal.</div>
+  </div>
+
+  <div class="refs">
+    <h3>Sources</h3>
+    <ol>
+      <li>D. R. Weidman. “Emotional Perils of Mathematics.” <em>Science</em>, New Series, Vol. 149, No. 3688 (Sep. 3, 1965), p. 1048.</li>
+      <li>D. M. Campbell and J. C. Higgins (eds.). <em>Mathematics: People · Problems · Results.</em> Wadsworth Publishing Company, 1980.</li>
+      <li>M. Harris. “Automation compels mathematicians to reflect on our values.” <em>Bulletin (New Series) of the American Mathematical Society</em> 61 (2) (2024), 331–342.</li>
+      <li>علی عنایت. «چالش‌های روحیِ ریاضیات: یک گفتگوی خیالی.» <em>خبرنامهٔ انجمن ریاضی ایران</em>، شمارهٔ پیاپی ۱۸۲ (بهار ۱۴۰۴)، صص ۳–۵.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">فرهنگِ ریاضی</div>
+  <h1 class="title">چالش‌های روحیِ ریاضیات: یک گفتگوی خیالی</h1>
+  <p class="standfirst">در سال ۱۹۶۵ نامه‌ای کوتاه در مجلهٔ Science چاپ شد؛ دربارهٔ چالش‌های روحیِ زندگی با ریاضیاتِ محض. شصت سال بعد، علی عنایت در میانهٔ ترجمهٔ فارسیِ نامه خود را در حال گفتگو با نویسنده‌اش یافت — و ترجمه، گفتگویی خیالی از میان «تونل زمان» شد؛ گفتگویی که پای حافظ و برادسکی و هوش مصنوعی هم به آن باز می‌شود.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/ali-enayat.jpg" alt="علی عنایت">
+    <span class="name">دونالد وایدمن و علی عنایت</span>
+  </div>
+
+  <div class="body">
+    <figure class="sideplate">
+      <a href="../assets/weidman-science-1048.jpg" target="_blank" rel="noopener">
+        <img src="../assets/weidman-science-1048.jpg" alt="صفحهٔ ۱۰۴۸ مجلهٔ Science، ۳ سپتامبر ۱۹۶۵ — نامهٔ وایدمن با عنوان «چالش‌های روحی ریاضیات» از میانهٔ ستون نخست آغاز می‌شود.">
+      </a>
+      <figcaption class="cap">
+        <span class="lab">نامه، همان‌گونه که چاپ شد</span>
+        مجلهٔ <em>Science</em>، جلد ۱۴۹، شمارهٔ ۳۶۸۸ — ۳ سپتامبر ۱۹۶۵، ص. ۱۰۴۸. نامهٔ وایدمن از میانهٔ ستون نخست آغاز می‌شود؛ میان یادداشتی دربارهٔ بودجهٔ پژوهش و آزمایشی ذهنی دربارهٔ جسمِ رها از نیرو. برای بزرگ‌نمایی کلیک کنید.
+      </figcaption>
+    </figure>
+
+    <div class="seclab">مقدمه — نوشتهٔ علی عنایت</div>
+    <p>در سال ۱۹۶۵ نامه‌ای در مجلهٔ Science از دونالد وایدمن،<span class="fn"><sup>۱</sup></span> ریاضی‌دان آمریکایی، با عنوان «چالش‌های روحیِ ریاضیات»<span class="fn"><sup>۲</sup></span> به چاپ رسید [۱]. این نامه بعدها در مجموعه مقالاتی در مورد جنبه‌های مختلف ریاضیات [۲] منتشر شد و بازتاب گسترده‌ای پیدا کرد. وایدمن در مقاله‌اش به موضوعاتی درمورد حرفهٔ ریاضی پرداخته که کمتر به آن توجه شده است. این متن اولین بار حدود ۴۰ سال پیش به دستم رسید، موقعی که تازه رسالهٔ دکترایم را به پایان رسانده بودم. در این مدت هر از چندی به سراغش رفته‌ام ولی اخیراً که پس از مدت‌ها باز به آن رجوع کردم آن را پخته‌تر و جذاب‌تر از همیشه یافتم، گمانم به این علت که درکِ عمقِ محتوای آن رابطهٔ مستقیم با وسعت تجارب و مشاهدات خواننده دارد. نکاتی که در حین ترجمهٔ متن به ذهنم رسید در قالب گفتگویی فرضی میانِ «د.و.» (دونالد وایدمن) و «ع.ع.» (خودم) در متن زیر ارائه شده است. با سپاس از دکتر سیاوش شهشهانی که در تهیهٔ نسخهٔ نهایی این نوشته مرا یاری داد.</p>
+
+    <h2 class="subhead">گفتگویی فرضی</h2>
+    <div class="ednote">در نسخهٔ انگلیسیِ همین صفحه، گفته‌های «د.و.» عیناً از متن اصلی نامهٔ ۱۹۶۵ آورده شده است.</div>
+
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> علیرغم باورِ عمومی، موانعی که سدِ راهِ ریاضی‌دان شدن هستند — و اینجا منظورم ریاضی‌دان محض است — بیشتر با خلق‌وخو سروکار دارند تا با هوش و ذکاوت. زندگیِ یک ریاضی‌دان با مشکلات ویژهٔ عاطفی عجین است، و اندک کسانی توانایی سازش با این مشکلات را در طول عمرشان دارند.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> با چارچوب کلیِ ادعایتان موافقم، ولی می‌خواهم دو نکتهٔ مکمل به آن بیافزایم. اول اینکه، سنجه‌های اخلاقی و عقیدتیِ یک فرد با آنچه خلق‌وخوی او می‌نامیم، مجموعه‌ای درهم‌تنیدهٔ درونی را تشکیل می‌دهد. نکتهٔ دوم — که بدیهی است ولی به تأکیدش می‌ارزد — در مورد عوامل بیرونی است: حتی در جوامع مرفه، خلق‌وخو و مرام و سلوک ویژه‌ای که ریاضی‌دان بودن می‌طلبد، در بعضی محیط‌های فرهنگی و اجتماعی سرکوب می‌شود و در بعضی دیگر فرصت رویش و بالندگی پیدا می‌کند.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> اول از همه، یک ریاضی‌دان باید بتواند توش و توانش را بر یک مشکل خاص متمرکز کند. برای کار ریاضی باید بتوانید در بحر یک مسئله فرو روید، آن را از همهٔ جوانب بررسی کنید، صبح و شب با آن کلنجار بروید، و هرچه در توان دارید برای فهم آن در طبقِ اخلاص بگذارید. می‌توانید این اجازه را به خود بدهید که هر از چندگاهی نفسی تازه کنید، و احتمالاً این کار را می‌بایست انجام دهید، ولی با این همه، دورانی که غرق مسئله هستید، بایستی مدت‌های مدید طول بکشد؛ معمولاً چندین روز یا هفته.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> از آن نفس تازه‌کردنی که به آن اشاره کردید، زود نگذریم، چرا که فعالیت‌های ذهنی و بدنی‌ای که در این دورهٔ به‌اصطلاح استراحت انجام می‌شود، نقش عمده‌ای در کیفیت کار یک ریاضی‌دان در درازمدت دارد. ضمناً در کار ریاضی، چه بسا تازه پس از کنار گذاشتن قلم و کاغذ و کتاب و آزمودن روش‌های معمول است که افکار بکر و پیشروی‌های «غیرخطی» به‌طور شهودی و تا حدی ناخودآگاه، فرصت شکل‌گیری پیدا می‌کنند. بنابراین، آنچه از دیدگاه بیرونی دورهٔ استراحت یک ریاضی‌دان تلقی می‌شود، چه بسا نقش تعیین‌کننده‌ای در خلق آثار ریاضی او دارد. این روزها روان‌شناسان و پژوهشگران علوم شناختی مدام از پردازش‌های پیچیده و حیاتی که در دوران استراحت — و به‌ویژه خواب — در شبکه‌های عصبی مغز شکل می‌گیرد، صحبت می‌کنند.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> دوماً، یک ریاضی‌دان باید پیه سرخوردگی را به تنش بمالد. فی‌الواقع، بیشتر اوقات، پس از صرف هفته‌ها یا ماه‌ها در جستجویی بلاوقفه، با دست خالی برمی‌گردد و با احساس ناتوانی حاصل از اینکه حتی سرنخی به دست نیاورده است. از آنجا که زمان زیادی را از دست داده است، احساس سرخوردگی بی چون و چراست و ریاضی‌دانی نیست که برخوردش با دیگر امورات زندگی‌اش تحت‌الشعاع این سرخوردگی قرار نگیرد. به نظرم، این جنبه مهم‌ترین مانع در مقایسه با موانع دیگرِ ریاضی‌دان شدن است. خطر سرخوردگیِ کامل، و کمابیش یقین به بازنده شدن، مسئله‌ای روانی از درجه یک است.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> گمان نمی‌کنم که ریاضی‌دان باتجربه‌ای باشد که دردی را که توصیف می‌کنید، نچشیده باشد. خیلی مواقع که علیرغم کش‌وقوس‌های متعدد و متوالی از پس مسئله‌ای برنمی‌آیم، با این شاه‌بیت از خواجهٔ شیراز به خود دلداری می‌دهم:</p>
+      <p class="verse"><span class="l">هزار حیله برانگیخت حافظ از سرِ فکر</span><span class="l">در آن هوس که شود آن نگار رام و نشد</span></p>
+      <p>این نکته را هم فراموش نکنیم که کسی که معنای واقعیِ اندرز سعدی «نابرده رنج گنج میسر نمی‌شود» یا گفتهٔ رودکی «اندر بلای سخت پدید آید فضل و بزرگمردی و سالاری» را درک کرده باشد، و سختی را بخش لاینفکی از فرایند دسترسی به آمال و اهداف والا بداند، بهتر می‌تواند در برابر آنچه مسئلهٔ روانی از درجه یک خوانده‌اید تاب بیاورد. در عین حال، می‌پذیرم که مسئلهٔ روانیِ مزبور راه‌حل سرراست و تعمیم‌پذیری ندارد.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> نکتهٔ سوم اینکه، حتی موفق‌ترین ریاضی‌دانان از قدرناشناسی رنج می‌برند. طبیعی است که خانواده و دوستان یک ریاضی‌دان از اهمیت کارش سر درنمی‌آورند، ولی وضع از این هم بدتر است، چرا که ریاضی‌دانان دیگر هم نمی‌دانند که او با چه رنج و مشقتی نتیجه‌ای را به دست آورده که از دیدگاه آنها ساده، سرراست، و تقریباً پیش‌پاافتاده است. واژگان ریاضی جوری تعبیه شده است که حشو و زوائد را به حداقل برساند و بر فرایندهای اصلیِ استدلال تمرکز شود، ولی روش کشف قضایا بسیار متفاوت از ارائهٔ استدلال برای همان قضایا است. معیارهای رایج نوشتار ریاضی اجازه نمی‌دهد که رنج و مشقتی که در پس دستیابی به آورده‌های یک مقاله است، آشکار شود.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> جنبه‌هایی که به آن اشاره می‌کنید، برای هنرمندان آشناست. کسانی که با تاریخ هنر و ادبیات آشنایی دارند، می‌دانند که رقابت و حسادت شدیدی بین هنرمندان رواج دارد که باعث می‌شود به آثار یکدیگر غالباً بی‌توجه باشند و آنها را کم‌اهمیت جلوه دهند. معروف است که نویسندگان بزرگ نوشته‌های یکدیگر را نمی‌خوانند. ضمناً همان‌طوری که بر مبنای خواندن یک مقالهٔ ریاضی نمی‌توان حدس زد که نویسندهٔ مقاله چه مسیر پرفرازونشیب و مملو از دلهره و دست‌اندازی را طی کرده است، همان‌طور هم نمی‌توان سرچشمهٔ الهام، فرایند پیچیدهٔ تکوین، و مشقت‌ها و آزمون و خطاهایی را حدس زد که در پس آفرینش یک اثر هنری است.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> نکتهٔ چهارم و آخر اینکه، ریاضی‌دان باید با این حقیقت روبه‌رو شود که تقریباً مطمئن می‌توان بود که از کار خود ناراضی باشد. این تا حدی به این دلیل است که او با مسائلی طرف است که عظمتِ آنها مانعِ حلِ کاملشان است، و مهم‌تر اینکه او می‌داند که دسترنج او ناچیز است. تاریخ ریاضیات به روشنی نشان می‌دهد که چارچوب‌ها و اغلب نتایج بزرگ توسط عدهٔ معدودی از نوابغ به دست آمده‌اند که هر از چندگاهی ظهور می‌کنند. این عدهٔ اندک از ریاضی‌دانان بزرگ، گام‌های بلندی به جلو برداشته‌اند، و به دنبالشان عدهٔ کم‌بنیه‌تری می‌آیند تا شکاف‌های کوچک را پر کنند، نتایج را تعمیم دهند، و کاربردهای جدید پیدا کنند. در این مدت نوابغ، قدم‌های بیشتری به جلو برداشته‌اند.</p>
+      <p>ضمناً، این نوابغ همیشه در سنین پایین ظهور می‌کنند — اکثر پیشرفت‌های بزرگ ریاضی مدیون کسانی است که سنشان به چهل نمی‌رسیده — و بنابراین دشوار است که به خود بقبولانید که یکی از این نوابغِ کشف‌نشده هستید. شاید این مهم باشد که کسانی مسئول پر کردن شکاف‌های کوچک و ارائهٔ تعمیم‌ها باشند، و شاید لازم باشد که جوّی فراهم شود که در آن نوابغ بتوانند ظهور کنند و بدرخشند. ولی هیچ ریاضی‌دان معمولی نیست که انتظار توفیق اثبات یک قضیهٔ اساسی را داشته باشد.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> در مورد نکتهٔ چهارم هم شباهت‌های خیره‌کننده‌ای با حیطهٔ هنر می‌توان دید. مثلاً شعرای معاصر، در همهٔ زبان‌ها و به‌ویژه فارسی، به این نکته نیک واقف‌اند که اشعاری که می‌سرایند به پای سروده‌های آسمانیِ نیاکانشان نمی‌رسد و سرایندگان بزرگ هر از چندگاهی از راه می‌رسند. ولی این از شور و شوقشان نه تنها نمی‌کاهد، بلکه به آنها این پشت‌گرمی را می‌دهد که در وادیِ بیکرانِ دل‌گشایی پا نهاده‌اند که شاهراه‌هایش را بزرگان گذشته گشوده‌اند، ولی در عین حال حد و حصری بر توسعه و پروراندن مسیرهای جدید بر آن متصور نیست. بنابراین، اینجا باز فرهنگ پیرامونی، و سنجه‌های اخلاقی و عقیدتیِ یک ریاضی‌دان نقش تعیین‌کننده‌ای در ارزیابی او از کار خودش، و رابطهٔ آن با بافت جامعهٔ ریاضیِ پیرامونی‌اش دارد.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> از خود می‌پرسم که تا چه حد این مسئلهٔ روانی در رشته‌های دیگر دانشگاهی حضور دارد. گمان می‌کنم که هیچ رشتهٔ دیگری تا این حد درگیر هر چهار مسئله نیست. گمانم علوم تجربی از مشکل سوم و چهارم<span class="fn"><sup>۴</sup></span> مصون هستند. دانشمندان علوم تجربی پس از انجام آزمایش، حداقل به داده‌هایی دسترسی دارند، و چنین داده‌هایی نشان می‌دهد که فلان عامل حائز اهمیت هست یا نیست. او قبل از شروع آزمایش می‌داند که، سوای امکان خرابی دستگاه‌های آزمایشگاه، داده‌ای به دست خواهد آورد. او مدام با امکان سرخوردگیِ تقریباً محتوم روبه‌رو نیست. ضمناً معیارهای انتشار در مجله‌های علوم تجربی به چنین دانشمندی اجازه می‌دهد که نحوهٔ کار و مشکلاتی را که با آنها مواجه بوده، توصیف کند.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> با شما کاملاً موافقم و تنها چیزی که به ذهنم می‌رسد، نقل‌قولی از برادسکی،<span class="fn"><sup>۳</sup></span> شاعر روس است، که می‌گوید: «اگر کارَت امور مالی و یا خلبانیِ هواپیما باشد، می‌دانی که تجربهٔ کافی، ضامن سود یا فرودهای امن می‌شود. ولی در کار نوشتن [شعر]، آنچه آدم انباشته می‌کند، تجربه نیست بلکه عدم قطعیت است که اسم دیگری برای حرفهٔ هنری است. در این حیطه، دلهره حالت عادی ذهن است.»</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk dw">«د.و.»:</span> ضمناً فکر می‌کنم که دانشمند علوم تجربی امید معقولی به رضایت شخصی داشته باشد. پیشرفت‌های آزمایشگاهی معمولاً به دست ناشناخته‌ها انجام می‌شود، و در واقع تعداد دانشمندان تجربی که اکتشافات مستمری داشته باشند، اندک است، سوای کسانی که این اقبال را داشته‌اند که برای مدت مدیدی ریاست تیم‌های تحقیقاتی را عهده‌دار شده باشند. اطمینان ندارم که رشته‌های نظری دیگر از این چهار مشکل مصون باشند. ولی احساسم این است که معیارهای متفاوت دقت و استواری مشکل سرخوردگی را در رشته‌های دیگر کاهش می‌دهد، به این معنی که می‌توان چیزی برای گفتن نداشتن را پنهان نگه داشت. ریاضی‌دانی که بی‌مایگی را در لفافهٔ مغلق‌نویسی پنهان می‌کند، معمولاً زود به دام می‌افتد، ولی افسوس که همیشه در بر این پاشنه نمی‌چرخد.</p>
+    </div>
+    <div class="turn">
+      <p><span class="spk ae">«ع.ع.»:</span> چون من از طریق «تونل زمان» با شما هم‌صحبت شده‌ام، می‌توانم به نکته‌ای که در دوران شما کمتر مطرح بوده (و یا اصلاً نبوده) اشاره کنم. این روزها دیگر ریاضیات محض و کاربردی مرز روشن و مشخصی که ۶۰ سال پیش در دوران شما داشت را ندارد، و دلیل اصلی آن توسعهٔ چشمگیر فناوری‌های رایانه‌ای و گره خوردن آن با رشته‌های مختلف ریاضیات محض است که در دوران شما کسی فکر نمی‌کرد که کاربردی داشته باشند (مانند نظریهٔ رسته‌ها). از این رو، بعضی ریاضی‌دانان محض فرصت عرض‌اندام به مراتب بیشتر و گسترده‌تری در درگیری با دنیای پیرامونشان پیدا کرده‌اند. از دیگرسو، فناوری‌های معاصرِ کشف و ارائهٔ برهان برای قضایای جدید ریاضی توسط رایانه‌ها، در حال تغییر بافت ریاضیات است و ورود حریف قدَری در کسوت هوش مصنوعی به میدان استدلال، بر دغدغه‌های ریاضی‌دانان افزوده است [۳]. این امکان وجود دارد که در آینده‌ای نه چندان دور حرفه‌ای که موضوع گفت‌وگویمان بوده است شکل و شمایل کاملاً متفاوتی داشته باشد، و فرهنگ ریاضیاتی که برای من و شما آشناست تنها برای متخصصین تاریخ علوم و روان‌شناسان جذاب باشد. در عین حال، ته دلم فکر می‌کنم رهروان طریقت ریاضیات محض به هر زحمتی شعله‌اش را زنده نگه خواهند داشت.</p>
+    </div>
+
+    <div class="fnotes">
+      <p><span class="fn">۱</span> — Donald R. Weidman</p>
+      <p><span class="fn">۲</span> — Emotional Perils of Mathematics</p>
+      <p><span class="fn">۳</span> — Joseph Brodsky</p>
+      <p><span class="fn">۴</span> — در متن انگلیسی نامه: «مشکل دوم و سوم». [یادداشت این بازنشر]</p>
+    </div>
+  </div>
+
+  <!-- ===== کارنامه‌ی دست‌اندرکاران ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">مقدمه و گفتگو</div>
+        <div class="who">علی عنایت</div>
+        <div class="aff">دانشگاه گوتنبرگ · <a href="https://www.gu.se/en/about/find-staff/alienayat" target="_blank" rel="noopener">gu.se</a></div>
+      </div>
+      <div class="role">
+        <div class="lab">نامهٔ ۱۹۶۵</div>
+        <div class="who">دونالد وایدمن</div>
+        <div class="aff">گروه ریاضی، بوستون‌کالج · مجلهٔ <em>Science</em>، ۳ سپتامبر ۱۹۶۵</div>
+      </div>
+      <div class="role">
+        <div class="lab">برگردان انگلیسی و این بازنشر</div>
+        <div class="who">امیر اصغری</div>
+      </div>
+    </div>
+    <div class="origin">این نوشته نخستین‌بار در <em>خبرنامهٔ انجمن ریاضی ایران</em>، شمارهٔ پیاپی ۱۸۲ (بهار ۱۴۰۴)، صص ۳–۵ چاپ شده و اکنون با اجازهٔ نویسنده و با ذکر منبع اصلی، برای بخش «فرهنگ ریاضی» بازنشر می‌شود. در نسخهٔ انگلیسیِ همین صفحه، گفته‌های «د.و.» عیناً از نامهٔ وایدمن در مجلهٔ Science آمده و مقدمه و پاسخ‌های «ع.ع.» را مجله به انگلیسی برگردانده است.</div>
+  </div>
+
+  <div class="refs">
+    <h3>منابع</h3>
+    <ol>
+      <li>D. R. Weidman. “Emotional Perils of Mathematics.” <em>Science</em>, New Series, Vol. 149, No. 3688 (Sep. 3, 1965), p. 1048.</li>
+      <li>D. M. Campbell and J. C. Higgins (eds.). <em>Mathematics: People · Problems · Results.</em> Wadsworth Publishing Company, 1980.</li>
+      <li>M. Harris. “Automation compels mathematicians to reflect on our values.” <em>Bulletin (New Series) of the American Mathematical Society</em> 61 (2) (2024), 331–342.</li>
+      <li>علی عنایت. «چالش‌های روحیِ ریاضیات: یک گفتگوی خیالی.» <em>خبرنامهٔ انجمن ریاضی ایران</em>، شمارهٔ پیاپی ۱۸۲ (بهار ۱۴۰۴)، صص ۳–۵.</li>
+    </ol>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="javascript:window.print()" data-en="↓ Download PDF" data-fa="↓ دریافت نسخهٔ پی‌دی‌اف"></a><a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a></span>
+</footer>
+
+<script>
+  function applyLabels(lang){
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+      var v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+  }
+  function setLang(lang){
+    var isFa = lang === 'fa';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-lang-block]').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+    });
+    document.querySelectorAll('.langtoggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    applyLabels(lang);
+    try { localStorage.setItem('pm-lang', lang); } catch(e){}
+  }
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

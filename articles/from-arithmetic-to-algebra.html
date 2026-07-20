@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Arithmetic to Algebra — Hung-Hsi Wu · People and Mathematics</title>
+<meta name="description" content="School algebra is generalized arithmetic. Hung-Hsi Wu's two-part WikiLetter (Nos. 9 &amp; 10, 2018), merged into one essay: sum a geometric series by naming it, solve an equation by asking whether a number exists — and seven ways to teach arithmetic so algebra comes as no shock.">
+
+<meta property="og:title" content="From Arithmetic to Algebra — Hung-Hsi Wu">
+<meta property="og:description" content="WikiLetter · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/hung-hsi-wu.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- KaTeX for crisp typeset mathematics -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .katex .tag { font-family: "Vazirmatn", "B Nazanin", serif; }
+[dir="rtl"] .katex { font-family: KaTeX_Main, "Vazirmatn", "Times New Roman", serif; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+</style>
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: inherit; }
+
+  /* ---------- Masthead ---------- */
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  /* breadcrumb sub-bar */
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Article shell ---------- */
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  [dir="rtl"] .kicker { letter-spacing: 0; }
+  h1.title { font-size: 46px; line-height: 1.08; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; }
+  .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
+  .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 40px 0 14px; padding-top: 8px; }
+
+  /* part divider */
+  .partband { margin: 52px 0 26px; border-top: 2px solid var(--ink); padding-top: 18px; }
+  .partband .pk { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+  [dir="rtl"] .partband .pk { letter-spacing: 0; }
+  .partband h2 { font-family: "Newsreader", "Vazirmatn", serif; font-size: 32px; font-weight: 500; letter-spacing: -.015em; margin: 8px 0 0; }
+
+  /* the five steps */
+  .steps { border: 1px solid var(--line); background: #FCF8F0; border-radius: 8px; padding: 16px 22px; margin: 24px 0; }
+  .steps .step { display: flex; align-items: baseline; gap: 14px; padding: 6px 0; }
+  .steps .sl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--accent); white-space: nowrap; min-width: 4.5em; }
+  [dir="rtl"] .steps .sl { letter-spacing: 0; min-width: 6.2em; }
+  .steps .sm { font-size: 18px; }
+
+  /* principle callout */
+  .principle { border-inline-start: 3px solid var(--accent); background: #F4ECDC; padding: 18px 22px; margin: 26px 0; border-radius: 0 4px 4px 0; }
+  .principle .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 7px; }
+  [dir="rtl"] .principle .lab { letter-spacing: 0; }
+  .principle .txt { font-size: 18px; line-height: 1.55; }
+
+  .pullquote { font-size: 26px; line-height: 1.32; font-weight: 500; letter-spacing: -.01em; color: var(--ink); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); padding: 20px 0; margin: 30px 0; text-align: start; }
+
+  /* the seven recommendations */
+  .recs { counter-reset: rec; margin: 8px 0 0; padding: 0; list-style: none; }
+  .recs > li { counter-increment: rec; position: relative; padding-inline-start: 58px; margin: 0 0 26px; }
+  .recs > li::before { content: counter(rec); position: absolute; inset-inline-start: 0; top: 2px; width: 38px; height: 38px; border: 1.5px solid var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); }
+  [dir="rtl"] .recs > li::before { content: counter(rec, persian); }
+  .recs .rt { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 16.5px; font-weight: 700; display: block; margin-bottom: 6px; }
+  .recs p { margin: 0 0 10px; }
+
+  /* contributor colophon */
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  .colophon .role .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  [dir="rtl"] .colophon .role .lab { letter-spacing: 0; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .colophon .who + .who { margin-top: 9px; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+
+  .refs { margin-top: 40px; }
+  .refs h3 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  [dir="rtl"] .refs h3 { letter-spacing: 0; }
+  .refs ol { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; line-height: 1.6; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 10px; }
+  .refs a { color: var(--accent); word-break: break-word; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  /* ---------- Persian / RTL ---------- */
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead, [dir="rtl"] .partband h2 { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.05; }
+  [dir="rtl"] .body p:first-of-type:first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+
+  /* language visibility */
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 22px 32px; }
+    h1.title { font-size: 33px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+    .pullquote { font-size: 21px; }
+    .partband h2 { font-size: 26px; }
+    .recs > li { padding-inline-start: 48px; }
+    .recs > li::before { width: 32px; height: 32px; font-size: 14px; }
+  }
+</style>
+
+
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" class="persian" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="WikiLetter" data-fa="ویکی‌نوشت"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="School maths · Originally WikiLetters Nos. 9 &amp; 10, 2018" data-fa="ریاضیِ مدرسه · نخست: ویکی‌نوشت‌های ۹ و ۱۰، ۱۳۹۷"></span></div>
+</div>
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">WikiLetter · Nos. 9 &amp; 10</div>
+  <h1 class="title">From Arithmetic to Algebra</h1>
+  <p class="standfirst">School algebra is just arithmetic grown up — <em>generalized arithmetic</em>. In this two-part essay, merged here into one, Hung-Hsi Wu shows what that slogan means with two computations any eighth-grader can follow, then lays out seven changes that would make arithmetic the right platform from which to launch algebra.</p>
+  <div class="byline">
+    <span class="name">Hung-Hsi Wu</span>
+  </div>
+
+  <div class="body">
+    <p>The school mathematics curriculum is an organic entity: it grows from the simple to the complex, from the concrete to the sophisticated and abstract. It cannot be otherwise, because its main function is to guide students&rsquo; first tentative steps in the learning of mathematics — and, lest we forget, the logical structure of mathematics itself also grows from the simple to the complex.</p>
+
+    <p>Unfortunately, there are unnecessary discontinuities in the development of the school curriculum — we have in mind mainly the American school curriculum, not anything inherent in school mathematics itself — and one result of the disruption is fear and apprehension in the learning of algebra. Our focus here is the discontinuity from arithmetic to algebra. By <em>arithmetic</em> we mean whole numbers, finite decimals, and fractions; by <em>algebra</em>, introductory school algebra: rational numbers, the extensive use of symbolic notation, linear equations in one or two variables, and quadratic equations. We leave aside the more advanced topics — exponential functions, logarithms, the formal algebra of polynomials — and focus instead on the two major characteristics of school algebra: <em>generality</em> and <em>abstraction</em>. Rather than indulging in the rather futile exercise of explaining what those words mean, we trust their meaning will emerge with clarity as the discussion unfolds.</p>
+
+    <div class="partband">
+      <div class="pk">Part One</div>
+      <h2>Algebra as generalized arithmetic</h2>
+    </div>
+
+    <p>The main message of this essay is that school algebra is just <em>generalized arithmetic</em>. That is a slogan, and it probably means different things to different people, so it behooves us to explain — as precisely as possible — what it means here. Arithmetic is concerned with accurate computations with specific numbers. In the way school mathematics is usually taught, children&rsquo;s main concern in arithmetic is the here and now: students are content that the answers to \(151-67\) and \(\frac56+\frac38\) are \(84\) and \(\frac{58}{48}\), and not much beyond that. Algebra, however, is students&rsquo; first contact with mathematics proper, and it brings an awareness of the big picture. It asks them to begin wondering whether a given computation is part of a general phenomenon — whether it can be put in a broader context and understood better. But for arithmetic students who have been happily computing away, why should they switch gears to learn this <em>generalized arithmetic</em>? Why bother, indeed?</p>
+
+    <p>Any curriculum serious about smoothing students&rsquo; passage from arithmetic to algebra has to answer that question. We will answer it with two topics — summing a finite geometric series, and solving a linear equation — and hope that the nature of generalized arithmetic becomes clearer along the way. Fair warning: the discussion involves some precise mathematics, something not commonly found in writings of this kind. It is necessary — and besides, the heart of any discussion in mathematics education usually lies in the mathematics itself.</p>
+
+    <h2 class="subhead">A sum worth naming</h2>
+
+    <p>Suppose we ask eighth-graders to compute (calculators allowed):
+    \[1+3+3^2+3^3+\cdots+3^9+3^{10}.\]
+    As arithmetic, the answer is \(88{,}573\), and that is all there is to it. But does this computation stand alone, or is it part of a general phenomenon? The eighth-graders should first take note of the unusual pattern, or <em>structure</em>, in the sum: the increasing powers of \(3\) (assuming they know \(1=3^0\) and \(3=3^1\)). The first thought that should cross their minds is that they ought to be able to sum the increasing powers of \(3\) up to any integer, not just \(10\). In fact, why \(3\)? Why not the powers of an arbitrary number? Right away, this question has left arithmetic behind, because to add the increasing powers of an unknown number up to some unknown integer is to give up any hope of computing with explicit numbers. And before we can even start, there is a more fundamental problem: how to express this kind of generality concisely. Here we can tell the eighth-graders that humans struggled mightily with the issue for more than a thousand years, until around 1600 they finally found an efficient way to use symbols for the purpose. Carrying on that legacy, we let \(r\) be an arbitrary number, \(n\) an arbitrary positive integer, and ask for the sum
+    \[1+r+r^2+\cdots+r^{n-1}+r^n.\]
+    Having given up on explicit numbers at every step, the only way to compute anything is to rely on the associative and commutative laws of \(+\) and \(\times\) and the distributive law — which apply to <em>all</em> numbers, known or unknown. Here, perhaps for the first time, eighth-graders get to see why those laws matter.</p>
+
+    <p>Instead of plunging headlong into the new world of generality, it may be prudent to go only partway first, and try
+    \[1+3+3^2+\cdots+3^{23}+3^{24}.\]
+    This is a sum of \(25\) explicit numbers, so it looks like an ordinary arithmetic problem — but getting it by brute force would take more patience than most eighth-graders can muster. Something more than ordinary arithmetic will be needed. So: we look at the whole sum as <em>one number</em>, never mind that we do not know which, and call it \(S\). Right away we are capitalizing on the advantage of symbols. This is the key step, because we are no longer doing the arithmetic of old, insisting on an explicit answer at every stage: we will compute with \(S\) simply as a number. And since \(S\) is a sum of increasing powers of \(3\), the idea of multiplying it by \(3\) almost suggests itself — by the distributive law, the result is &ldquo;almost the same&rdquo; as \(S\) itself. Precisely:
+    \[3S = 3+3^2+\cdots+3^{24}+3^{25} = \bigl(1+3+\cdots+3^{24}\bigr)-1+3^{25},\]
+    so that
+    \[3S = S+3^{25}-1. \tag{1}\]
+    Still without knowing the value of \(S\), add \(-S\) to both sides; the distributive law gives \((-S)+3S=(-1+3)S=2S\), and therefore
+    \[S=\tfrac12\bigl(3^{25}-1\bigr). \tag{2}\]
+    A calculator now yields \(S=423{,}644{,}304{,}721\) — and we should not fail to point out to the eighth-graders that the answer arrived without any sweat.</p>
+
+
+    <p>This is the first fruit of abstract thinking: an answer obtained not by brute-force computation with explicit numbers, but by injecting reasoning and abstract pattern-recognition into computations with numbers in general. The decision to multiply \(S\) by \(3\) — which is as good as the final answer itself — was prompted by the reasoning that the abstract pattern of a sum of powers of \(3\) will essentially repeat itself after the multiplication. In one sense, what we did is just arithmetic: nothing but arithmetic operations on numbers, and numbers only. At the same time it goes beyond arithmetic, because it is computation with <em>unknown</em> numbers, using only the laws of operations. We are doing generalized arithmetic. What we have just learned is that by stepping away from explicit numbers and trying to discern patterns on a larger scale, we have much to gain even in ordinary computations.</p>
+
+    <p>Now return to the original problem: \(1+r+r^2+\cdots+r^n\) for any \(r\) and any positive integer \(n\). If \(r=1\) the sum equals \(n+1\) and holds no interest, so assume \(r\neq1\). Retrace the preceding reasoning with care and it remains valid almost verbatim with \(3\) replaced by \(r\) and the exponent \(24\) by \(n\). Thus, for \(r\neq1\) and \(n\) a positive integer,
+    \[1+r+r^2+\cdots+r^{n-1}+r^n=\frac{r^{n+1}-1}{r-1}, \tag{3}\]
+    the summation formula for a finite geometric series. Equation \((2)\) is the special case \(r=3\), \(n=24\). To fully savor this kind of generality, notice that \((3)\) is equally fit for
+    \[1+\tfrac12+\tfrac1{2^2}+\cdots+\tfrac1{2^{27}}+\tfrac1{2^{28}} \;=\; \frac{\bigl(\tfrac12\bigr)^{29}-1}{\tfrac12-1} \;=\; 2-\Bigl(\tfrac12\Bigr)^{28}.\]</p>
+
+    <h2 class="subhead">Casting a wider net</h2>
+
+    <p>Now ask the same questions about identity \((3)\) itself: is it an isolated result, or part of a general phenomenon? Can we put it in a broader context and understand it better? We can — but for the broader context we must cast a wider net. Every eighth-grader knows the identity \((x-y)(x+y)=x^2-y^2\), valid for all numbers \(x\) and \(y\). It is a simple exercise in the distributive law to prove the more general identity: for any positive integer \(n\) and all numbers \(x\) and \(y\),
+    \[(x-y)\bigl(x^n+x^{n-1}y+x^{n-2}y^2+\cdots+xy^{n-1}+y^n\bigr)=x^{n+1}-y^{n+1}. \tag{4}\]
+    The familiar \((x-y)(x+y)=x^2-y^2\) is the special case \(n=1\); and identity \((3)\) is itself the special case \(x=r\), \(y=1\). The mundane identity and the geometric series turn out to be relatives. More is true, however. Consider \(64{,}339{,}280{,}491\) — a big number. It is not easy to tell whether it is a <em>prime</em>, a number divisible only by \(1\) and itself. But it happens to equal \(35^7-4^7\), so identity \((4)\) — with \(x=35\), \(y=4\), \(n=6\) — tells us that \(31\) divides it:
+    \[64{,}339{,}280{,}491=35^7-4^7=31\times\bigl(35^6+35^5\cdot4+\cdots+35\cdot4^5+4^6\bigr).\]
+    It is not a prime! Similar considerations show that if \(x\) and \(y\) are positive integers with \(x-y&gt;1\), then \(x^n-y^n\) is never a prime. What is noteworthy is that, while still doing arithmetic, we discover that — by introducing symbols to represent numbers and welcoming generality into our computations — the summation of a finite geometric series is related, via \((4)\), to the question of whether some whole numbers are primes. That is the power of generality, and eighth-graders can appreciate it.</p>
+
+    <h2 class="subhead">What is an equation, really?</h2>
+
+    <p>Next, consider the solution of equations, a topic central to any school algebra curriculum — and, in fact, to the historical development of algebra itself. A simple linear equation makes the point: \(4x+1=2x-3\). In the usual presentation of school algebra, \(x\) is a <em>variable</em>, and we solve by the following symbolic manipulations:</p>
+
+    <div class="steps">
+      <div class="step"><span class="sl">Step A</span><span class="sm">\((-2x)+4x+1=(-2x)+2x-3\)</span></div>
+      <div class="step"><span class="sl">Step B</span><span class="sm">\(2x+1=-3\)</span></div>
+      <div class="step"><span class="sl">Step C</span><span class="sm">\(2x+1+(-1)=-3+(-1)\)</span></div>
+      <div class="step"><span class="sl">Step D</span><span class="sm">\(2x=-4\)</span></div>
+      <div class="step"><span class="sl">Step E</span><span class="sm">\(x=-2\)</span></div>
+    </div>
+
+    <p>The answer \(-2\) is correct — but a little reflection reveals that, as usually explained, these five steps make no sense whatsoever. Take Step A. If \(x\) is a quantity that <em>varies</em>, what does it mean to say that the two varying quantities \(4x+1\) and \(2x-3\) are somehow &ldquo;equal&rdquo;? (Since \(x\) can vary, let it be \(0\): then \(4x+1=1\) and \(2x-3=-3\). How can \(1=-3\)?) And how do \(4x+1\) and \(2x-3\) stay &ldquo;equal&rdquo; after the varying quantity \(-2x\) has been added to both? Moreover, the passage from Step A to Step B applies the distributive and associative laws to both sides. Students learned in arithmetic that these laws hold for <em>numbers</em> — but where was it explained that they apply equally to quantities that vary? Such a drastic turn of events, from explicit computations to unknowable ones, can be disorienting to students. Is mathematics supposed to teach students how to reason, or is it supposed to encourage rote-learning?</p>
+
+    <p>This is but one of many blatant examples of how the usual school curriculum disrupts students&rsquo; transition from arithmetic to algebra. The main culprit is the cult of &ldquo;variables&rdquo; and its inevitable subsequent abuses. We can rectify this unwarranted disruption by restoring the idea of algebra as generalized arithmetic, as follows.</p>
+
+    <p>First, we have to come to terms with what an <em>equation</em> is. The meaning of the equation \(4x+1=2x-3\) is that it is a <em>question</em>: is there a number \(x\) so that \(4x+1=2x-3\)? Such a number is called a <em>solution</em>. Note that no &ldquo;variable&rdquo; is involved — just numbers. The way to solve the equation is to assume that there is a solution \(x\). Remember: this \(x\) is now a single number. So we have an equality of two numbers, \(4x+1=2x-3\), and Steps A through E become five successive statements about numbers, each a consequence of the one before. What we get at the end is this: <em>if</em> there is a solution \(x\), that solution has to be \(-2\). This does not yet say that \(-2\) <em>is</em> a solution — to prove that, we must substitute \(x=-2\) into \(4x+1=2x-3\) and check that the two sides are indeed equal, which is easily accomplished. In this light, once Steps A–E are properly interpreted as computations with numbers, known and unknown, they are actually correct! Solving an equation — any equation, as it turns out — is part of generalized arithmetic.</p>
+
+
+    <div class="principle">
+      <div class="lab">Once more, with feeling</div>
+      <div class="txt">No &ldquo;variable&rdquo; is involved in the solution — <em>variable is not a mathematical concept, period.</em> If students are taught to use symbols correctly, they will never need to worry about what a &ldquo;variable&rdquo; means.</div>
+    </div>
+
+    <p>We hope the preceding discussion has given some indication of why school algebra is generalized arithmetic: it is arithmetic on a more abstract level. It is incumbent on the school curriculum to help students bridge the gap between arithmetic and algebra — by introducing abstraction into arithmetic when feasible, by making use of symbols when the occasion calls for it, and, above all, by making reasoning a daily routine, because all of mathematics, at any level, is built on reasoning. The failure of the usual curriculum to meet these basic requirements accounts for the discontinuity that is so detrimental to the learning of algebra. Which raises the practical question the second part of this essay answers: how do we teach arithmetic better?</p>
+
+    <div class="partband">
+      <div class="pk">Part Two</div>
+      <h2>How to teach arithmetic better</h2>
+    </div>
+
+    <p>Some educators, aware of how hard the transition is, have come to advocate introducing &ldquo;algebraic thinking&rdquo; in the elementary grades (Blanton, 2018; Kaput, 2008; Kieran, 2004). Their intentions cannot be faulted — but, as in all things in mathematics education, good intentions are not enough, because the devil lurks in the details. Given that the present school algebra curriculum is very seriously flawed (Wu, 2016b), one first has to ask what this &ldquo;algebraic thinking&rdquo; is all about in the context of such a defective curriculum — for &ldquo;what we think algebra is has a huge bearing on how we approach it&rdquo; (Kaput, 2008, p.&nbsp;8). Moreover, the usual recommendations involve pedagogical embellishments and the introduction of new elements into arithmetic instruction — thought-provoking problems, say — while seemingly leaving the existing defective arithmetic curriculum unperturbed.</p>
+
+    <p>Our belief is that a simpler approach — one that sharply focuses on teaching <em>correct</em> arithmetic in elementary school — would be more effective. Not that correct arithmetic is being pursued as an end in itself (though there is no denying it is a laudable goal): its virtue is that it provides the right platform from which to launch algebra, as the seven recommendations below should make abundantly clear. Correct arithmetic also happens to be more learnable than defective arithmetic, and better-informed arithmetic students will be in a better position to learn algebra. We will eschew generalities and get down to fundamentals, suggesting specific changes in the mathematics that is actually taught — a specificity made possible by the six volumes written for exactly this purpose (Wu, 2011, 2016a, 2016b, 2020a–2020c; the early drafts are free online).</p>
+
+    <ol class="recs">
+      <li>
+        <span class="rt">Explain the standard algorithms.</span>
+        <p>Mathematical explanations — in addition to pictures and analogies — should be given for the standard algorithms, in a grade-appropriate manner: the associative and commutative laws of addition behind the addition and subtraction algorithms, and the crucial role of the distributive law in the multiplication and long-division algorithms (Wu, 2011, Chs. 2–7). When students know the reasoning behind the algorithms, they make better sense of the algorithms <em>and</em> of the laws themselves. At present, one reason the laws of operations are not taken seriously by many teachers and students is that the curriculum makes no mathematically substantive use of them — so they come to be regarded as nothing more than things to memorize for standardized tests.</p>
+      </li>
+      <li>
+        <span class="rt">Let abstraction and structure begin in arithmetic.</span>
+        <p>The overriding theme of the four standard algorithms is that a knowledge of <em>single-digit</em> computations empowers us to compute with any whole numbers, no matter how large (Wu, 2011, Ch. 3). Remind elementary students of this fact often enough and they will not only understand why the algorithms are worth learning, but become more familiar with abstract thinking — and less likely to be shocked by their confrontation with algebra. (If teachers forcefully brought this theme out, they might even be more successful in persuading students to memorize the multiplication table.)</p>
+      </li>
+      <li>
+        <span class="rt">Make equivalent fractions the unifying theme.</span>
+        <p>The overriding importance of the theorem on equivalent fractions (Wu, 2011, Ch. 13; 2016a, §1.3) should be impressed on students — its direct impact on the comparison of fractions, on their addition and subtraction, and on their multiplication and division. Without this understanding, students see fractions as a fragmentary subject, and come to believe that the only reason the theorem exists is for simplifying fractions.</p>
+      </li>
+      <li>
+        <span class="rt">Define finite decimals as fractions.</span>
+        <p>Finite decimals should be defined, and taught, as a special class of fractions — the <em>decimal fractions</em> (Wu, 2011, §12.3). This is both historically and pedagogically correct, and it is only from this vantage point that the four operations on decimals — especially multiplication — become transparent; and transparency is a prerequisite for learnability. It is also another opportunity to appreciate abstraction and structure: two seemingly different kinds of numbers revealed to be basically one and the same.</p>
+      </li>
+      <li>
+        <span class="rt">Stress the parallel between whole numbers and fractions.</span>
+        <p>The arithmetic operations on fractions run parallel to those on whole numbers (Wu, 2011; 2001). That this parallel enhances the learnability of fractions is too obvious for comment. Less obvious, but no less important: emphasizing it reinforces students&rsquo; appreciation of structure — what they learn about whole numbers helps them learn fractions, because these are similar topics. The old belief that &ldquo;fractions are such different numbers from whole numbers&rdquo; has naturally hampered student learning.</p>
+      </li>
+      <li>
+        <span class="rt">Respect the generality inherent in fractions.</span>
+        <p>The teaching of fractions should respect — grade-appropriately — the abstraction and generality inherent in the subject. There is now something close to a consensus that giving a fraction a precise definition, as a point on the number line (Jensen, 2003; Wu, 2001), is more pedagogically effective than making believe that a fraction is simultaneously a piece of pizza, a division, and a ratio. If the basic facts about fractions are stated concisely, students will naturally — and gradually — learn about generality and become familiar with symbols. The theorem on equivalent fractions is the statement that for any fraction \(\frac{m}{n}\) and any nonzero whole number \(c\), \(\;\frac{m}{n}=\frac{cm}{cn}\). The cross-multiplication algorithm is not &ldquo;the butterfly&rdquo; but the statement that, for any two fractions, \(\frac{m}{n}=\frac{k}{\ell}\) is equivalent to \(m\ell=nk\) — and in the process students also learn what &ldquo;is equivalent to&rdquo; means. The formula for the addition of two arbitrary fractions is \(\frac{m}{n}+\frac{k}{\ell}=\frac{m\ell+kn}{n\ell}\). Such exposure to generality, and to the use of symbols, smooths students&rsquo; passage to algebra.</p>
+      </li>
+      <li>
+        <span class="rt">Give reasoning for every claim.</span>
+        <p>Finally, we should strive to provide reasoning for every claim in arithmetic. Computations with specific numbers can be accomplished — at least on a superficial level — by the memorization and execution of rote skills; algebra cannot be learned that way, because its key issues concern the truth of statements about numbers <em>in general</em>, most often all numbers. Reasoning is the only vehicle for navigating the terrain of algebra, and we are therefore obligated to acclimate students to reasoning from day one.</p>
+      </li>
+    </ol>
+
+    <p>We do not pretend that achieving such improvement will be easy: it involves sustained professional development for teachers and the creation of reasonable textbooks for students. But we must try.</p>
+
+    <div class="pullquote">All of mathematics, at any level, is built on reasoning.</div>
+
+    <p>One thing is clear, though. The strategy of banishing abstraction from arithmetic is designed to delude students into thinking that they can win battles and skirmishes in their march through computations without having to do any abstract thinking. Unfortunately, it is exactly this strategy of avoidance that causes students to lose the war by the time they get to algebra, where they are shell-shocked when confronted with abstraction, generality, and the extensive use of symbols. If we do not improve the arithmetic curriculum, we lose the same war.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">Author</div>
+        <div class="who">Hung-Hsi Wu</div>
+        <div class="aff">University of California, Berkeley</div>
+      </div>
+      <div class="role">
+        <div class="lab">Persian translation</div>
+        <div class="who">Nazanin Hassannia — Part One</div>
+        <div class="who">Amir Asghari — Part Two</div>
+      </div>
+    </div>
+    <div class="origin">First published as WikiLetter Nos. 9 and 10, on 22 and 24 November 2018; the Persian translations appeared in Dey 1397, in PDFs prepared by Sharareh Taghi-Dastjerdi (Isfahan Mathematics House). In the original the author thanked Larry Francis for very productive discussions and corrections. The two parts appear here merged into one essay for the first time.</div>
+  </div>
+
+  <div class="refs">
+    <h3>References</h3>
+    <ol>
+      <li>Blanton, M. L. (2018). <em>Empowering Children to Think Algebraically.</em> <a href="https://tinyurl.com/ybs8sm9h" target="_blank" rel="noopener">tinyurl.com/ybs8sm9h</a></li>
+      <li>Common Core (2010). <em>Common Core State Standards for Mathematics.</em> <a href="http://www.corestandards.org/Math/" target="_blank" rel="noopener">corestandards.org/Math</a></li>
+      <li>Jensen, G. (2003). <em>Arithmetic for Teachers.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Kaput, J. (2008). What is algebra? What is algebraic reasoning? In J. Kaput, D. Carraher, &amp; M. Blanton (Eds.), <em>Algebra in the Early Grades</em>, 5–17. New York: Lawrence Erlbaum Associates.</li>
+      <li>Kieran, C. (2004). Algebraic thinking in the early grades: What is it? <em>The Mathematics Educator</em>, 8, 139–151. <a href="https://tinyurl.com/ybsnlycr" target="_blank" rel="noopener">tinyurl.com/ybsnlycr</a></li>
+      <li>Schmid, W. and Wu, H. (2008). <em>The major topics of school algebra.</em> <a href="https://math.berkeley.edu/~wu/NMPalgebra7.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/NMPalgebra7.pdf</a></li>
+      <li>Wu, H. (2000). <em>Chapter 1: Whole Numbers</em> (Draft). <a href="https://math.berkeley.edu/~wu/EMI1c.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/EMI1c.pdf</a></li>
+      <li>Wu, H. (2001). <em>Chapter 2: Fractions</em> (Draft). <a href="https://math.berkeley.edu/~wu/EMI2a.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/EMI2a.pdf</a></li>
+      <li>Wu, H. (2010a). <em>Pre-Algebra</em> (Draft of textbook for teachers of grades 6–8). <a href="https://math.berkeley.edu/~wu/Pre-Algebra.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/Pre-Algebra.pdf</a></li>
+      <li>Wu, H. (2010b). <em>Introduction to School Algebra</em> (Draft of textbook for teachers of grades 6–8).</li>
+      <li>Wu, H. (2011). <em>Understanding Numbers in Elementary School Mathematics.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2016a). <em>Teaching School Mathematics: Pre-Algebra.</em> Providence, RI: American Mathematical Society. Index: <a href="http://tinyurl.com/zjugvl4" target="_blank" rel="noopener">tinyurl.com/zjugvl4</a></li>
+      <li>Wu, H. (2016b). <em>Teaching School Mathematics: Algebra.</em> Providence, RI: American Mathematical Society. Index: <a href="http://tinyurl.com/haho2v6" target="_blank" rel="noopener">tinyurl.com/haho2v6</a></li>
+      <li>Wu, H. (2018). The content knowledge mathematics teachers need. In Y. Li, J. Lewis, &amp; J. Madden (Eds.), <em>Mathematics Matters in Education — Essays in Honor of Roger E. Howe</em>, 43–91. Springer. <a href="https://math.berkeley.edu/~wu/Contentknowledge1A.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/Contentknowledge1A.pdf</a></li>
+      <li>Wu, H. (2020a). <em>Rational Numbers to Linear Equations.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2020b). <em>Algebra and Geometry.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2020c). <em>Pre-Calculus, Calculus, and Beyond.</em> Providence, RI: American Mathematical Society.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">ویکی‌نوشت · شماره‌های ۹ و ۱۰</div>
+  <h1 class="title">از حساب به جبر</h1>
+  <p class="standfirst">جبرِ مدرسه‌ای چیزی نیست جز حسابِ بزرگ‌شده — <em>حسابِ تعمیم‌یافته</em>. هانگ-هسی وو در این جستارِ دوقسمتی — که این‌جا یکجا منتشر می‌شود — با دو محاسبه‌ی درخورِ کلاسِ هشتم نشان می‌دهد این شعار یعنی چه، و سپس هفت تغییر پیشنهاد می‌کند تا حساب سکوی پرتابِ جبر باشد.</p>
+  <div class="byline">
+    <span class="name">هانگ-هسی وو</span>
+  </div>
+
+  <div class="body">
+    <p>برنامه‌ی ریاضیاتِ مدرسه‌ای ساختاری طبیعی دارد: از مفاهیمِ ساده به پیچیده و از مفاهیمِ ملموس به مفاهیمِ مجرد رشد می‌کند. غیر از این نمی‌تواند باشد؛ چون مهم‌ترین کارکردش این است که دانش‌آموزان را کمک و هدایت کند تا اولین گام‌هایشان را برای یادگیری ریاضی بردارند؛ و فراموش نکنیم که دانشِ ریاضی هم، در طول تاریخش، از ساده به پیچیده رشد کرده است.</p>
+
+    <p>متأسفانه در روند تکاملِ ریاضیاتِ مدرسه‌ای گسست‌های نالازمی وجود دارد — اشاره‌ی ما به گسست‌های برنامه‌ی درسیِ مدرسه‌ای (به‌ویژه در آمریکا) است، نه به خودِ ریاضیات — که یادگیری دانش‌آموزان را مختل می‌کند. یک نتیجه‌ی این گسست، ترس و دلهره‌ای است که دانش‌آموزان از یادگیری جبر دارند. موضوع این نوشته گسستی است که در عبور از حساب به جبر در ریاضیاتِ مدرسه وجود دارد. در اینجا منظور از «حساب» مباحثی است که به اعداد صحیح، اعشاری‌های با بسط متناهی و اعداد کسری مربوط می‌شود، و «جبر» همان جبرِ مقدماتی‌ای است که در ریاضیات مدرسه‌ای وجود دارد و موضوعاتی مانند اعداد گویا، استفاده‌ی گسترده از نمادهای ریاضی، معادلات خطی یک یا دو متغیره و معادله‌ی درجه دوم را شامل می‌شود. به مفاهیم پیچیده‌ترِ جبری مانند توابع نمایی و لگاریتمی، یا عملیات جبری بر روی چندجمله‌ای‌ها کاری نداریم؛ در عوض به دو شاخصه‌ی مهم جبرِ مدرسه‌ای، یعنی <em>تعمیم</em> و <em>تجرید</em> می‌پردازیم. اجازه دهید به جای اینکه وقتمان را صرف تعریف دقیق این مفاهیم کنیم، بحث را ادامه دهیم؛ مفهوم دقیق این واژه‌ها در مسیر بحث آشکار خواهد شد.</p>
+
+    <div class="partband">
+      <div class="pk">قسمت اول</div>
+      <h2>جبر، حسابِ تعمیم‌یافته است</h2>
+    </div>
+
+    <p>پیام اصلی این نوشته این است که جبرِ مدرسه‌ای درواقع همان <em>حسابِ تعمیم‌یافته</em> است. احتمالاً در این لحظه خواننده برداشتِ خودش را از این عبارت دارد؛ پس در ادامه، تا حد امکان توضیح می‌دهم منظور از حسابِ تعمیم‌یافته چیست. حساب با محاسبات دقیق بر روی اعداد مشخص و معلوم سروکار دارد. به‌طور معمول ریاضیاتِ مدرسه‌ای طوری تدریس می‌شود که دغدغه‌ی اصلی دانش‌آموزان در ریاضی انجام‌دادن تمرین‌هاست؛ به این معنی که به‌دست آوردن جوابِ درستِ \(151-67\) یا \(\frac56+\frac38\) برایشان راضی‌کننده است و به‌دنبال چیزی ورای جواب نیستند. اما جبر اولین برخورد دانش‌آموزان با ریاضیات به معنی واقعی کلمه است و تازه اینجاست که شمایی از «تصویر اصلی» ریاضیات را می‌بینند. در جبر از دانش‌آموزان خواسته می‌شود که بعد از انجام هر محاسبه به این فکر کنند که آیا این محاسبه حالت خاصی از یک قانون عمومی است یا نه؛ یا اینکه آیا می‌شود این محاسبه را در زمینه‌ای گسترده‌تر دید تا شاید ویژگی‌های آن بهتر درک شود. حالا دانش‌آموزی که در حوزه‌ی حساب به‌خوبی کارش را انجام می‌داد و از نتیجه راضی بود، باید توجیه شود که چرا باید خودش را برای حسابِ تعمیم‌یافته آماده کند. درواقع چرا باید به این دردسر بیفتد؟</p>
+
+    <p>هر برنامه‌ی درسی‌ای که بخواهد گذار دانش‌آموزان را از حساب به جبر هموار کند، باید جوابی برای این سؤال داشته باشد. اما چه جوابی می‌توان به این سؤال داد؟ برای پاسخ، دو مسئله‌ی جبری را بررسی می‌کنیم: یکی حاصل‌جمعِ متناهی جمله از یک سری هندسی و دیگری حل یک معادله‌ی درجه‌ی یک. امیدواریم در خلال این بحث، ماهیتِ حسابِ تعمیم‌یافته هم مشخص‌تر شود. پیشاپیش می‌گویم بحثِ پیشِ رو مقداری محاسبات دقیق ریاضی دربردارد — با اینکه در مقالاتی از این دست مرسوم نیست؛ اما این مقدار ریاضی برای پیشبرد بحث ضروری است. همچنین نمی‌توان از این واقعیت فرار کرد که قلبِ بحث‌های آموزش ریاضی، ماهیتی ریاضی دارد.</p>
+
+    <h2 class="subhead">جمعی که ارزشِ نام‌گذاری دارد</h2>
+
+    <p>فرض کنید از یک کلاسِ هشتمی خواسته‌ایم حاصل عبارت زیر را به‌دست آورند (استفاده از ماشین‌حساب مجاز است):
+    \[1+3+3^2+3^3+\cdots+3^9+3^{10}.\]
+    حساب به ما می‌گوید حاصل این جمع ۸۸٬۵۷۳ است و تمام. ولی آیا این مسئله یک مسئله‌ی خیلی خاصِ محاسباتی است؟ یا اینکه مثلاً گروهی مسئله‌ی شبیه به آن وجود دارد؟ آیا می‌توان راهِ حل این مسئله را جزئی از یک قانون عمومی به حساب آورد؟ هشتمی‌ها ابتدا باید متوجه <em>الگو</em> یا <em>ساختارِ</em> موجود در این جمع شوند: توان‌های متوالی عدد ۳ با هم جمع شده‌اند (فرض کنیم می‌دانند که \(1=3^0\) و \(3=3^1\)). اولین چیزی که به ذهن می‌رسد این است که می‌توان حاصل‌جمعِ توان‌های عدد ۳ را نه تنها تا توان ۱۰، بلکه تا هر توان طبیعی دیگری حساب کرد. بعد، چرا توان‌های عدد ۳؟ چرا توان‌های عددهای دیگر نه؟ همین که این سؤالات به ذهن می‌رسد، یعنی حساب را پشت سر گذاشته‌ایم: می‌خواهیم حاصل‌جمعِ توان‌های متوالی <em>عددی که نمی‌دانیم چند است</em> را تا <em>توانی که نمی‌دانیم چند است</em> حساب کنیم، و حساب‌وکتاب با اعداد مشخص هیچ کمکی به ما نمی‌کند. حتی قبل از اینکه شروع به حل کنیم، با مسئله‌ای مهم‌تر روبه‌رو می‌شویم: عبارتی را که این‌قدر کلی است چه‌طور به شکلی خلاصه و در عین حال دقیق بیان کنیم؟ اینجا می‌توانیم به کلاسِ هشتمی‌ها بگوییم که ریاضیدانانِ قدیم بیش از هزار سال درگیر این موضوع بودند؛ تا اینکه حدود ۱۶۰۰ میلادی بالاخره روشی کارا پیدا کردند تا با کمک نمادها این‌گونه عبارت‌ها را بیان کنند. با این دستاوردِ ریاضی، مسئله را به این شکل مطرح می‌کنیم: حاصل‌جمعِ
+    \[1+r+r^2+\cdots+r^{n-1}+r^n\]
+    را بیابیم، وقتی \(r\) عددی دلخواه و \(n\) عددی طبیعی و دلخواه باشد. با صرف‌نظر کردن از کار با اعداد معلوم، تنها ابزاری که برای حل این مسئله داریم خاصیت شرکت‌پذیری و جابه‌جاییِ جمع و ضرب و نیز خاصیت توزیع‌پذیری ضرب نسبت به جمع است — که می‌دانیم برای <em>همه‌ی</em> اعداد درست است، و فرقی نمی‌کند آن اعداد معلوم‌اند یا مجهول. این مسئله به کلاسِ هشتمی‌ها کمک می‌کند تا شاید برای اولین بار به اهمیت قوانینِ عمل‌های جمع و ضرب پی ببرند.</p>
+
+    <p>به جای اینکه یک‌باره به دنیای جدیدِ تعمیم شیرجه بزنیم، شاید بهتر باشد مرحله‌به‌مرحله پیش برویم و ابتدا حاصل‌جمعِ
+    \[1+3+3^2+\cdots+3^{23}+3^{24}\]
+    را حساب کنیم. این عبارت حاصل‌جمعِ ۲۵ عددِ مشخص و معلوم است و بنابراین شبیه یک مسئله‌ی حسابِ متداول است؛ اما از آنجا که انجام این محاسبات با دستِ خالی به صبر و حوصله‌ای بیش از توانِ کلاسِ هشتمی‌ها نیاز دارد، به چیزی بیش از مهارت‌های متداولِ حساب نیاز داریم. یک راه این است که کل این عبارت را به صورت <em>یک عدد</em> ببینیم؛ نمی‌دانیم این عدد دقیقاً چند است، با این حال نامش را \(S\) می‌گذاریم. بی‌درنگ از مزایای این نمادگذاری بهره‌مند می‌شویم. این قدمی بسیار مهم است، چون با این کار دیگر درگیر محاسباتِ قدیمی نیستیم که می‌بایست جوابِ هر عملیات را به صورت عددی مشخص محاسبه می‌کردیم؛ حالا محاسباتمان را با \(S\) به عنوان یک <em>عدد</em> پیش می‌بریم. از آنجا که \(S\) جمعِ توان‌های متوالی عدد ۳ است، انگار بد نیست ۳ را در \(S\) ضرب کنیم: با کمک خاصیت توزیع‌پذیری می‌بینیم که عبارتی <em>خیلی شبیه</em> به خودِ \(S\) به‌دست می‌آید. داریم:
+    \[3S = 3+3^2+\cdots+3^{24}+3^{25} = \bigl(1+3+\cdots+3^{24}\bigr)-1+3^{25}=(S-1)+3^{25},\]
+    بنابراین:
+    \[3S = S+3^{25}-1. \tag{۱}\]
+    باز هم بدون اینکه بدانیم مقدار \(S\) دقیقاً چند است، قرینه‌ی آن \((-S)\) را به دو طرف تساوی اضافه می‌کنیم؛ در سمت چپ از خاصیت پخشی (توزیع‌پذیری) استفاده می‌کنیم: \((-S)+3S=(-1+3)S=2S\)، و به این ترتیب:
+    \[S=\tfrac12\bigl(3^{25}-1\bigr). \tag{۲}\]
+    و با کمک ماشین‌حساب حاصل را به‌دست می‌آوریم: ‏\(S=423{,}644{,}304{,}721\)‏. باید به کلاسِ هشتمی‌ها یادآور شویم که این جواب بدون سختیِ زیاد به‌دست آمد.</p>
+
+
+    <p>این اولین ثمره‌ی تفکر مجرد بود: جوابی که به جای انجام محاسبات کورکورانه بر روی اعداد مشخص، با افزودن استدلال و به رسمیت شناختنِ الگوهای انتزاعی در محاسبه با اعداد در حالت کلی به‌دست آمد. برای مثال، ایده‌ی ضرب‌کردن ۳ در \(S\) — که معادله‌ی (۱) را نتیجه داد و به اندازه‌ی جوابِ نهایی مهم و پرفایده بود — از آنجا نشئت گرفت که حاصل‌جمعِ توان‌های متوالی عدد ۳ اساساً بعد از این ضرب تغییر چندانی نمی‌کند و اکثر جملات عیناً تکرار می‌شوند. به یک معنا، کاری که برای حل مسئله انجام دادیم مطلقاً حساب است، چون کاری به جز انجام عملیاتِ حسابی بر روی اعداد (و تنها اعداد) نکرده‌ایم. در عینِ حال از حساب فراتر می‌رود، چون این عملیات را — تنها با تکیه بر قوانینِ عمل‌ها — بر روی اعدادِ نامعلوم انجام داده‌ایم. ما <em>حسابِ تعمیم‌یافته</em> انجام داده‌ایم. این مثال نشان می‌دهد که اگر قدم را از محاسبه با اعداد مشخص فراتر بگذاریم و در پیِ شناخت الگوهای کلی‌تر باشیم، حتی در مسئله‌های معمولیِ محاسباتی هم نتایج بیشتری به‌دست خواهیم آورد.</p>
+
+    <p>به مسئله‌ی اصلی برگردیم و حاصلِ \(1+r+r^2+\cdots+r^n\) را برای \(r\) و \(n\) دلخواه به‌دست آوریم. اگر \(r=1\) باشد، حاصل عبارت \(n+1\) است و مسئله جذابیتی ندارد؛ پس از این به بعد فرض می‌کنیم \(r\neq1\). اگر استدلال قبل را با دقت مرور کنیم، می‌بینیم که اگر عدد ۳ را با \(r\) و توانِ ۲۴ را با \(n\) جایگزین کنیم، همه‌ی استدلال جمله‌به‌جمله درست می‌ماند. پس هرگاه \(r\neq1\) عددی دلخواه و \(n\) عددی طبیعی باشد:
+    \[1+r+r^2+\cdots+r^{n-1}+r^n=\frac{r^{n+1}-1}{r-1}. \tag{۳}\]
+    این همان رابطه‌ای است که برای محاسبه‌ی حاصل‌جمعِ متناهی جمله از یک دنباله‌ی هندسی داریم. رابطه‌ی (۲) حالت خاصی از فرمول (۳) است وقتی \(r=3\) و \(n=24\). برای اینکه طعم این تعمیم را بهتر بچشیم، بیایید جمع زیر را به‌دست آوریم:
+    \[1+\tfrac12+\tfrac1{2^2}+\cdots+\tfrac1{2^{27}}+\tfrac1{2^{28}} \;=\; \frac{\bigl(\tfrac12\bigr)^{29}-1}{\tfrac12-1} \;=\; 2-\Bigl(\tfrac12\Bigr)^{28}.\]</p>
+
+    <h2 class="subhead">توری بزرگ‌تر</h2>
+
+    <p>حالا درباره‌ی خودِ تساوی (۳) می‌توانیم بپرسیم: آیا این تساوی بخشی از یک قانون عمومی‌تر در ریاضی است یا نتیجه‌ای تک‌افتاده؟ آیا می‌توان آن را در زمینه‌ای وسیع‌تر دید و بهتر فهمید؟ به‌راستی که چنین است — به شرطی که برای به‌دست آوردن این «زمینه‌ی وسیع‌تر» تورِ بزرگ‌تری بیندازیم. کلاسِ هشتمی‌ها اتحادِ مشهورِ \((x-y)(x+y)=x^2-y^2\) را می‌شناسند که برای هر مقدار \(x\) و \(y\) درست است. می‌توان از آن‌ها خواست که به عنوان تمرینِ خاصیتِ توزیع‌پذیری نشان دهند تساوی زیر برای هر عدد طبیعی \(n\) و هر عدد \(x\) و \(y\) درست است:
+    \[(x-y)\bigl(x^n+x^{n-1}y+x^{n-2}y^2+\cdots+xy^{n-1}+y^n\bigr)=x^{n+1}-y^{n+1}. \tag{۴}\]
+    حالا تساوی \((x-y)(x+y)=x^2-y^2\) حالت خاصی از (۴) است وقتی \(n=1\)؛ و حتی تساوی (۳) هم حالت خاصی از (۴) است — کافی است قرار دهیم \(x=r\) و \(y=1\). به این ترتیب رابطه‌ی (۳)، که مجموعِ متناهی جمله‌ی دنباله‌ی هندسی را به‌دست می‌دهد، با تساویِ آشنای \((x-y)(x+y)=x^2-y^2\) خویشاوند از آب درآمد؛ و این تازه اولِ داستان است. عدد ۶۴٬۳۳۹٬۲۸۰٬۴۹۱ را در نظر بگیرید. سخت بتوان گفت عددی به این بزرگی <em>اول</em> است یا نه (عدد اول عددی است که فقط بر خودش و یک بخش‌پذیر است). اما این عدد برابر است با \(35^7-4^7\)، و این یعنی می‌توانیم تساوی (۴) را — با \(x=35\)، \(y=4\) و \(n=6\) — برایش به‌کار ببریم:
+    \[64{,}339{,}280{,}491=35^7-4^7=31\times\bigl(35^6+35^5\cdot4+\cdots+35\cdot4^5+4^6\bigr).\]
+    یعنی عدد ما بر ۳۱ بخش‌پذیر است و در نتیجه اول نیست! به همین ترتیب می‌توان نشان داد که اگر \(x\) و \(y\) اعداد صحیح مثبت باشند و \(x-y&gt;1\)، برای هر \(n\geq1\) عدد \(x^n-y^n\) هیچ‌گاه اول نیست. توجه کنید که ما همچنان درگیر حساب هستیم؛ ولی با استفاده از نمادها به‌جای اعداد، و با پذیرشِ تعمیم در محاسبات، جمعِ تعدادی جمله از یک دنباله‌ی هندسی — به کمک تساوی (۴) — به مسئله‌ی تعیینِ اول یا مرکب بودن اعداد گره می‌خورد. چنین مثال‌هایی از قدرتِ تعمیم را باید در کلاس هشتم پیش چشم آورد.</p>
+
+    <h2 class="subhead">معادله واقعاً چیست؟</h2>
+
+    <p>موضوع دیگری که در برنامه‌ی درسی جبر مهم به شمار می‌آید حلِ معادله است؛ موضوعی که در تاریخ جبر هم نقش مهمی در پیشبرد این علم داشته است. معادله‌ی خطیِ \(4x+1=2x-3\) را در نظر بگیرید. معمولاً در جبرِ مدرسه‌ای \(x\) را <em>متغیر</em> در نظر می‌گیریم و با انجام کارهای زیر معادله را «حل» می‌کنیم:</p>
+
+    <div class="steps">
+      <div class="step"><span class="sl">مرحله‌ی اول</span><span class="sm">\((-2x)+4x+1=(-2x)+2x-3\)</span></div>
+      <div class="step"><span class="sl">مرحله‌ی دوم</span><span class="sm">\(2x+1=-3\)</span></div>
+      <div class="step"><span class="sl">مرحله‌ی سوم</span><span class="sm">\(2x+1+(-1)=-3+(-1)\)</span></div>
+      <div class="step"><span class="sl">مرحله‌ی چهارم</span><span class="sm">\(2x=-4\)</span></div>
+      <div class="step"><span class="sl">مرحله‌ی پنجم</span><span class="sm">\(x=-2\)</span></div>
+    </div>
+
+    <p>جوابِ \(-2\) جواب درستی است؛ اما با کمی دقت مشخص می‌شود که این پنج مرحله — آن‌طور که معمولاً توضیح داده می‌شود — هیچ معنایی ندارد. مرحله‌ی اول را در نظر بگیرید. اگر \(x\) مقداری است که <em>تغییر می‌کند</em>، چگونه می‌توانیم بگوییم دو مقدارِ \(4x+1\) و \(2x-3\)، که هر کدام با تغییرِ \(x\) تغییر می‌کنند، با هم «برابرند»؟ (چون \(x\) تغییر می‌کند، می‌تواند مثلاً صفر باشد؛ در این صورت \(4x+1=1\) و \(2x-3=-3\)؛ چطور ۱ با ۳− برابر است؟!) و چطور این دو مقدار پس از اضافه‌کردنِ \(-2x\) — چیزی که خودش مقداری متغیر است — به هر کدام، همچنان با هم برابر می‌مانند؟ درواقع برای عبور از مرحله‌ی اول به دوم، در هر دو طرف تساوی از خاصیت شرکت‌پذیری جمع و خاصیت توزیع‌پذیری استفاده کردیم و جملاتِ شاملِ \(x\) را با هم جمع کردیم. دانش‌آموزان این قوانین را در حساب خوانده‌اند، اما آنجا این قوانین برای <em>اعداد</em> درست بود؛ کجا برایشان توضیح داده شده که می‌توان این قوانین را برای مقدارهای متغیر هم به‌کار برد؟ این تغییرِ ناگهانی از محاسبه با اعدادِ مشخص به محاسبه با اعدادِ نامعلوم، ممکن است در درکِ دانش‌آموزان ناسازگاری ایجاد کند. ریاضیات قرار است طریقه‌ی استدلال‌کردن را به دانش‌آموزان بیاموزد، یا از بر کردن و تکرارِ آنچه را که می‌بینند؟</p>
+
+    <p>این مورد یکی از مثال‌های بسیاری است که نشان می‌دهد ریاضیاتِ مدرسه‌ای چه‌طور در گذرِ دانش‌آموز از حساب به جبر گسست ایجاد می‌کند. مقصر اصلی رویکردی در آموزش جبر است که پای «متغیرها» را وسط می‌آورد و برای ادامه‌ی کار، ناگزیر به سوءاستفاده از خاصیت‌هایی می‌شود که در حساب کاربرد داشتند. این گسستِ توجیه‌ناپذیر را می‌توان با کمکِ ایده‌ی حسابِ تعمیم‌یافته، به صورت زیر، اصلاح کرد.</p>
+
+    <p>اول باید مشخص کنیم که یک «معادله» چیست. معادله‌ی \(4x+1=2x-3\) به این معناست که <em>سؤالی</em> داریم: آیا عددی چون \(x\) وجود دارد که \(4x+1=2x-3\)؟ چنین عددی را جوابِ معادله می‌نامیم. دقت کنید که هیچ حرفی از «متغیر» به میان نیامده است و تنها با عددها سروکار داریم. برای حل معادله فرض می‌کنیم چنین عددی وجود دارد. تأکید می‌کنم که \(x\) اینجا <em>یک عدد</em> است. پس داریم تساویِ دو عدد را بررسی می‌کنیم، و مرحله‌های اول تا پنجم گزاره‌هایی پی‌درپی درباره‌ی اعدادند که هر کدام نتیجه‌ای منطقی از مرحله‌ی قبل است. در آخر به این نتیجه می‌رسیم: <em>اگر</em> معادله جوابی داشته باشد، این جواب \(-2\) است. این هنوز به ما نمی‌گوید \(-2\) جوابِ معادله <em>هست</em>؛ برای اثباتش باید \(x\) را با \(-2\) جایگزین کنیم و ببینیم که واقعاً دو طرف تساوی برابرند — که به‌سادگی انجام می‌شود. با این نگاه، همین که مرحله‌های اول تا پنجم به عنوان عملیاتِ حسابی بر روی اعدادِ معلوم و نامعلوم فهمیده شوند، کاملاً درست‌اند! پس حلِ معادله — و چنان‌که معلوم می‌شود، هر نوع معادله‌ای — بخشی از حسابِ تعمیم‌یافته است.</p>
+
+
+    <div class="principle">
+      <div class="lab">یک بار دیگر، با تأکید</div>
+      <div class="txt">در این راهِ حل هیچ «متغیری» وجود ندارد — <em>متغیر یک مفهوم ریاضی نیست؛ نقطه، سرِ خط!</em> اگر دانش‌آموزان به گونه‌ای آموزش ببینند که با نمادها درست کار کنند، هیچ‌وقت لازم نیست نگران این باشند که «متغیر» چیست.</div>
+    </div>
+
+    <p>امیدوارم توضیحاتِ قبل مشخص کرده باشد که چرا می‌گویم جبرِ مدرسه‌ای همان حسابِ تعمیم‌یافته است: این جبر همان حساب است، در سطحی مجردتر. برنامه‌ی درسی بایستی هرجا که امکانش هست فرایندِ تجرید را در حسابِ مدرسه‌ای بگنجاند تا فاصله‌ی میان حساب و جبر کم شود؛ استفاده از نمادها، هرجا که موقعیتش فراهم باشد، یکی از گام‌های تجرید است. و از همه مهم‌تر، استدلال باید به کاری جاری و روزمره در حساب بدل شود، چرا که ساختارِ ریاضیات — در هر سطحی — بر پایه‌ی استدلال بنا شده است. شکستِ برنامه‌ی درسیِ معمول در برآوردنِ این پیش‌نیازها علتِ به‌وجودآمدنِ گسست بین حساب و جبرِ مدرسه‌ای است، و این گسست به یادگیری جبر آسیب می‌رساند. و همین، پرسشِ عملیِ قسمتِ دوم را پیش می‌کشد: حساب را چگونه بهتر درس دهیم؟</p>
+
+    <div class="partband">
+      <div class="pk">قسمت دوم</div>
+      <h2>چگونه حساب را بهتر درس دهیم؟</h2>
+    </div>
+
+    <p>بعضی از آموزشگران، با آگاهی از سختیِ این گذر، پیشنهاد کرده‌اند که «تفکر جبری» در سال‌های اولیه‌ی آموزشِ مدرسه‌ای مورد توجه قرار گیرد (برای مثال بلانتون، ۲۰۱۸؛ کاپوت، ۲۰۰۸؛ کی‌یرن، ۲۰۰۴). نمی‌توان در نیتِ آن‌ها شک کرد؛ ولی همچون همه‌ی موارد دیگر در آموزش ریاضی، نیتِ خوب کافی نیست، چرا که کیفیتِ چگونگیِ انجامِ آن در جزئیات نهفته است. با توجه به اینکه برنامه‌ی آموزشِ مدرسه‌ایِ جبر اساساً نادرست است (وو، 2016b)، اولین قدم این است که دریابیم معنیِ «تفکر جبری» در زمینه‌ی چنین برنامه‌ی نادرستی چه می‌تواند باشد؛ چرا که «چگونگیِ درک ما از جبر، چگونگیِ جبرورزیِ ما را تعیین خواهد کرد» (کاپوت، ۲۰۰۸، ص. ۸). علاوه بر این، توصیه‌های مرسوم برای تشویق به تفکر جبری در مدرسه معمولاً با اضافه‌کردنِ عناصر جدید به برنامه‌ی جاریِ حساب همراه‌اند (برای مثال مسئله‌های موسوم به فکری) و آنچه معیوب است، همان‌گونه که بود، دست‌نخورده باقی می‌ماند.</p>
+
+    <p>ما بر این باوریم که راهِ ساده‌تر این است که روی آموزشِ حسابِ <em>سالم</em> در دبستان متمرکز شویم، به جای اینکه سعی کنیم آنچه را که هست دست‌کاری کنیم. باور ما این نیست که آموزشِ حسابِ سالم هدف نهایی است (هرچند هیچ شکی در اهمیتش نیست): سودمندیِ حسابِ سالم در این است که سکّویی برای شروع جبر خواهد شد — هفت توصیه‌ی زیر با هدفِ روشن‌کردنِ همین نگاه نوشته شده‌اند. علاوه بر این، قابلیتِ یادگرفته‌شدنِ حسابِ سالم بیشتر از حسابِ معیوب است، و نیازی به یادآوری نیست که دانش‌آموزانی که حساب را به‌درستی یادگرفته‌اند آمادگیِ بیشتری برای یادگیری جبر دارند. در ادامه از کلی‌گویی درباره‌ی برنامه‌ی درسی حساب می‌پرهیزم و فقط به موارد اساسی‌ای اشاره می‌کنم که باید در آموزش حساب تغییر کنند — و این دقت مدیونِ کتاب‌هایی است که با هدفِ همین تغییر نوشته شده‌اند (وو، ۲۰۱۱؛ 2016a؛ 2016b؛ 2020a–2020c؛ پیش‌نویس‌های اولیه رایگان و آنلاین‌اند).</p>
+
+    <ol class="recs">
+      <li>
+        <span class="rt">الگوریتم‌های استاندارد را توضیح دهیم.</span>
+        <p>باید برای الگوریتم‌های استانداردِ حساب — علاوه بر تصاویر و قیاس‌ها — توضیحاتِ ریاضیِ متناسب با هر پایه‌ی تحصیلی ارائه شود: اهمیتِ قوانین جابه‌جایی و شرکت‌پذیریِ جمع در الگوریتم‌های جمع و تفریق، و نقشِ اساسیِ قانونِ توزیع‌پذیری در الگوریتم‌های ضرب و تقسیمِ طولانی (وو ۲۰۱۱، فصل‌های ۲ تا ۷). پس از آشنایی با چراییِ درستیِ الگوریتم‌ها، دانش‌آموزان هم الگوریتم‌ها را بهتر می‌فهمند و هم خودِ قوانین را. در حال حاضر یکی از دلایلی که معلم‌ها و دانش‌آموزان این قوانین را جدی نمی‌گیرند این است که برنامه‌ی حساب هیچ استفاده‌ی ریاضیِ جدی‌ای از آن‌ها نمی‌کند؛ در نتیجه تنها خاصیتِ این قوانین آن می‌شود که باید برای کسبِ نمره‌ی خوب در آزمون‌های سراسری حفظ شوند.</p>
+      </li>
+      <li>
+        <span class="rt">تجرید و ساختار از همان حساب آغاز شود.</span>
+        <p>پیغامِ اصلیِ چهار الگوریتمِ استاندارد این است که اگر یاد بگیریم چگونه با اعدادِ تک‌رقمی محاسبه کنیم، قادر خواهیم بود هر محاسبه‌ای را با اعدادِ طبیعیِ دیگر — هر چقدر هم بزرگ — انجام دهیم (وو ۲۰۱۱، فصل ۳). اگر این پیغام را در موقعیت‌های مختلف به دانش‌آموزان یادآوری کنیم، نه تنها متوجهِ ارزشِ یادگیریِ الگوریتم‌ها می‌شوند، بلکه تجربه‌ای از تفکر مجرد به‌دست می‌آورند و وقتی به جبر می‌رسند کمتر شوکه می‌شوند. (درواقع اگر معلم‌ها این پیغام را مکرر در تدریس یادآوری می‌کردند، شاید در قانع‌کردنِ دانش‌آموزان برای حفظ‌کردنِ جدول‌ضرب هم موفق‌تر بودند.)</p>
+      </li>
+      <li>
+        <span class="rt">برابریِ کسرها را نخِ تسبیح کنیم.</span>
+        <p>اهمیتِ قضیه‌ی برابریِ کسرها (وو ۲۰۱۱، فصل ۱۳؛ 2016a، بخش ۱.۳) باید به دانش‌آموزان تأکید و نقش آن در همه‌ی آنچه به کسرها مربوط است پررنگ شود: نقشِ صریحش در مقایسه‌ی کسرها، در جمع و تفریق، و در ضرب و تقسیمِ کسرها. بدون درکِ نقشِ محوریِ این مفهومِ مجرد، محاسبه‌های مربوط به کسرها مهارت‌هایی جدا از هم خواهد بود و دانش‌آموزان می‌پندارند تنها فایده‌ی این قضیه ساده‌کردنِ کسرهاست.</p>
+      </li>
+      <li>
+        <span class="rt">اعشاری‌ها را کسر تعریف کنیم.</span>
+        <p>اعشاری‌های متناهی باید به عنوان دسته‌ی خاصی از کسرها — <em>کسرهای اعشاری</em> — تعریف و آموزش داده شوند (وو ۲۰۱۱، بخش ۱۲.۳). این روش هم از لحاظ تاریخی و هم از لحاظ آموزشی صحیح است؛ و فقط از این نقطه‌نظر است که چهار عمل اصلی روی اعشاری‌ها — به‌خصوص ضرب — واضح می‌شود؛ و البته وضوح شرطِ لازم برای یادگرفتنی‌بودن است. این هم فرصت دیگری است برای تجربه‌ی تجرید و ساختار: دو دسته‌ی به‌ظاهر متفاوت از اعداد، اساساً یک چیز از آب درمی‌آیند.</p>
+      </li>
+      <li>
+        <span class="rt">هم‌راستاییِ اعداد طبیعی و کسرها را پررنگ کنیم.</span>
+        <p>باید تأکید شود که اعمالِ مربوط به کسرها در راستای اعمالِ مربوط به اعداد طبیعی قرار دارد (وو ۲۰۱۱؛ ۲۰۰۱). اینکه درکِ این هم‌راستایی یادگیریِ کسرها را آسان‌تر می‌کند چنان آشکار است که نیاز به توضیح ندارد. آنچه به همان اندازه مهم است ولی کمتر آشکار: این هم‌راستایی تجربه‌ی دیگری از تجرید و ساختار فراهم می‌کند — آنچه در اعداد طبیعی یاد می‌گیرند به یادگیریِ کسرها کمک می‌کند، چون این موضوع‌ها شبیهِ هم‌اند. مدت‌ها باور بر این بود که «کسرها اعدادی بسیار متفاوت از اعداد طبیعی‌اند»؛ این باورِ نادرست مانعی برای یادگیریِ کسرها بوده است.</p>
+      </li>
+      <li>
+        <span class="rt">به عمومیتِ ذاتیِ کسرها وفادار بمانیم.</span>
+        <p>آموزش کسرها باید — به روشی متناسب با پایه‌ی تحصیلی — به تجرید و عمومیتِ ذاتیِ موضوع وفادار باشد. هم‌اکنون تقریباً اجماع بر این است که مؤثرتر است کسرها به‌طور مشخص تعریف شوند، مثلاً به عنوان نقطه‌ای روی محورِ اعداد (جنسن، ۲۰۰۳؛ وو، ۲۰۰۱)، به جای اینکه به دانش‌آموزان بباورانیم که یک کسر هم‌زمان هم یک قطعه پیتزاست، هم تقسیم است و هم نسبت. اگر واقعیت‌های اساسیِ کسرها را موجز و دقیق بیان کنیم، دانش‌آموزان به‌طور طبیعی (و به‌تدریج) با عمومیت و نمادها آشنا می‌شوند. قضیه‌ی برابریِ کسرها گزاره‌ای است که می‌گوید برای هر کسرِ \(\frac{m}{n}\) و هر عدد طبیعیِ \(c\)، ‏\(\frac{m}{n}=\frac{cm}{cn}\)‏. «ضربِ ضربدری» هم نه «پروانه»، بلکه این گزاره است که برای هر دو کسر، ‏\(\frac{m}{n}=\frac{k}{\ell}\)‏ هم‌ارز است با \(m\ell=nk\) — و در فرایندِ یادگیریِ همین مهارت است که دانش‌آموزان معنای «هم‌ارز است» را هم یاد می‌گیرند. فرمولِ جمعِ دو کسرِ دلخواه به شکل \(\frac{m}{n}+\frac{k}{\ell}=\frac{m\ell+kn}{n\ell}\) است؛ و به همین ترتیب برای فرمول‌های دیگر. دانش‌آموزانی که در معرضِ چنین بیانِ نمادینی از کلیت قرار دارند، مسیرِ هموارتری را به سمت جبر طی خواهند کرد.</p>
+      </li>
+      <li>
+        <span class="rt">برای هر ادعایی دلیل بیاوریم.</span>
+        <p>بالاخره، باید همه‌ی تلاش خود را معطوف این کنیم که برای هر ادعایی در حساب دلیلی ارائه دهیم. در حساب می‌توان با حفظ‌کردن و تمرینِ مهارت‌ها محاسبات را (دست‌کم در ظاهر) به‌درستی انجام داد؛ اما جبر را به‌سختی می‌توان با حفظ‌کردن یادگرفت، چون موضوعِ کلیدیِ آن بیانِ گزاره‌های <em>کلی</em> درباره‌ی اعداد است (بیشترِ اوقات همه‌ی اعداد). استدلال تنها وسیله‌ی پیمودنِ قلمرو جبر است و بنابراین ناچاریم از همان روز اول دانش‌آموزان را در معرض استدلال قرار دهیم.</p>
+      </li>
+    </ol>
+
+    <p>نباید تظاهر کنیم که انجامِ چنین اصلاحاتی آسان است؛ نیازمندِ توسعه‌ی حرفه‌ایِ پایدارِ معلمان و خلقِ کتاب‌های درسیِ خوب برای دانش‌آموزان است. اما باید تلاش کرد.</p>
+
+    <div class="pullquote">ساختارِ ریاضیات — در هر سطحی — بر پایه‌ی استدلال بنا شده است.</div>
+
+    <p>یک موضوع روشن است. استراتژیِ حذفِ تجرید از حساب با این هدف طراحی شده که به دانش‌آموزان القا کند می‌توانند در نبرد با محاسبات پیروز شوند، بی‌آنکه نیازی به تفکر انتزاعی داشته باشند. متأسفانه همین استراتژیِ پرهیز است که باعث می‌شود دانش‌آموزان تا به جبر می‌رسند جنگ را باخته باشند: در مواجهه با نمادها، تجرید و تعمیم شوکه می‌شوند. اگر برنامه‌ی درسیِ حساب را اصلاح نکنیم، ما هم در همان مواجهه شکست می‌خوریم.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">نویسنده</div>
+        <div class="who">هانگ-هسی وو</div>
+        <div class="aff">دانشگاه کالیفرنیا، برکلی</div>
+      </div>
+      <div class="role">
+        <div class="lab">ترجمه‌ی فارسی</div>
+        <div class="who">نازنین حسن‌نیا — قسمت اول</div>
+        <div class="who">امیرحسین اصغری — قسمت دوم</div>
+      </div>
+    </div>
+    <div class="origin">نخست به‌صورت ویکی‌نوشت‌های شماره‌ی ۹ و ۱۰، در ۲۲ و ۲۴ نوامبر ۲۰۱۸، منتشر شد؛ ترجمه‌های فارسی در دی ۱۳۹۷ آمدند، در پی‌دی‌اف‌هایی که شراره تقی‌دستجردی (خانه‌ی ریاضیات اصفهان) آماده کرده بود. نویسنده در متنِ اصلی از لری فرانسیس برای بحث‌ها و تصحیح‌ها تشکر کرده است. این‌جا برای نخستین‌بار دو قسمت یکجا منتشر می‌شود.</div>
+  </div>
+
+  <div class="refs">
+    <h3>مراجع</h3>
+    <ol>
+      <li>Blanton, M. L. (2018). <em>Empowering Children to Think Algebraically.</em> <a href="https://tinyurl.com/ybs8sm9h" target="_blank" rel="noopener">tinyurl.com/ybs8sm9h</a></li>
+      <li>Common Core (2010). <em>Common Core State Standards for Mathematics.</em> <a href="http://www.corestandards.org/Math/" target="_blank" rel="noopener">corestandards.org/Math</a></li>
+      <li>Jensen, G. (2003). <em>Arithmetic for Teachers.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Kaput, J. (2008). What is algebra? What is algebraic reasoning? In J. Kaput, D. Carraher, &amp; M. Blanton (Eds.), <em>Algebra in the Early Grades</em>, 5–17. New York: Lawrence Erlbaum Associates.</li>
+      <li>Kieran, C. (2004). Algebraic thinking in the early grades: What is it? <em>The Mathematics Educator</em>, 8, 139–151. <a href="https://tinyurl.com/ybsnlycr" target="_blank" rel="noopener">tinyurl.com/ybsnlycr</a></li>
+      <li>Schmid, W. and Wu, H. (2008). <em>The major topics of school algebra.</em> <a href="https://math.berkeley.edu/~wu/NMPalgebra7.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/NMPalgebra7.pdf</a></li>
+      <li>Wu, H. (2000). <em>Chapter 1: Whole Numbers</em> (Draft). <a href="https://math.berkeley.edu/~wu/EMI1c.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/EMI1c.pdf</a></li>
+      <li>Wu, H. (2001). <em>Chapter 2: Fractions</em> (Draft). <a href="https://math.berkeley.edu/~wu/EMI2a.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/EMI2a.pdf</a></li>
+      <li>Wu, H. (2010a). <em>Pre-Algebra.</em> <a href="https://math.berkeley.edu/~wu/Pre-Algebra.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/Pre-Algebra.pdf</a></li>
+      <li>Wu, H. (2010b). <em>Introduction to School Algebra.</em></li>
+      <li>Wu, H. (2011). <em>Understanding Numbers in Elementary School Mathematics.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2016a). <em>Teaching School Mathematics: Pre-Algebra.</em> AMS. Index: <a href="http://tinyurl.com/zjugvl4" target="_blank" rel="noopener">tinyurl.com/zjugvl4</a></li>
+      <li>Wu, H. (2016b). <em>Teaching School Mathematics: Algebra.</em> AMS. Index: <a href="http://tinyurl.com/haho2v6" target="_blank" rel="noopener">tinyurl.com/haho2v6</a></li>
+      <li>Wu, H. (2018). The content knowledge mathematics teachers need. In <em>Mathematics Matters in Education</em>, 43–91. Springer. <a href="https://math.berkeley.edu/~wu/Contentknowledge1A.pdf" target="_blank" rel="noopener">math.berkeley.edu/~wu/Contentknowledge1A.pdf</a></li>
+      <li>Wu, H. (2020a). <em>Rational Numbers to Linear Equations.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2020b). <em>Algebra and Geometry.</em> Providence, RI: American Mathematical Society.</li>
+      <li>Wu, H. (2020c). <em>Pre-Calculus, Calculus, and Beyond.</em> Providence, RI: American Mathematical Society.</li>
+    </ol>
+  </div>
+</article>
+
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="javascript:window.print()" data-en="↓ Download PDF" data-fa="↓ دریافت پی‌دی‌اف"></a><a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a></span>
+</footer>
+
+<script>
+  var mathDone = {};
+  function renderMathIn(lang){
+    if (!window.renderMathInElement || mathDone[lang]) return;
+    var block = document.querySelector('[data-lang-block="' + lang + '"]');
+    if (!block) return;
+    renderMathInElement(block, {
+      output: 'html',
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+    if (lang === 'fa') {
+      block.querySelectorAll('.katex').forEach(function(k){
+        var tw = document.createTreeWalker(k, NodeFilter.SHOW_TEXT), nd;
+        while ((nd = tw.nextNode())) {
+          nd.nodeValue = nd.nodeValue.replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; });
+        }
+      });
+    }
+    mathDone[lang] = true;
+  }
+  function applyLabels(lang){
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+      var v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+  }
+  function setLang(lang){
+    var isFa = lang === 'fa';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-lang-block]').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+    });
+    document.querySelectorAll('.langtoggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    applyLabels(lang);
+    renderMathIn(lang);
+    try { localStorage.setItem('pm-lang', lang); } catch(e){}
+  }
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+
+  // Render math once KaTeX is ready — active language only; the other block renders on first toggle
+  function renderMath(){
+    if (!window.renderMathInElement) { setTimeout(renderMath, 60); return; }
+    renderMathIn(document.documentElement.lang === 'fa' ? 'fa' : 'en');
+  }
+  renderMath();
+</script>
+
+
+<script src="../counter.js"></script>
+</body>
+</html>

@@ -102,6 +102,7 @@ window.PM_CONTENT = {
     "Artan Sheshmani": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Artan_Sheshmani" },
     "Behrooz Parhami": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Behrooz_Parhami" },
     "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" },
+    "Hung-Hsi Wu": { en: "University of California, Berkeley", fa: "دانشگاه کالیفرنیا، برکلی", url: "https://en.wikipedia.org/wiki/Hung-Hsi_Wu" },
     "Ali Enayat": { en: "", fa: "" },
     "Donald R. Weidman": { en: "Boston College · the 1965 letter", fa: "بوستون‌کالج · نامهٔ ۱۹۶۵" }
   },
@@ -279,6 +280,30 @@ window.PM_CONTENT = {
       fa: { title: "موقعیت مشابه؛ برای همدلی با کودکی که می‌شمارد!",
             dek: "زهره پندی معلم را جای کودک می‌نشاند: با کلماتِ یک شعر بشمار تا حسِ یک نوآموز را بچشی، بعد قابِ ده‌تایی را بی‌شمارش بخوان. اکنون تعاملی. نخست ویکی‌نوشتِ شماره‌ی ۱۵.",
             author: "زهره پندی", meta: "تعاملی · یادداشت‌های کلاسی" } },
+
+    { section: "wikiletter", featured: false,
+      href: "articles/from-arithmetic-to-algebra.html",
+      added: "2026-07-19",
+      issue: 2,
+      level: "school",
+      imgSrc: "assets/hung-hsi-wu.jpg",
+      authorImg: "assets/hung-hsi-wu.jpg",
+      credits: [
+        { img: "assets/nazanin-hassannia.jpg",
+          en: { name: "Nazanin Hassannia", role: "Translation (Persian, Part One)" },
+          fa: { name: "نازنین حسن‌نیا", role: "مترجمِ قسمت اول" } },
+        { img: "assets/sharareh-taghi-dastjerdi.jpg",
+          en: { name: "Sharareh Taghi-Dastjerdi", role: "Original Persian edition" },
+          fa: { name: "شراره تقی‌دستجردی", role: "نسخه‌ی نخستِ فارسی" } }
+      ],
+      img: "photo — Hung-Hsi Wu",
+      date: { en: "2018 · merged July 2026", fa: "۱۳۹۷ · یکجا تیر ۱۴۰۵" },
+      en: { title: "From Arithmetic to Algebra",
+            dek: "School algebra is generalized arithmetic, says Hung-Hsi Wu: name a sum you cannot compute, multiply it, and watch it nearly repeat itself — then ask whether a number exists before you solve for it. His two WikiLetters (Nos. 9 & 10), merged into one essay.",
+            author: "Hung-Hsi Wu", meta: "Two-part essay" },
+      fa: { title: "از حساب به جبر",
+            dek: "جبرِ مدرسه‌ای همان حسابِ تعمیم‌یافته است، به روایتِ هانگ-هسی وو: جمعی را که نمی‌توانی حساب کنی نام بگذار، ضربش کن و ببین چگونه تقریباً تکرار می‌شود — و پیش از «حل‌کردن»، بپرس آیا اصلاً چنین عددی هست. دو ویکی‌نوشتِ ۹ و ۱۰، این‌جا یکجا.",
+            author: "هانگ-هسی وو", meta: "جستارِ دوقسمتی" } },
 
     /* ---- Classroom Ideas ---- */
     { section: "classroom", featured: false,

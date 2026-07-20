@@ -542,7 +542,7 @@ window.PM_CONTENT = {
       img: "photo — Ali Enayat",
       contribAuthor: { en: "Ali Enayat", fa: "علی عنایت" },
       date: { en: "1965 · 2025 · in English July 2026", fa: "۱۹۶۵ · ۱۴۰۴ · انگلیسی تیر ۱۴۰۵" },
-      en: { title: "Emotional Perils of Mathematics: An Imaginary Conversation",
+      en: { title: "Emotional Perils of Mathematics: An Imaginary Dialogue",
             dek: "In 1965 Donald Weidman told Science readers why the mathematical life is emotionally perilous. Translating him sixty years later, Ali Enayat talks back — with Hafez, Brodsky, and artificial intelligence joining the conversation. Weidman answers in his own 1965 words.",
             author: "Donald R. Weidman & Ali Enayat", meta: "Dialogue" },
       fa: { title: "چالش‌های روحیِ ریاضیات: یک گفتگوی خیالی",

@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mathematics of Chaos — Abbas Edalat · People and Mathematics</title>
+<meta name="description" content="Abbas Edalat's opening article from the very first issue of Nashr-e Riyāzi (April 1988): dynamical systems, attractors and bifurcations, up to Lorenz's strange attractor — republished with live, interactive figures. In Concepts &amp; Conceptions.">
+
+<meta property="og:title" content="The Mathematics of Chaos — Abbas Edalat">
+<meta property="og:description" content="History of Mathematics · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/logo.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- KaTeX for crisp typeset mathematics -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>/* KaTeX inside RTL text — keep formulas LTR & bidi-isolated so exponents/coefficients stay put */
+.katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .body li, .article p, .prose p, .dek { text-align: justify; }
+</style>
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  [dir="rtl"] .kicker { letter-spacing: 0; }
+  h1.title { font-size: 46px; line-height: 1.08; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .avat { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+  .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
+  .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 40px 0 14px; padding-top: 8px; }
+  .exlead { color: var(--accent); font-weight: 600; }
+  .eq { text-align: center; margin: 22px 0; font-size: 20px; }
+  .body ol.notes { padding-inline-start: 24px; margin: 0 0 20px; }
+  .body ol.notes li { margin-bottom: 12px; }
+
+  figure.pmfig { margin: 28px auto 30px; text-align: center; }
+  figure.pmfig svg { max-width: 100%; height: auto; }
+  figure.pmfig img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+  .figcap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 9px; line-height: 1.6; }
+  .figrow { display: flex; gap: 8px 26px; flex-wrap: wrap; justify-content: center; align-items: flex-end; }
+  .figrow figure.pmfig { margin: 14px 0 16px; }
+  .coverfig { float: inline-end; width: 250px; margin: 6px 0 16px 24px; }
+  [dir="rtl"] .coverfig { margin: 6px 0 16px 24px; }
+  [dir="ltr"] .coverfig, .coverfig { margin-inline-start: 24px; margin-inline-end: 0; }
+
+  /* ===== live labs ===== */
+  .lab { border: 1px solid var(--line); background: #FCF8F0; border-radius: 8px; padding: 22px 22px 20px; margin: 30px 0; box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 16px 34px -26px rgba(28,24,20,.5); }
+  .lab-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+  .lab-kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+  [dir="rtl"] .lab-kicker { letter-spacing: 0; }
+  .lab-hint { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .lab canvas { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--line); border-radius: 6px; }
+  .lab-presets { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 14px; }
+  .lab-chip { white-space: nowrap; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 14px; transition: background .15s, color .15s, border-color .15s; }
+  .lab-chip:hover { border-color: var(--accent); }
+  .lab-chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .lab-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; }
+  .lab-controls input[type="range"] { flex: 1 1 200px; accent-color: var(--accent); margin: 0; direction: ltr; }
+  .lab-val { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .lab-read { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; color: #43392E; margin-top: 11px; display: flex; justify-content: space-between; gap: 8px 18px; flex-wrap: wrap; line-height: 1.55; }
+  .lab-read .regime { color: var(--accent); font-weight: 600; }
+  .duo { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .duo > div { flex: 1 1 250px; max-width: 330px; }
+  .duo .duocap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; color: var(--muted); text-align: center; margin-top: 7px; }
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .colophon .role .lab2 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  [dir="rtl"] .colophon .role .lab2 { letter-spacing: 0; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+
+  .refs { margin-top: 40px; }
+  .refs h3 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  [dir="rtl"] .refs h3 { letter-spacing: 0; }
+  .refs ol { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; line-height: 1.6; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 10px; }
+  .refs ol[dir="ltr"] { direction: ltr; text-align: left; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.05; }
+  [dir="rtl"] .body p:first-of-type:first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 22px 32px; }
+    h1.title { font-size: 33px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+    .coverfig { float: none; width: 100%; max-width: 300px; margin: 18px auto; display: block; }
+  }
+  @media print {
+    .topband, .subbar, .footer, .lab { display: none; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="History of Mathematics" data-fa="تاریخ ریاضیات"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#B08A2E;display:inline-block;flex:0 0 auto;"></span><span data-en="University maths · Originally Nashr-e Riyāzi, No. 1, 1988" data-fa="ریاضیِ دانشگاه · نخست: نشر ریاضی، شماره‌ی ۱، ۱۳۶۷"></span></div>
+</div>
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">History of Mathematics</div>
+  <h1 class="title">The Mathematics of Chaos</h1>
+  <p class="standfirst">The opening article of the very first issue of <em>Nashr-e Riyāzi</em> (April 1988): from dynamical systems and their attractors to Lorenz's strange attractor — republished with figures that are alive. Slide the parameter and cross the bifurcations yourself.</p>
+  <div class="byline">
+    <img class="avat" src="../assets/abbas-edalat.jpg" alt="Abbas Edalat">
+    <span class="name">Abbas Edalat</span>
+  </div>
+  <p class="dedication">The text is the 1988 text, word for word. The figures are not copies: they have been conceptually re-created from the mathematics itself — some as fresh drawings, some as live experiments.</p>
+
+  <div class="body">
+    <p>In recent years the subject of <em>chaos</em> in dynamical systems has become one of the most important problems of pure mathematics, of applied mathematics, and of various branches of the natural sciences — so much so that it has turned into one of the broadest research areas of the present time. By a <em>dynamical system</em> we mean, in general, the set of possible states of a phenomenon together with a law of evolution which describes the passage from one state to another. If the state of the system is given at some particular time, this law determines the states of the system at all later times.</p>
+
+    <p>If the past states of the system can also be recovered from the law of evolution without ambiguity, the dynamical system is called <em>reversible</em>. In this article our discussion will be confined to reversible systems. In simple language, a <em>chaotic</em> dynamical system may be defined as one whose dynamical law is completely deterministic, with no probabilistic ingredient whatsoever, and yet whose long-term behaviour is in practice unpredictable.</p>
+
+    <p>More precisely, in such systems an inaccuracy in our knowledge of the initial state, however small (and such inaccuracy is, practically speaking, unavoidable), leads to gross error in predicting the state of the system over the long term. Chaos therefore appears, on the face of it, to contradict the Newtonian view of the laws of nature; for according to classical physics, if we know the equation of motion and the initial condition of a system, we can determine its state at any later time with precision. For example, once the forces acting on a body are specified, the formula \(F = ma\) gives us its acceleration, and hence its position and velocity at every moment, in terms of the initial position and velocity.</p>
+
+    <p>As we know, this classical view of physics was pronounced untenable in the first half of the twentieth century with the advent of quantum theory: by Heisenberg's uncertainty principle it is in principle impossible to measure the position and the velocity of a particle precisely at the same instant, so that even the initial state of the system cannot be fixed with certainty.</p>
+
+    <p>The study of chaotic dynamical systems in recent years has given the limitations of the Newtonian outlook a new dimension; for in systems of this kind any uncertainty in the initial condition, however negligible — whether it stems from Heisenberg's principle, from experimental error, or from the shortcomings of our mathematical model — acquires, in the long run, such vast proportions that the state of the system becomes unpredictable.</p>
+
+    <p>From the study of chaos, then, comes this important conclusion: the criterion for the soundness of a theory of a dynamical system cannot be the precise prediction of its behaviour; rather, the probabilistic and geometric properties that follow from the theory are what must be examined and assessed.</p>
+
+    <p>In this article we shall describe, in outline, the principal features of one example of a chaotic dynamical system; but first we examine a few simple examples of <em>non-chaotic</em> systems, and use them to define some of the notions we shall need.</p>
+
+    <h2 class="subhead">A few examples of non-chaotic systems</h2>
+
+    <p>The examples we present here are all dynamical systems defined by a differential equation or a system of differential equations. Systems that evolve continuously in time are usually governed by a system of ordinary differential equations. This means that once the state of the system at some instant is known, its future (and past) evolution is determined by following the solution of the system of differential equations passing through that initial state.</p>
+
+    <p><span class="exlead">Example 1.</span> Consider the homogeneous linear first-order differential equation</p>
+    <div class="eq">\[ \frac{dx}{dt} = f(x) = -\lambda x, \qquad x \in \mathbf{R}, \quad \lambda > 0 . \]</div>
+    <p>Here \(\mathbf{R}\), the set of real numbers — the domain of \(x\) — is called the <em>state space</em> of the dynamical system. If at time \(t=0\) we have \(x = x_0\), then \(x(t) = x_0 e^{-\lambda t}\). We also write this last relation in the form</p>
+    <div class="eq">\[ \varphi_t(x_0) = x(t) = x_0 e^{-\lambda t} . \]</div>
+    <p>In other words, \(\varphi_t(x_0)\) specifies the value of \(x\) at time \(t\), given that its value at \(t=0\) was \(x_0\). To interpret the differential equation qualitatively and geometrically, we regard \(f(x) = -\lambda x\) as a <em>vector field</em> on \(\mathbf{R}\). Figure 1, obtained by drawing this vector field, is called the <em>phase portrait</em> of the dynamical system. A few remarks:</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 360 56" width="360" role="img" aria-label="Figure 1">
+        <line x1="14" y1="28" x2="346" y2="28" stroke="#1C1814" stroke-width="1.6"/><path d="M68.5 28.0L57.0 32.5L57.0 23.5z" fill="#1C1814"/><path d="M116.5 28.0L105.0 32.5L105.0 23.5z" fill="#1C1814"/><path d="M243.5 28.0L255.0 23.5L255.0 32.5z" fill="#1C1814"/><path d="M291.5 28.0L303.0 23.5L303.0 32.5z" fill="#1C1814"/><circle cx="180.0" cy="28.0" r="4.2" fill="#C8633E"/><text x="180" y="50" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155" text-anchor="middle">0</text>
+      </svg>
+      <figcaption class="figcap">Fig. 1 — the vector field \(-\lambda x\) on the line: every point flows to \(0\).</figcaption>
+    </figure>
+
+    <ol class="notes">
+      <li>Every solution \(\varphi_t(x_0) = x_0 e^{-\lambda t}\), regardless of the initial condition (that is, of the value of \(x_0\)), tends to zero. We call \(0\) the <em>attractor</em> of this dynamical system, and \(\mathbf{R}\) its <em>basin of attraction</em>. In general, a point of the state space is called an attractor of the system if it attracts all points of some neighbourhood of itself; and the set of all points attracted to it is called its basin of attraction. (To say that a point \(p\) is <em>attracted</em> means that the solution of the differential equation passing through \(p\) tends to the attractor in positive time.)</li>
+      <li>From Figure 2 we see at once that if there is some uncertainty in the initial condition — that is, if \(x(0)\) is not \(x_0\) itself but lies in some neighbourhood \(u\) of the point \(x_0\) — then this uncertainty <em>shrinks</em> as time passes: the length of \(\varphi_t(u)\) for \(t>0\) is less than the length of \(u\), and indeed the length of \(\varphi_t(u)\) tends to zero as \(t \to \infty\).</li>
+      <li>If we perturb the vector field slightly and smoothly — that is, consider the system \(dx/dt = f(x) = -\lambda x + O(x^2)\), \(\lambda>0\), where \(O(x^2)\) stands for an arbitrary function tending to zero faster than \(x\) as \(x \to 0\) — it can be shown that the qualitative behaviour of the solutions near zero does not change: in a neighbourhood of zero all points still tend to zero. We say the original system is <em>structurally stable</em> at zero, or that its attractor is structurally stable.</li>
+      <li>If \(\lambda = 0\), every point is fixed: \(\varphi_t(x_0) = x_0\) for all \(x_0\) and \(t\) in \(\mathbf{R}\). And if \(\lambda &lt; 0\), the phase portrait is as in Figure 3 and points move away from zero. In this case we call the point zero a <em>repeller</em>.</li>
+    </ol>
+
+    <div class="figrow">
+      <figure class="pmfig">
+      <svg viewBox="0 0 360 74" width="360" role="img" aria-label="Figure 2">
+        <line x1="14" y1="40" x2="346" y2="40" stroke="#1C1814" stroke-width="1.4"/><circle cx="30.0" cy="40.0" r="3.2" fill="#1C1814"/><text x="30" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">0</text><path d="M239.0 31.0 Q232.0 40.0 239.0 49.0" fill="none" stroke="#1C1814" stroke-width="1.6"/><path d="M301.0 31.0 Q308.0 40.0 301.0 49.0" fill="none" stroke="#1C1814" stroke-width="1.6"/><circle cx="270.0" cy="40.0" r="2.6" fill="#1C1814"/><text x="270" y="18" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#1C1814" text-anchor="middle">u</text><text x="270" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">x₀</text><path d="M110.0 31.0 Q103.0 40.0 110.0 49.0" fill="none" stroke="#C8633E" stroke-width="1.6"/><path d="M130.0 31.0 Q137.0 40.0 130.0 49.0" fill="none" stroke="#C8633E" stroke-width="1.6"/><circle cx="120.0" cy="40.0" r="2.6" fill="#C8633E"/><text x="120" y="18" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#C8633E" text-anchor="middle">φₜ(u)</text><text x="120" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#C8633E" text-anchor="middle">φₜ(x₀)</text>
+      </svg>
+      <figcaption class="figcap">Fig. 2 — a neighbourhood \(u\) of \(x_0\) shrinks under the flow.</figcaption>
+    </figure>
+      <figure class="pmfig">
+      <svg viewBox="0 0 360 56" width="360" role="img" aria-label="Figure 3">
+        <line x1="14" y1="28" x2="346" y2="28" stroke="#1C1814" stroke-width="1.6"/><path d="M55.5 28.0L67.0 23.5L67.0 32.5z" fill="#1C1814"/><path d="M103.5 28.0L115.0 23.5L115.0 32.5z" fill="#1C1814"/><path d="M256.5 28.0L245.0 32.5L245.0 23.5z" fill="#1C1814"/><path d="M304.5 28.0L293.0 32.5L293.0 23.5z" fill="#1C1814"/><circle cx="180.0" cy="28.0" r="4.2" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><text x="180" y="50" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155" text-anchor="middle">0</text>
+      </svg>
+      <figcaption class="figcap">Fig. 3 — for \(\lambda&lt;0\) zero repels: points move away.</figcaption>
+    </figure>
+    </div>
+
+    <p><span class="exlead">Example 2.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -\lambda x, \qquad \frac{dy}{dt} = -\mu y, \qquad (x,y) \in \mathbf{R}^2, \quad \mu > \lambda > 0 . \]</div>
+    <p>Here the state space is \(\mathbf{R}^2\), and we have \(\varphi_t(x_0, y_0) = \left( x_0 e^{-\lambda t},\, y_0 e^{-\mu t} \right)\). The phase portrait is as in Figure 4. Note the following:</p>
+
+    <ol class="notes">
+      <li>The origin, zero, is the attractor of the system, with basin of attraction \(\mathbf{R}^2\).</li>
+      <li>Any uncertainty in the initial condition shrinks with the passage of time; in other words, if \(u\) is a neighbourhood of \((x_0, y_0)\) in \(\mathbf{R}^2\), then for \(t>0\) the size of \(\varphi_t(u)\) is smaller than the size of \(u\).</li>
+      <li>The system is structurally stable at zero.</li>
+      <li>If \(\lambda &lt; \mu &lt; 0\), the solution curves move away from zero, and zero is a repeller (Figure 5).</li>
+    </ol>
+
+    <div class="figrow">
+      <figure class="pmfig">
+      <svg viewBox="0 0 260 200" width="260" role="img" aria-label="Figure 4">
+        <line x1="12" y1="100" x2="248" y2="100" stroke="#1C1814" stroke-width="1.1"/><line x1="130" y1="8" x2="130" y2="192" stroke="#1C1814" stroke-width="1.1"/><path d="M199.5 100.0L211.0 95.5L211.0 104.5z" fill="#1C1814"/><path d="M60.5 100.0L49.0 104.5L49.0 95.5z" fill="#1C1814"/><path d="M130.0 40.5L125.5 29.0L134.5 29.0z" fill="#1C1814"/><path d="M130.0 159.5L134.5 171.0L125.5 171.0z" fill="#1C1814"/><path d="M240.2 18.4L234.8 27.3L229.7 35.2L224.9 42.2L220.2 48.5L215.8 54.1L211.6 59.1L207.7 63.5L203.9 67.5L200.3 71.0L196.8 74.2L193.6 77.0L190.5 79.5L187.5 81.7L184.7 83.7L182.1 85.5L179.5 87.0L177.1 88.4L174.8 89.7L172.6 90.8L170.5 91.8L168.6 92.7L166.7 93.5L164.9 94.2L163.2 94.8L161.6 95.4L160.0 95.9L158.6 96.3L157.2 96.7L155.8 97.1L154.6 97.4L153.4 97.7L152.2 97.9L151.2 98.2L150.1 98.4L149.1 98.5L148.2 98.7L147.3 98.8L146.5 99.0L145.7 99.1L144.9 99.2L144.2 99.3L143.5 99.3L142.8 99.4L142.2 99.5L141.6 99.5L141.0 99.6L140.5 99.6L140.0 99.7L139.5 99.7L139.0 99.7L138.6 99.8L138.2 99.8L137.8 99.8L137.4 99.8L137.0 99.9L136.7 99.9L136.4 99.9L136.1 99.9L135.8 99.9L135.5 99.9L135.2 99.9L135.0 99.9L134.7 99.9L134.5 99.9L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M184.1 84.3L190.5 73.8L196.0 80.9z" fill="#1C1814"/><path d="M19.8 18.4L25.2 27.3L30.3 35.2L35.1 42.2L39.8 48.5L44.2 54.1L48.4 59.1L52.3 63.5L56.1 67.5L59.7 71.0L63.2 74.2L66.4 77.0L69.5 79.5L72.5 81.7L75.3 83.7L77.9 85.5L80.5 87.0L82.9 88.4L85.2 89.7L87.4 90.8L89.5 91.8L91.4 92.7L93.3 93.5L95.1 94.2L96.8 94.8L98.4 95.4L100.0 95.9L101.4 96.3L102.8 96.7L104.2 97.1L105.4 97.4L106.6 97.7L107.8 97.9L108.8 98.2L109.9 98.4L110.9 98.5L111.8 98.7L112.7 98.8L113.5 99.0L114.3 99.1L115.1 99.2L115.8 99.3L116.5 99.3L117.2 99.4L117.8 99.5L118.4 99.5L119.0 99.6L119.5 99.6L120.0 99.7L120.5 99.7L121.0 99.7L121.4 99.8L121.8 99.8L122.2 99.8L122.6 99.8L123.0 99.9L123.3 99.9L123.6 99.9L123.9 99.9L124.2 99.9L124.5 99.9L124.8 99.9L125.0 99.9L125.3 99.9L125.5 99.9L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M75.9 84.3L64.0 80.9L69.5 73.8z" fill="#1C1814"/><path d="M240.2 181.6L234.8 172.7L229.7 164.8L224.9 157.8L220.2 151.5L215.8 145.9L211.6 140.9L207.7 136.5L203.9 132.5L200.3 129.0L196.8 125.8L193.6 123.0L190.5 120.5L187.5 118.3L184.7 116.3L182.1 114.5L179.5 113.0L177.1 111.6L174.8 110.3L172.6 109.2L170.5 108.2L168.6 107.3L166.7 106.5L164.9 105.8L163.2 105.2L161.6 104.6L160.0 104.1L158.6 103.7L157.2 103.3L155.8 102.9L154.6 102.6L153.4 102.3L152.2 102.1L151.2 101.8L150.1 101.6L149.1 101.5L148.2 101.3L147.3 101.2L146.5 101.0L145.7 100.9L144.9 100.8L144.2 100.7L143.5 100.7L142.8 100.6L142.2 100.5L141.6 100.5L141.0 100.4L140.5 100.4L140.0 100.3L139.5 100.3L139.0 100.3L138.6 100.2L138.2 100.2L137.8 100.2L137.4 100.2L137.0 100.1L136.7 100.1L136.4 100.1L136.1 100.1L135.8 100.1L135.5 100.1L135.2 100.1L135.0 100.1L134.7 100.1L134.5 100.1L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M184.1 115.7L196.0 119.1L190.5 126.2z" fill="#1C1814"/><path d="M19.8 181.6L25.2 172.7L30.3 164.8L35.1 157.8L39.8 151.5L44.2 145.9L48.4 140.9L52.3 136.5L56.1 132.5L59.7 129.0L63.2 125.8L66.4 123.0L69.5 120.5L72.5 118.3L75.3 116.3L77.9 114.5L80.5 113.0L82.9 111.6L85.2 110.3L87.4 109.2L89.5 108.2L91.4 107.3L93.3 106.5L95.1 105.8L96.8 105.2L98.4 104.6L100.0 104.1L101.4 103.7L102.8 103.3L104.2 102.9L105.4 102.6L106.6 102.3L107.8 102.1L108.8 101.8L109.9 101.6L110.9 101.5L111.8 101.3L112.7 101.2L113.5 101.0L114.3 100.9L115.1 100.8L115.8 100.7L116.5 100.7L117.2 100.6L117.8 100.5L118.4 100.5L119.0 100.4L119.5 100.4L120.0 100.3L120.5 100.3L121.0 100.3L121.4 100.2L121.8 100.2L122.2 100.2L122.6 100.2L123.0 100.1L123.3 100.1L123.6 100.1L123.9 100.1L124.2 100.1L124.5 100.1L124.8 100.1L125.0 100.1L125.3 100.1L125.5 100.1L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M75.9 115.7L69.5 126.2L64.0 119.1z" fill="#1C1814"/><circle cx="130.0" cy="100.0" r="4.2" fill="#C8633E"/><circle cx="240.2" cy="18.4" r="4.6" fill="#fff" stroke="#1C1814" stroke-width="1.8"/><text x="234.2" y="9.4" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="end">(x₀, y₀)</text><circle cx="177.1" cy="88.4" r="3.8" fill="#fff" stroke="#1C1814" stroke-width="1.8"/><text x="179.1" y="79.4" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155">φₜ(x₀, y₀)</text>
+      </svg>
+      <figcaption class="figcap">Fig. 4 — a two-dimensional attracting node: the marked point flows to the origin.</figcaption>
+    </figure>
+      <figure class="pmfig">
+      <svg viewBox="0 0 260 200" width="260" role="img" aria-label="Figure 5">
+        <line x1="12" y1="100" x2="248" y2="100" stroke="#1C1814" stroke-width="1.1"/><line x1="130" y1="8" x2="130" y2="192" stroke="#1C1814" stroke-width="1.1"/><path d="M212.5 100.0L201.0 104.5L201.0 95.5z" fill="#1C1814"/><path d="M47.5 100.0L59.0 95.5L59.0 104.5z" fill="#1C1814"/><path d="M130.0 27.5L134.5 39.0L125.5 39.0z" fill="#1C1814"/><path d="M130.0 172.5L125.5 161.0L134.5 161.0z" fill="#1C1814"/><path d="M240.2 18.4L234.8 27.3L229.7 35.2L224.9 42.2L220.2 48.5L215.8 54.1L211.6 59.1L207.7 63.5L203.9 67.5L200.3 71.0L196.8 74.2L193.6 77.0L190.5 79.5L187.5 81.7L184.7 83.7L182.1 85.5L179.5 87.0L177.1 88.4L174.8 89.7L172.6 90.8L170.5 91.8L168.6 92.7L166.7 93.5L164.9 94.2L163.2 94.8L161.6 95.4L160.0 95.9L158.6 96.3L157.2 96.7L155.8 97.1L154.6 97.4L153.4 97.7L152.2 97.9L151.2 98.2L150.1 98.4L149.1 98.5L148.2 98.7L147.3 98.8L146.5 99.0L145.7 99.1L144.9 99.2L144.2 99.3L143.5 99.3L142.8 99.4L142.2 99.5L141.6 99.5L141.0 99.6L140.5 99.6L140.0 99.7L139.5 99.7L139.0 99.7L138.6 99.8L138.2 99.8L137.8 99.8L137.4 99.8L137.0 99.9L136.7 99.9L136.4 99.9L136.1 99.9L135.8 99.9L135.5 99.9L135.2 99.9L135.0 99.9L134.7 99.9L134.5 99.9L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M194.5 76.5L188.0 87.0L182.6 79.8z" fill="#1C1814"/><path d="M19.8 18.4L25.2 27.3L30.3 35.2L35.1 42.2L39.8 48.5L44.2 54.1L48.4 59.1L52.3 63.5L56.1 67.5L59.7 71.0L63.2 74.2L66.4 77.0L69.5 79.5L72.5 81.7L75.3 83.7L77.9 85.5L80.5 87.0L82.9 88.4L85.2 89.7L87.4 90.8L89.5 91.8L91.4 92.7L93.3 93.5L95.1 94.2L96.8 94.8L98.4 95.4L100.0 95.9L101.4 96.3L102.8 96.7L104.2 97.1L105.4 97.4L106.6 97.7L107.8 97.9L108.8 98.2L109.9 98.4L110.9 98.5L111.8 98.7L112.7 98.8L113.5 99.0L114.3 99.1L115.1 99.2L115.8 99.3L116.5 99.3L117.2 99.4L117.8 99.5L118.4 99.5L119.0 99.6L119.5 99.6L120.0 99.7L120.5 99.7L121.0 99.7L121.4 99.8L121.8 99.8L122.2 99.8L122.6 99.8L123.0 99.9L123.3 99.9L123.6 99.9L123.9 99.9L124.2 99.9L124.5 99.9L124.8 99.9L125.0 99.9L125.3 99.9L125.5 99.9L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M65.5 76.5L77.4 79.8L72.0 87.0z" fill="#1C1814"/><path d="M240.2 181.6L234.8 172.7L229.7 164.8L224.9 157.8L220.2 151.5L215.8 145.9L211.6 140.9L207.7 136.5L203.9 132.5L200.3 129.0L196.8 125.8L193.6 123.0L190.5 120.5L187.5 118.3L184.7 116.3L182.1 114.5L179.5 113.0L177.1 111.6L174.8 110.3L172.6 109.2L170.5 108.2L168.6 107.3L166.7 106.5L164.9 105.8L163.2 105.2L161.6 104.6L160.0 104.1L158.6 103.7L157.2 103.3L155.8 102.9L154.6 102.6L153.4 102.3L152.2 102.1L151.2 101.8L150.1 101.6L149.1 101.5L148.2 101.3L147.3 101.2L146.5 101.0L145.7 100.9L144.9 100.8L144.2 100.7L143.5 100.7L142.8 100.6L142.2 100.5L141.6 100.5L141.0 100.4L140.5 100.4L140.0 100.3L139.5 100.3L139.0 100.3L138.6 100.2L138.2 100.2L137.8 100.2L137.4 100.2L137.0 100.1L136.7 100.1L136.4 100.1L136.1 100.1L135.8 100.1L135.5 100.1L135.2 100.1L135.0 100.1L134.7 100.1L134.5 100.1L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M194.5 123.5L182.6 120.2L188.0 113.0z" fill="#1C1814"/><path d="M19.8 181.6L25.2 172.7L30.3 164.8L35.1 157.8L39.8 151.5L44.2 145.9L48.4 140.9L52.3 136.5L56.1 132.5L59.7 129.0L63.2 125.8L66.4 123.0L69.5 120.5L72.5 118.3L75.3 116.3L77.9 114.5L80.5 113.0L82.9 111.6L85.2 110.3L87.4 109.2L89.5 108.2L91.4 107.3L93.3 106.5L95.1 105.8L96.8 105.2L98.4 104.6L100.0 104.1L101.4 103.7L102.8 103.3L104.2 102.9L105.4 102.6L106.6 102.3L107.8 102.1L108.8 101.8L109.9 101.6L110.9 101.5L111.8 101.3L112.7 101.2L113.5 101.0L114.3 100.9L115.1 100.8L115.8 100.7L116.5 100.7L117.2 100.6L117.8 100.5L118.4 100.5L119.0 100.4L119.5 100.4L120.0 100.3L120.5 100.3L121.0 100.3L121.4 100.2L121.8 100.2L122.2 100.2L122.6 100.2L123.0 100.1L123.3 100.1L123.6 100.1L123.9 100.1L124.2 100.1L124.5 100.1L124.8 100.1L125.0 100.1L125.3 100.1L125.5 100.1L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M65.5 123.5L72.0 113.0L77.4 120.2z" fill="#1C1814"/><circle cx="130.0" cy="100.0" r="4.2" fill="#fff" stroke="#C8633E" stroke-width="1.8"/>
+      </svg>
+      <figcaption class="figcap">Fig. 5 — with \(\lambda&lt;\mu&lt;0\), zero repels.</figcaption>
+    </figure>
+    </div>
+
+    <p><span class="exlead">Example 3.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -\lambda x, \qquad \frac{dy}{dt} = \mu y, \qquad (x,y) \in \mathbf{R}^2, \quad \lambda, \mu > 0 . \]</div>
+    <p>The phase portrait is as in Figure 6. The \(x\)- and \(y\)-axes are invariant. Points on the \(x\)-axis approach zero, and points on the \(y\)-axis move away from it. The point zero is here called a <em>saddle point</em>. As in the two previous examples, small smooth perturbations of the vector field do not change the qualitative behaviour of the solutions near zero. The \(x\)-axis — the set of points that tend to zero as \(t \to \infty\) — we call the <em>inset</em> of the point zero; the \(y\)-axis — the set of points that tend to zero as \(t \to -\infty\) — its <em>outset</em>. Notice that here the inset and the outset are each one-dimensional, whereas in Examples 1 and 2 the insets were one- and two-dimensional respectively and the outsets were empty.</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 260 210" width="260" role="img" aria-label="Figure 6">
+        <line x1="10" y1="105" x2="250" y2="105" stroke="#1C1814" stroke-width="1.3"/><line x1="130" y1="8" x2="130" y2="202" stroke="#1C1814" stroke-width="1.3"/><path d="M203.5 105.0L215.0 100.5L215.0 109.5z" fill="#1C1814"/><path d="M56.5 105.0L45.0 109.5L45.0 100.5z" fill="#1C1814"/><path d="M130.0 24.5L134.5 36.0L125.5 36.0z" fill="#1C1814"/><path d="M130.0 185.5L125.5 174.0L134.5 174.0z" fill="#1C1814"/><path d="M245.2 88.1L240.7 87.4L236.3 86.7L232.2 86.0L228.1 85.2L224.3 84.4L220.6 83.5L217.0 82.7L213.6 81.7L210.4 80.8L207.2 79.8L204.2 78.8L201.3 77.7L198.5 76.6L195.8 75.4L193.2 74.2L190.7 73.0L188.4 71.7L186.1 70.3L183.9 68.9L181.8 67.4L179.7 65.9L177.8 64.3L175.9 62.6L174.1 60.9L172.4 59.1L170.7 57.2L169.1 55.3L167.6 53.2L166.1 51.1L164.7 48.9L163.3 46.6L162.0 44.3L160.8 41.8L159.6 39.2L158.4 36.5L157.3 33.7L156.2 30.8L155.2 27.8L154.2 24.6L153.3 21.4L152.3 18.0L151.5 14.4L150.6 10.7L149.8 6.9L149.0 2.8L148.3 -1.3L147.6 -5.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M169.5 56.3L180.8 61.3L174.5 67.6z" fill="#1C1814"/><path d="M14.8 88.1L19.3 87.4L23.7 86.7L27.8 86.0L31.9 85.2L35.7 84.4L39.4 83.5L43.0 82.7L46.4 81.7L49.6 80.8L52.8 79.8L55.8 78.8L58.7 77.7L61.5 76.6L64.2 75.4L66.8 74.2L69.3 73.0L71.6 71.7L73.9 70.3L76.1 68.9L78.2 67.4L80.3 65.9L82.2 64.3L84.1 62.6L85.9 60.9L87.6 59.1L89.3 57.2L90.9 55.3L92.4 53.2L93.9 51.1L95.3 48.9L96.7 46.6L98.0 44.3L99.2 41.8L100.4 39.2L101.6 36.5L102.7 33.7L103.8 30.8L104.8 27.8L105.8 24.6L106.7 21.4L107.7 18.0L108.5 14.4L109.4 10.7L110.2 6.9L111.0 2.8L111.7 -1.3L112.4 -5.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M90.5 56.3L85.5 67.6L79.2 61.3z" fill="#1C1814"/><path d="M245.2 121.9L240.7 122.6L236.3 123.3L232.2 124.0L228.1 124.8L224.3 125.6L220.6 126.5L217.0 127.3L213.6 128.3L210.4 129.2L207.2 130.2L204.2 131.2L201.3 132.3L198.5 133.4L195.8 134.6L193.2 135.8L190.7 137.0L188.4 138.3L186.1 139.7L183.9 141.1L181.8 142.6L179.7 144.1L177.8 145.7L175.9 147.4L174.1 149.1L172.4 150.9L170.7 152.8L169.1 154.7L167.6 156.8L166.1 158.9L164.7 161.1L163.3 163.4L162.0 165.7L160.8 168.2L159.6 170.8L158.4 173.5L157.3 176.3L156.2 179.2L155.2 182.2L154.2 185.4L153.3 188.6L152.3 192.0L151.5 195.6L150.6 199.3L149.8 203.1L149.0 207.2L148.3 211.3L147.6 215.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M169.5 153.7L174.5 142.4L180.8 148.7z" fill="#1C1814"/><path d="M14.8 121.9L19.3 122.6L23.7 123.3L27.8 124.0L31.9 124.8L35.7 125.6L39.4 126.5L43.0 127.3L46.4 128.3L49.6 129.2L52.8 130.2L55.8 131.2L58.7 132.3L61.5 133.4L64.2 134.6L66.8 135.8L69.3 137.0L71.6 138.3L73.9 139.7L76.1 141.1L78.2 142.6L80.3 144.1L82.2 145.7L84.1 147.4L85.9 149.1L87.6 150.9L89.3 152.8L90.9 154.7L92.4 156.8L93.9 158.9L95.3 161.1L96.7 163.4L98.0 165.7L99.2 168.2L100.4 170.8L101.6 173.5L102.7 176.3L103.8 179.2L104.8 182.2L105.8 185.4L106.7 188.6L107.7 192.0L108.5 195.6L109.4 199.3L110.2 203.1L111.0 207.2L111.7 211.3L112.4 215.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M90.5 153.7L79.2 148.7L85.5 142.4z" fill="#1C1814"/><circle cx="130.0" cy="105.0" r="4" fill="#1C1814"/><text x="245" y="98" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155">x</text><text x="137" y="16" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155">y</text>
+      </svg>
+      <figcaption class="figcap">Fig. 6 — a saddle: the \(x\)-axis flows in, the \(y\)-axis flows out.</figcaption>
+    </figure>
+
+    <p><em>Remark.</em> In the three examples above we examined the behaviour of the solutions of a differential equation near a fixed point. In general, if we have a vector field on \(\mathbf{R}^n\) with zero as a fixed point — that is,</p>
+    <div class="eq">\[ \frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x}) = T\mathbf{x} + \text{higher-order terms}, \]</div>
+    <p>where \(\mathbf{x} \in \mathbf{R}^n\), \(\mathbf{f}\) is a vector field on \(\mathbf{R}^n\) and \(T\) is the linear part of \(\mathbf{f}\) — and if the eigenvalues of \(T\) all have non-zero real part, then the point zero has an \(i\)-dimensional inset and an \((n-i)\)-dimensional outset, where \(i\) is the number of eigenvalues of \(T\) with negative real part. For instance, if we have</p>
+    <div class="eq">\[ T = \begin{pmatrix} -1 &amp; 1 &amp; 0 \\ -1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</div>
+    <p>then the eigenvalues of \(T\) are \(-1 \pm i\) and \(1\). Here zero has a two-dimensional inset and a one-dimensional outset. Near the point zero the phase portrait of the system is, topologically, as in Figure 7.</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 280 210" width="280" role="img" aria-label="Figure 7">
+        <polygon points="52,150 118,86 234,86 168,150" fill="none" stroke="#B7AC99" stroke-width="1"/>
+        <line x1="143" y1="14" x2="143" y2="196" stroke="#1C1814" stroke-width="1.3"/>
+        <path d="M143 44 l-4.2 -11 h8.4 z M143 44" fill="#1C1814"/>
+        <path d="M139 33 h8.4 l-4.2 -11 z" fill="#1C1814"/>
+        <path d="M139 178 h8.4 l-4.2 11 z" fill="#1C1814"/>
+        <path d="M143 118 m0 0" fill="none"/>
+        <g fill="none" stroke="#1C1814" stroke-width="1.3">
+          <path d="M206 96 A46 22 0 1 1 108 122 A34 16 0 1 1 172 112 A22 10 0 1 1 130 116 A10 5 0 1 1 150 114"/>
+        </g>
+        <path d="M204 101 l4 -9 -10 2 z" fill="#1C1814"/>
+        <circle cx="143" cy="117" r="3.6" fill="#1C1814"/>
+        <text x="152" y="24" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155">outset</text>
+        <text x="216" y="146" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155">inset</text>
+      </svg>
+      <figcaption class="figcap">Fig. 7 — spiralling in along a two-dimensional inset, escaping along a one-dimensional outset.</figcaption>
+    </figure>
+
+    <p><span class="exlead">Example 4.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -x\,(x^2 - \varepsilon), \qquad x \in \mathbf{R}, \]</div>
+    <p>where \(\varepsilon\) is a real parameter. Here we have an example of a <em>bifurcation</em> in a parametrised dynamical system. The phase portraits for negative, zero and positive \(\varepsilon\) are as in Figure 8.</p>
+    <p>We observe that as \(\varepsilon\) passes through zero, the phase portrait of the system changes qualitatively. For \(\varepsilon \le 0\) the system has one attractor whose basin is \(\mathbf{R}\), whereas for \(\varepsilon > 0\) there are three fixed points: zero, which is a repeller; \(\sqrt{\varepsilon}\), an attractor whose basin is \(\mathbf{R}^{+}\); and \(-\sqrt{\varepsilon}\), an attractor whose basin is \(\mathbf{R}^{-}\) (the negative reals). The point zero separates the basins of the two attractors from one another, and for this reason we call zero a <em>separator</em>. If we plot the fixed points of the parametrised system against the \(\varepsilon\)-axis, we obtain Figure 9, which resembles a fork; for this reason this bifurcation (and bifurcations which are locally of the same qualitative kind) is called a <em>pitchfork bifurcation</em>.</p>
+
+    <div class="lab" data-widget="pitchfork">
+      <div class="lab-head">
+        <span class="lab-kicker">Figures 8 &amp; 9 — live</span>
+        <span class="lab-hint">Drag \(\varepsilon\) through zero and watch one attractor split into two.</span>
+      </div>
+      <div class="duo">
+        <div><canvas data-c="phase" width="330" height="120"></canvas><div class="duocap">Fig. 8 — the phase line at the current ε</div></div>
+        <div><canvas data-c="bif" width="330" height="240"></canvas><div class="duocap">Fig. 9 — fixed points against ε: the pitchfork</div></div>
+      </div>
+      <div class="lab-controls">
+        <span>ε</span>
+        <input type="range" data-c="eps" min="-1" max="1" step="0.01" value="-0.5">
+        <span class="lab-val" data-c="epsval">−0.50</span>
+      </div>
+      <div class="lab-read"><span data-c="desc"></span></div>
+    </div>
+
+    <p><span class="exlead">Example 5.</span> Consider the following dynamical system, expressed in polar coordinates:</p>
+    <div class="eq">\[ \frac{dr}{dt} = -r\,(r-1)(r-2), \qquad \frac{d\theta}{dt} = 1 . \]</div>
+    <p>Here \(r=0\), the origin, is an attractor, and the circles \(r=1\) and \(r=2\) are both solutions of the system. It is easy to see that \(r=2\) is a closed orbit which attracts all orbits of the region \(r>1\). Here \(r=2\) is an example of a non-point attractor, which we call a <em>limit cycle</em>; its basin of attraction is \(r>1\). The circle \(r=1\), on the other hand, is a repelling closed orbit: all orbits with \(r>1\) or \(r&lt;1\) move away from it (Figure 10).</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 240 240" width="240" role="img" aria-label="Figure 10">
+        <circle cx="120" cy="120" r="84" fill="none" stroke="#1C1814" stroke-width="1.8"/><circle cx="120" cy="120" r="42" fill="none" stroke="#6B6155" stroke-width="1.2" stroke-dasharray="5 4"/><path d="M234.2 120.0L231.4 117.8L228.9 115.6L226.7 113.6L224.8 111.6L223.0 109.7L221.4 107.8L219.9 105.9L218.5 104.1L217.1 102.3L215.8 100.6L214.6 98.8L213.4 97.1L212.2 95.5L211.1 93.8L209.9 92.2L208.8 90.6L207.7 89.0L206.6 87.4L205.5 85.8L204.5 84.3L203.4 82.8L202.3 81.3L201.2 79.8L200.0 78.3L198.9 76.9L197.8 75.5L196.7 74.0L195.5 72.7L194.3 71.3L193.2 69.9L192.0 68.6L190.8 67.3L189.5 66.0L188.3 64.8L187.0 63.5L185.8 62.3L184.5 61.1L183.2 59.9L181.9 58.8L180.6 57.7L179.2 56.5L177.8 55.5L176.5 54.4L175.1 53.4L173.7 52.4L172.2 51.4L170.8 50.4L169.3 49.5L167.9 48.6L166.4 47.7L164.9 46.9L163.4 46.1L161.9 45.3L160.3 44.5L158.8 43.8L157.2 43.1L155.7 42.4L154.1 41.8L152.5 41.2L150.9 40.6L149.3 40.0L147.6 39.5L146.0 39.0L144.4 38.5L142.7 38.1L141.1 37.7L139.4 37.4L137.8 37.0L136.1 36.7L134.4 36.4L132.7 36.2L131.1 36.0L129.4 35.8L127.7 35.7L126.0 35.6L124.3 35.5L122.6 35.4L120.9 35.4L119.2 35.5L117.5 35.5L115.8 35.6L114.2 35.7L112.5 35.9L110.8 36.1L109.1 36.3L107.5 36.5L105.8 36.8L104.1 37.1L102.5 37.5L100.8 37.9L99.2 38.3L97.6 38.7L96.0 39.2L94.3 39.7L92.8 40.2L91.2 40.8L89.6 41.4L88.0 42.1L86.5 42.7L84.9 43.4L83.4 44.1L81.9 44.9L80.4 45.7L79.0 46.5L77.5 47.3L76.1 48.2L74.6 49.1L73.2 50.0L71.8 51.0L70.5 52.0L69.1 53.0L67.8 54.0L66.5 55.1L65.2 56.2L64.0 57.3L62.7 58.4L61.5 59.6L60.3 60.8L59.1 62.0L58.0 63.2L56.9 64.4L55.8 65.7L54.7 67.0L53.7 68.3L52.6 69.7L51.6 71.0L50.7 72.4L49.8 73.8L48.8 75.2L48.0 76.7L47.1 78.1L46.3 79.6L45.5 81.1L44.7 82.6L44.0 84.1L43.3 85.6L42.6 87.1L42.0 88.7L41.4 90.3L40.8 91.8L40.3 93.4L39.8 95.0L39.3 96.6L38.8 98.3L38.4 99.9L38.0 101.5L37.7 103.2L37.3 104.8L37.1 106.5L36.8 108.1L36.6 109.8L36.4 111.5L36.3 113.2L36.1 114.8L36.0 116.5L36.0 118.2L36.0 119.9L36.0 121.5L36.0 123.2L36.1 124.9L36.2 126.6L36.4 128.3L36.6 129.9L36.8 131.6L37.0 133.3L37.3 134.9L37.6 136.6L38.0 138.2L38.4 139.8L38.8 141.5L39.2 143.1L39.7 144.7L40.2 146.3L40.8 147.9L41.3 149.5L41.9 151.0L42.6 152.6L43.2 154.1L43.9 155.7L44.7 157.2L45.4 158.7L46.2 160.2L47.0 161.6L47.9 163.1L48.8 164.5L49.7 165.9L50.6 167.3L51.6 168.7L52.5 170.1L53.6 171.4L54.6 172.7L55.7 174.0L56.8 175.3L57.9 176.5L59.0 177.8L60.2 179.0L61.4 180.2L62.6 181.3L63.8 182.5L65.1 183.6L66.4 184.7L67.7 185.7L69.0 186.8L70.3 187.8L71.7 188.7L73.1 189.7L74.5 190.6L75.9 191.5L77.4 192.4L78.8 193.2L80.3 194.0L81.8 194.8L83.3 195.6L84.8 196.3L86.3 197.0L87.9 197.6L89.4 198.2L91.0 198.8L92.6 199.4L94.2 199.9L95.8 200.4L97.4 200.9L99.0 201.3L100.7 201.7L102.3 202.1L103.9 202.5L105.6 202.8L107.2 203.0L108.9 203.3L110.6 203.5L112.3 203.6L113.9 203.8L115.6 203.9L117.3 204.0L119.0 204.0L120.6 204.0L122.3 204.0L124.0 203.9L125.7 203.8L127.3 203.7L129.0 203.5L130.7 203.3L132.4 203.1L134.0 202.8L135.7 202.5L137.3 202.2L139.0 201.8L140.6 201.4L142.2 201.0L143.8 200.6L145.4 200.1L147.0 199.5L148.6 199.0L150.2 198.4L151.8 197.8L153.3 197.1L154.8 196.4L156.4 195.7L157.9 195.0L159.4 194.2L160.8 193.4L162.3 192.6L163.7 191.7L165.2 190.8L166.6 189.9L168.0 189.0L169.3 188.0L170.7 187.0L172.0 186.0L173.3 184.9L174.6 183.8L175.9 182.7L177.1 181.6L178.3 180.4L179.5 179.3L180.7 178.1L181.9 176.8L183.0 175.6L184.1 174.3L185.1 173.0L186.2 171.7L187.2 170.4L188.2 169.0L189.2 167.7L190.1 166.3L191.0 164.8L191.9 163.4L192.8 162.0L193.6 160.5L194.4 159.0L195.1 157.5L195.9 156.0L196.6 154.5L197.3 153.0L197.9 151.4L198.5 149.8L199.1 148.3L199.7 146.7L200.2 145.1L200.7 143.5L201.1 141.9L201.5 140.2L201.9 138.6L202.3 137.0L202.6 135.3L202.9 133.6L203.1 132.0L203.4 130.3L203.6 128.7L203.7 127.0L203.8 125.3L203.9 123.6L204.0 121.9L204.0 120.3L204.0 118.6L203.9 116.9L203.9 115.2L203.8 113.6L203.6 111.9L203.4 110.2L203.2 108.5L203.0 106.9L202.7 105.2L202.4 103.6L202.0 101.9L201.7 100.3L201.2 98.7L200.8 97.0L200.3 95.4L199.8 93.8L199.3 92.2L198.7 90.7L198.1 89.1L197.5 87.5L196.8 86.0L196.1 84.5L195.4 82.9L194.6 81.4L193.8 80.0L193.0 78.5L192.2 77.0L191.3 75.6L190.4 74.2L189.5 72.8L188.5 71.4L187.5 70.1L186.5 68.7L185.5 67.4L184.4 66.1L183.3 64.8L182.2 63.6L181.1 62.3L179.9 61.1L178.7 59.9L177.5 58.8L176.3 57.6L175.0 56.5L173.7 55.4L172.4 54.4L171.1 53.3L169.8 52.3L168.4 51.3L167.0 50.4L165.6 49.5L164.2 48.6L162.8 47.7L161.3 46.9L159.8 46.0L158.3 45.3L156.8 44.5L155.3 43.8L153.8 43.1L152.2 42.4L150.7 41.8L149.1 41.2" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M143.1 38.8L155.4 38.9L152.1 47.3z" fill="#C8633E"/><path d="M164.9 120.0L165.0 119.1L165.0 118.2L165.0 117.3L165.0 116.4L165.0 115.5L165.0 114.6L164.9 113.7L164.9 112.8L164.8 111.9L164.7 110.9L164.6 110.0L164.4 109.1L164.3 108.2L164.1 107.3L163.9 106.4L163.7 105.5L163.5 104.6L163.2 103.7L163.0 102.8L162.7 101.9L162.4 101.1L162.1 100.2L161.8 99.3L161.4 98.4L161.1 97.6L160.7 96.7L160.3 95.8L159.9 95.0L159.5 94.1L159.0 93.3L158.6 92.5L158.1 91.6L157.6 90.8L157.1 90.0L156.6 89.2L156.1 88.4L155.5 87.6L154.9 86.8L154.3 86.0L153.7 85.3L153.1 84.5L152.5 83.7L151.8 83.0L151.2 82.3L150.5 81.6L149.8 80.8L149.1 80.1L148.4 79.4L147.7 78.8L146.9 78.1L146.1 77.4L145.4 76.8L144.6 76.2L143.8 75.5L142.9 74.9L142.1 74.3L141.3 73.7L140.4 73.2L139.5 72.6L138.6 72.1L137.7 71.5L136.8 71.0L135.9 70.5L135.0 70.0L134.0 69.6L133.0 69.1L132.1 68.7L131.1 68.2L130.1 67.8L129.1 67.4L128.0 67.0L127.0 66.7L126.0 66.3L124.9 66.0L123.9 65.7L122.8 65.4L121.7 65.1L120.6 64.9L119.5 64.6L118.4 64.4L117.3 64.2L116.1 64.0L115.0 63.9L113.8 63.7L112.7 63.6L111.5 63.5L110.3 63.4L109.2 63.4L108.0 63.3L106.8 63.3L105.6 63.3L104.4 63.4L103.2 63.4L101.9 63.5L100.7 63.6L99.5 63.7L98.3 63.9L97.0 64.0L95.8 64.2L94.6 64.5L93.3 64.7L92.1 65.0L90.9 65.3L89.6 65.6L88.4 65.9L87.1 66.3L85.9 66.7L84.7 67.2L83.4 67.6L82.2 68.1L81.0 68.6L79.8 69.1L78.6 69.7L77.4 70.3L76.2 70.9L75.0 71.6L73.8 72.3L72.6 73.0L71.4 73.7L70.3 74.5L69.1 75.2L68.0 76.1L66.9 76.9L65.8 77.8L64.7 78.7L63.6 79.6L62.6 80.6L61.5 81.6L60.5 82.6L59.5 83.6L58.5 84.7L57.6 85.8L56.6 86.9L55.7 88.0L54.8 89.2L53.9 90.4L53.1 91.6L52.3 92.8L51.5 94.1L50.7 95.4L50.0 96.7L49.3 98.0L48.6 99.3L47.9 100.7L47.3 102.1L46.7 103.5L46.2 104.9L45.6 106.3L45.1 107.8L44.7 109.3L44.2 110.7L43.8 112.2L43.5 113.7L43.1 115.3L42.9 116.8L42.6 118.3L42.4 119.9L42.2 121.4L42.0 123.0L41.9 124.6L41.8 126.1L41.8 127.7L41.8 129.3L41.8 130.9L41.9 132.5L42.0 134.1L42.1 135.7L42.3 137.2L42.5 138.8L42.8 140.4L43.1 142.0L43.4 143.6L43.8 145.1L44.2 146.7L44.6 148.3L45.0 149.8L45.6 151.3L46.1 152.9L46.7 154.4L47.3 155.9L47.9 157.4L48.6 158.9L49.3 160.3L50.0 161.8L50.8 163.2L51.6 164.7L52.4 166.1L53.3 167.5L54.2 168.8L55.1 170.2L56.1 171.5L57.1 172.8L58.1 174.1L59.1 175.4L60.2 176.6L61.3 177.9L62.4 179.1L63.6 180.3L64.8 181.4L66.0 182.5L67.2 183.7L68.5 184.7L69.7 185.8L71.0 186.8L72.4 187.8L73.7 188.8L75.1 189.7L76.4 190.7L77.8 191.6L79.3 192.4L80.7 193.2L82.2 194.0L83.6 194.8L85.1 195.6L86.6 196.3L88.2 196.9L89.7 197.6L91.2 198.2L92.8 198.8L94.4 199.3L96.0 199.9L97.6 200.4L99.2 200.8L100.8 201.2L102.4 201.6L104.0 202.0L105.7 202.3L107.3 202.6L109.0 202.8L110.6 203.1L112.3 203.2L114.0 203.4L115.6 203.5L117.3 203.6L119.0 203.7L120.6 203.7L122.3 203.7L124.0 203.6L125.7 203.5L127.3 203.4L129.0 203.3L130.7 203.1L132.3 202.8L134.0 202.6L135.6 202.3L137.3 202.0L138.9 201.6L140.5 201.2L142.2 200.8L143.8 200.4L145.4 199.9L147.0 199.4L148.6 198.8L150.1 198.2L151.7 197.6L153.2 197.0L154.8 196.3L156.3 195.6L157.8 194.9L159.3 194.1L160.8 193.3L162.2 192.5L163.7 191.6L165.1 190.7L166.5 189.8L167.9 188.9L169.3 187.9L170.6 186.9L172.0 185.9L173.3 184.8L174.6 183.8L175.8 182.7L177.1 181.5L178.3 180.4L179.5 179.2L180.7 178.0L181.8 176.8L182.9 175.6L184.0 174.3L185.1 173.0L186.2 171.7L187.2 170.3L188.2 169.0L189.1 167.6L190.1 166.2L191.0 164.8L191.9 163.4L192.7 162.0L193.6 160.5L194.4 159.0L195.1 157.5L195.9 156.0L196.6 154.5L197.2 152.9L197.9 151.4L198.5 149.8L199.1 148.3L199.6 146.7L200.1 145.1L200.6 143.5L201.1 141.8L201.5 140.2L201.9 138.6L202.3 136.9L202.6 135.3L202.9 133.6L203.1 132.0L203.3 130.3L203.5 128.7L203.7 127.0L203.8 125.3L203.9 123.6L204.0 121.9L204.0 120.3L204.0 118.6L203.9 116.9L203.9 115.2L203.7 113.6L203.6 111.9L203.4 110.2L203.2 108.5L203.0 106.9L202.7 105.2L202.4 103.6L202.0 101.9L201.6 100.3L201.2 98.7L200.8 97.0L200.3 95.4L199.8 93.8L199.3 92.2L198.7 90.7L198.1 89.1L197.5 87.5L196.8 86.0L196.1 84.5L195.4 83.0L194.6 81.5L193.8 80.0L193.0 78.5L192.2 77.0L191.3 75.6L190.4 74.2L189.5 72.8L188.5 71.4L187.5 70.1L186.5 68.7L185.5 67.4L184.4 66.1L183.3 64.8L182.2 63.6L181.1 62.3L179.9 61.1L178.7 59.9L177.5 58.8L176.3 57.6L175.0 56.5L173.7 55.4L172.4 54.4L171.1 53.3L169.8 52.3L168.4 51.3L167.0 50.4L165.6 49.5L164.2 48.6L162.8 47.7L161.3 46.9L159.8 46.0L158.3 45.3L156.8 44.5L155.3 43.8L153.8 43.1L152.2 42.4L150.7 41.8L149.1 41.2L147.5 40.6L145.9 40.1L144.3 39.6L142.7 39.1L141.1 38.7L139.5 38.3L137.8 37.9L136.2 37.6L134.5 37.3L132.9 37.0L131.2 36.8L129.6 36.5L127.9 36.4L126.2 36.2L124.5 36.1L122.9 36.0L121.2 36.0L119.5 36.0L117.8 36.0L116.1 36.1L114.5 36.2L112.8 36.3L111.1 36.5L109.4 36.7L107.8 36.9L106.1 37.2L104.5 37.4L102.8 37.8L101.2 38.1L99.5 38.5L97.9 39.0L96.3 39.4L94.7 39.9L93.1 40.4L91.5 41.0L89.9 41.6L88.4 42.2L86.8 42.8L85.3 43.5L83.8 44.2L82.3 45.0L80.8 45.7L79.3 46.5L77.8 47.4L76.4 48.2L75.0 49.1L73.5 50.0L72.2 51.0L70.8 51.9L69.4 52.9L68.1 54.0L66.8 55.0L65.5 56.1L64.2 57.2L63.0 58.3L61.8 59.5L60.6 60.6L59.4 61.8L58.2 63.1L57.1 64.3L56.0 65.6L54.9 66.9L53.9 68.2L52.9 69.5L51.9 70.9L50.9 72.2L50.0 73.6L49.0 75.0L48.2 76.5L47.3 77.9L46.5 79.4L45.7 80.9L44.9 82.3L44.2 83.9L43.5 85.4L42.8 86.9L42.1 88.5L41.5 90.0L40.9 91.6L40.4 93.2L39.9 94.8L39.4 96.4L38.9 98.0L38.5 99.6L38.1 101.3L37.8 102.9L37.4 104.6L37.1 106.2L36.9 107.9L36.7 109.5L36.5 111.2L36.3 112.9L36.2 114.6L36.1 116.2L36.0 117.9L36.0 119.6L36.0 121.3L36.1 123.0L36.1 124.6L36.2 126.3" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M36.5 132.8L31.5 121.5L40.5 121.1z" fill="#C8633E"/><path d="M157.8 120.0L157.7 119.2L157.6 118.5L157.5 117.7L157.3 117.0L157.2 116.3L157.0 115.5L156.8 114.8L156.6 114.1L156.4 113.4L156.2 112.7L155.9 112.0L155.6 111.3L155.4 110.6L155.1 109.9L154.7 109.3L154.4 108.6L154.1 107.9L153.7 107.3L153.4 106.7L153.0 106.1L152.6 105.5L152.2 104.9L151.7 104.3L151.3 103.7L150.9 103.1L150.4 102.6L149.9 102.1L149.4 101.5L149.0 101.0L148.5 100.5L147.9 100.1L147.4 99.6L146.9 99.1L146.3 98.7L145.8 98.3L145.2 97.9L144.7 97.5L144.1 97.1L143.5 96.7L142.9 96.4L142.3 96.1L141.7 95.8L141.1 95.5L140.5 95.2L139.9 94.9L139.3 94.7L138.6 94.5L138.0 94.3L137.4 94.1L136.8 93.9L136.1 93.7L135.5 93.6L134.9 93.5L134.2 93.4L133.6 93.3L133.0 93.2L132.3 93.2L131.7 93.1L131.1 93.1L130.4 93.1L129.8 93.1L129.2 93.2L128.6 93.2L128.0 93.3L127.4 93.4L126.8 93.5L126.2 93.6L125.6 93.8L125.0 93.9L124.5 94.1L123.9 94.3L123.4 94.5L122.8 94.7L122.3 94.9L121.8 95.1L121.3 95.4L120.7 95.7L120.3 95.9L119.8 96.2L119.3 96.5L118.9 96.9L118.4 97.2L118.0 97.5L117.6 97.9L117.2 98.2L116.8 98.6L116.4 99.0L116.0 99.4L115.7 99.7L115.4 100.1L115.0 100.5L114.7 101.0L114.5 101.4L114.2 101.8L113.9 102.2L113.7 102.6L113.5 103.1L113.2 103.5L113.0 103.9L112.9 104.4L112.7 104.8L112.5 105.3L112.4 105.7L112.3 106.1L112.1 106.6L112.0 107.0L112.0 107.4L111.9 107.8L111.8 108.3L111.8 108.7L111.7 109.1L111.7 109.5L111.7 109.9L111.7 110.3L111.7 110.7L111.7 111.1L111.7 111.5L111.8 111.9L111.8 112.2L111.9 112.6L112.0 112.9L112.0 113.3L112.1 113.6L112.2 113.9L112.3 114.2L112.4 114.6L112.5 114.8L112.6 115.1L112.7 115.4L112.8 115.7L113.0 116.0L113.1 116.2L113.2 116.5L113.4 116.7L113.5 116.9L113.6 117.1L113.8 117.4L113.9 117.6L114.1 117.8L114.2 117.9L114.4 118.1L114.5 118.3L114.6 118.4L114.8 118.6L114.9 118.8L115.1 118.9L115.2 119.0L115.4 119.1L115.5 119.3L115.6 119.4L115.8 119.5L115.9 119.6L116.0 119.7L116.2 119.8L116.3 119.8L116.4 119.9L116.6 120.0L116.7 120.1L116.8 120.1L116.9 120.2L117.0 120.2L117.1 120.3L117.2 120.3L117.4 120.4L117.5 120.4L117.6 120.4L117.7 120.5L117.8 120.5L117.8 120.5L117.9 120.5L118.0 120.6L118.1 120.6L118.2 120.6L118.3 120.6L118.3 120.6L118.4 120.6L118.5 120.6L118.6 120.6L118.6 120.6L118.7 120.6L118.8 120.6L118.8 120.6L118.9 120.6L118.9 120.6L119.0 120.6L119.0 120.6L119.1 120.6L119.1 120.6L119.2 120.6L119.2 120.6L119.3 120.6L119.3 120.6L119.3 120.6L119.4 120.6L119.4 120.6L119.4 120.5L119.5 120.5L119.5 120.5L119.5 120.5L119.6 120.5L119.6 120.5L119.6 120.5L119.6 120.5L119.7 120.5L119.7 120.4L119.7 120.4L119.7 120.4L119.7 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.2L119.9 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M120.0 113.6L124.5 125.0L115.5 125.1z" fill="#C8633E"/><path d="M113.5 36.0L125.0 31.5L125.0 40.5z" fill="#1C1814"/><path d="M126.5 204.0L115.0 208.5L115.0 199.5z" fill="#1C1814"/><circle cx="120.0" cy="120.0" r="3.6" fill="#C8633E"/>
+      </svg>
+      <figcaption class="figcap">Fig. 10 — \(r=2\): an attracting limit cycle; \(r=1\) (dashed) repels; the origin attracts the inside.</figcaption>
+    </figure>
+
+    <p><span class="exlead">Example 6.</span> In polar coordinates:</p>
+    <div class="eq">\[ \frac{dr}{dt} = r\,(\varepsilon + r^2), \qquad \frac{d\theta}{dt} = 1, \]</div>
+    <p>where \(\varepsilon\) is a real parameter. Here too we have a bifurcation, known as the <em>Hopf bifurcation</em>. For \(\varepsilon &lt; 0\), \(r = \sqrt{-\varepsilon}\) is a repelling closed orbit and \(r=0\) is a point attractor. As \(\varepsilon\) reaches zero, the repelling orbit merges into the point attractor, so that for \(\varepsilon \ge 0\) zero becomes a repelling point (Figure 11).</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 380 150" width="380" role="img" aria-label="Figure 11">
+        <g><circle cx="64" cy="64" r="34" fill="none" stroke="#6B6155" stroke-width="1.1" stroke-dasharray="5 4"/><path d="M96.6 64.0L96.5 63.0L96.4 62.1L96.3 61.1L96.1 60.1L95.9 59.2L95.6 58.3L95.3 57.3L95.0 56.4L94.6 55.5L94.3 54.6L93.8 53.8L93.4 52.9L92.9 52.1L92.4 51.3L91.9 50.5L91.3 49.8L90.8 49.0L90.1 48.3L89.5 47.6L88.9 47.0L88.2 46.4L87.5 45.8L86.8 45.2L86.0 44.7L85.3 44.2L84.5 43.7L83.7 43.3L82.9 42.9L82.1 42.5L81.3 42.2L80.5 41.9L79.6 41.7L78.8 41.5L77.9 41.3L77.1 41.2L76.3 41.0L75.4 41.0L74.6 40.9L73.8 40.9L72.9 41.0L72.1 41.1L71.3 41.2L70.5 41.3L69.8 41.5L69.0 41.7L68.3 41.9L67.5 42.2L66.8 42.4L66.1 42.7L65.5 43.1L64.8 43.4L64.2 43.8L63.6 44.2L63.0 44.6L62.5 45.0L62.0 45.5L61.5 45.9L61.0 46.4L60.5 46.9L60.1 47.4L59.7 47.9L59.3 48.4L59.0 48.9L58.7 49.4L58.4 49.9L58.1 50.4L57.8 50.9L57.6 51.4L57.4 51.9L57.2 52.4L57.1 52.9L56.9 53.4L56.8 53.9L56.7 54.4L56.6 54.8L56.5 55.3L56.5 55.8L56.4 56.2L56.4 56.6L56.4 57.1L56.4 57.5L56.4 57.9L56.5 58.3L56.5 58.6L56.6 59.0L56.6 59.4L56.7 59.7L56.8 60.1L56.9 60.4L57.0 60.7L57.1 61.0L57.2 61.3L57.3 61.6L57.5 61.8L57.6 62.1L57.7 62.3L57.8 62.5L58.0 62.8L58.1 63.0L58.3 63.2L58.4 63.4L58.6 63.6L58.7 63.7L58.9 63.9L59.0 64.0L59.2 64.2L59.3 64.3L59.5 64.4L59.6 64.6L59.8 64.7L59.9 64.8L60.0 64.9L60.2 65.0L60.3 65.0L60.5 65.1L60.6 65.2L60.8 65.3L60.9 65.3L61.0 65.4L61.1 65.4L61.3 65.4L61.4 65.5L61.5 65.5L61.6 65.5L61.8 65.6L61.9 65.6L62.0 65.6L62.1 65.6L62.2 65.6L62.3 65.6L62.4 65.6L62.5 65.6L62.6 65.6L62.7 65.6L62.8 65.6L62.8 65.6L62.9 65.6L63.0 65.6L63.1 65.5L63.1 65.5" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M69.5 64.0L59.3 71.0L57.2 62.3z" fill="#1C1814"/><path d="M99.7 64.0L99.8 62.9L99.9 61.8L99.9 60.8L99.9 59.7L99.9 58.6L99.9 57.5L99.8 56.4L99.8 55.2L99.7 54.1L99.6 53.0L99.4 51.9L99.3 50.7L99.1 49.6L98.9 48.4L98.7 47.2L98.5 46.1L98.2 44.9L98.0 43.6L97.7 42.4L97.4 41.1L97.1 39.8L96.8 38.5L96.5 37.2L96.2 35.7L95.9 34.3L95.6 32.7L95.3 31.1L95.0 29.4L94.7 27.6L94.5 25.6L94.3 23.4L94.1 21.0L94.0 18.3" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M93.6 11.8L98.8 23.0L89.9 23.6z" fill="#1C1814"/><circle cx="64.0" cy="64.0" r="3.4" fill="#C8633E"/></g><path d="M200.2 64.0L200.2 63.7L200.2 63.4L200.2 63.1L200.2 62.8L200.2 62.5L200.2 62.1L200.2 61.8L200.1 61.5L200.1 61.2L200.0 60.9L199.9 60.6L199.9 60.3L199.8 60.0L199.7 59.7L199.6 59.4L199.5 59.1L199.3 58.8L199.2 58.5L199.1 58.2L198.9 57.9L198.8 57.6L198.6 57.3L198.4 57.1L198.2 56.8L198.0 56.5L197.8 56.3L197.6 56.0L197.4 55.8L197.2 55.5L196.9 55.3L196.7 55.0L196.4 54.8L196.2 54.6L195.9 54.4L195.6 54.2L195.4 54.0L195.1 53.8L194.8 53.6L194.5 53.4L194.2 53.3L193.9 53.1L193.5 53.0L193.2 52.8L192.9 52.7L192.6 52.6L192.2 52.5L191.9 52.4L191.5 52.3L191.2 52.2L190.8 52.1L190.5 52.0L190.1 52.0L189.8 51.9L189.4 51.9L189.0 51.9L188.7 51.9L188.3 51.9L187.9 51.9L187.6 51.9L187.2 51.9L186.8 52.0L186.4 52.0L186.1 52.1L185.7 52.2L185.3 52.3L184.9 52.4L184.6 52.5L184.2 52.6L183.8 52.7L183.5 52.9L183.1 53.0L182.8 53.2L182.4 53.3L182.1 53.5L181.7 53.7L181.4 53.9L181.0 54.2L180.7 54.4L180.4 54.6L180.0 54.9L179.7 55.1L179.4 55.4L179.1 55.7L178.8 56.0L178.5 56.3L178.2 56.6L178.0 56.9L177.7 57.2L177.4 57.6L177.2 57.9L176.9 58.3L176.7 58.7L176.5 59.0L176.2 59.4L176.0 59.8L175.8 60.2L175.7 60.6L175.5 61.0L175.3 61.5L175.2 61.9L175.0 62.3L174.9 62.8L174.8 63.2L174.7 63.7L174.6 64.1L174.5 64.6L174.4 65.1L174.3 65.5L174.3 66.0L174.3 66.5L174.2 67.0L174.2 67.5L174.2 68.0L174.3 68.5L174.3 69.0L174.3 69.5L174.4 70.0L174.5 70.5L174.6 71.0L174.7 71.6L174.8 72.1L174.9 72.6L175.1 73.1L175.2 73.6L175.4 74.2L175.6 74.7L175.8 75.2L176.0 75.7L176.3 76.2L176.5 76.7L176.8 77.3L177.1 77.8L177.4 78.3L177.7 78.8L178.1 79.3L178.4 79.8L178.8 80.3L179.2 80.8L179.6 81.3L180.0 81.8L180.4 82.3L180.9 82.8L181.3 83.2L181.8 83.7L182.3 84.2L182.9 84.7L183.4 85.1L184.0 85.6L184.6 86.0L185.2 86.5L185.8 86.9L186.4 87.4L187.1 87.8L187.8 88.3L188.5 88.7L189.2 89.1L189.9 89.5L190.7 90.0L191.5 90.4L192.4 90.8L193.2 91.2L194.1 91.6L195.0 92.1L196.0 92.5L197.0 92.9L198.0 93.3L199.1 93.8L200.3 94.2L201.5 94.7L202.7 95.2L204.1 95.7L205.5 96.3L207.0 96.8L208.6 97.5L210.3 98.1L212.2 98.9L214.3 99.7L216.6 100.7L219.2 101.8L222.1 103.0L225.4 104.6" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M231.4 107.2L219.0 106.7L222.7 98.4z" fill="#1C1814"/><circle cx="190.0" cy="64.0" r="3.4" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><path d="M322.8 64.0L322.9 63.8L323.0 63.6L323.1 63.4L323.2 63.1L323.3 62.9L323.4 62.6L323.5 62.4L323.6 62.1L323.7 61.9L323.8 61.6L323.8 61.3L323.9 61.0L323.9 60.7L324.0 60.4L324.0 60.1L324.0 59.8L324.1 59.5L324.1 59.2L324.1 58.8L324.1 58.5L324.0 58.1L324.0 57.8L324.0 57.4L323.9 57.1L323.9 56.7L323.8 56.3L323.7 55.9L323.6 55.5L323.5 55.1L323.4 54.7L323.2 54.3L323.1 53.9L322.9 53.5L322.7 53.1L322.5 52.6L322.3 52.2L322.1 51.8L321.8 51.3L321.6 50.9L321.3 50.4L321.0 50.0L320.6 49.5L320.3 49.1L319.9 48.6L319.6 48.1L319.2 47.7L318.7 47.2L318.3 46.7L317.8 46.2L317.3 45.7L316.8 45.2L316.2 44.7L315.6 44.2L315.0 43.7L314.4 43.2L313.7 42.7L312.9 42.2L312.2 41.7L311.4 41.1L310.5 40.6L309.6 40.0L308.7 39.4L307.7 38.9L306.6 38.3L305.5 37.6L304.3 37.0L303.0 36.3L301.6 35.6L300.1 34.8L298.5 34.0L296.7 33.2L294.8 32.2L292.6 31.2L290.2 30.0L287.5 28.7L284.4 27.2L280.8 25.3" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M274.9 22.5L287.2 23.5L283.2 31.6z" fill="#1C1814"/><circle cx="316.0" cy="64.0" r="3.4" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><text x="64" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε &lt; 0</text><text x="64" y="141" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">0 attracts; the circle repels</text><text x="190" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε = 0</text><text x="190" y="141" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">0 repels (slowly)</text><text x="316" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε &gt; 0</text><text x="316" y="141" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">0 repels</text>
+      </svg>
+      <figcaption class="figcap">Fig. 11 — the Hopf bifurcation of Example 6: the repelling circle shrinks onto the attracting point and leaves a repeller behind.</figcaption>
+    </figure>
+
+    <p>If we reverse time in the system above — that is, consider the vector field \(dr/dt = -r(\varepsilon + r^2)\), \(d\theta/dt = -1\) — then for \(\varepsilon &lt; 0\) we obtain, in place of a repelling closed orbit, an <em>attracting</em> limit cycle.</p>
+
+    <p>From all this we conclude that the most important problem in the qualitative study of differential equations is to determine the attractors of the equation; for orbits lying in the basins of the attractors rapidly approach them as time passes, and in practice soon become indistinguishable from the attractor itself. Physically speaking, it is only the attractors of a system that can actually be observed. The question that now arises is whether attractors exist of a kind other than the point attractors and limit cycles seen in the previous examples — by which we mean an attractor that cannot be decomposed into point attractors and limit cycles. One further kind has in fact long been known: the <em>quasi-periodic</em> attractor, an example of which appears in the "irrational flow" on the torus. Following Figure 12, picture the two-dimensional torus as a square whose opposite sides are identified in pairs. Now consider the vector field</p>
+    <div class="eq">\[ \frac{dx}{dt} = w_1, \qquad \frac{dy}{dt} = w_2 \]</div>
+    <p>on the square, where \(w_2 / w_1\) is an irrational number. A little reflection shows that the orbit of every point is then <em>dense</em> on the torus. And it is easy to imagine a vector field on \(\mathbf{R}^3\) whose orbits are all attracted to a torus, with the orbits on the torus behaving as just described (Figure 13).</p>
+
+    <div class="lab" data-widget="torus">
+      <div class="lab-head">
+        <span class="lab-kicker">Figures 12 &amp; 13 — live</span>
+        <span class="lab-hint">One flow, two pictures: the square with glued sides, and the torus it becomes. The terracotta edge is the terracotta circle; the green edge is the green circle.</span>
+      </div>
+      <div class="duo">
+        <div><canvas data-c="sq" width="330" height="330"></canvas><div class="duocap">Fig. 12 — the square: leaving right returns left, leaving top returns bottom</div></div>
+        <div><canvas data-c="tor" width="330" height="330"></canvas><div class="duocap">Fig. 13 — the same orbit, live on the torus: no jumps, one unbroken thread</div></div>
+      </div>
+      <div class="lab-presets">
+        <button class="lab-chip on" data-slope="rational">w₂/w₁ = 2/3 — rational</button>
+        <button class="lab-chip" data-slope="irrational">w₂/w₁ = √2 — irrational</button>
+        <button class="lab-chip" data-c="restart">↻ restart</button>
+      </div>
+      <div class="lab-read"><span data-c="note"></span><span data-c="wraps"></span></div>
+    </div>
+
+    <h2 class="subhead">Lorenz's strange attractor</h2>
+
+    <figure class="pmfig coverfig">
+      <img src="../assets/nashr-riazi-1-1-cover.jpg" alt="Cover of Nashr-e Riyāzi, Year 1, No. 1">
+      <figcaption class="figcap">The cover of that first issue of <em>Nashr-e Riyāzi</em> (Farvardin 1367 / April 1988) — itself a picture of the Lorenz attractor.</figcaption>
+    </figure>
+
+    <p>Until the early nineteen-sixties it was supposed that every attractor could be decomposed into attractors of the three kinds we have now seen. It was then that the American mathematician Smale (S. Smale) produced the first example of a <em>strange attractor</em>: an attractor of intricate shape, around and within which the behaviour of the system's solutions was tangled and, for practical purposes, unpredictable. Still, this example remained within the realm of mathematical theory, and it was not imagined that such a phenomenon could be observed in systems governed by the laws of classical physics. But in 1963 an American mathematician and meteorologist named Lorenz (E. N. Lorenz) published a paper in which, for the first time, an attractor of the new kind arose in a natural problem. Searching for a mathematical model to explain atmospheric turbulence in meteorology, he considered the following differential equations:</p>
+
+    <div class="eq">\[ \left. \begin{aligned} \frac{dx}{dt} &amp;= -\sigma (x - y) \\[2pt] \frac{dy}{dt} &amp;= Rx - y - xz \\[2pt] \frac{dz}{dt} &amp;= xy - bz \end{aligned} \;\right\} \quad (*) \qquad \text{or, briefly,}\quad \frac{d\mathbf{x}}{dt} = V(\mathbf{x}), \]</div>
+
+    <p>where \((x,y,z) \in \mathbf{R}^3\) and \(R\), \(b\) and \(\sigma\) are real parameters. Lorenz examined the values \(\sigma = 10\) and \(b = 8/3\), and showed that for every positive value of \(R\) there exists a simply connected region \(M\) in \(\mathbf{R}^3\), containing the origin, such that on the whole boundary of \(M\) the vector field \((*)\) points inward (Figure 14).</p>
+
+    <p>It follows that \(M\) must contain an attractor (or several attractors); indeed \(A = \bigcap_{t>0} \varphi_t(M)\) is the attractor (or attractors) in question. On the other hand the divergence of the vector field \((*)\) is negative, and it is easy to show that the volume of any piece of the state space shrinks as time passes — in fact the volume tends to zero (in mathematical language, the limiting position of the piece is a set of measure zero).</p>
+
+    <p>Now, to determine the attractor (or attractors) contained in \(M\), we increase the parameter \(R\) from \(R=0\) up to \(R=28\), and describe in outline the changing character of the system's phase portrait across this range of values of \(R\) — the range Lorenz studied.</p>
+
+    <div class="lab" data-widget="lorenz">
+      <div class="lab-head">
+        <span class="lab-kicker">Figures 14–19 — live</span>
+        <span class="lab-hint">Two orbits are released a distance 0.0001 apart — one dark, one terracotta. Slide \(R\) across the bifurcations at 1, ≈13.92 and ≈24.74. The view rotates slowly — drag it to turn it yourself.</span>
+      </div>
+      <canvas data-c="view" width="680" height="440"></canvas>
+      <div class="lab-controls">
+        <span>R</span>
+        <input type="range" data-c="R" min="0" max="28" step="0.1" value="28">
+        <span class="lab-val" data-c="Rval">28.0</span>
+        <button class="lab-chip" data-c="restart">↻ new nearby pair</button>
+      </div>
+      <div class="lab-presets">
+        <button class="lab-chip" data-r="0.6">R = 0.6 · Fig. 16</button>
+        <button class="lab-chip" data-r="15">R = 15 · Fig. 17</button>
+        <button class="lab-chip" data-r="20">R = 20 · between bifurcations</button>
+        <button class="lab-chip on" data-r="28">R = 28 · Fig. 19</button>
+        <button class="lab-chip" data-c="sect">cross-section z = R − 1 · Fig. 15</button>
+      </div>
+      <div class="lab-read"><span class="regime" data-c="regime"></span><span data-c="dist"></span></div>
+    </div>
+
+    <p>First we find the fixed points of the field. Clearly \(x = y = z = 0\) — the origin — is always a fixed point. From the equations \((*)\) we readily obtain the linear part of the vector field at the point \(O\):</p>
+    <div class="eq">\[ T = \begin{pmatrix} -\sigma &amp; \sigma &amp; 0 \\ R &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; -b \end{pmatrix} . \]</div>
+    <p>The eigenvalues of \(T\) are therefore \(-b\) together with the roots of the equation</p>
+    <div class="eq">\[ \lambda^2 + (\sigma + 1)\lambda + (1 - R)\sigma = 0 . \]</div>
+    <p>When \(R &lt; 1\) the other two eigenvalues are both negative, and consequently \(O\) is an attractor; whereas when \(R > 1\) one of them is positive and the other negative — that is, \(O\) is a saddle point with a two-dimensional inset and a one-dimensional outset. (Note that \(\sigma = 10\) and \(b = 8/3\) are both constant and positive.)</p>
+
+    <p>On the other hand, for \(R > 1\) the vector field \((*)\) also vanishes at two further points, whose coordinates are</p>
+    <div class="eq">\[ z = R - 1, \qquad x = y = \pm\sqrt{b\,(R-1)} . \]</div>
+    <p>We call these two points \(C_{\pm}\). By examining the linear part of the vector field at these two points one can show that for values of \(R\) slightly greater than \(1\), the linear part at both points has three negative eigenvalues, so both are attractors.</p>
+
+    <p>Notice that as \(R \to 1^{+}\) we have \(C_{\pm} \to O\): at \(R = 1\) the two attracting points \(C_{\pm}\) are <em>born</em> out of \(O\). Indeed at \(R=1\) a bifurcation takes place at the point \(O\) which, along a curve through \(O\) whose tangent direction is the one in which the two new fixed points \(C_{\pm}\) emerge, is of the pitchfork type of Example 4. This curve is called the <em>centre manifold</em>; transverse to it there is contraction (Figure 15).</p>
+
+    <p>Having examined the local bifurcation at \(R=1\), let us describe the phase portrait for \(R&lt;1\) and for \(R\) slightly greater than \(1\). For \(R&lt;1\) the vector field has a single attracting fixed point at \(O\), which attracts every orbit entering \(M\) (Figure 16). For \(R\) slightly greater than \(1\) we have the two attracting points \(C_{\pm}\) and a saddle fixed point at \(O\) with two-dimensional inset and one-dimensional outset. Here the two-dimensional inset of \(O\) divides \(M\) into two invariant regions: \(M_{+}\), containing \(C_{+}\), and \(M_{-}\), containing \(C_{-}\); every orbit in \(M_{+}\) is attracted to \(C_{+}\), and every orbit in \(M_{-}\) to \(C_{-}\). The inset of \(O\) — which for \(R\) slightly greater than one is very nearly a rather flat two-dimensional sheet — is thus the separator of the basins of \(C_{+}\) and \(C_{-}\) (Figure 17).</p>
+
+    <p>As we raise \(R\) from \(R=1\), the points \(C_{\pm}\) move further and further from \(O\), and the inset of \(O\) grows increasingly curved, until at \(R \approx 13.92\) the inset of \(O\) strikes the outset of \(O\) (in fact the outset comes to lie inside the inset). Here a complicated bifurcation takes place which, unlike the bifurcations we have seen so far, is not a local bifurcation occurring in the neighbourhood of a point, but a <em>global</em> one. The study of these two bifurcations lies outside the scope of this article. We note only that immediately after these two bifurcations the phase portrait still has the two attractors \(C_{+}\) and \(C_{-}\), and the inset of \(O\) still separates their basins of attraction; but on account of the two recent bifurcations this inset winds around itself in a peculiar way in the vicinity of \(C_{+}\) and \(C_{-}\), so that, for instance, an orbit lying in \(M_{+}\) may wind several times around \(C_{-}\), close by it, before finally tending to \(C_{+}\).</p>
+
+    <p>When \(R\) increases still further, at \(R = R_h \approx 24.74\) a Hopf bifurcation of the kind met in Example 6 occurs at each of the fixed points \(C_{+}\) and \(C_{-}\): at each of these fixed points, on a two-dimensional manifold (the centre manifold), a Hopf-type bifurcation takes place, while transverse to this two-dimensional manifold at the fixed point there is contraction (Figure 18). Consequently, for \(R\) slightly greater than \(R_h\), the points \(C_{+}\) and \(C_{-}\) are saddle fixed points, each with a one-dimensional inset and a two-dimensional outset.</p>
+
+    <p>But we said earlier that \(M\) must contain an attractor. The question now is this: given that for \(R\) slightly greater than \(R_h\) none of the points \(O\), \(C_{+}\), \(C_{-}\) is an attractor, what kind of attractor does \(M\) contain? Using methods of numerical approximation and computer simulation, Lorenz showed that all orbits in \(M\) are attracted to a complicated, indecomposable set, an approximate picture of which appears in Figure 19 — the live figure above, at \(R=28\).</p>
+
+    <p>The Lorenz attractor, as that picture shows, has the form of a two-sheeted surface, each of whose sheets has a hole at its centre; one hole surrounds the fixed point \(C_{+}\), the other \(C_{-}\). The Lorenz attractor is thus a <em>strange</em> attractor, resembling none of the three kinds of attractor we met before.</p>
+
+    <p>If we follow the path of an arbitrary orbit in \(M\) by computer, we find that the orbit rapidly approaches the Lorenz attractor and thereafter traces a wholly irregular, unpredictable route: it circles, say, several times around \(C_{+}\) on its sheet, then changes course onto the other sheet and winds an apparently indeterminate number of times around \(C_{-}\), then returns again to the sheet of \(C_{+}\) — and so on forever.</p>
+
+    <p>How can we account for this behaviour?! First note that the one-dimensional outset of \(O\) forms the boundary of the attractor (Figure 19). Moreover each apparent sheet of the attractor, around \(C_{+}\) and \(C_{-}\), lies close to the outset of those points. Consequently, when an arbitrary orbit in \(M\) finds itself near the sheet of \(C_{+}\), it is carried by the outset of \(C_{+}\) around that point several times, each turn taking it further from \(C_{+}\), until on its last turn it has moved so far out that it leaves the region of influence of that outset, falls under the influence of the orbit issuing from \(O\) (which forms one half of the outset of \(O\)), and is guided towards \(C_{-}\). There, drawn near by the inset of \(C_{-}\), it now circles \(C_{-}\) several times and repeats around \(C_{-}\) the very process it had performed around \(C_{+}\). Thus the orbit perpetually jumps, after some number of turns around one sheet, across to the other (Figure 19).</p>
+
+    <p>Now take two very close points of \(M\) and compare the paths of their orbits — the two orbits in the live figure above. For a while the two orbits stay close together and wind around a sheet in company; but since, while circling a sheet, their separation is gradually amplified under the outset of \(C_{+}\) or \(C_{-}\), there comes a moment when their paths part: one continues to circle its previous sheet while the other crosses over to the opposite one.</p>
+
+    <p>The crucial point is that however small the initial separation of the two orbits, in time their paths will part. Hence if there is the least ambiguity in the initial condition, the long-term behaviour of the system becomes unpredictable. Indeed, take any small piece of the state space: after circling the sheets for a while, this piece suddenly and quite unexpectedly decomposes into two pieces, each circling one of the sheets; after a further while each piece decomposes again, and the process continues indefinitely, until in time the original piece has been divided into a very large number of fragments spread more or less uniformly over the whole attractor. Physically this means that however negligible the error in the initial condition, with the passage of time the state of the system may, with equal probability, be at any point of the strange attractor!</p>
+
+    <p>One further matter deserves attention. If we alter the value of \(R\) slightly, complicated bifurcations take place in the system; and although the overall structure of the strange attractor does not change, the topology of the orbits on the attractor does. In other words the Lorenz attractor is not structurally stable in the conventional sense of the term, even though across a whole range of values of \(R\) the system exhibits broadly similar behaviour. More than anything else, this exposes the inadequacy of the notion of structural stability for the study of strange attractors. Indeed, despite wide-ranging research into strange attractors in differential equations and in discrete systems alike, no suitable theoretical framework yet exists for understanding and analysing them — and the effort to build one will surely be among the most fruitful fields of mathematical activity in the years to come.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab2">Author</div>
+        <div class="who">Abbas Edalat</div>
+        <div class="aff">Imperial College London</div>
+      </div>
+      <div class="role">
+        <div class="lab2">Translation</div>
+        <div class="who">People and Mathematics</div>
+        <div class="aff">English translation of the Farsi original by the journal.</div>
+      </div>
+      <div class="role">
+        <div class="lab2">Interactive figures</div>
+        <div class="who">People and Mathematics</div>
+        <div class="aff">Not copied but re-created: every figure is recomputed from the mathematics itself — Figures 8–9, 12–13 and 14–19 as live experiments, the rest as fresh drawings of the same systems.</div>
+      </div>
+    </div>
+    <div class="origin">First published as the opening article of <em>Nashr-e Riyāzi</em> (Mathematical Publications), Year 1, No. 1, Farvardin 1367 (April 1988), pp. 9–15 — the issue whose cover carried the Lorenz attractor. Republished in <em>People and Mathematics</em> with thanks.</div>
+  </div>
+
+  <div class="refs">
+    <h3>References</h3>
+    <ol dir="ltr">
+      <li>Abraham R., &amp; Shaw C., <em>Dynamics: The Geometry of Behavior</em>, Aerial Press, Santa Cruz, CA, 1982.</li>
+      <li>Devaney R., <em>An Introduction to Chaotic Dynamical Systems</em>, Benjamin/Cummings, Menlo Park, CA, 1986.</li>
+      <li>Guckenheimer J., &amp; Holmes P., <em>Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields</em>, Springer-Verlag, New York, 1983.</li>
+      <li>Hao Bao-Lin, <em>Chaos</em>, World Scientific, Singapore, 1984.</li>
+      <li>Ruelle D., "Strange attractors", <em>Math. Intelligencer</em>, 2 (1980) 126–137.</li>
+      <li>Ruelle D., "Differentiable dynamical systems and the problem of turbulence", <em>Bull. Am. Math. Soc.</em>, 5 (1981) 29–42.</li>
+      <li>Smale S., <em>The Mathematics of Time</em>, Springer-Verlag, New York, 1980.</li>
+      <li>Sparrow C., <em>The Lorenz Equations: Bifurcations, Chaos, and Strange Attractors</em>, Springer-Verlag, New York, 1982.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">تاریخ ریاضیات</div>
+  <h1 class="title">ریاضیات آشوب</h1>
+  <p class="standfirst">بازنشرِ نخستین مقاله‌ی نخستین شماره‌ی «نشر ریاضی» (فروردین ۱۳۶۷): از دستگاه‌های دینامیکی و رباینده‌هایشان تا رباینده‌ی غریب لورنتس — این بار با شکل‌هایی که زنده‌اند. پارامتر را جابه‌جا کن و انشعاب‌ها را خودت رد کن.</p>
+  <div class="byline">
+    <img class="avat" src="../assets/abbas-edalat.jpg" alt="عباس عدالت">
+    <span class="name">عباس عدالت</span>
+  </div>
+  <p class="dedication">متن، همان متن ۱۳۶۷ است، واژه‌به‌واژه. شکل‌ها اما کپی نیستند: از خودِ ریاضیاتِ متن به‌طور مفهومی بازآفریده شده‌اند — برخی ترسیمِ تازه، برخی آزمایشِ زنده.</p>
+
+  <div class="body">
+    <p>در سال‌های اخیر موضوع «آشوب» در دستگاه‌های دینامیکی به یکی از مهم‌ترین مسائل ریاضیات محض، ریاضیات کاربردی و همچنین شاخه‌های مختلف علوم طبیعی تبدیل شده است؛ به‌طوری که این موضوع به‌صورت یکی از وسیع‌ترین زمینه‌های تحقیقاتی زمان حاضر درآمده است. به‌طور کلی مقصود از یک دستگاه دینامیکی مجموعه‌ی حالات ممکن یک پدیده است، همراه با یک قانون تحول که گذر از یک حالت به حالت دیگر را توصیف می‌کند. اگر حالت دستگاه در زمان معینی داده شده باشد، این قانون حالت‌های دستگاه را در زمان‌های بعدی مشخص می‌کند.</p>
+
+    <p>چنانچه بتوان حالت‌های گذشته‌ی دستگاه را نیز بدون ابهام از قانون تحول استخراج کرد، دستگاه دینامیکی برگشت‌پذیر خوانده می‌شود. در این نوشته بحث ما به دستگاه‌های برگشت‌پذیر محدود خواهد بود. به زبان ساده می‌توان یک دستگاه دینامیکی آشوبناک را دستگاهی تعریف کرد که قانون‌بندی دینامیکی آن کاملاً تعینی و بدون هر گونه عامل احتمالی بوده، ولی رفتار درازمدت سیستم در عمل غیرقابل پیش‌بینی است.</p>
+
+    <p>به بیان دقیق‌تر، در این دستگاه‌ها عدم دقت هرچند کوچک در دانستن حالت اولیه (که به‌هرحال از نظر عملی غیرقابل اجتناب است) موجب بروز خطای فاحش در پیش‌بینی حالت دستگاه در درازمدت می‌گردد. در نتیجه «آشوب» پدیده‌ای است که علی‌الظاهر با بینش نیوتنی از قوانین طبیعی مغایر است؛ زیرا بنا به فیزیک کلاسیک چنانچه معادله‌ی حرکت و وضعیت اولیه‌ی دستگاهی را بدانیم، می‌توانیم وضعیت آن را در هر زمان بعدی به‌دقت تعیین کنیم. به‌عنوان مثال هرگاه نیروهای وارد بر جسمی مشخص باشد، می‌توانیم از طریق فرمول \(F = ma\) شتاب جسم و در نتیجه مکان و سرعت آن را در هر لحظه برحسب مکان و سرعت اولیه‌ی آن به دست آوریم.</p>
+
+    <p>همان‌طور که می‌دانیم، این بینش کلاسیک از فیزیک در نیمه‌ی اول قرن بیستم با پیدایش نظریه‌ی کوانتوم مردود اعلام شد؛ زیرا بنا به اصل عدم قطعیت هایزنبرگ اصولاً امکان اندازه‌گیری دقیق مکان و سرعت یک جسم ذره‌ای در آنِ واحد ممکن نیست و در نتیجه حتی وضعیت اولیه‌ی آن را نمی‌توان به‌طور قطعی مشخص کرد.</p>
+
+    <p>شناخت و بررسی دستگاه‌های دینامیکی آشوبناک در سال‌های اخیر موجب شده است که محدودیت‌های بینش نیوتنی بُعد جدیدی به خود بگیرد؛ چرا که در این گونه دستگاه‌ها هر گونه عدم قطعیت در وضعیت اولیه، هر قدر ناچیز (که می‌تواند نتیجه‌ی اصل هایزنبرگ، خطاهای آزمایشی، یا نارسایی‌های مدل ریاضی ما باشد)، در درازمدت ابعاد چنان گسترده‌ای به خود می‌گیرد که وضعیت دستگاه را غیرقابل پیش‌بینی می‌کند.</p>
+
+    <p>بنابراین از بررسی پدیده‌ی «آشوب» این نتیجه‌ی مهم به دست می‌آید که ملاک صحت نظریه‌ای در دستگاه‌های دینامیکی نمی‌تواند پیش‌بینی دقیق رفتار آن باشد، بلکه باید خواص احتمالی و هندسی ناشی از آن نظریه مورد بررسی و ارزیابی قرار گیرد.</p>
+
+    <p>در این مقاله خصوصیات اصلی نمونه‌ای از یک دستگاه دینامیکی آشوبناک را به‌طور اجمالی تشریح خواهیم کرد؛ ولی قبل از آن به بررسی چند نمونه‌ی ساده از دستگاه‌های غیرآشوبناک می‌پردازیم و برخی مقولات لازم را از این طریق تعریف می‌کنیم.</p>
+
+    <h2 class="subhead">چند نمونه از دستگاه‌های غیرآشوبناک</h2>
+
+    <p>مثال‌هایی که در اینجا مطرح می‌کنیم، همه دستگاه‌های دینامیکیِ تعریف‌شده توسط یک معادله یا یک دستگاه معادلات دیفرانسیل هستند. دستگاه‌هایی که تحول آن‌ها به‌طور پیوسته در زمان صورت می‌گیرد، معمولاً از یک دستگاه معادلات دیفرانسیل عادی تبعیت می‌کنند. این بدین معنی است که هرگاه حالت دستگاه در زمان معینی مشخص باشد، تحول آینده (و گذشته‌ی) دستگاه با دنبال‌کردن آن جواب دستگاه معادلات دیفرانسیل که از حالت اولیه می‌گذرد مشخص می‌شود.</p>
+
+    <p><span class="exlead">مثال ۱.</span> معادله‌ی دیفرانسیل خطی درجه‌اول همگن زیر را در نظر می‌گیریم:</p>
+    <div class="eq">\[ \frac{dx}{dt} = f(x) = -\lambda x, \qquad x \in \mathbf{R}, \quad \lambda > 0 . \]</div>
+    <p>در اینجا \(\mathbf{R}\)، مجموعه‌ی اعداد حقیقی — یعنی قلمرو \(x\) — را فضای حالات دستگاه دینامیکی می‌نامیم. هرگاه در لحظه‌ی \(t=0\) داشته باشیم \(x = x_0\)، آنگاه داریم \(x(t) = x_0 e^{-\lambda t}\). رابطه‌ی اخیر را همچنین به‌صورت زیر می‌نویسیم:</p>
+    <div class="eq">\[ \varphi_t(x_0) = x(t) = x_0 e^{-\lambda t} . \]</div>
+    <p>به عبارت دیگر، \(\varphi_t(x_0)\) مقدار \(x\) را در زمان \(t\) مشخص می‌کند، اگر مقدار آن در لحظه‌ی \(t=0\) برابر \(x_0\) باشد. برای آنکه معادله‌ی دیفرانسیل فوق را به شکل کیفی و هندسی تعبیر کنیم، \(f(x) = -\lambda x\) را یک میدان برداری در \(\mathbf{R}\) در نظر می‌گیریم. شکل ۱ را که از رسم این میدان برداری به دست می‌آید نمودار حالات دستگاه دینامیکی می‌نامیم. چند نکته را در اینجا متذکر می‌شویم:</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 360 56" width="360" role="img" aria-label="شکل ۱">
+        <line x1="14" y1="28" x2="346" y2="28" stroke="#1C1814" stroke-width="1.6"/><path d="M68.5 28.0L57.0 32.5L57.0 23.5z" fill="#1C1814"/><path d="M116.5 28.0L105.0 32.5L105.0 23.5z" fill="#1C1814"/><path d="M243.5 28.0L255.0 23.5L255.0 32.5z" fill="#1C1814"/><path d="M291.5 28.0L303.0 23.5L303.0 32.5z" fill="#1C1814"/><circle cx="180.0" cy="28.0" r="4.2" fill="#C8633E"/><text x="180" y="50" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155" text-anchor="middle">۰</text>
+      </svg>
+      <figcaption class="figcap">شکل ۱ — میدان برداری \(-\lambda x\) روی خط: همه‌ی نقطه‌ها به سوی صفر روانه‌اند.</figcaption>
+    </figure>
+
+    <ol class="notes">
+      <li>هر جواب \(\varphi_t(x_0) = x_0 e^{-\lambda t}\)، صرف‌نظر از شرایط اولیه (یعنی مقدار \(x_0\))، به صفر میل می‌کند. صفر را رباینده‌ی دستگاه دینامیکی فوق و \(\mathbf{R}\) را پهنه‌ی ربایش آن می‌نامیم. به‌طور کلی نقطه‌ای از فضای حالات را رباینده‌ی دستگاه می‌نامیم اگر این نقطه کلیه‌ی نقاط یک همسایگی خود را جذب کند، و به مجموعه‌ی کلیه‌ی نقاطی که به رباینده جذب می‌شوند پهنه‌ی ربایش آن می‌گوییم. (مقصود از جذب‌شدن نقطه‌ی \(p\) این است که جواب معادله‌ی دیفرانسیلِ گذرا از \(p\) در زمان مثبت به رباینده میل می‌کند.)</li>
+      <li>به‌سادگی از شکل ۲ می‌بینیم که اگر عدم قطعیتی در وضعیت اولیه وجود داشته باشد — به عبارت دیگر اگر \(x(0)\) نه برابر \(x_0\)، بلکه در یک همسایگی \(u\) از نقطه‌ی \(x_0\) قرار داشته باشد — آنگاه با گذشت زمان این عدم قطعیت کاهش می‌یابد؛ یعنی طول \(\varphi_t(u)\) برای \(t>0\) کمتر از طول \(u\) است و در واقع طول \(\varphi_t(u)\) وقتی \(t \to \infty\) به صفر میل می‌کند.</li>
+      <li>هرگاه میدان برداری فوق را اندکی به‌طور هموار تغییر دهیم — یعنی دستگاه \(dx/dt = f(x) = -\lambda x + O(x^2)\)، \(\lambda>0\) را در نظر بگیریم که در آن مقصود از \(O(x^2)\) یک تابع اختیاری است که وقتی \(x \to 0\) سریع‌تر از \(x\) به صفر میل می‌کند — می‌توان نشان داد که کیفیت جواب‌های معادله در یک همسایگی نقطه‌ی صفر تغییری نخواهد کرد و در یک همسایگی صفر، کلیه‌ی نقاط همچنان به صفر میل خواهند کرد. می‌گوییم دستگاه اولیه در نقطه‌ی صفر — یا رباینده‌ی دستگاه — دارای ثبات ساختاری است.</li>
+      <li>اگر \(\lambda = 0\)، کلیه‌ی نقاط ثابت خواهند بود؛ یعنی به ازای هر \(x_0\) و \(t\) در \(\mathbf{R}\) داریم \(\varphi_t(x_0) = x_0\). و اگر \(\lambda &lt; 0\)، آنگاه نمودار حالات مطابق شکل ۳ است و نقاط از صفر دور می‌شوند. در این حالت نقطه‌ی صفر را یک نقطه‌ی دافع می‌نامیم.</li>
+    </ol>
+
+    <div class="figrow">
+      <figure class="pmfig">
+      <svg viewBox="0 0 360 74" width="360" role="img" aria-label="شکل ۲">
+        <line x1="14" y1="40" x2="346" y2="40" stroke="#1C1814" stroke-width="1.4"/><circle cx="30.0" cy="40.0" r="3.2" fill="#1C1814"/><text x="30" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">۰</text><path d="M239.0 31.0 Q232.0 40.0 239.0 49.0" fill="none" stroke="#1C1814" stroke-width="1.6"/><path d="M301.0 31.0 Q308.0 40.0 301.0 49.0" fill="none" stroke="#1C1814" stroke-width="1.6"/><circle cx="270.0" cy="40.0" r="2.6" fill="#1C1814"/><text x="270" y="18" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#1C1814" text-anchor="middle">u</text><text x="270" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">x₀</text><path d="M110.0 31.0 Q103.0 40.0 110.0 49.0" fill="none" stroke="#C8633E" stroke-width="1.6"/><path d="M130.0 31.0 Q137.0 40.0 130.0 49.0" fill="none" stroke="#C8633E" stroke-width="1.6"/><circle cx="120.0" cy="40.0" r="2.6" fill="#C8633E"/><text x="120" y="18" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#C8633E" text-anchor="middle">φₜ(u)</text><text x="120" y="64" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#C8633E" text-anchor="middle">φₜ(x₀)</text>
+      </svg>
+      <figcaption class="figcap">شکل ۲ — همسایگی \(u\) از \(x_0\) زیر شار جمع می‌شود.</figcaption>
+    </figure>
+      <figure class="pmfig">
+      <svg viewBox="0 0 360 56" width="360" role="img" aria-label="شکل ۳">
+        <line x1="14" y1="28" x2="346" y2="28" stroke="#1C1814" stroke-width="1.6"/><path d="M55.5 28.0L67.0 23.5L67.0 32.5z" fill="#1C1814"/><path d="M103.5 28.0L115.0 23.5L115.0 32.5z" fill="#1C1814"/><path d="M256.5 28.0L245.0 32.5L245.0 23.5z" fill="#1C1814"/><path d="M304.5 28.0L293.0 32.5L293.0 23.5z" fill="#1C1814"/><circle cx="180.0" cy="28.0" r="4.2" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><text x="180" y="50" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155" text-anchor="middle">۰</text>
+      </svg>
+      <figcaption class="figcap">شکل ۳ — برای \(\lambda&lt;0\) صفر دافع است: نقطه‌ها دور می‌شوند.</figcaption>
+    </figure>
+    </div>
+
+    <p><span class="exlead">مثال ۲.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -\lambda x, \qquad \frac{dy}{dt} = -\mu y, \qquad (x,y) \in \mathbf{R}^2, \quad \mu > \lambda > 0 . \]</div>
+    <p>در اینجا فضای حالات \(\mathbf{R}^2\) است و داریم \(\varphi_t(x_0, y_0) = \left( x_0 e^{-\lambda t},\, y_0 e^{-\mu t} \right)\). نمودار حالات مطابق شکل ۴ است. به نکات زیر توجه کنید:</p>
+
+    <ol class="notes">
+      <li>مبدأ مختصات، صفر، رباینده‌ی دستگاه است با پهنه‌ی ربایش \(\mathbf{R}^2\).</li>
+      <li>هر گونه عدم قطعیت در وضعیت اولیه با گذشت زمان کاهش می‌یابد؛ به عبارت دیگر اگر \(u\) یک همسایگی \((x_0, y_0)\) در \(\mathbf{R}^2\) باشد، برای \(t>0\) اندازه‌ی \(\varphi_t(u)\) از اندازه‌ی \(u\) کوچک‌تر است.</li>
+      <li>سیستم در نقطه‌ی صفر دارای ثبات ساختاری است.</li>
+      <li>اگر \(\lambda &lt; \mu &lt; 0\)، منحنی‌های جواب از صفر دور می‌شوند و صفر یک نقطه‌ی دافع است (شکل ۵).</li>
+    </ol>
+
+    <div class="figrow">
+      <figure class="pmfig">
+      <svg viewBox="0 0 260 200" width="260" role="img" aria-label="شکل ۴">
+        <line x1="12" y1="100" x2="248" y2="100" stroke="#1C1814" stroke-width="1.1"/><line x1="130" y1="8" x2="130" y2="192" stroke="#1C1814" stroke-width="1.1"/><path d="M199.5 100.0L211.0 95.5L211.0 104.5z" fill="#1C1814"/><path d="M60.5 100.0L49.0 104.5L49.0 95.5z" fill="#1C1814"/><path d="M130.0 40.5L125.5 29.0L134.5 29.0z" fill="#1C1814"/><path d="M130.0 159.5L134.5 171.0L125.5 171.0z" fill="#1C1814"/><path d="M240.2 18.4L234.8 27.3L229.7 35.2L224.9 42.2L220.2 48.5L215.8 54.1L211.6 59.1L207.7 63.5L203.9 67.5L200.3 71.0L196.8 74.2L193.6 77.0L190.5 79.5L187.5 81.7L184.7 83.7L182.1 85.5L179.5 87.0L177.1 88.4L174.8 89.7L172.6 90.8L170.5 91.8L168.6 92.7L166.7 93.5L164.9 94.2L163.2 94.8L161.6 95.4L160.0 95.9L158.6 96.3L157.2 96.7L155.8 97.1L154.6 97.4L153.4 97.7L152.2 97.9L151.2 98.2L150.1 98.4L149.1 98.5L148.2 98.7L147.3 98.8L146.5 99.0L145.7 99.1L144.9 99.2L144.2 99.3L143.5 99.3L142.8 99.4L142.2 99.5L141.6 99.5L141.0 99.6L140.5 99.6L140.0 99.7L139.5 99.7L139.0 99.7L138.6 99.8L138.2 99.8L137.8 99.8L137.4 99.8L137.0 99.9L136.7 99.9L136.4 99.9L136.1 99.9L135.8 99.9L135.5 99.9L135.2 99.9L135.0 99.9L134.7 99.9L134.5 99.9L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M184.1 84.3L190.5 73.8L196.0 80.9z" fill="#1C1814"/><path d="M19.8 18.4L25.2 27.3L30.3 35.2L35.1 42.2L39.8 48.5L44.2 54.1L48.4 59.1L52.3 63.5L56.1 67.5L59.7 71.0L63.2 74.2L66.4 77.0L69.5 79.5L72.5 81.7L75.3 83.7L77.9 85.5L80.5 87.0L82.9 88.4L85.2 89.7L87.4 90.8L89.5 91.8L91.4 92.7L93.3 93.5L95.1 94.2L96.8 94.8L98.4 95.4L100.0 95.9L101.4 96.3L102.8 96.7L104.2 97.1L105.4 97.4L106.6 97.7L107.8 97.9L108.8 98.2L109.9 98.4L110.9 98.5L111.8 98.7L112.7 98.8L113.5 99.0L114.3 99.1L115.1 99.2L115.8 99.3L116.5 99.3L117.2 99.4L117.8 99.5L118.4 99.5L119.0 99.6L119.5 99.6L120.0 99.7L120.5 99.7L121.0 99.7L121.4 99.8L121.8 99.8L122.2 99.8L122.6 99.8L123.0 99.9L123.3 99.9L123.6 99.9L123.9 99.9L124.2 99.9L124.5 99.9L124.8 99.9L125.0 99.9L125.3 99.9L125.5 99.9L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M75.9 84.3L64.0 80.9L69.5 73.8z" fill="#1C1814"/><path d="M240.2 181.6L234.8 172.7L229.7 164.8L224.9 157.8L220.2 151.5L215.8 145.9L211.6 140.9L207.7 136.5L203.9 132.5L200.3 129.0L196.8 125.8L193.6 123.0L190.5 120.5L187.5 118.3L184.7 116.3L182.1 114.5L179.5 113.0L177.1 111.6L174.8 110.3L172.6 109.2L170.5 108.2L168.6 107.3L166.7 106.5L164.9 105.8L163.2 105.2L161.6 104.6L160.0 104.1L158.6 103.7L157.2 103.3L155.8 102.9L154.6 102.6L153.4 102.3L152.2 102.1L151.2 101.8L150.1 101.6L149.1 101.5L148.2 101.3L147.3 101.2L146.5 101.0L145.7 100.9L144.9 100.8L144.2 100.7L143.5 100.7L142.8 100.6L142.2 100.5L141.6 100.5L141.0 100.4L140.5 100.4L140.0 100.3L139.5 100.3L139.0 100.3L138.6 100.2L138.2 100.2L137.8 100.2L137.4 100.2L137.0 100.1L136.7 100.1L136.4 100.1L136.1 100.1L135.8 100.1L135.5 100.1L135.2 100.1L135.0 100.1L134.7 100.1L134.5 100.1L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M184.1 115.7L196.0 119.1L190.5 126.2z" fill="#1C1814"/><path d="M19.8 181.6L25.2 172.7L30.3 164.8L35.1 157.8L39.8 151.5L44.2 145.9L48.4 140.9L52.3 136.5L56.1 132.5L59.7 129.0L63.2 125.8L66.4 123.0L69.5 120.5L72.5 118.3L75.3 116.3L77.9 114.5L80.5 113.0L82.9 111.6L85.2 110.3L87.4 109.2L89.5 108.2L91.4 107.3L93.3 106.5L95.1 105.8L96.8 105.2L98.4 104.6L100.0 104.1L101.4 103.7L102.8 103.3L104.2 102.9L105.4 102.6L106.6 102.3L107.8 102.1L108.8 101.8L109.9 101.6L110.9 101.5L111.8 101.3L112.7 101.2L113.5 101.0L114.3 100.9L115.1 100.8L115.8 100.7L116.5 100.7L117.2 100.6L117.8 100.5L118.4 100.5L119.0 100.4L119.5 100.4L120.0 100.3L120.5 100.3L121.0 100.3L121.4 100.2L121.8 100.2L122.2 100.2L122.6 100.2L123.0 100.1L123.3 100.1L123.6 100.1L123.9 100.1L124.2 100.1L124.5 100.1L124.8 100.1L125.0 100.1L125.3 100.1L125.5 100.1L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M75.9 115.7L69.5 126.2L64.0 119.1z" fill="#1C1814"/><circle cx="130.0" cy="100.0" r="4.2" fill="#C8633E"/><circle cx="240.2" cy="18.4" r="4.6" fill="#fff" stroke="#1C1814" stroke-width="1.8"/><text x="234.2" y="9.4" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="end">(x₀, y₀)</text><circle cx="177.1" cy="88.4" r="3.8" fill="#fff" stroke="#1C1814" stroke-width="1.8"/><text x="179.1" y="79.4" font-family="Hanken Grotesk, sans-serif" font-size="10.5" fill="#6B6155">φₜ(x₀, y₀)</text>
+      </svg>
+      <figcaption class="figcap">شکل ۴ — گره‌ی رباینده‌ی دوبعدی: نقطه‌ی نشان‌دار به سوی مبدأ روان است.</figcaption>
+    </figure>
+      <figure class="pmfig">
+      <svg viewBox="0 0 260 200" width="260" role="img" aria-label="شکل ۵">
+        <line x1="12" y1="100" x2="248" y2="100" stroke="#1C1814" stroke-width="1.1"/><line x1="130" y1="8" x2="130" y2="192" stroke="#1C1814" stroke-width="1.1"/><path d="M212.5 100.0L201.0 104.5L201.0 95.5z" fill="#1C1814"/><path d="M47.5 100.0L59.0 95.5L59.0 104.5z" fill="#1C1814"/><path d="M130.0 27.5L134.5 39.0L125.5 39.0z" fill="#1C1814"/><path d="M130.0 172.5L125.5 161.0L134.5 161.0z" fill="#1C1814"/><path d="M240.2 18.4L234.8 27.3L229.7 35.2L224.9 42.2L220.2 48.5L215.8 54.1L211.6 59.1L207.7 63.5L203.9 67.5L200.3 71.0L196.8 74.2L193.6 77.0L190.5 79.5L187.5 81.7L184.7 83.7L182.1 85.5L179.5 87.0L177.1 88.4L174.8 89.7L172.6 90.8L170.5 91.8L168.6 92.7L166.7 93.5L164.9 94.2L163.2 94.8L161.6 95.4L160.0 95.9L158.6 96.3L157.2 96.7L155.8 97.1L154.6 97.4L153.4 97.7L152.2 97.9L151.2 98.2L150.1 98.4L149.1 98.5L148.2 98.7L147.3 98.8L146.5 99.0L145.7 99.1L144.9 99.2L144.2 99.3L143.5 99.3L142.8 99.4L142.2 99.5L141.6 99.5L141.0 99.6L140.5 99.6L140.0 99.7L139.5 99.7L139.0 99.7L138.6 99.8L138.2 99.8L137.8 99.8L137.4 99.8L137.0 99.9L136.7 99.9L136.4 99.9L136.1 99.9L135.8 99.9L135.5 99.9L135.2 99.9L135.0 99.9L134.7 99.9L134.5 99.9L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M194.5 76.5L188.0 87.0L182.6 79.8z" fill="#1C1814"/><path d="M19.8 18.4L25.2 27.3L30.3 35.2L35.1 42.2L39.8 48.5L44.2 54.1L48.4 59.1L52.3 63.5L56.1 67.5L59.7 71.0L63.2 74.2L66.4 77.0L69.5 79.5L72.5 81.7L75.3 83.7L77.9 85.5L80.5 87.0L82.9 88.4L85.2 89.7L87.4 90.8L89.5 91.8L91.4 92.7L93.3 93.5L95.1 94.2L96.8 94.8L98.4 95.4L100.0 95.9L101.4 96.3L102.8 96.7L104.2 97.1L105.4 97.4L106.6 97.7L107.8 97.9L108.8 98.2L109.9 98.4L110.9 98.5L111.8 98.7L112.7 98.8L113.5 99.0L114.3 99.1L115.1 99.2L115.8 99.3L116.5 99.3L117.2 99.4L117.8 99.5L118.4 99.5L119.0 99.6L119.5 99.6L120.0 99.7L120.5 99.7L121.0 99.7L121.4 99.8L121.8 99.8L122.2 99.8L122.6 99.8L123.0 99.9L123.3 99.9L123.6 99.9L123.9 99.9L124.2 99.9L124.5 99.9L124.8 99.9L125.0 99.9L125.3 99.9L125.5 99.9L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M65.5 76.5L77.4 79.8L72.0 87.0z" fill="#1C1814"/><path d="M240.2 181.6L234.8 172.7L229.7 164.8L224.9 157.8L220.2 151.5L215.8 145.9L211.6 140.9L207.7 136.5L203.9 132.5L200.3 129.0L196.8 125.8L193.6 123.0L190.5 120.5L187.5 118.3L184.7 116.3L182.1 114.5L179.5 113.0L177.1 111.6L174.8 110.3L172.6 109.2L170.5 108.2L168.6 107.3L166.7 106.5L164.9 105.8L163.2 105.2L161.6 104.6L160.0 104.1L158.6 103.7L157.2 103.3L155.8 102.9L154.6 102.6L153.4 102.3L152.2 102.1L151.2 101.8L150.1 101.6L149.1 101.5L148.2 101.3L147.3 101.2L146.5 101.0L145.7 100.9L144.9 100.8L144.2 100.7L143.5 100.7L142.8 100.6L142.2 100.5L141.6 100.5L141.0 100.4L140.5 100.4L140.0 100.3L139.5 100.3L139.0 100.3L138.6 100.2L138.2 100.2L137.8 100.2L137.4 100.2L137.0 100.1L136.7 100.1L136.4 100.1L136.1 100.1L135.8 100.1L135.5 100.1L135.2 100.1L135.0 100.1L134.7 100.1L134.5 100.1L134.3 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M194.5 123.5L182.6 120.2L188.0 113.0z" fill="#1C1814"/><path d="M19.8 181.6L25.2 172.7L30.3 164.8L35.1 157.8L39.8 151.5L44.2 145.9L48.4 140.9L52.3 136.5L56.1 132.5L59.7 129.0L63.2 125.8L66.4 123.0L69.5 120.5L72.5 118.3L75.3 116.3L77.9 114.5L80.5 113.0L82.9 111.6L85.2 110.3L87.4 109.2L89.5 108.2L91.4 107.3L93.3 106.5L95.1 105.8L96.8 105.2L98.4 104.6L100.0 104.1L101.4 103.7L102.8 103.3L104.2 102.9L105.4 102.6L106.6 102.3L107.8 102.1L108.8 101.8L109.9 101.6L110.9 101.5L111.8 101.3L112.7 101.2L113.5 101.0L114.3 100.9L115.1 100.8L115.8 100.7L116.5 100.7L117.2 100.6L117.8 100.5L118.4 100.5L119.0 100.4L119.5 100.4L120.0 100.3L120.5 100.3L121.0 100.3L121.4 100.2L121.8 100.2L122.2 100.2L122.6 100.2L123.0 100.1L123.3 100.1L123.6 100.1L123.9 100.1L124.2 100.1L124.5 100.1L124.8 100.1L125.0 100.1L125.3 100.1L125.5 100.1L125.7 100.0" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M65.5 123.5L72.0 113.0L77.4 120.2z" fill="#1C1814"/><circle cx="130.0" cy="100.0" r="4.2" fill="#fff" stroke="#C8633E" stroke-width="1.8"/>
+      </svg>
+      <figcaption class="figcap">شکل ۵ — با \(\lambda&lt;\mu&lt;0\) صفر دافع می‌شود.</figcaption>
+    </figure>
+    </div>
+
+    <p><span class="exlead">مثال ۳.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -\lambda x, \qquad \frac{dy}{dt} = \mu y, \qquad (x,y) \in \mathbf{R}^2, \quad \lambda, \mu > 0 . \]</div>
+    <p>نمودار حالات مطابق شکل ۶ است. محورهای \(x\) و \(y\) پایا هستند: نقاط روی محور \(x\) به صفر نزدیک و نقاط روی محور \(y\) از صفر دور می‌شوند. نقطه‌ی صفر را در اینجا یک نقطه‌ی زینی می‌نامند. مانند دو مثال قبلی، تغییرات جزئی هموار در میدان برداری کیفیت جواب‌ها را در همسایگی صفر تغییر نخواهد داد. محور \(x\) را — یعنی مجموعه‌ی نقاطی که وقتی \(t \to \infty\) به صفر میل می‌کنند — مجموعه‌ی درون‌رونده، و محور \(y\) را — یعنی مجموعه‌ی نقاطی که وقتی \(t \to -\infty\) به صفر میل می‌کنند — مجموعه‌ی بیرون‌رونده‌ی نقطه‌ی صفر می‌نامیم. توجه کنید که در اینجا مجموعه‌ی درون‌رونده و بیرون‌رونده هر کدام یک‌بعدی است؛ در حالی که در مثال‌های ۱ و ۲ مجموعه‌های درون‌رونده به‌ترتیب یک‌بعدی و دوبعدی، و مجموعه‌های بیرون‌رونده تهی بودند.</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 260 210" width="260" role="img" aria-label="شکل ۶">
+        <line x1="10" y1="105" x2="250" y2="105" stroke="#1C1814" stroke-width="1.3"/><line x1="130" y1="8" x2="130" y2="202" stroke="#1C1814" stroke-width="1.3"/><path d="M203.5 105.0L215.0 100.5L215.0 109.5z" fill="#1C1814"/><path d="M56.5 105.0L45.0 109.5L45.0 100.5z" fill="#1C1814"/><path d="M130.0 24.5L134.5 36.0L125.5 36.0z" fill="#1C1814"/><path d="M130.0 185.5L125.5 174.0L134.5 174.0z" fill="#1C1814"/><path d="M245.2 88.1L240.7 87.4L236.3 86.7L232.2 86.0L228.1 85.2L224.3 84.4L220.6 83.5L217.0 82.7L213.6 81.7L210.4 80.8L207.2 79.8L204.2 78.8L201.3 77.7L198.5 76.6L195.8 75.4L193.2 74.2L190.7 73.0L188.4 71.7L186.1 70.3L183.9 68.9L181.8 67.4L179.7 65.9L177.8 64.3L175.9 62.6L174.1 60.9L172.4 59.1L170.7 57.2L169.1 55.3L167.6 53.2L166.1 51.1L164.7 48.9L163.3 46.6L162.0 44.3L160.8 41.8L159.6 39.2L158.4 36.5L157.3 33.7L156.2 30.8L155.2 27.8L154.2 24.6L153.3 21.4L152.3 18.0L151.5 14.4L150.6 10.7L149.8 6.9L149.0 2.8L148.3 -1.3L147.6 -5.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M169.5 56.3L180.8 61.3L174.5 67.6z" fill="#1C1814"/><path d="M14.8 88.1L19.3 87.4L23.7 86.7L27.8 86.0L31.9 85.2L35.7 84.4L39.4 83.5L43.0 82.7L46.4 81.7L49.6 80.8L52.8 79.8L55.8 78.8L58.7 77.7L61.5 76.6L64.2 75.4L66.8 74.2L69.3 73.0L71.6 71.7L73.9 70.3L76.1 68.9L78.2 67.4L80.3 65.9L82.2 64.3L84.1 62.6L85.9 60.9L87.6 59.1L89.3 57.2L90.9 55.3L92.4 53.2L93.9 51.1L95.3 48.9L96.7 46.6L98.0 44.3L99.2 41.8L100.4 39.2L101.6 36.5L102.7 33.7L103.8 30.8L104.8 27.8L105.8 24.6L106.7 21.4L107.7 18.0L108.5 14.4L109.4 10.7L110.2 6.9L111.0 2.8L111.7 -1.3L112.4 -5.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M90.5 56.3L85.5 67.6L79.2 61.3z" fill="#1C1814"/><path d="M245.2 121.9L240.7 122.6L236.3 123.3L232.2 124.0L228.1 124.8L224.3 125.6L220.6 126.5L217.0 127.3L213.6 128.3L210.4 129.2L207.2 130.2L204.2 131.2L201.3 132.3L198.5 133.4L195.8 134.6L193.2 135.8L190.7 137.0L188.4 138.3L186.1 139.7L183.9 141.1L181.8 142.6L179.7 144.1L177.8 145.7L175.9 147.4L174.1 149.1L172.4 150.9L170.7 152.8L169.1 154.7L167.6 156.8L166.1 158.9L164.7 161.1L163.3 163.4L162.0 165.7L160.8 168.2L159.6 170.8L158.4 173.5L157.3 176.3L156.2 179.2L155.2 182.2L154.2 185.4L153.3 188.6L152.3 192.0L151.5 195.6L150.6 199.3L149.8 203.1L149.0 207.2L148.3 211.3L147.6 215.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M169.5 153.7L174.5 142.4L180.8 148.7z" fill="#1C1814"/><path d="M14.8 121.9L19.3 122.6L23.7 123.3L27.8 124.0L31.9 124.8L35.7 125.6L39.4 126.5L43.0 127.3L46.4 128.3L49.6 129.2L52.8 130.2L55.8 131.2L58.7 132.3L61.5 133.4L64.2 134.6L66.8 135.8L69.3 137.0L71.6 138.3L73.9 139.7L76.1 141.1L78.2 142.6L80.3 144.1L82.2 145.7L84.1 147.4L85.9 149.1L87.6 150.9L89.3 152.8L90.9 154.7L92.4 156.8L93.9 158.9L95.3 161.1L96.7 163.4L98.0 165.7L99.2 168.2L100.4 170.8L101.6 173.5L102.7 176.3L103.8 179.2L104.8 182.2L105.8 185.4L106.7 188.6L107.7 192.0L108.5 195.6L109.4 199.3L110.2 203.1L111.0 207.2L111.7 211.3L112.4 215.7" fill="none" stroke="#1C1814" stroke-width="1.4"/><path d="M90.5 153.7L79.2 148.7L85.5 142.4z" fill="#1C1814"/><circle cx="130.0" cy="105.0" r="4" fill="#1C1814"/><text x="245" y="98" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155">x</text><text x="137" y="16" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="#6B6155">y</text>
+      </svg>
+      <figcaption class="figcap">شکل ۶ — نقطه‌ی زینی: محور \(x\) به درون می‌رود و محور \(y\) به بیرون.</figcaption>
+    </figure>
+
+    <p><em>توضیح.</em> در سه مثال فوق کیفیت جواب‌های معادله‌ی دیفرانسیل را در نزدیکی یک نقطه‌ی ثابت بررسی کردیم. به‌طور کلی اگر یک میدان برداری در \(\mathbf{R}^n\) داشته باشیم که صفر نقطه‌ی ثابت آن باشد، یعنی اگر</p>
+    <div class="eq">\[ \frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x}) = T\mathbf{x} + \text{جملات مراتب بالاتر} \]</div>
+    <p>که در اینجا \(\mathbf{x} \in \mathbf{R}^n\) و \(\mathbf{f}\) یک میدان برداری در \(\mathbf{R}^n\) و \(T\) بخش خطی \(\mathbf{f}\) است، و اگر مقادیر ویژه‌ی \(T\) همگی دارای بخش حقیقی غیرصفر باشند، آنگاه نقطه‌ی صفر دارای یک مجموعه‌ی درون‌رونده‌ی \(i\)-بعدی و یک مجموعه‌ی بیرون‌رونده‌ی \((n-i)\)-بعدی است که در اینجا \(i\) تعداد مقادیر ویژه‌ی \(T\) با بخش حقیقی منفی است. به‌عنوان مثال، اگر داشته باشیم</p>
+    <div class="eq">\[ T = \begin{pmatrix} -1 &amp; 1 &amp; 0 \\ -1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</div>
+    <p>آنگاه مقادیر ویژه‌ی \(T\) عبارت‌اند از \(-1 \pm i\) و \(1\). در اینجا صفر دارای مجموعه‌ی درون‌رونده‌ی دوبعدی و مجموعه‌ی بیرون‌رونده‌ی یک‌بعدی خواهد بود. نمودار حالات دستگاه در نزدیکی نقطه‌ی صفر از لحاظ توپولوژیکی مطابق شکل ۷ است.</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 280 210" width="280" role="img" aria-label="شکل ۷">
+        <polygon points="52,150 118,86 234,86 168,150" fill="none" stroke="#B7AC99" stroke-width="1"/>
+        <line x1="143" y1="14" x2="143" y2="196" stroke="#1C1814" stroke-width="1.3"/>
+        <path d="M139 33 h8.4 l-4.2 -11 z" fill="#1C1814"/>
+        <path d="M139 178 h8.4 l-4.2 11 z" fill="#1C1814"/>
+        <g fill="none" stroke="#1C1814" stroke-width="1.3">
+          <path d="M206 96 A46 22 0 1 1 108 122 A34 16 0 1 1 172 112 A22 10 0 1 1 130 116 A10 5 0 1 1 150 114"/>
+        </g>
+        <path d="M204 101 l4 -9 -10 2 z" fill="#1C1814"/>
+        <circle cx="143" cy="117" r="3.6" fill="#1C1814"/>
+        <text x="152" y="24" font-family="Vazirmatn, sans-serif" font-size="11.5" fill="#6B6155">بیرون‌رونده</text>
+        <text x="204" y="146" font-family="Vazirmatn, sans-serif" font-size="11.5" fill="#6B6155">درون‌رونده</text>
+      </svg>
+      <figcaption class="figcap">شکل ۷ — مارپیچ به درون روی درون‌رونده‌ی دوبعدی، گریز در امتداد بیرون‌رونده‌ی یک‌بعدی.</figcaption>
+    </figure>
+
+    <p><span class="exlead">مثال ۴.</span></p>
+    <div class="eq">\[ \frac{dx}{dt} = -x\,(x^2 - \varepsilon), \qquad x \in \mathbf{R} \]</div>
+    <p>که \(\varepsilon\) یک پارامتر حقیقی است. در اینجا نمونه‌ای از یک انشعاب در یک دستگاه دینامیکی پارامتری داریم. نمودار حالات دستگاه برای مقادیر منفی، صفر و مثبت \(\varepsilon\) مطابق شکل ۸ است.</p>
+    <p>مشاهده می‌کنیم که وقتی \(\varepsilon\) از صفر می‌گذرد، نمودار حالات دستگاه به‌طور کیفی تغییر می‌کند. برای \(\varepsilon \le 0\) سیستم دارای یک رباینده با پهنه‌ی ربایش \(\mathbf{R}\) است؛ در حالی که برای \(\varepsilon > 0\) سه نقطه‌ی ثابت وجود دارد: صفر که یک دافع است، \(\sqrt{\varepsilon}\) که رباینده‌ای با پهنه‌ی ربایش \(\mathbf{R}^{+}\) است، و \(-\sqrt{\varepsilon}\) که رباینده‌ای با پهنه‌ی ربایش \(\mathbf{R}^{-}\) (اعداد حقیقی منفی) است. نقطه‌ی صفر پهنه‌ی ربایش دو رباینده‌ی موجود را از یکدیگر جدا می‌کند و از این نظر به صفر می‌گوییم یک جداساز. اگر نقاط ثابت دستگاه پارامتری را در برابر محور \(\varepsilon\) رسم نماییم، شکل ۹ به دست می‌آید که شبیه یک چنگال است؛ از این نظر به این انشعاب (و انشعاب‌هایی که کیفیتاً به‌طور موضعی مانند این مثال‌اند) می‌گوییم انشعاب چنگالی.</p>
+
+    <div class="lab" data-widget="pitchfork">
+      <div class="lab-head">
+        <span class="lab-kicker">شکل‌های ۸ و ۹ — زنده</span>
+        <span class="lab-hint">\(\varepsilon\) را از صفر عبور بده و ببین یک رباینده چگونه دوتا می‌شود.</span>
+      </div>
+      <div class="duo">
+        <div><canvas data-c="phase" width="330" height="120"></canvas><div class="duocap">شکل ۸ — خطِ حالات در εِ کنونی</div></div>
+        <div><canvas data-c="bif" width="330" height="240"></canvas><div class="duocap">شکل ۹ — نقاط ثابت در برابر ε: چنگال</div></div>
+      </div>
+      <div class="lab-controls">
+        <span>ε</span>
+        <input type="range" data-c="eps" min="-1" max="1" step="0.01" value="-0.5">
+        <span class="lab-val" data-c="epsval">−۰٫۵۰</span>
+      </div>
+      <div class="lab-read"><span data-c="desc"></span></div>
+    </div>
+
+    <p><span class="exlead">مثال ۵.</span> دستگاه دینامیکی زیر را که در مختصات قطبی بیان شده است در نظر بگیرید:</p>
+    <div class="eq">\[ \frac{dr}{dt} = -r\,(r-1)(r-2), \qquad \frac{d\theta}{dt} = 1 . \]</div>
+    <p>در اینجا \(r=0\)، یعنی مبدأ مختصات، یک رباینده است و دایره‌های \(r=1\) و \(r=2\) هر دو جواب‌های دستگاه‌اند. به‌سادگی می‌توان ملاحظه کرد که \(r=2\) یک مدار بسته است که کلیه‌ی مدارهای ناحیه‌ی \(r>1\) را جذب خود می‌کند. در اینجا \(r=2\) نمونه‌ای از یک رباینده‌ی غیرنقطه‌ای است که آن را یک دور حدی می‌نامیم؛ پهنه‌ی ربایش آن نیز \(r>1\) است. از طرف دیگر \(r=1\) یک مدار بسته‌ی دافع است و کلیه‌ی مدارها در \(r>1\) و \(r&lt;1\) از آن دور می‌شوند (شکل ۱۰).</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 240 240" width="240" role="img" aria-label="شکل ۱۰">
+        <circle cx="120" cy="120" r="84" fill="none" stroke="#1C1814" stroke-width="1.8"/><circle cx="120" cy="120" r="42" fill="none" stroke="#6B6155" stroke-width="1.2" stroke-dasharray="5 4"/><path d="M234.2 120.0L231.4 117.8L228.9 115.6L226.7 113.6L224.8 111.6L223.0 109.7L221.4 107.8L219.9 105.9L218.5 104.1L217.1 102.3L215.8 100.6L214.6 98.8L213.4 97.1L212.2 95.5L211.1 93.8L209.9 92.2L208.8 90.6L207.7 89.0L206.6 87.4L205.5 85.8L204.5 84.3L203.4 82.8L202.3 81.3L201.2 79.8L200.0 78.3L198.9 76.9L197.8 75.5L196.7 74.0L195.5 72.7L194.3 71.3L193.2 69.9L192.0 68.6L190.8 67.3L189.5 66.0L188.3 64.8L187.0 63.5L185.8 62.3L184.5 61.1L183.2 59.9L181.9 58.8L180.6 57.7L179.2 56.5L177.8 55.5L176.5 54.4L175.1 53.4L173.7 52.4L172.2 51.4L170.8 50.4L169.3 49.5L167.9 48.6L166.4 47.7L164.9 46.9L163.4 46.1L161.9 45.3L160.3 44.5L158.8 43.8L157.2 43.1L155.7 42.4L154.1 41.8L152.5 41.2L150.9 40.6L149.3 40.0L147.6 39.5L146.0 39.0L144.4 38.5L142.7 38.1L141.1 37.7L139.4 37.4L137.8 37.0L136.1 36.7L134.4 36.4L132.7 36.2L131.1 36.0L129.4 35.8L127.7 35.7L126.0 35.6L124.3 35.5L122.6 35.4L120.9 35.4L119.2 35.5L117.5 35.5L115.8 35.6L114.2 35.7L112.5 35.9L110.8 36.1L109.1 36.3L107.5 36.5L105.8 36.8L104.1 37.1L102.5 37.5L100.8 37.9L99.2 38.3L97.6 38.7L96.0 39.2L94.3 39.7L92.8 40.2L91.2 40.8L89.6 41.4L88.0 42.1L86.5 42.7L84.9 43.4L83.4 44.1L81.9 44.9L80.4 45.7L79.0 46.5L77.5 47.3L76.1 48.2L74.6 49.1L73.2 50.0L71.8 51.0L70.5 52.0L69.1 53.0L67.8 54.0L66.5 55.1L65.2 56.2L64.0 57.3L62.7 58.4L61.5 59.6L60.3 60.8L59.1 62.0L58.0 63.2L56.9 64.4L55.8 65.7L54.7 67.0L53.7 68.3L52.6 69.7L51.6 71.0L50.7 72.4L49.8 73.8L48.8 75.2L48.0 76.7L47.1 78.1L46.3 79.6L45.5 81.1L44.7 82.6L44.0 84.1L43.3 85.6L42.6 87.1L42.0 88.7L41.4 90.3L40.8 91.8L40.3 93.4L39.8 95.0L39.3 96.6L38.8 98.3L38.4 99.9L38.0 101.5L37.7 103.2L37.3 104.8L37.1 106.5L36.8 108.1L36.6 109.8L36.4 111.5L36.3 113.2L36.1 114.8L36.0 116.5L36.0 118.2L36.0 119.9L36.0 121.5L36.0 123.2L36.1 124.9L36.2 126.6L36.4 128.3L36.6 129.9L36.8 131.6L37.0 133.3L37.3 134.9L37.6 136.6L38.0 138.2L38.4 139.8L38.8 141.5L39.2 143.1L39.7 144.7L40.2 146.3L40.8 147.9L41.3 149.5L41.9 151.0L42.6 152.6L43.2 154.1L43.9 155.7L44.7 157.2L45.4 158.7L46.2 160.2L47.0 161.6L47.9 163.1L48.8 164.5L49.7 165.9L50.6 167.3L51.6 168.7L52.5 170.1L53.6 171.4L54.6 172.7L55.7 174.0L56.8 175.3L57.9 176.5L59.0 177.8L60.2 179.0L61.4 180.2L62.6 181.3L63.8 182.5L65.1 183.6L66.4 184.7L67.7 185.7L69.0 186.8L70.3 187.8L71.7 188.7L73.1 189.7L74.5 190.6L75.9 191.5L77.4 192.4L78.8 193.2L80.3 194.0L81.8 194.8L83.3 195.6L84.8 196.3L86.3 197.0L87.9 197.6L89.4 198.2L91.0 198.8L92.6 199.4L94.2 199.9L95.8 200.4L97.4 200.9L99.0 201.3L100.7 201.7L102.3 202.1L103.9 202.5L105.6 202.8L107.2 203.0L108.9 203.3L110.6 203.5L112.3 203.6L113.9 203.8L115.6 203.9L117.3 204.0L119.0 204.0L120.6 204.0L122.3 204.0L124.0 203.9L125.7 203.8L127.3 203.7L129.0 203.5L130.7 203.3L132.4 203.1L134.0 202.8L135.7 202.5L137.3 202.2L139.0 201.8L140.6 201.4L142.2 201.0L143.8 200.6L145.4 200.1L147.0 199.5L148.6 199.0L150.2 198.4L151.8 197.8L153.3 197.1L154.8 196.4L156.4 195.7L157.9 195.0L159.4 194.2L160.8 193.4L162.3 192.6L163.7 191.7L165.2 190.8L166.6 189.9L168.0 189.0L169.3 188.0L170.7 187.0L172.0 186.0L173.3 184.9L174.6 183.8L175.9 182.7L177.1 181.6L178.3 180.4L179.5 179.3L180.7 178.1L181.9 176.8L183.0 175.6L184.1 174.3L185.1 173.0L186.2 171.7L187.2 170.4L188.2 169.0L189.2 167.7L190.1 166.3L191.0 164.8L191.9 163.4L192.8 162.0L193.6 160.5L194.4 159.0L195.1 157.5L195.9 156.0L196.6 154.5L197.3 153.0L197.9 151.4L198.5 149.8L199.1 148.3L199.7 146.7L200.2 145.1L200.7 143.5L201.1 141.9L201.5 140.2L201.9 138.6L202.3 137.0L202.6 135.3L202.9 133.6L203.1 132.0L203.4 130.3L203.6 128.7L203.7 127.0L203.8 125.3L203.9 123.6L204.0 121.9L204.0 120.3L204.0 118.6L203.9 116.9L203.9 115.2L203.8 113.6L203.6 111.9L203.4 110.2L203.2 108.5L203.0 106.9L202.7 105.2L202.4 103.6L202.0 101.9L201.7 100.3L201.2 98.7L200.8 97.0L200.3 95.4L199.8 93.8L199.3 92.2L198.7 90.7L198.1 89.1L197.5 87.5L196.8 86.0L196.1 84.5L195.4 82.9L194.6 81.4L193.8 80.0L193.0 78.5L192.2 77.0L191.3 75.6L190.4 74.2L189.5 72.8L188.5 71.4L187.5 70.1L186.5 68.7L185.5 67.4L184.4 66.1L183.3 64.8L182.2 63.6L181.1 62.3L179.9 61.1L178.7 59.9L177.5 58.8L176.3 57.6L175.0 56.5L173.7 55.4L172.4 54.4L171.1 53.3L169.8 52.3L168.4 51.3L167.0 50.4L165.6 49.5L164.2 48.6L162.8 47.7L161.3 46.9L159.8 46.0L158.3 45.3L156.8 44.5L155.3 43.8L153.8 43.1L152.2 42.4L150.7 41.8L149.1 41.2" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M143.1 38.8L155.4 38.9L152.1 47.3z" fill="#C8633E"/><path d="M164.9 120.0L165.0 119.1L165.0 118.2L165.0 117.3L165.0 116.4L165.0 115.5L165.0 114.6L164.9 113.7L164.9 112.8L164.8 111.9L164.7 110.9L164.6 110.0L164.4 109.1L164.3 108.2L164.1 107.3L163.9 106.4L163.7 105.5L163.5 104.6L163.2 103.7L163.0 102.8L162.7 101.9L162.4 101.1L162.1 100.2L161.8 99.3L161.4 98.4L161.1 97.6L160.7 96.7L160.3 95.8L159.9 95.0L159.5 94.1L159.0 93.3L158.6 92.5L158.1 91.6L157.6 90.8L157.1 90.0L156.6 89.2L156.1 88.4L155.5 87.6L154.9 86.8L154.3 86.0L153.7 85.3L153.1 84.5L152.5 83.7L151.8 83.0L151.2 82.3L150.5 81.6L149.8 80.8L149.1 80.1L148.4 79.4L147.7 78.8L146.9 78.1L146.1 77.4L145.4 76.8L144.6 76.2L143.8 75.5L142.9 74.9L142.1 74.3L141.3 73.7L140.4 73.2L139.5 72.6L138.6 72.1L137.7 71.5L136.8 71.0L135.9 70.5L135.0 70.0L134.0 69.6L133.0 69.1L132.1 68.7L131.1 68.2L130.1 67.8L129.1 67.4L128.0 67.0L127.0 66.7L126.0 66.3L124.9 66.0L123.9 65.7L122.8 65.4L121.7 65.1L120.6 64.9L119.5 64.6L118.4 64.4L117.3 64.2L116.1 64.0L115.0 63.9L113.8 63.7L112.7 63.6L111.5 63.5L110.3 63.4L109.2 63.4L108.0 63.3L106.8 63.3L105.6 63.3L104.4 63.4L103.2 63.4L101.9 63.5L100.7 63.6L99.5 63.7L98.3 63.9L97.0 64.0L95.8 64.2L94.6 64.5L93.3 64.7L92.1 65.0L90.9 65.3L89.6 65.6L88.4 65.9L87.1 66.3L85.9 66.7L84.7 67.2L83.4 67.6L82.2 68.1L81.0 68.6L79.8 69.1L78.6 69.7L77.4 70.3L76.2 70.9L75.0 71.6L73.8 72.3L72.6 73.0L71.4 73.7L70.3 74.5L69.1 75.2L68.0 76.1L66.9 76.9L65.8 77.8L64.7 78.7L63.6 79.6L62.6 80.6L61.5 81.6L60.5 82.6L59.5 83.6L58.5 84.7L57.6 85.8L56.6 86.9L55.7 88.0L54.8 89.2L53.9 90.4L53.1 91.6L52.3 92.8L51.5 94.1L50.7 95.4L50.0 96.7L49.3 98.0L48.6 99.3L47.9 100.7L47.3 102.1L46.7 103.5L46.2 104.9L45.6 106.3L45.1 107.8L44.7 109.3L44.2 110.7L43.8 112.2L43.5 113.7L43.1 115.3L42.9 116.8L42.6 118.3L42.4 119.9L42.2 121.4L42.0 123.0L41.9 124.6L41.8 126.1L41.8 127.7L41.8 129.3L41.8 130.9L41.9 132.5L42.0 134.1L42.1 135.7L42.3 137.2L42.5 138.8L42.8 140.4L43.1 142.0L43.4 143.6L43.8 145.1L44.2 146.7L44.6 148.3L45.0 149.8L45.6 151.3L46.1 152.9L46.7 154.4L47.3 155.9L47.9 157.4L48.6 158.9L49.3 160.3L50.0 161.8L50.8 163.2L51.6 164.7L52.4 166.1L53.3 167.5L54.2 168.8L55.1 170.2L56.1 171.5L57.1 172.8L58.1 174.1L59.1 175.4L60.2 176.6L61.3 177.9L62.4 179.1L63.6 180.3L64.8 181.4L66.0 182.5L67.2 183.7L68.5 184.7L69.7 185.8L71.0 186.8L72.4 187.8L73.7 188.8L75.1 189.7L76.4 190.7L77.8 191.6L79.3 192.4L80.7 193.2L82.2 194.0L83.6 194.8L85.1 195.6L86.6 196.3L88.2 196.9L89.7 197.6L91.2 198.2L92.8 198.8L94.4 199.3L96.0 199.9L97.6 200.4L99.2 200.8L100.8 201.2L102.4 201.6L104.0 202.0L105.7 202.3L107.3 202.6L109.0 202.8L110.6 203.1L112.3 203.2L114.0 203.4L115.6 203.5L117.3 203.6L119.0 203.7L120.6 203.7L122.3 203.7L124.0 203.6L125.7 203.5L127.3 203.4L129.0 203.3L130.7 203.1L132.3 202.8L134.0 202.6L135.6 202.3L137.3 202.0L138.9 201.6L140.5 201.2L142.2 200.8L143.8 200.4L145.4 199.9L147.0 199.4L148.6 198.8L150.1 198.2L151.7 197.6L153.2 197.0L154.8 196.3L156.3 195.6L157.8 194.9L159.3 194.1L160.8 193.3L162.2 192.5L163.7 191.6L165.1 190.7L166.5 189.8L167.9 188.9L169.3 187.9L170.6 186.9L172.0 185.9L173.3 184.8L174.6 183.8L175.8 182.7L177.1 181.5L178.3 180.4L179.5 179.2L180.7 178.0L181.8 176.8L182.9 175.6L184.0 174.3L185.1 173.0L186.2 171.7L187.2 170.3L188.2 169.0L189.1 167.6L190.1 166.2L191.0 164.8L191.9 163.4L192.7 162.0L193.6 160.5L194.4 159.0L195.1 157.5L195.9 156.0L196.6 154.5L197.2 152.9L197.9 151.4L198.5 149.8L199.1 148.3L199.6 146.7L200.1 145.1L200.6 143.5L201.1 141.8L201.5 140.2L201.9 138.6L202.3 136.9L202.6 135.3L202.9 133.6L203.1 132.0L203.3 130.3L203.5 128.7L203.7 127.0L203.8 125.3L203.9 123.6L204.0 121.9L204.0 120.3L204.0 118.6L203.9 116.9L203.9 115.2L203.7 113.6L203.6 111.9L203.4 110.2L203.2 108.5L203.0 106.9L202.7 105.2L202.4 103.6L202.0 101.9L201.6 100.3L201.2 98.7L200.8 97.0L200.3 95.4L199.8 93.8L199.3 92.2L198.7 90.7L198.1 89.1L197.5 87.5L196.8 86.0L196.1 84.5L195.4 83.0L194.6 81.5L193.8 80.0L193.0 78.5L192.2 77.0L191.3 75.6L190.4 74.2L189.5 72.8L188.5 71.4L187.5 70.1L186.5 68.7L185.5 67.4L184.4 66.1L183.3 64.8L182.2 63.6L181.1 62.3L179.9 61.1L178.7 59.9L177.5 58.8L176.3 57.6L175.0 56.5L173.7 55.4L172.4 54.4L171.1 53.3L169.8 52.3L168.4 51.3L167.0 50.4L165.6 49.5L164.2 48.6L162.8 47.7L161.3 46.9L159.8 46.0L158.3 45.3L156.8 44.5L155.3 43.8L153.8 43.1L152.2 42.4L150.7 41.8L149.1 41.2L147.5 40.6L145.9 40.1L144.3 39.6L142.7 39.1L141.1 38.7L139.5 38.3L137.8 37.9L136.2 37.6L134.5 37.3L132.9 37.0L131.2 36.8L129.6 36.5L127.9 36.4L126.2 36.2L124.5 36.1L122.9 36.0L121.2 36.0L119.5 36.0L117.8 36.0L116.1 36.1L114.5 36.2L112.8 36.3L111.1 36.5L109.4 36.7L107.8 36.9L106.1 37.2L104.5 37.4L102.8 37.8L101.2 38.1L99.5 38.5L97.9 39.0L96.3 39.4L94.7 39.9L93.1 40.4L91.5 41.0L89.9 41.6L88.4 42.2L86.8 42.8L85.3 43.5L83.8 44.2L82.3 45.0L80.8 45.7L79.3 46.5L77.8 47.4L76.4 48.2L75.0 49.1L73.5 50.0L72.2 51.0L70.8 51.9L69.4 52.9L68.1 54.0L66.8 55.0L65.5 56.1L64.2 57.2L63.0 58.3L61.8 59.5L60.6 60.6L59.4 61.8L58.2 63.1L57.1 64.3L56.0 65.6L54.9 66.9L53.9 68.2L52.9 69.5L51.9 70.9L50.9 72.2L50.0 73.6L49.0 75.0L48.2 76.5L47.3 77.9L46.5 79.4L45.7 80.9L44.9 82.3L44.2 83.9L43.5 85.4L42.8 86.9L42.1 88.5L41.5 90.0L40.9 91.6L40.4 93.2L39.9 94.8L39.4 96.4L38.9 98.0L38.5 99.6L38.1 101.3L37.8 102.9L37.4 104.6L37.1 106.2L36.9 107.9L36.7 109.5L36.5 111.2L36.3 112.9L36.2 114.6L36.1 116.2L36.0 117.9L36.0 119.6L36.0 121.3L36.1 123.0L36.1 124.6L36.2 126.3" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M36.5 132.8L31.5 121.5L40.5 121.1z" fill="#C8633E"/><path d="M157.8 120.0L157.7 119.2L157.6 118.5L157.5 117.7L157.3 117.0L157.2 116.3L157.0 115.5L156.8 114.8L156.6 114.1L156.4 113.4L156.2 112.7L155.9 112.0L155.6 111.3L155.4 110.6L155.1 109.9L154.7 109.3L154.4 108.6L154.1 107.9L153.7 107.3L153.4 106.7L153.0 106.1L152.6 105.5L152.2 104.9L151.7 104.3L151.3 103.7L150.9 103.1L150.4 102.6L149.9 102.1L149.4 101.5L149.0 101.0L148.5 100.5L147.9 100.1L147.4 99.6L146.9 99.1L146.3 98.7L145.8 98.3L145.2 97.9L144.7 97.5L144.1 97.1L143.5 96.7L142.9 96.4L142.3 96.1L141.7 95.8L141.1 95.5L140.5 95.2L139.9 94.9L139.3 94.7L138.6 94.5L138.0 94.3L137.4 94.1L136.8 93.9L136.1 93.7L135.5 93.6L134.9 93.5L134.2 93.4L133.6 93.3L133.0 93.2L132.3 93.2L131.7 93.1L131.1 93.1L130.4 93.1L129.8 93.1L129.2 93.2L128.6 93.2L128.0 93.3L127.4 93.4L126.8 93.5L126.2 93.6L125.6 93.8L125.0 93.9L124.5 94.1L123.9 94.3L123.4 94.5L122.8 94.7L122.3 94.9L121.8 95.1L121.3 95.4L120.7 95.7L120.3 95.9L119.8 96.2L119.3 96.5L118.9 96.9L118.4 97.2L118.0 97.5L117.6 97.9L117.2 98.2L116.8 98.6L116.4 99.0L116.0 99.4L115.7 99.7L115.4 100.1L115.0 100.5L114.7 101.0L114.5 101.4L114.2 101.8L113.9 102.2L113.7 102.6L113.5 103.1L113.2 103.5L113.0 103.9L112.9 104.4L112.7 104.8L112.5 105.3L112.4 105.7L112.3 106.1L112.1 106.6L112.0 107.0L112.0 107.4L111.9 107.8L111.8 108.3L111.8 108.7L111.7 109.1L111.7 109.5L111.7 109.9L111.7 110.3L111.7 110.7L111.7 111.1L111.7 111.5L111.8 111.9L111.8 112.2L111.9 112.6L112.0 112.9L112.0 113.3L112.1 113.6L112.2 113.9L112.3 114.2L112.4 114.6L112.5 114.8L112.6 115.1L112.7 115.4L112.8 115.7L113.0 116.0L113.1 116.2L113.2 116.5L113.4 116.7L113.5 116.9L113.6 117.1L113.8 117.4L113.9 117.6L114.1 117.8L114.2 117.9L114.4 118.1L114.5 118.3L114.6 118.4L114.8 118.6L114.9 118.8L115.1 118.9L115.2 119.0L115.4 119.1L115.5 119.3L115.6 119.4L115.8 119.5L115.9 119.6L116.0 119.7L116.2 119.8L116.3 119.8L116.4 119.9L116.6 120.0L116.7 120.1L116.8 120.1L116.9 120.2L117.0 120.2L117.1 120.3L117.2 120.3L117.4 120.4L117.5 120.4L117.6 120.4L117.7 120.5L117.8 120.5L117.8 120.5L117.9 120.5L118.0 120.6L118.1 120.6L118.2 120.6L118.3 120.6L118.3 120.6L118.4 120.6L118.5 120.6L118.6 120.6L118.6 120.6L118.7 120.6L118.8 120.6L118.8 120.6L118.9 120.6L118.9 120.6L119.0 120.6L119.0 120.6L119.1 120.6L119.1 120.6L119.2 120.6L119.2 120.6L119.3 120.6L119.3 120.6L119.3 120.6L119.4 120.6L119.4 120.6L119.4 120.5L119.5 120.5L119.5 120.5L119.5 120.5L119.6 120.5L119.6 120.5L119.6 120.5L119.6 120.5L119.7 120.5L119.7 120.4L119.7 120.4L119.7 120.4L119.7 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.4L119.8 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.3L119.9 120.2L119.9 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.2L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1L120.0 120.1" fill="none" stroke="#C8633E" stroke-width="1.25"/><path d="M120.0 113.6L124.5 125.0L115.5 125.1z" fill="#C8633E"/><path d="M113.5 36.0L125.0 31.5L125.0 40.5z" fill="#1C1814"/><path d="M126.5 204.0L115.0 208.5L115.0 199.5z" fill="#1C1814"/><circle cx="120.0" cy="120.0" r="3.6" fill="#C8633E"/>
+      </svg>
+      <figcaption class="figcap">شکل ۱۰ — \(r=2\): دور حدی رباینده؛ \(r=1\) (خط‌چین) دافع؛ مبدأ درونِ آن را می‌رباید.</figcaption>
+    </figure>
+
+    <p><span class="exlead">مثال ۶.</span> در مختصات قطبی:</p>
+    <div class="eq">\[ \frac{dr}{dt} = r\,(\varepsilon + r^2), \qquad \frac{d\theta}{dt} = 1 \]</div>
+    <p>و \(\varepsilon\) یک پارامتر حقیقی است. در اینجا نیز انشعابی داریم که به انشعاب هوپف (Hopf) معروف است. برای \(\varepsilon &lt; 0\)، \(r = \sqrt{-\varepsilon}\) یک مدار بسته‌ی دافع است و \(r=0\) یک رباینده‌ی نقطه‌ای. وقتی \(\varepsilon\) به صفر می‌رسد، مدار دافع در رباینده‌ی نقطه‌ای ادغام می‌شود؛ به‌طوری که برای \(\varepsilon \ge 0\) صفر یک نقطه‌ی دافع می‌شود (شکل ۱۱).</p>
+
+    <figure class="pmfig">
+      <svg viewBox="0 0 380 150" width="380" role="img" aria-label="شکل ۱۱">
+        <g><circle cx="64" cy="64" r="34" fill="none" stroke="#6B6155" stroke-width="1.1" stroke-dasharray="5 4"/><path d="M96.6 64.0L96.5 63.0L96.4 62.1L96.3 61.1L96.1 60.1L95.9 59.2L95.6 58.3L95.3 57.3L95.0 56.4L94.6 55.5L94.3 54.6L93.8 53.8L93.4 52.9L92.9 52.1L92.4 51.3L91.9 50.5L91.3 49.8L90.8 49.0L90.1 48.3L89.5 47.6L88.9 47.0L88.2 46.4L87.5 45.8L86.8 45.2L86.0 44.7L85.3 44.2L84.5 43.7L83.7 43.3L82.9 42.9L82.1 42.5L81.3 42.2L80.5 41.9L79.6 41.7L78.8 41.5L77.9 41.3L77.1 41.2L76.3 41.0L75.4 41.0L74.6 40.9L73.8 40.9L72.9 41.0L72.1 41.1L71.3 41.2L70.5 41.3L69.8 41.5L69.0 41.7L68.3 41.9L67.5 42.2L66.8 42.4L66.1 42.7L65.5 43.1L64.8 43.4L64.2 43.8L63.6 44.2L63.0 44.6L62.5 45.0L62.0 45.5L61.5 45.9L61.0 46.4L60.5 46.9L60.1 47.4L59.7 47.9L59.3 48.4L59.0 48.9L58.7 49.4L58.4 49.9L58.1 50.4L57.8 50.9L57.6 51.4L57.4 51.9L57.2 52.4L57.1 52.9L56.9 53.4L56.8 53.9L56.7 54.4L56.6 54.8L56.5 55.3L56.5 55.8L56.4 56.2L56.4 56.6L56.4 57.1L56.4 57.5L56.4 57.9L56.5 58.3L56.5 58.6L56.6 59.0L56.6 59.4L56.7 59.7L56.8 60.1L56.9 60.4L57.0 60.7L57.1 61.0L57.2 61.3L57.3 61.6L57.5 61.8L57.6 62.1L57.7 62.3L57.8 62.5L58.0 62.8L58.1 63.0L58.3 63.2L58.4 63.4L58.6 63.6L58.7 63.7L58.9 63.9L59.0 64.0L59.2 64.2L59.3 64.3L59.5 64.4L59.6 64.6L59.8 64.7L59.9 64.8L60.0 64.9L60.2 65.0L60.3 65.0L60.5 65.1L60.6 65.2L60.8 65.3L60.9 65.3L61.0 65.4L61.1 65.4L61.3 65.4L61.4 65.5L61.5 65.5L61.6 65.5L61.8 65.6L61.9 65.6L62.0 65.6L62.1 65.6L62.2 65.6L62.3 65.6L62.4 65.6L62.5 65.6L62.6 65.6L62.7 65.6L62.8 65.6L62.8 65.6L62.9 65.6L63.0 65.6L63.1 65.5L63.1 65.5" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M69.5 64.0L59.3 71.0L57.2 62.3z" fill="#1C1814"/><path d="M99.7 64.0L99.8 62.9L99.9 61.8L99.9 60.8L99.9 59.7L99.9 58.6L99.9 57.5L99.8 56.4L99.8 55.2L99.7 54.1L99.6 53.0L99.4 51.9L99.3 50.7L99.1 49.6L98.9 48.4L98.7 47.2L98.5 46.1L98.2 44.9L98.0 43.6L97.7 42.4L97.4 41.1L97.1 39.8L96.8 38.5L96.5 37.2L96.2 35.7L95.9 34.3L95.6 32.7L95.3 31.1L95.0 29.4L94.7 27.6L94.5 25.6L94.3 23.4L94.1 21.0L94.0 18.3" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M93.6 11.8L98.8 23.0L89.9 23.6z" fill="#1C1814"/><circle cx="64.0" cy="64.0" r="3.4" fill="#C8633E"/></g><path d="M200.2 64.0L200.2 63.7L200.2 63.4L200.2 63.1L200.2 62.8L200.2 62.5L200.2 62.1L200.2 61.8L200.1 61.5L200.1 61.2L200.0 60.9L199.9 60.6L199.9 60.3L199.8 60.0L199.7 59.7L199.6 59.4L199.5 59.1L199.3 58.8L199.2 58.5L199.1 58.2L198.9 57.9L198.8 57.6L198.6 57.3L198.4 57.1L198.2 56.8L198.0 56.5L197.8 56.3L197.6 56.0L197.4 55.8L197.2 55.5L196.9 55.3L196.7 55.0L196.4 54.8L196.2 54.6L195.9 54.4L195.6 54.2L195.4 54.0L195.1 53.8L194.8 53.6L194.5 53.4L194.2 53.3L193.9 53.1L193.5 53.0L193.2 52.8L192.9 52.7L192.6 52.6L192.2 52.5L191.9 52.4L191.5 52.3L191.2 52.2L190.8 52.1L190.5 52.0L190.1 52.0L189.8 51.9L189.4 51.9L189.0 51.9L188.7 51.9L188.3 51.9L187.9 51.9L187.6 51.9L187.2 51.9L186.8 52.0L186.4 52.0L186.1 52.1L185.7 52.2L185.3 52.3L184.9 52.4L184.6 52.5L184.2 52.6L183.8 52.7L183.5 52.9L183.1 53.0L182.8 53.2L182.4 53.3L182.1 53.5L181.7 53.7L181.4 53.9L181.0 54.2L180.7 54.4L180.4 54.6L180.0 54.9L179.7 55.1L179.4 55.4L179.1 55.7L178.8 56.0L178.5 56.3L178.2 56.6L178.0 56.9L177.7 57.2L177.4 57.6L177.2 57.9L176.9 58.3L176.7 58.7L176.5 59.0L176.2 59.4L176.0 59.8L175.8 60.2L175.7 60.6L175.5 61.0L175.3 61.5L175.2 61.9L175.0 62.3L174.9 62.8L174.8 63.2L174.7 63.7L174.6 64.1L174.5 64.6L174.4 65.1L174.3 65.5L174.3 66.0L174.3 66.5L174.2 67.0L174.2 67.5L174.2 68.0L174.3 68.5L174.3 69.0L174.3 69.5L174.4 70.0L174.5 70.5L174.6 71.0L174.7 71.6L174.8 72.1L174.9 72.6L175.1 73.1L175.2 73.6L175.4 74.2L175.6 74.7L175.8 75.2L176.0 75.7L176.3 76.2L176.5 76.7L176.8 77.3L177.1 77.8L177.4 78.3L177.7 78.8L178.1 79.3L178.4 79.8L178.8 80.3L179.2 80.8L179.6 81.3L180.0 81.8L180.4 82.3L180.9 82.8L181.3 83.2L181.8 83.7L182.3 84.2L182.9 84.7L183.4 85.1L184.0 85.6L184.6 86.0L185.2 86.5L185.8 86.9L186.4 87.4L187.1 87.8L187.8 88.3L188.5 88.7L189.2 89.1L189.9 89.5L190.7 90.0L191.5 90.4L192.4 90.8L193.2 91.2L194.1 91.6L195.0 92.1L196.0 92.5L197.0 92.9L198.0 93.3L199.1 93.8L200.3 94.2L201.5 94.7L202.7 95.2L204.1 95.7L205.5 96.3L207.0 96.8L208.6 97.5L210.3 98.1L212.2 98.9L214.3 99.7L216.6 100.7L219.2 101.8L222.1 103.0L225.4 104.6" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M231.4 107.2L219.0 106.7L222.7 98.4z" fill="#1C1814"/><circle cx="190.0" cy="64.0" r="3.4" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><path d="M322.8 64.0L322.9 63.8L323.0 63.6L323.1 63.4L323.2 63.1L323.3 62.9L323.4 62.6L323.5 62.4L323.6 62.1L323.7 61.9L323.8 61.6L323.8 61.3L323.9 61.0L323.9 60.7L324.0 60.4L324.0 60.1L324.0 59.8L324.1 59.5L324.1 59.2L324.1 58.8L324.1 58.5L324.0 58.1L324.0 57.8L324.0 57.4L323.9 57.1L323.9 56.7L323.8 56.3L323.7 55.9L323.6 55.5L323.5 55.1L323.4 54.7L323.2 54.3L323.1 53.9L322.9 53.5L322.7 53.1L322.5 52.6L322.3 52.2L322.1 51.8L321.8 51.3L321.6 50.9L321.3 50.4L321.0 50.0L320.6 49.5L320.3 49.1L319.9 48.6L319.6 48.1L319.2 47.7L318.7 47.2L318.3 46.7L317.8 46.2L317.3 45.7L316.8 45.2L316.2 44.7L315.6 44.2L315.0 43.7L314.4 43.2L313.7 42.7L312.9 42.2L312.2 41.7L311.4 41.1L310.5 40.6L309.6 40.0L308.7 39.4L307.7 38.9L306.6 38.3L305.5 37.6L304.3 37.0L303.0 36.3L301.6 35.6L300.1 34.8L298.5 34.0L296.7 33.2L294.8 32.2L292.6 31.2L290.2 30.0L287.5 28.7L284.4 27.2L280.8 25.3" fill="none" stroke="#1C1814" stroke-width="1.2"/><path d="M274.9 22.5L287.2 23.5L283.2 31.6z" fill="#1C1814"/><circle cx="316.0" cy="64.0" r="3.4" fill="#fff" stroke="#C8633E" stroke-width="1.8"/><text x="64" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε &lt; 0</text><text x="64" y="141" font-family="Vazirmatn, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">صفر می‌رباید؛ دایره می‌رانَد</text><text x="190" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε = 0</text><text x="190" y="141" font-family="Vazirmatn, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">صفر می‌رانَد (به‌آرامی)</text><text x="316" y="124" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155" text-anchor="middle">ε &gt; 0</text><text x="316" y="141" font-family="Vazirmatn, sans-serif" font-size="10.5" fill="#6B6155" text-anchor="middle">صفر می‌رانَد</text>
+      </svg>
+      <figcaption class="figcap">شکل ۱۱ — انشعاب هوپفِ مثال ۶: دایره‌ی دافع بر نقطه‌ی رباینده فرومی‌نشیند و دافعی به جا می‌گذارد.</figcaption>
+    </figure>
+
+    <p>اگر در دستگاه فوق زمان را معکوس کنیم — یعنی میدان برداری \(dr/dt = -r(\varepsilon + r^2)\)، \(d\theta/dt = -1\) را در نظر بگیریم — آنگاه برای \(\varepsilon &lt; 0\) به‌جای یک مدار بسته‌ی دافع، یک دور حدی رباینده داریم.</p>
+
+    <p>از آنچه گذشت نتیجه می‌گیریم که مهم‌ترین مسئله در بررسی کیفی معادلات دیفرانسیل تعیین رباینده‌های معادله است؛ زیرا مدارهایی که در قلمرو رباینده‌ها قرار دارند با گذشت زمان به‌سرعت به رباینده نزدیک می‌شوند و عملاً از رباینده‌ی موردنظر قابل تشخیص نخواهند بود. در واقع از لحاظ فیزیکی تنها رباینده‌های یک دستگاه‌اند که قابل مشاهده‌اند. سؤالی که در اینجا مطرح می‌شود این است که آیا به‌جز رباینده‌های نقطه‌ای و دورهای حدی که در مثال‌های گذشته دیدیم، رباینده‌هایی از نوع دیگر وجود دارند یا نه؟ — و در اینجا منظور ما رباینده‌ای است که قابل تجزیه به رباینده‌های نقطه‌ای و دور حدی نباشد. در واقع نوع دیگری از رباینده از دیرباز شناخته شده است که رباینده‌ی شبه‌تناوبی نامیده می‌شود و نمونه‌ای از آن در «شار غیرگویا» روی چنبره مشاهده می‌شود. طبق شکل ۱۲، چنبره‌ی دوبعدی را مربعی تصور کنید که اضلاع روبه‌روی آن دو به دو یکی انگاشته شده باشند. حال میدان برداری</p>
+    <div class="eq">\[ \frac{dx}{dt} = w_1, \qquad \frac{dy}{dt} = w_2 \]</div>
+    <p>را روی مربع در نظر بگیرید، به‌طوری که \(w_2 / w_1\) یک عدد گنگ باشد. با اندکی تأمل روشن می‌شود که مدار هر نقطه روی چنبره چگال خواهد بود. حال به‌راحتی می‌توان یک میدان برداری در \(\mathbf{R}^3\) تصور کرد که مدارهای آن همگی به‌سوی یک چنبره جذب می‌شوند و مدارهای روی چنبره کیفیت ذکرشده را دارند (شکل ۱۳).</p>
+
+    <div class="lab" data-widget="torus">
+      <div class="lab-head">
+        <span class="lab-kicker">شکل‌های ۱۲ و ۱۳ — زنده</span>
+        <span class="lab-hint">یک شار، دو تصویر: مربعِ با اضلاع چسبیده، و چنبره‌ای که از آن ساخته می‌شود. لبه‌ی آجری همان دایره‌ی آجری است؛ لبه‌ی سبز همان دایره‌ی سبز.</span>
+      </div>
+      <div class="duo">
+        <div><canvas data-c="sq" width="330" height="330"></canvas><div class="duocap">شکل ۱۲ — مربع: خروج از راست یعنی ورود از چپ، خروج از بالا یعنی ورود از پایین</div></div>
+        <div><canvas data-c="tor" width="330" height="330"></canvas><div class="duocap">شکل ۱۳ — همان مدار، زنده روی چنبره: بدون هیچ پرشی، یک نخِ پیوسته</div></div>
+      </div>
+      <div class="lab-presets">
+        <button class="lab-chip on" data-slope="rational">w₂/w₁ = ۲/۳ — گویا</button>
+        <button class="lab-chip" data-slope="irrational">w₂/w₁ = √۲ — گنگ</button>
+        <button class="lab-chip" data-c="restart">↻ از نو</button>
+      </div>
+      <div class="lab-read"><span data-c="note"></span><span data-c="wraps"></span></div>
+    </div>
+
+    <h2 class="subhead">رباینده‌ی غریب لورنتس</h2>
+
+    <figure class="pmfig coverfig">
+      <img src="../assets/nashr-riazi-1-1-cover.jpg" alt="روی جلد نشر ریاضی، سال ۱، شماره‌ی ۱">
+      <figcaption class="figcap">روی جلد همان شماره‌ی «نشر ریاضی» (فروردین ۱۳۶۷) — خودِ رباینده‌ی غریب لورنتس.</figcaption>
+    </figure>
+
+    <p>تا اوایل دهه‌ی شصت میلادی تصور می‌شد که هر رباینده‌ای قابل تجزیه به یکی از سه رباینده‌ای است که تاکنون دیده‌ایم. در این زمان ریاضیدان آمریکایی اسمیل (S. Smale) اولین نمونه از یک «رباینده‌ی غریب» را ارائه کرد که در آن رباینده‌ی دستگاه شکل پیچیده‌ای داشت و رفتار جواب‌های دستگاه نیز در داخل و اطراف رباینده وضعیتی درهم و از نظر عملی غیرقابل پیش‌بینی بود. با این حال این مثال هنوز در قلمرو نظریه‌ی ریاضی بود و تصور نمی‌شد که در دستگاه‌های تابع قوانین فیزیک کلاسیک بتوان چنین پدیده‌ای را مشاهده کرد. ولی در ۱۹۶۳ یک ریاضیدان و هواشناس آمریکایی به نام لورنتس (E. N. Lorenz) مقاله‌ای منتشر کرد که در آن برای اولین بار رباینده‌ای از نوع جدید در مسائل طبیعی مطرح می‌شد. او که در جست‌وجوی یک مدل ریاضی برای توضیح تلاطم جوّی در هواشناسی بود، معادله‌ی دیفرانسیل زیر را در نظر گرفت:</p>
+
+    <div class="eq">\[ \left. \begin{aligned} \frac{dx}{dt} &amp;= -\sigma (x - y) \\[2pt] \frac{dy}{dt} &amp;= Rx - y - xz \\[2pt] \frac{dz}{dt} &amp;= xy - bz \end{aligned} \;\right\} \quad (*) \qquad \frac{d\mathbf{x}}{dt} = V(\mathbf{x}) \;\; \text{:یا به اختصار} \]</div>
+
+    <p>که در اینجا \((x,y,z) \in \mathbf{R}^3\) و \(R\)، \(b\) و \(\sigma\) پارامترهای حقیقی هستند. لورنتس مقادیر \(\sigma = 10\) و \(b = 8/3\) را بررسی کرد و نشان داد که به ازای جمیع مقادیر مثبت \(R\)، یک ناحیه‌ی همبند ساده‌ی \(M\) — دربرگیرنده‌ی مبدأ مختصات — در \(\mathbf{R}^3\) وجود دارد، به‌طوری که میدان برداری \((*)\) در کلیه‌ی نقاط مرزی آن به طرف داخل است (شکل ۱۴).</p>
+
+    <p>از اینجا نتیجه می‌شود که \(M\) باید حاوی رباینده (یا رباینده‌های مختلف) باشد؛ در واقع \(A = \bigcap_{t>0} \varphi_t(M)\) رباینده (یا رباینده‌های) موردنظر است. از طرف دیگر دیورژانس میدان برداری \((*)\) منفی است و به‌راحتی می‌توان نشان داد که حجم هر قطعه از فضای حالات با گذشت زمان کاهش می‌یابد — و در واقع حجم قطعه به صفر میل می‌کند (در اصطلاح ریاضی، وضعیت حدی این قطعه یک مجموعه‌ی اندازه‌ی صفر است).</p>
+
+    <p>حال برای تعیین رباینده (یا رباینده‌های) موجود در \(M\)، مقدار پارامتر \(R\) را از \(R=0\) تا \(R=28\) افزایش می‌دهیم و کیفیت و تغییرات نمودار حالات دستگاه را در این طیف از مقادیر \(R\) — که مورد بررسی لورنتس قرار گرفت — به‌طور اجمالی تشریح می‌کنیم.</p>
+
+    <div class="lab" data-widget="lorenz">
+      <div class="lab-head">
+        <span class="lab-kicker">شکل‌های ۱۴ تا ۱۹ — زنده</span>
+        <span class="lab-hint">دو مدار با فاصله‌ی اولیه‌ی ۰٫۰۰۰۱ رها می‌شوند — یکی تیره، یکی آجری. \(R\) را از روی انشعاب‌های ۱، ‎≈۱۳٫۹۲‎ و ‎≈۲۴٫۷۴‎ عبور بده. نما آرام می‌چرخد — با کشیدن، خودت بچرخانش.</span>
+      </div>
+      <canvas data-c="view" width="680" height="440"></canvas>
+      <div class="lab-controls">
+        <span>R</span>
+        <input type="range" data-c="R" min="0" max="28" step="0.1" value="28">
+        <span class="lab-val" data-c="Rval">۲۸٫۰</span>
+        <button class="lab-chip" data-c="restart">↻ دو نقطه‌ی تازه</button>
+      </div>
+      <div class="lab-presets">
+        <button class="lab-chip" data-r="0.6">R = ۰٫۶ · شکل ۱۶</button>
+        <button class="lab-chip" data-r="15">R = ۱۵ · شکل ۱۷</button>
+        <button class="lab-chip" data-r="20">R = ۲۰ · میان دو انشعاب</button>
+        <button class="lab-chip on" data-r="28">R = ۲۸ · شکل ۱۹</button>
+        <button class="lab-chip" data-c="sect">صفحه‌ی قاطع z = R − ۱ · شکل ۱۵</button>
+      </div>
+      <div class="lab-read"><span class="regime" data-c="regime"></span><span data-c="dist"></span></div>
+    </div>
+
+    <p>ابتدا نقاط ثابت میدان را پیدا می‌کنیم. روشن است که \(x = y = z = 0\)، یعنی مبدأ مختصات، همواره یک نقطه‌ی ثابت است. از معادلات \((*)\) به‌راحتی می‌توانیم بخش خطی میدان برداری را در نقطه‌ی \(O\) به دست آوریم:</p>
+    <div class="eq">\[ T = \begin{pmatrix} -\sigma &amp; \sigma &amp; 0 \\ R &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; -b \end{pmatrix} \]</div>
+    <p>در نتیجه مقادیر ویژه‌ی \(T\) عبارت‌اند از \(-b\) و ریشه‌های معادله‌ی</p>
+    <div class="eq">\[ \lambda^2 + (\sigma + 1)\lambda + (1 - R)\sigma = 0 . \]</div>
+    <p>وقتی \(R &lt; 1\) دو مقدار ویژه‌ی دیگر هر دو منفی‌اند و در نتیجه \(O\) یک رباینده است؛ در حالی که وقتی \(R > 1\) یکی از آن‌ها مثبت و دیگری منفی است — یعنی \(O\) یک نقطه‌ی زینی با مجموعه‌ی درون‌رونده‌ی دوبعدی و مجموعه‌ی بیرون‌رونده‌ی یک‌بعدی است (توجه کنید که \(\sigma = 10\) و \(b = 8/3\) هر دو ثابت و مثبت‌اند).</p>
+
+    <p>از طرف دیگر میدان برداری \((*)\) به ازای \(R > 1\) در دو نقطه‌ی دیگر نیز صفر می‌شود که مختصات‌شان عبارت است از:</p>
+    <div class="eq">\[ z = R - 1, \qquad x = y = \pm\sqrt{b\,(R-1)} . \]</div>
+    <p>این دو نقطه را \(C_{\pm}\) می‌نامیم. با بررسی بخش خطی میدان برداری در این دو نقطه می‌توان نشان داد که برای مقادیر \(R\) که کمی بزرگ‌تر از ۱ باشند، بخش خطی میدان در هر دو نقطه دارای سه مقدار ویژه‌ی منفی است و لذا هر دو رباینده هستند.</p>
+
+    <p>توجه کنید که وقتی \(R \to 1^{+}\) داریم \(C_{\pm} \to O\)؛ یعنی در \(R = 1\) دو نقطه‌ی رباینده‌ی \(C_{\pm}\) از \(O\) زاییده می‌شوند. در واقع در \(R=1\) انشعابی در نقطه‌ی \(O\) صورت می‌گیرد که روی منحنی‌ای که از \(O\) می‌گذرد — و امتداد مماسش در آن نقطه در جهتی است که دو نقطه‌ی ثابت جدید \(C_{\pm}\) از \(O\) زاییده می‌شوند — از نوع انشعاب چنگالی مثال ۴ است. این منحنی را خمینه‌ی مرکزی می‌نامند و در صفحه‌ی قاطع بر این منحنی انقباض صورت می‌گیرد (شکل ۱۵).</p>
+
+    <p>حال که انشعاب موضعی در \(R=1\) را بررسی کردیم، نمودار حالات دستگاه را برای \(R&lt;1\) و \(R\) کمی بزرگ‌تر از ۱ تشریح می‌کنیم. برای \(R&lt;1\) میدان برداری تنها یک نقطه‌ی ثابت رباینده در \(O\) دارد که کلیه‌ی مدارهایی را که وارد \(M\) می‌شوند جذب می‌کند (شکل ۱۶). برای مقادیر \(R\) کمی بزرگ‌تر از ۱، دو نقطه‌ی رباینده‌ی \(C_{\pm}\) داریم و یک نقطه‌ی ثابت زینی در \(O\) که دارای مجموعه‌ی درون‌رونده‌ی دوبعدی و مجموعه‌ی بیرون‌رونده‌ی یک‌بعدی است. در اینجا مجموعه‌ی دوبعدی درون‌رونده‌ی \(O\)، ناحیه‌ی \(M\) را به دو ناحیه‌ی پایای \(M_{+}\) که حاوی \(C_{+}\) است و \(M_{-}\) که حاوی \(C_{-}\) است تقسیم می‌کند؛ کلیه‌ی مدارهایی که در \(M_{+}\) هستند جذب \(C_{+}\) و کلیه‌ی مدارهای \(M_{-}\) جذب \(C_{-}\) می‌شوند. در واقع مجموعه‌ی درون‌رونده‌ی \(O\) — که برای مقادیر \(R\) کمی بزرگ‌تر از یک تقریباً یک صفحه‌ی دوبعدی نسبتاً صاف است — جداکننده‌ی قلمرو ربایندگی \(C_{+}\) و \(C_{-}\) است (شکل ۱۷).</p>
+
+    <p>وقتی مقدار \(R\) را از \(R=1\) به بالا افزایش دهیم، نقاط \(C_{\pm}\) بیشتر و بیشتر از \(O\) فاصله می‌گیرند و مجموعه‌ی درون‌رونده‌ی \(O\) به‌طور فزاینده خمیدگی پیدا می‌کند؛ تا اینکه در \(R \approx 13.92\) مجموعه‌ی درون‌رونده‌ی \(O\) به مجموعه‌ی بیرون‌رونده‌ی \(O\) اصابت می‌کند (در واقع مجموعه‌ی بیرون‌رونده در مجموعه‌ی درون‌رونده قرار می‌گیرد). در اینجا انشعاب پیچیده‌ای صورت می‌گیرد که برخلاف انشعاب‌هایی که تا به حال دیده‌ایم، انشعابی موضعی نیست که در همسایگی یک نقطه انجام گیرد، بلکه انشعابی سرتاسری است. بررسی این دو انشعاب خارج از حیطه‌ی این مقاله است. تنها به ذکر این نکته اکتفا می‌کنیم که نمودار حالات دستگاه بلافاصله پس از این دو انشعاب هنوز دارای دو رباینده‌ی \(C_{+}\) و \(C_{-}\) است و مجموعه‌ی درون‌رونده‌ی \(O\) کماکان جداکننده‌ی قلمرو ربایندگی \(C_{+}\) و \(C_{-}\) است؛ ولی به دلیل دو انشعاب اخیر، این مجموعه‌ی درون‌رونده به طرز خاصی در مجاورت \(C_{+}\) و \(C_{-}\) به هم می‌پیچد؛ به‌طوری که مثلاً مداری که در \(M_{+}\) قرار دارد می‌تواند چندین بار در نزدیکی \(C_{-}\) به دور آن بپیچد تا سرانجام به \(C_{+}\) میل کند.</p>
+
+    <p>وقتی \(R\) باز هم افزایش یابد، در \(R = R_h \approx 24.74\) در هر یک از نقاط ثابت \(C_{+}\) و \(C_{-}\) یک انشعاب هوپف از نوع موجود در مثال ۶ صورت می‌گیرد. به عبارت دیگر در هر یک از نقاط ثابت \(C_{+}\) و \(C_{-}\)، روی یک خمینه‌ی دوبعدی (خمینه‌ی مرکزی) انشعابی از نوع هوپف انجام می‌گیرد و در امتداد قاطع بر این خمینه‌ی دوبعدی در نقطه‌ی ثابت موردنظر انقباض انجام می‌پذیرد (شکل ۱۸). در نتیجه برای \(R\) کمی بزرگ‌تر از \(R_h\)، نقاط \(C_{+}\) و \(C_{-}\) نقاط ثابت زینی هستند که هر یک دارای مجموعه‌ی درون‌رونده‌ی یک‌بعدی و مجموعه‌ی بیرون‌رونده‌ی دوبعدی است.</p>
+
+    <p>اما قبلاً گفتیم که \(M\) باید حاوی رباینده‌ای باشد. سؤالی که هم‌اکنون مطرح است این است که در شرایطی که هیچ‌یک از نقاط \(O\)، \(C_{+}\) و \(C_{-}\) برای \(R\) کمی بزرگ‌تر از \(R_h\) رباینده نیستند، چگونه رباینده‌ای در \(M\) وجود دارد؟ لورنتس با استفاده از روش‌های تقریب عددی و شبیه‌سازی به کمک کامپیوتر نشان داد که کلیه‌ی مدارها در \(M\) جذب مجموعه‌ی پیچیده‌ای می‌شوند که غیرقابل تجزیه است و نمودار تقریبی آن را می‌توان در شکل ۱۹ — همان شکل زنده‌ی بالا در \(R=28\) — مشاهده کرد.</p>
+
+    <p>رباینده‌ی لورنتس مطابق آن شکل به‌صورت یک رویه‌ی دولایه است که هر یک از لایه‌هایش حفره‌ای در وسط دارد؛ این دو حفره یکی نقطه‌ی ثابت \(C_{+}\) و دیگری \(C_{-}\) را در بر گرفته است. در نتیجه رباینده‌ی لورنتس رباینده‌ی «غریبی» است که مانند هیچ‌یک از سه نوع رباینده‌ای که قبلاً دیدیم نیست.</p>
+
+    <p>اگر به کمک کامپیوتر مسیر یک مدار دلخواه در \(M\) را بررسی کنیم، خواهیم دید که مدار به‌سرعت به رباینده‌ی لورنتس نزدیک می‌شود و مسیری کاملاً نامنظم و غیرقابل پیش‌بینی دارد؛ به‌طوری که فی‌المثل چندین بار روی لایه‌ی \(C_{+}\) به دور این نقطه‌ی ثابت می‌چرخد، سپس تغییر مسیر داده به روی لایه‌ی دیگر می‌رود و به تعدادی ظاهراً نامشخص دور \(C_{-}\) می‌چرخد، بعد دوباره به لایه‌ی \(C_{+}\) برمی‌گردد — و این کار الی‌الابد ادامه می‌یابد.</p>
+
+    <p>چگونه می‌توانیم این رفتار را تبیین کنیم؟! ابتدا متذکر می‌شویم که مجموعه‌ی یک‌بعدی بیرون‌رونده‌ی \(O\) مرز رباینده را تشکیل می‌دهد (شکل ۱۹). از طرف دیگر هر یک از لایه‌های ظاهری رباینده حول \(C_{+}\) و \(C_{-}\) نزدیک به مجموعه‌ی بیرون‌رونده‌ی این نقاط است. در نتیجه هرگاه مداری دلخواه در \(M\) در نزدیکی لایه‌ی \(C_{+}\) قرار بگیرد، تحت تأثیر مجموعه‌ی بیرون‌رونده‌ی \(C_{+}\) چند بار دور \(C_{+}\) می‌چرخد؛ به‌طوری که هر بار فاصله‌اش از \(C_{+}\) بیشتر می‌شود، تا جایی که بالاخره در آخرین دور به‌قدری از \(C_{+}\) دور می‌شود که از حوزه‌ی نفوذ مجموعه‌ی بیرون‌رونده‌ی آن خارج می‌شود و تحت تأثیر مداری که از \(O\) دور می‌شود (و نیمی از مجموعه‌ی بیرون‌رونده‌ی \(O\) را تشکیل می‌دهد) قرار می‌گیرد و به سمت \(C_{-}\) هدایت می‌شود. سپس تحت تأثیر مجموعه‌ی درون‌رونده‌ی \(C_{-}\) به \(C_{-}\) نزدیک می‌شود و اینک چندین بار دور \(C_{-}\) می‌چرخد و همان روندی را که قبلاً در \(C_{+}\) طی کرده بود، دور \(C_{-}\) طی می‌کند. بنابراین مدار مزبور مرتباً پس از تعدادی چرخش در یکی از لایه‌ها به لایه‌ی دیگر می‌پرد (شکل ۱۹).</p>
+
+    <p>حال اگر دو نقطه‌ی بسیار نزدیک در \(M\) را در نظر بگیریم و مسیر مدارهای این دو نقطه را با هم مقایسه کنیم — همان دو مدارِ شکل زنده‌ی بالا — خواهیم دید که برای مدتی این دو مدار در نزدیکی یکدیگر قرار دارند و با هم به دور یک لایه می‌چرخند؛ ولی چون هنگام چرخش به دور یک لایه فاصله‌ی این دو مدار تحت تأثیر مجموعه‌ی بیرون‌رونده‌ی \(C_{+}\) یا \(C_{-}\) به‌تدریج افزایش می‌یابد، بالاخره زمانی می‌رسد که مسیر دو مدار از هم جدا می‌شود: یکی از آن‌ها همچنان به دور لایه‌ی قبلی خود می‌چرخد، در حالی که دیگری از آن لایه به لایه‌ی دیگر تغییر مسیر می‌دهد.</p>
+
+    <p>نکته‌ی مهم اینجاست که هر چند فاصله‌ی اولیه‌ی دو مدار جزئی باشد، بالاخره با گذشت زمان مسیرها از هم جدا می‌شوند. در نتیجه اگر کوچک‌ترین ابهامی در وضعیت اولیه موجود باشد، رفتار درازمدت دستگاه غیرقابل پیش‌بینی می‌شود. در واقع هرگاه یک قطعه‌ی کوچک از فضای حالات را در نظر بگیریم، این قطعه پس از مدتی چرخش به دور لایه‌ها ناگهان به‌طور غیرمنتظره به دو تکه — که هر یک به دور یکی از لایه‌ها می‌چرخد — تجزیه می‌شود و پس از مدتی هر کدام از تکه‌ها دوباره دچار تجزیه می‌گردد و این روند دائماً ادامه می‌یابد؛ به‌طوری که پس از مدتی تکه‌ی اولیه به تعداد بسیار زیادی تجزیه شده و به‌طور کمابیش یکنواخت در کل رباینده پخش خواهد شد. از لحاظ فیزیکی این بدان معنی است که خطای موجود در وضعیت اولیه هر چند هم ناچیز باشد، با گذشت زمان وضعیت دستگاه با احتمال برابری می‌تواند در هر یک از نقاط رباینده‌ی غریب باشد!</p>
+
+    <p>مطلب دیگری که شایان توجه است این است که هرگاه مقدار \(R\) را کمی تغییر دهیم، انشعاب‌های پیچیده‌ای در دستگاه صورت می‌گیرد و اگرچه ساختار کلی رباینده‌ی غریب تغییری نمی‌کند، ولی توپولوژی مدارهای رباینده عوض می‌شود. به عبارت دیگر رباینده‌ی لورنتس دارای ثبات ساختاری به معنی مرسوم کلمه نیست؛ هر چند که برای یک طیف از مقادیر \(R\) رفتارهای کلی مشابهی در دستگاه به چشم می‌خورد. این مطلب بیش از هر چیز نارسایی مقوله‌ی ثبات ساختاری را در بررسی رباینده‌های غریب نشان می‌دهد. در واقع علی‌رغم تحقیقات پردامنه برای بررسی رباینده‌های غریب در معادلات دیفرانسیل و همچنین در دستگاه‌های گسسته، هنوز چارچوب نظری مناسبی برای شناخت و بررسی رباینده‌های غریب وجود ندارد و تلاش در این جهت بی‌شک یکی از ثمربخش‌ترین زمینه‌های فعالیت ریاضیدانان در سال‌های آینده خواهد بود.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab2">نویسنده</div>
+        <div class="who">عباس عدالت</div>
+        <div class="aff">امپریال کالج لندن</div>
+      </div>
+      <div class="role">
+        <div class="lab2">ترجمه</div>
+        <div class="who">آدم‌ها و ریاضیات</div>
+        <div class="aff">برگردانِ انگلیسیِ متنِ فارسی، کارِ خودِ مجله.</div>
+      </div>
+      <div class="role">
+        <div class="lab2">شکل‌های تعاملی</div>
+        <div class="who">آدم‌ها و ریاضیات</div>
+        <div class="aff">شکل‌ها کپی نشده‌اند؛ از خودِ ریاضیاتِ متن دوباره محاسبه و آفریده شده‌اند — شکل‌های ۸–۹، ۱۲–۱۳ و ۱۴–۱۹ به‌صورت آزمایش زنده، و باقی به‌صورت ترسیمِ تازه‌ی همان دستگاه‌ها.</div>
+      </div>
+    </div>
+    <div class="origin">نخست به‌عنوان مقاله‌ی آغازینِ «نشر ریاضی»، سال ۱، شماره‌ی ۱، فروردین ۱۳۶۷، صص ۹–۱۵ منتشر شد — همان شماره‌ای که روی جلدش رباینده‌ی لورنتس نشسته بود. بازنشر در «آدم‌ها و ریاضیات»، با سپاس.</div>
+  </div>
+
+  <div class="refs">
+    <h3>منابع</h3>
+    <ol dir="ltr">
+      <li>Abraham R., &amp; Shaw C., <em>Dynamics: The Geometry of Behavior</em>, Aerial Press, Santa Cruz, CA, 1982.</li>
+      <li>Devaney R., <em>An Introduction to Chaotic Dynamical Systems</em>, Benjamin/Cummings, Menlo Park, CA, 1986.</li>
+      <li>Guckenheimer J., &amp; Holmes P., <em>Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields</em>, Springer-Verlag, New York, 1983.</li>
+      <li>Hao Bao-Lin, <em>Chaos</em>, World Scientific, Singapore, 1984.</li>
+      <li>Ruelle D., "Strange attractors", <em>Math. Intelligencer</em>, 2 (1980) 126–137.</li>
+      <li>Ruelle D., "Differentiable dynamical systems and the problem of turbulence", <em>Bull. Am. Math. Soc.</em>, 5 (1981) 29–42.</li>
+      <li>Smale S., <em>The Mathematics of Time</em>, Springer-Verlag, New York, 1980.</li>
+      <li>Sparrow C., <em>The Lorenz Equations: Bifurcations, Chaos, and Strange Attractors</em>, Springer-Verlag, New York, 1982.</li>
+    </ol>
+  </div>
+</article>
+
+<div class="footer">
+  <div class="fl" data-en="People and Mathematics · آدم‌ها و ریاضیات — a Mathswell publication" data-fa="آدم‌ها و ریاضیات · People and Mathematics — از انتشارات مث‌ول"></div>
+  <a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله ←"></a>
+</div>
+
+<script>
+  function applyLabels(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      el.innerHTML = el.getAttribute(lang === 'fa' ? 'data-fa' : 'data-en');
+    });
+  }
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang-block]').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+    });
+    document.querySelectorAll('.langtoggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    applyLabels(lang);
+    try { localStorage.setItem('pm-lang', lang); } catch(e){}
+    if (window.__onLang) window.__onLang(lang);
+  }
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+
+  function renderMath(){
+    if (!window.renderMathInElement) { setTimeout(renderMath, 60); return; }
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderMath);
+  else renderMath();
+</script>
+
+<script>
+(function(){
+  var INK = '#1C1814', ACC = '#C8633E', MUT = '#6B6155', LINE = '#E4DAC6';
+  function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; }).replace(/\./g, '٫').replace(/-/g, '−'); }
+  function fmt(v, lang, dec){ var s = v.toFixed(dec); if (s.charAt(0) === '-') s = '−' + s.slice(1); return lang === 'fa' ? faDigits(s) : s; }
+  function langOf(el){ var b = el.closest('[data-lang-block]'); return b ? b.getAttribute('data-lang-block') : 'en'; }
+  function visible(el){ return el.offsetParent !== null; }
+
+  /* ---------- Pitchfork: figures 8 & 9 ---------- */
+  document.querySelectorAll('[data-widget="pitchfork"]').forEach(function(root){
+    var lang = langOf(root);
+    var cph = root.querySelector('[data-c="phase"]'), cbf = root.querySelector('[data-c="bif"]');
+    var slider = root.querySelector('[data-c="eps"]'), val = root.querySelector('[data-c="epsval"]'), desc = root.querySelector('[data-c="desc"]');
+    var pctx = cph.getContext('2d'), bctx = cbf.getContext('2d');
+
+    function arrowAt(ctx, x, y, dir){
+      ctx.beginPath();
+      ctx.moveTo(x + 6*dir, y); ctx.lineTo(x - 5*dir, y - 4.5); ctx.lineTo(x - 5*dir, y + 4.5); ctx.closePath();
+      ctx.fillStyle = INK; ctx.fill();
+    }
+    function dot(ctx, x, y, stable){
+      ctx.beginPath(); ctx.arc(x, y, 4.4, 0, 6.2832);
+      if (stable){ ctx.fillStyle = ACC; ctx.fill(); }
+      else { ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 1.8; ctx.strokeStyle = ACC; ctx.stroke(); }
+    }
+    function X(x){ return 165 + x * 110; }           // phase-line map, x in [-1.35,1.35]
+    function E(e){ return 25 + (e + 1) * 140; }      // bif map: eps in [-1,1]
+    function XV(x){ return 120 - x * 78; }           // bif vertical: x* in [-1.25,1.25]
+
+    function draw(){
+      var e = parseFloat(slider.value);
+      val.textContent = fmt(e, lang, 2);
+      // phase line
+      pctx.clearRect(0, 0, 330, 120);
+      pctx.strokeStyle = INK; pctx.lineWidth = 1.5;
+      pctx.beginPath(); pctx.moveTo(14, 62); pctx.lineTo(316, 62); pctx.stroke();
+      var fps = e > 0 ? [-Math.sqrt(e), 0, Math.sqrt(e)] : [0];
+      function f(x){ return -x * (x*x - e); }
+      var marks = [-1.15, -0.62, 0.62, 1.15];
+      if (e > 0){ var r = Math.sqrt(e); marks = [-1.2, -(r+1.2)/2 + 0, -r/2, r/2, (r+1.2)/2, 1.2]; marks = [-1.2, -r/2, r/2, 1.2].concat(r < 0.9 ? [-(r+1.3)/2, (r+1.3)/2] : []); }
+      marks.forEach(function(x){ var d = f(x) >= 0 ? 1 : -1; if (Math.abs(f(x)) > 1e-4) arrowAt(pctx, X(x), 62, d); });
+      fps.forEach(function(x){ dot(pctx, X(x), 62, !(e > 0 && x === 0)); });
+      pctx.fillStyle = MUT; pctx.font = '11px Hanken Grotesk, sans-serif'; pctx.textAlign = 'center';
+      if (e > 0){ pctx.fillText('−√ε', X(-Math.sqrt(e)), 88); pctx.fillText('√ε', X(Math.sqrt(e)), 88); pctx.fillText('0', X(0), 88); }
+      else pctx.fillText('0', X(0), 88);
+      // bifurcation diagram
+      bctx.clearRect(0, 0, 330, 240);
+      bctx.strokeStyle = '#B7AC99'; bctx.lineWidth = 1;
+      bctx.beginPath(); bctx.moveTo(14, XV(0)); bctx.lineTo(316, XV(0)); bctx.stroke();
+      bctx.beginPath(); bctx.moveTo(E(0), 14); bctx.lineTo(E(0), 226); bctx.stroke();
+      bctx.fillStyle = MUT; bctx.font = '11px Hanken Grotesk, sans-serif'; bctx.textAlign = 'left';
+      bctx.fillText('ε', 318 - 10, XV(0) - 6);
+      bctx.strokeStyle = INK; bctx.lineWidth = 2.2;
+      bctx.beginPath(); bctx.moveTo(E(-1), XV(0)); bctx.lineTo(E(0), XV(0)); bctx.stroke();  // stable x=0, e<=0
+      bctx.beginPath();                                                                     // stable ±√e
+      for (var ee = 0; ee <= 1.001; ee += 0.02) { var p = XV(Math.sqrt(ee)); if (ee === 0) bctx.moveTo(E(ee), p); else bctx.lineTo(E(ee), p); }
+      bctx.stroke();
+      bctx.beginPath();
+      for (ee = 0; ee <= 1.001; ee += 0.02) { p = XV(-Math.sqrt(ee)); if (ee === 0) bctx.moveTo(E(ee), p); else bctx.lineTo(E(ee), p); }
+      bctx.stroke();
+      bctx.strokeStyle = ACC; bctx.lineWidth = 1.6; bctx.setLineDash([5, 4]);
+      bctx.beginPath(); bctx.moveTo(E(0), XV(0)); bctx.lineTo(E(1), XV(0)); bctx.stroke();  // unstable x=0, e>0
+      bctx.setLineDash([]);
+      bctx.strokeStyle = ACC; bctx.lineWidth = 1;
+      bctx.beginPath(); bctx.moveTo(E(e), 14); bctx.lineTo(E(e), 226); bctx.stroke();
+      fps.forEach(function(x){ dot(bctx, E(e), XV(x), !(e > 0 && x === 0)); });
+      desc.textContent = (lang === 'fa')
+        ? (e > 0 ? 'سه نقطه‌ی ثابت: صفرِ دافع (جداساز) و دو رباینده‌ی ±√ε.' : 'یک نقطه‌ی ثابت: صفر، رباینده‌ای با پهنه‌ی ربایش تمام R.')
+        : (e > 0 ? 'Three fixed points: a repelling zero (the separator) and two attractors ±√ε.' : 'One fixed point: zero, an attractor whose basin is all of R.');
+    }
+    slider.addEventListener('input', draw);
+    draw();
+  });
+
+  /* ---------- Torus flow: figures 12 & 13 ---------- */
+  document.querySelectorAll('[data-widget="torus"]').forEach(function(root){
+    var lang = langOf(root), GRN = '#567D46';
+    var cvS = root.querySelector('[data-c="sq"]'), sctx = cvS.getContext('2d');
+    var cvT = root.querySelector('[data-c="tor"]'), xctx = cvT.getContext('2d');
+    var note = root.querySelector('[data-c="note"]'), wrapsEl = root.querySelector('[data-c="wraps"]');
+    var chips = root.querySelectorAll('[data-slope]'), restart = root.querySelector('[data-c="restart"]');
+    var S = 20, W = 290;
+    var cx = 165, cy = 176, R0 = 92, r0 = 40, SQY = 0.42, LZ = 0.9;
+    var slope = 2/3, period = 3, t = 0, x0 = 0.13, y0 = 0.27, closed = false, wraps = 0;
+    function mkTrail(){ var c = document.createElement('canvas'); c.width = 330; c.height = 330; return c; }
+    var trS = mkTrail(), trT = mkTrail();
+    var tS = trS.getContext('2d'), tT = trT.getContext('2d');
+
+    function pos(tt){ return [ (x0 + tt) % 1, (y0 + slope * tt) % 1 ]; }
+    function torP(p){
+      var u = p[0] * 2 * Math.PI, v = p[1] * 2 * Math.PI;
+      var Rr = R0 + r0 * Math.cos(v);
+      var X = Rr * Math.cos(u), Y = Rr * Math.sin(u), Z = r0 * Math.sin(v);
+      return [ cx + X, cy + Y * SQY - Z * LZ, Y ];
+    }
+    function tri(ctx, x, y, rot, col){
+      ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+      ctx.beginPath(); ctx.moveTo(7, 0); ctx.lineTo(-5, -5.5); ctx.lineTo(-5, 5.5); ctx.closePath();
+      ctx.fillStyle = col; ctx.fill(); ctx.restore();
+    }
+    function chromeS(){
+      sctx.clearRect(0, 0, 330, 330);
+      sctx.drawImage(trS, 0, 0);
+      sctx.lineWidth = 2.4;
+      sctx.strokeStyle = ACC;
+      sctx.beginPath(); sctx.moveTo(S, S); sctx.lineTo(S + W, S); sctx.stroke();
+      sctx.beginPath(); sctx.moveTo(S, S + W); sctx.lineTo(S + W, S + W); sctx.stroke();
+      sctx.strokeStyle = GRN;
+      sctx.beginPath(); sctx.moveTo(S, S); sctx.lineTo(S, S + W); sctx.stroke();
+      sctx.beginPath(); sctx.moveTo(S + W, S); sctx.lineTo(S + W, S + W); sctx.stroke();
+      tri(sctx, S + W * 0.5, S, 0, ACC); tri(sctx, S + W * 0.5, S + W, 0, ACC);
+      tri(sctx, S, S + W * 0.44, -Math.PI / 2, GRN); tri(sctx, S, S + W * 0.56, -Math.PI / 2, GRN);
+      tri(sctx, S + W, S + W * 0.44, -Math.PI / 2, GRN); tri(sctx, S + W, S + W * 0.56, -Math.PI / 2, GRN);
+      var p = pos(t);
+      sctx.beginPath(); sctx.arc(S + p[0] * W, S + W - p[1] * W, 4, 0, 6.2832); sctx.fillStyle = ACC; sctx.fill();
+      sctx.beginPath(); sctx.arc(S + x0 * W, S + W - y0 * W, 3, 0, 6.2832); sctx.fillStyle = INK; sctx.fill();
+    }
+    function chromeT(){
+      xctx.clearRect(0, 0, 330, 330);
+      xctx.lineWidth = 1.1; xctx.strokeStyle = '#B7AC99';
+      xctx.globalAlpha = 0.55;
+      xctx.beginPath(); xctx.ellipse(cx, cy - r0 * LZ, R0, R0 * SQY, 0, 0, 6.2832); xctx.stroke();
+      xctx.beginPath(); xctx.ellipse(cx, cy + r0 * LZ, R0, R0 * SQY, 0, 0, 6.2832); xctx.stroke();
+      xctx.globalAlpha = 0.9;
+      xctx.beginPath(); xctx.ellipse(cx, cy, R0 - r0, (R0 - r0) * SQY, 0, 0, 6.2832); xctx.stroke();
+      xctx.globalAlpha = 1;
+      xctx.lineWidth = 2.2; xctx.strokeStyle = ACC;
+      xctx.beginPath(); xctx.ellipse(cx, cy, R0 + r0, (R0 + r0) * SQY, 0, 0, 6.2832); xctx.stroke();
+      xctx.lineWidth = 2.2; xctx.strokeStyle = GRN;
+      xctx.beginPath(); xctx.ellipse(cx + R0, cy, r0, r0 * LZ * 0.92, 0, 0, 6.2832); xctx.stroke();
+      xctx.drawImage(trT, 0, 0);
+      var q = torP(pos(t));
+      xctx.beginPath(); xctx.arc(q[0], q[1], 4, 0, 6.2832); xctx.fillStyle = ACC; xctx.fill();
+    }
+    function reset(){
+      tS.clearRect(0, 0, 330, 330); tT.clearRect(0, 0, 330, 330);
+      t = 0; closed = false; wraps = 0; updateText();
+    }
+    function updateText(){
+      if (lang === 'fa'){
+        note.textContent = closed
+          ? 'مدار بسته شد: پس از ' + faDigits(period) + ' دورِ افقی به نقطه‌ی آغاز برگشت — روی چنبره یک گره‌ی بسته.'
+          : (slope < 1 ? 'شیب گویا: مدار سرانجام به نقطه‌ی آغاز برمی‌گردد…' : 'شیب گنگ: مدار هرگز بسته نمی‌شود و کم‌کم چنبره را چگال می‌پوشاند.');
+        wrapsEl.textContent = 'دورهای افقی: ' + faDigits(wraps);
+      } else {
+        note.textContent = closed
+          ? 'The orbit closed: after ' + period + ' horizontal wraps it returned to its start — a closed knot on the torus.'
+          : (slope < 1 ? 'Rational slope: the orbit will eventually return to its start…' : 'Irrational slope: the orbit never closes — little by little it fills the torus densely.');
+        wrapsEl.textContent = 'horizontal wraps: ' + wraps;
+      }
+    }
+    function step(){
+      if (closed) return;
+      var sub = 34, dt = 0.0055;
+      for (var i = 0; i < sub; i++){
+        var p1 = pos(t), p2 = pos(t + dt);
+        if (Math.abs(p2[0] - p1[0]) < 0.5 && Math.abs(p2[1] - p1[1]) < 0.5){
+          tS.strokeStyle = 'rgba(28,24,20,.75)'; tS.lineWidth = 1.1;
+          tS.beginPath();
+          tS.moveTo(S + p1[0] * W, S + W - p1[1] * W);
+          tS.lineTo(S + p2[0] * W, S + W - p2[1] * W);
+          tS.stroke();
+        }
+        var a = torP(p1), b = torP(p2);
+        tT.globalAlpha = (a[2] + b[2] >= 0) ? 0.85 : 0.2;
+        tT.strokeStyle = INK; tT.lineWidth = 1.1;
+        tT.beginPath(); tT.moveTo(a[0], a[1]); tT.lineTo(b[0], b[1]); tT.stroke();
+        tT.globalAlpha = 1;
+        t += dt;
+        if (Math.floor(x0 + t) > wraps){ wraps = Math.floor(x0 + t); updateText(); }
+        if (period && t >= period){ t = period; closed = true; updateText(); break; }
+      }
+    }
+    chips.forEach(function(ch){
+      ch.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('on'); });
+        ch.classList.add('on');
+        if (ch.getAttribute('data-slope') === 'rational'){ slope = 2/3; period = 3; }
+        else { slope = Math.SQRT2; period = 0; }
+        reset();
+      });
+    });
+    restart.addEventListener('click', reset);
+    updateText();
+    (function loop(){ if (visible(cvS)){ step(); chromeS(); chromeT(); } requestAnimationFrame(loop); })();
+  });
+
+  /* ---------- Lorenz: figures 14–19 ---------- */
+  document.querySelectorAll('[data-widget="lorenz"]').forEach(function(root){
+    var lang = langOf(root);
+    var cv = root.querySelector('[data-c="view"]'), ctx = cv.getContext('2d');
+    var slider = root.querySelector('[data-c="R"]'), Rval = root.querySelector('[data-c="Rval"]');
+    var regime = root.querySelector('[data-c="regime"]'), distEl = root.querySelector('[data-c="dist"]');
+    var restart = root.querySelector('[data-c="restart"]');
+    var presets = root.querySelectorAll('[data-r]');
+    var sectBtn = root.querySelector('[data-c="sect"]');
+    var SIG = 10, B = 8/3, R = parseFloat(slider.value);
+    var a, b, ta = [], tb = [], MAXP = 2600;
+    var th = 0, auto = true, dragX = null, resumeTimer = null;
+    var sect = false, secA = [], secB = [];
+
+    function seed(){
+      var j = function(){ return (Math.random() - 0.5) * 2; };
+      a = [3 + j(), 3 + j(), 16 + 2 * j()];
+      b = [a[0] + 1e-4, a[1], a[2]];
+      ta.length = 0; tb.length = 0; secA.length = 0; secB.length = 0;
+    }
+    function deriv(p){ return [ -SIG * (p[0] - p[1]), R * p[0] - p[1] - p[0] * p[2], p[0] * p[1] - B * p[2] ]; }
+    function rk4(p, h){
+      function ad(u, v, s){ return [u[0] + v[0]*s, u[1] + v[1]*s, u[2] + v[2]*s]; }
+      var k1 = deriv(p), k2 = deriv(ad(p, k1, h/2)), k3 = deriv(ad(p, k2, h/2)), k4 = deriv(ad(p, k3, h));
+      return [ p[0] + h/6 * (k1[0] + 2*k2[0] + 2*k3[0] + k4[0]),
+               p[1] + h/6 * (k1[1] + 2*k2[1] + 2*k3[1] + k4[1]),
+               p[2] + h/6 * (k1[2] + 2*k2[2] + 2*k3[2] + k4[2]) ];
+    }
+    function proj(p){
+      var c = Math.cos(th), s = Math.sin(th);
+      var u = p[0] * c + p[1] * s;
+      var w = -p[0] * s + p[1] * c;
+      return [ 340 + u * 10.2, 402 - p[2] * 7.0 + w * 1.5, w ];
+    }
+    function trail(pts, col){
+      if (pts.length < 2) return;
+      ctx.strokeStyle = col; ctx.lineWidth = 1.2;
+      var q0 = proj(pts[0]);
+      for (var i = 1; i < pts.length; i++){
+        var q1 = proj(pts[i]);
+        var al = 0.28 + Math.max(0, Math.min(1, (q1[2] + 26) / 52)) * 0.62;
+        ctx.globalAlpha = al;
+        ctx.beginPath(); ctx.moveTo(q0[0], q0[1]); ctx.lineTo(q1[0], q1[1]); ctx.stroke();
+        q0 = q1;
+      }
+      ctx.globalAlpha = 1;
+      var qh = proj(pts[pts.length - 1]);
+      ctx.beginPath(); ctx.arc(qh[0], qh[1], 3, 0, 6.2832); ctx.fillStyle = col; ctx.fill();
+    }
+    function mark(p, name){
+      var q = proj(p);
+      ctx.beginPath(); ctx.arc(q[0], q[1], 3.4, 0, 6.2832); ctx.fillStyle = MUT; ctx.fill();
+      ctx.fillStyle = MUT; ctx.font = '12px Hanken Grotesk, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(name, q[0] + 7, q[1] + 4);
+    }
+    function regimeText(){
+      if (lang === 'fa'){
+        if (R < 1) return 'O رباینده است — همه‌ی مدارها به مبدأ می‌افتند (شکل ۱۶).';
+        if (R < 13.92) return 'دو رباینده‌ی C₊ و C₋ — هر مدار به یکی از آن دو مارپیچ می‌زند (شکل ۱۷).';
+        if (R < 24.74) return 'پس از انشعاب سرتاسری — مدار پیش از فرودآمدن، میان دو لایه سرگردانی می‌کند.';
+        return 'رباینده‌ی غریب — پروانه‌ی لورنتس (شکل ۱۹).';
+      }
+      if (R < 1) return 'O is the attractor — every orbit falls to the origin (Fig. 16).';
+      if (R < 13.92) return 'Two attractors C₊ and C₋ — each orbit spirals into one of them (Fig. 17).';
+      if (R < 24.74) return 'After the global bifurcation — orbits wander between the sheets before settling.';
+      return 'The strange attractor — Lorenz\u2019s butterfly (Fig. 19).';
+    }
+    function drawPlane(){
+      var h = Math.max(0, R - 1), rho = 21, pts = [];
+      for (var i = 0; i <= 44; i++){
+        var ph = i / 44 * 6.2832;
+        pts.push(proj([rho * Math.cos(ph), rho * Math.sin(ph), h]));
+      }
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(200,99,62,0.055)'; ctx.fill();
+      ctx.setLineDash([6, 5]); ctx.strokeStyle = '#B08A2E'; ctx.lineWidth = 1.1; ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = '#B08A2E'; ctx.font = '11.5px Hanken Grotesk, sans-serif'; ctx.textAlign = 'left';
+      var lq = proj([rho, 0, h]);
+      ctx.fillText('z = R − 1', lq[0] + 8, lq[1] - 6);
+      [ [secA, INK], [secB, ACC] ].forEach(function(pair){
+        pair[0].forEach(function(pt){
+          var q = proj([pt[0], pt[1], h]);
+          ctx.globalAlpha = 0.9;
+          ctx.beginPath(); ctx.arc(q[0], q[1], 2.3, 0, 6.2832); ctx.fillStyle = pair[1]; ctx.fill();
+          ctx.globalAlpha = 1;
+        });
+      });
+    }
+    function draw(){
+      ctx.clearRect(0, 0, 680, 440);
+      ctx.setLineDash([7, 6]); ctx.strokeStyle = '#CBC0A9'; ctx.lineWidth = 1.1;
+      ctx.beginPath(); ctx.ellipse(340, 236, 256, 194, 0, 0, 6.2832); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = '#B7AC99'; ctx.font = 'italic 14px Newsreader, serif'; ctx.textAlign = 'left';
+      ctx.fillText('M', 340 + 256 * 0.74, 236 - 194 * 0.72);
+      if (sect) drawPlane();
+      mark([0, 0, 0], 'O');
+      if (R > 1){
+        var c = Math.sqrt(B * (R - 1));
+        mark([c, c, R - 1], 'C\u208A');
+        mark([-c, -c, R - 1], 'C\u208B');
+      }
+      trail(ta, INK); trail(tb, ACC);
+      var d = Math.sqrt(Math.pow(a[0]-b[0],2) + Math.pow(a[1]-b[1],2) + Math.pow(a[2]-b[2],2));
+      var ds = d < 0.01 ? d.toExponential(1) : d.toFixed(2);
+      if (lang === 'fa') ds = faDigits(ds.replace('e-', '×۱۰⁻'));
+      distEl.textContent = (lang === 'fa' ? 'فاصله‌ی دو مسیر: ' : 'distance between the paths: ') + ds;
+      regime.textContent = regimeText();
+    }
+    function crossings(p1, p2, store){
+      var h = Math.max(0, R - 1);
+      if ((p1[2] - h) * (p2[2] - h) < 0){
+        var f = (h - p1[2]) / (p2[2] - p1[2]);
+        store.push([ p1[0] + f * (p2[0] - p1[0]), p1[1] + f * (p2[1] - p1[1]) ]);
+        if (store.length > 240) store.splice(0, store.length - 240);
+      }
+    }
+    function step(){
+      for (var i = 0; i < 7; i++){
+        var pa = a, pb = b;
+        a = rk4(a, 0.004); b = rk4(b, 0.004);
+        if (sect){ crossings(pa, a, secA); crossings(pb, b, secB); }
+        ta.push(a); tb.push(b);
+      }
+      if (ta.length > MAXP){ ta.splice(0, ta.length - MAXP); tb.splice(0, tb.length - MAXP); }
+      if (auto && dragX === null) th += 0.0032;
+    }
+    function setR(v){
+      R = v; slider.value = v;
+      Rval.textContent = fmt(R, lang, 1);
+      ta.length = 0; tb.length = 0; secA.length = 0; secB.length = 0;
+      presets.forEach(function(ch){ ch.classList.toggle('on', Math.abs(parseFloat(ch.getAttribute('data-r')) - R) < 0.05); });
+    }
+    cv.style.touchAction = 'none'; cv.style.cursor = 'grab';
+    cv.addEventListener('pointerdown', function(e){ dragX = e.clientX; auto = false; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; });
+    cv.addEventListener('pointermove', function(e){ if (dragX !== null){ th += (e.clientX - dragX) * 0.008; dragX = e.clientX; } });
+    function endDrag(){ dragX = null; cv.style.cursor = 'grab';
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){ auto = true; }, 3000);
+    }
+    cv.addEventListener('pointerup', endDrag);
+    cv.addEventListener('pointercancel', endDrag);
+    slider.addEventListener('input', function(){ setR(parseFloat(slider.value)); });
+    presets.forEach(function(ch){ ch.addEventListener('click', function(){ setR(parseFloat(ch.getAttribute('data-r'))); seed(); }); });
+    restart.addEventListener('click', seed);
+    if (sectBtn) sectBtn.addEventListener('click', function(){ sect = !sect; sectBtn.classList.toggle('on', sect); });
+    seed(); setR(R);
+    (function loop(){ if (visible(cv)){ step(); draw(); } requestAnimationFrame(loop); })();
+  });
+})();
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

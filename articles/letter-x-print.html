@@ -160,9 +160,18 @@
   }
   .langdivider { padding: 10px 40px; border-bottom: 1px solid var(--ink); background: var(--black); color: var(--paper); }
   .langdivider .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+
+  /* republished stamp */
+  .article { position: relative; }
+  .stamp { position: absolute; top: 44px; inset-inline-end: 28px; transform: rotate(-8deg); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: #2E7D48; border: 3px double #2E7D48; border-radius: 7px; padding: 8px 16px 7px; opacity: .78; mix-blend-mode: multiply; filter: url(#stamp-rough); pointer-events: none; white-space: nowrap; }
+  [dir="rtl"] .stamp { transform: rotate(8deg); letter-spacing: .06em; font-size: 16.5px; }
+  @media (max-width: 640px) { .stamp { top: 20px; inset-inline-end: 18px; font-size: 12px; padding: 6px 12px 5px; } [dir="rtl"] .stamp { font-size: 14px; } }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough"><feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+
 
 <!-- ===== Masthead ===== -->
 <div class="topband">
@@ -182,6 +191,7 @@
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
+  <div class="stamp" aria-hidden="true">Republished</div>
   <div class="kicker">History of Mathematics</div>
   <h1 class="title">The symbol x for the unknown</h1>
   <p class="standfirst">Where did the sign x, the word <em>algebra</em>, and the “Arabic” numerals come from? A short history from a 1930 Tehran journal — given here in full, in Persian and English, with the original pages.</p>
@@ -277,6 +287,7 @@
 <!-- =================== فارسی =================== -->
 <div class="langdivider"><span class="lab">فارسی — Persian</span></div>
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="stamp" aria-hidden="true">بازنشر</div>
   <div class="kicker">تاریخِ ریاضیات</div>
   <h1 class="title">علامتِ x به‌جای مجهول</h1>
   <p class="standfirst">علامتِ x، واژه‌ی «جبر» و ارقامِ «عربی» از کجا آمده‌اند؟ تاریخچه‌ای کوتاه از مجله‌ای در تهرانِ ۱۳۰۹ — اینجا به‌کامل، به فارسی و انگلیسی، همراه با صفحاتِ اصل.</p>

@@ -567,6 +567,25 @@ window.PM_CONTENT = {
             dek: "در ۱۹۶۵ دونالد وایدمن به خوانندگان Science گفت چرا زندگی با ریاضیاتِ محض از نظر روحی پرمخاطره است. علی عنایت، شصت سال بعد و در میانهٔ ترجمهٔ نامه، پاسخش را می‌دهد — گفتگویی خیالی که پای حافظ و برادسکی و هوش مصنوعی هم به آن باز می‌شود.",
             author: "دونالد وایدمن و علی عنایت", meta: "گفتگو" } },
 
+    /* ---- Mathematical Culture  (the journal's own logo story — Amir's byline;
+       card image = the logo itself via cardImg. Not featured (Mirzakhani pinned). ---- */
+    { section: "culture", featured: false,
+      href: "articles/story-of-a-logo.html",
+      added: "2026-07-29",
+      issue: 2,
+      level: "school",
+      imgSrc: "assets/logo.jpg",
+      cardImg: "assets/logo.jpg",
+      authorImg: "assets/amir.jpg",
+      img: "logo — People and Mathematics",
+      date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
+      en: { title: "The Story Behind a Logo",
+            dek: "Three people, three generations of Iranian mathematics, and the art of asking favours: how the journal's emblem came to be.",
+            author: "Amir Asghari", meta: "Backstory" },
+      fa: { title: "داستان یک لوگو",
+            dek: "سه آدم، سه نسل از ریاضیاتِ ایران، و هنرِ خواهش‌کردن: نشانِ مجله چگونه ساخته شد.",
+            author: "امیر اصغری", meta: "پشتِ صحنه" } },
+
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,
       href: "articles/mathematical-culture.html",

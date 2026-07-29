@@ -27,6 +27,12 @@
 [dir="rtl"] .katex { font-family: KaTeX_Main, "Vazirmatn", "Times New Roman", serif; }
   /* Site rule: body text is justified, in both languages */
   .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+
+  /* republished stamp */
+  .article { position: relative; }
+  .stamp { position: absolute; top: 44px; inset-inline-end: 28px; transform: rotate(-8deg); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: #2E7D48; border: 3px double #2E7D48; border-radius: 7px; padding: 8px 16px 7px; opacity: .78; mix-blend-mode: multiply; filter: url(#stamp-rough); pointer-events: none; white-space: nowrap; }
+  [dir="rtl"] .stamp { transform: rotate(8deg); letter-spacing: .06em; font-size: 16.5px; }
+  @media (max-width: 640px) { .stamp { top: 20px; inset-inline-end: 18px; font-size: 12px; padding: 6px 12px 5px; } [dir="rtl"] .stamp { font-size: 14px; } }
 </style>
 
 <style>
@@ -154,6 +160,8 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough"><feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+
 <!-- ===== Masthead ===== -->
 <div class="topband">
   <a class="brand" href="../index.html">
@@ -172,6 +180,7 @@
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
+  <div class="stamp" aria-hidden="true">Republished</div>
   <div class="kicker">WikiLetter · Nos. 9 &amp; 10</div>
   <h1 class="title">From Arithmetic to Algebra</h1>
   <p class="standfirst">School algebra is just arithmetic grown up — <em>generalized arithmetic</em>. In this two-part essay, merged here into one, Hung-Hsi Wu shows what that slogan means with two computations any eighth-grader can follow, then lays out seven changes that would make arithmetic the right platform from which to launch algebra.</p>
@@ -342,6 +351,7 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="stamp" aria-hidden="true">بازنشر</div>
   <div class="kicker">ویکی‌نوشت · شماره‌های ۹ و ۱۰</div>
   <h1 class="title">از حساب به جبر</h1>
   <p class="standfirst">جبرِ مدرسه‌ای چیزی نیست جز حسابِ بزرگ‌شده — <em>حسابِ تعمیم‌یافته</em>. هانگ-هسی وو در این جستارِ دوقسمتی — که این‌جا یکجا منتشر می‌شود — با دو محاسبه‌ی درخورِ کلاسِ هشتم نشان می‌دهد این شعار یعنی چه، و سپس هفت تغییر پیشنهاد می‌کند تا حساب سکوی پرتابِ جبر باشد.</p>

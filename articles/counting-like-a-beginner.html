@@ -25,6 +25,12 @@
 .katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
   /* Site rule: body text is justified, in both languages */
   .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+
+  /* republished stamp */
+  .article { position: relative; }
+  .stamp { position: absolute; top: 44px; inset-inline-end: 28px; transform: rotate(-8deg); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: #2E7D48; border: 3px double #2E7D48; border-radius: 7px; padding: 8px 16px 7px; opacity: .78; mix-blend-mode: multiply; filter: url(#stamp-rough); pointer-events: none; white-space: nowrap; }
+  [dir="rtl"] .stamp { transform: rotate(8deg); letter-spacing: .06em; font-size: 16.5px; }
+  @media (max-width: 640px) { .stamp { top: 20px; inset-inline-end: 18px; font-size: 12px; padding: 6px 12px 5px; } [dir="rtl"] .stamp { font-size: 14px; } }
 </style>
 
 <style>
@@ -176,6 +182,8 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough"><feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+
 <!-- ===== Masthead ===== -->
 <div class="topband">
   <a class="brand" href="../index.html">
@@ -194,6 +202,7 @@
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
+  <div class="stamp" aria-hidden="true">Republished</div>
   <div class="kicker">WikiLetter · No. 15</div>
   <h1 class="title">Counting Like a Beginner</h1>
   <p class="standfirst">To understand a child still wrestling with "how many?", put yourself back where they stand — count with the words of a rhyme you know by heart, and feel what it is like when counting is all you have.</p>
@@ -325,6 +334,7 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="stamp" aria-hidden="true">بازنشر</div>
   <div class="kicker">ویکی‌نوشت · شماره‌ی ۱۵</div>
   <h1 class="title">موقعیت مشابه؛ برای همدلی با کودکی که می‌شمارد!</h1>
   <p class="standfirst">فرصتی برای درکِ کودکانی که در مسیرِ یادگیریِ «شمارش و تعداد» دست‌وپا می‌زنند: خودت را جای یک نوآموز بگذار و با کلماتِ یک شعر بشمار، تا ببینی وقتی همه‌ی دارایی‌ات شمردن است، یادگیری چه حالی دارد.</p>

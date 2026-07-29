@@ -25,6 +25,12 @@
 .katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
   /* Site rule: body text is justified, in both languages */
   .standfirst, .body p, .body li, .article p, .intro p, .prose p, .tribute, .dek { text-align: justify; }
+
+  /* republished stamp */
+  .article { position: relative; }
+  .stamp { position: absolute; top: 44px; inset-inline-end: 28px; transform: rotate(-8deg); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: #2E7D48; border: 3px double #2E7D48; border-radius: 7px; padding: 8px 16px 7px; opacity: .78; mix-blend-mode: multiply; filter: url(#stamp-rough); pointer-events: none; white-space: nowrap; }
+  [dir="rtl"] .stamp { transform: rotate(8deg); letter-spacing: .06em; font-size: 16.5px; }
+  @media (max-width: 640px) { .stamp { top: 20px; inset-inline-end: 18px; font-size: 12px; padding: 6px 12px 5px; } [dir="rtl"] .stamp { font-size: 14px; } }
 </style>
 
 <style>
@@ -171,6 +177,8 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough"><feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+
 <!-- ===== Masthead ===== -->
 <div class="topband">
   <a class="brand" href="../index.html">
@@ -189,6 +197,7 @@
 
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
+  <div class="stamp" aria-hidden="true">Republished</div>
   <div class="kicker">Concepts &amp; Conceptions</div>
   <h1 class="title">Long-term sense making in arithmetic and algebra</h1>
   <p class="standfirst">Challenging a few widely held beliefs about teaching: how humans actually make sense of arithmetic and algebra over the long run — through what we perceive, what we manipulate in the mind, and how we say things to one another.</p>
@@ -319,6 +328,7 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="stamp" aria-hidden="true">بازنشر</div>
   <div class="kicker">مفاهیم و برداشت‌ها</div>
   <h1 class="title">مسیر طولانی ملموس‌شدن حساب و جبر</h1>
   <p class="standfirst">به‌چالش‌کشیدن چند باور رایج درباره‌ی آموزش: اینکه انسان‌ها در بلندمدت چگونه حساب و جبر را ملموس می‌کنند — از راهِ آنچه حس می‌کنیم، آنچه در ذهن دست‌کاری می‌کنیم، و شیوه‌ای که با دیگران سخن می‌گوییم.</p>

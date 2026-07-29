@@ -243,7 +243,7 @@
       <div class="pg-hint">Click for a new vertex; drag from one vertex to another for a new edge; double-click a vertex to delete it. Crossings are refused — this is a plane, after all. The unbounded region ∞ counts too. While the graph is connected the sum sits at 2; each extra piece pushes it up by one.</div>
     </div>
 
-    <p>The formula also has teeth. A short argument with it shows that a planar sketch of a graph on at least \(3\) vertices always satisfies \(|E|\le 3|V|-6\), and \(|E|\le 2|V|-4\) if the graph has no triangles. And these innocent bounds are enough to convict: the complete graph \(K_5\), the complete bipartite graph \(K_{3,3}\), and the Petersen graph admit no planar sketch at all.</p>
+    <p>The formula also has teeth. A short argument with it shows that a planar sketch of a graph on at least \(3\) vertices always satisfies \(|E|\le 3|V|-6\), and \(|E|\le 2|V|-4\) if the graph has no triangles, and \(3|E|\le 5|V|-10\) if the graph has no cycles of length \(4\). And these innocent bounds are enough to convict: the complete graph \(K_5\), the complete bipartite graph \(K_{3,3}\), and the Petersen graph admit no planar sketch at all.</p>
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 316.5 105.0" style="aspect-ratio:316.5/105.0"><use href="#fig-Graph2" width="316.5" height="105.0"/></svg></div>
@@ -339,11 +339,10 @@
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 457.3 158.2" style="aspect-ratio:457.3/158.2"><use href="#fig-Graph11" width="457.3" height="158.2"/></svg></div>
-      <figcaption class="figcap"><span class="fno">Figure 8.</span> The same triangle, two crossing-free drawings, on the same surface. The blue drawing is cellular; the red one wraps a region around the hole of the torus — no disk at all.</figcaption>
+      <figcaption class="figcap"><span class="fno">Figure 8.</span> The same triangle, two crossing-free drawings, on the same surface. None of the drawings are cellular, which causes inconsistencies in the number of regions. The drawing on the left creates \(1\) region, where the drawing on the right creates \(2\).</figcaption>
     </figure>
 
-    <p>The blue drawing carves the torus into \(2\) regions, both disks: cellular, and indeed \(3-3+2\) is not \(2\) but \(0=\chi(T^2)\), as promised. The red drawing carves out only \(1\) region — a region that wraps around the hole of the torus and is no disk at all. Non-cellular drawings simply refuse to compute \(\chi\), and the region count of a sketch, in general, depends on the sketch.</p>
-
+    
     <p>So our formula holds whenever we can produce cellular sketches, and two urgent questions appear. Given a graph, how do we ever <em>obtain</em> a cellular sketch of it on some surface? And on <em>which</em> surfaces — could the answer fail to be unique in some troublesome way? The rest of this article answers both. First, though, we should meet the surfaces.</p>
 
     <h2 class="subhead">The cast of surfaces</h2>
@@ -659,7 +658,7 @@
       <div class="pg-hint">برای رأس تازه کلیک کنید؛ برای یال تازه از رأسی به رأس دیگر بکشید؛ برای حذف رأس روی آن دوبار کلیک کنید. تقاطع پذیرفته نمی‌شود — اینجا صفحه است! ناحیه‌ی بی‌کران ∞ هم حساب است. تا وقتی گراف همبند است حاصل روی ۲ می‌نشیند؛ هر تکه‌ی جدا آن را یکی بالا می‌برد.</div>
     </div>
 
-    <p>فرمول دندان هم دارد. استدلالی کوتاه با آن نشان می‌دهد که طرح مسطحِ گرافی با دست‌کم ۳ رأس همیشه در \(|E|\le 3|V|-6\) صدق می‌کند، و اگر گراف مثلث نداشته باشد در \(|E|\le 2|V|-4\). و همین کران‌های معصوم برای صدور حکم کافی‌اند: گراف کامل \(K_5\)، گراف دوبخشیِ کامل \(K_{3,3}\) و گراف پترسن هیچ طرح مسطحی ندارند.</p>
+    <p>فرمول دندان هم دارد. استدلالی کوتاه با آن نشان می‌دهد که طرح مسطحِ گرافی با دست‌کم ۳ رأس همیشه در \(|E|\le 3|V|-6\) صدق می‌کند، و اگر گراف مثلث نداشته باشد در \(|E|\le 2|V|-4\)، و اگر دوری به طولِ ۴ نداشته باشد در \(3|E|\le 5|V|-10\). و همین کران‌های معصوم برای صدور حکم کافی‌اند: گراف کامل \(K_5\)، گراف دوبخشیِ کامل \(K_{3,3}\) و گراف پترسن هیچ طرح مسطحی ندارند.</p>
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 316.5 105.0" style="aspect-ratio:316.5/105.0"><use href="#fig-Graph2" width="316.5" height="105.0"/></svg></div>
@@ -754,11 +753,10 @@
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 457.3 158.2" style="aspect-ratio:457.3/158.2"><use href="#fig-Graph11" width="457.3" height="158.2"/></svg></div>
-      <figcaption class="figcap"><span class="fno">شکل ۸.</span> همان مثلث، دو ترسیمِ بی‌تقاطع، روی همان رویه. ترسیم آبی سلولی است؛ ترسیم قرمز ناحیه‌ای می‌سازد که دور سوراخ چنبره می‌پیچد — و به‌هیچ‌وجه قرص نیست.</figcaption>
+      <figcaption class="figcap"><span class="fno">شکل ۸.</span> همان مثلث، دو ترسیمِ بی‌تقاطع، روی همان رویه. هیچ‌یک از دو ترسیم سلولی نیست، و همین شمارِ ناحیه‌ها را ناسازگار می‌کند: ترسیمِ چپ ۱ ناحیه می‌سازد و ترسیمِ راست ۲ ناحیه.</figcaption>
     </figure>
 
-    <p>ترسیم آبی چنبره را به ۲ ناحیه می‌بُرد، هر دو قرص: سلولی است، و به‌راستی \(3-3+2\) نه ۲ بلکه \(0=\chi(T^2)\) است، همان‌طور که وعده داده شد. ترسیم قرمز تنها ۱ ناحیه می‌سازد — ناحیه‌ای که دور سوراخ چنبره می‌پیچد و اصلاً قرص نیست. ترسیم‌های ناسلولی، ساده بگوییم، از محاسبه‌ی \(\chi\) سر باز می‌زنند؛ و شمارِ ناحیه‌های یک طرح، در حالت کلی، به خودِ طرح بستگی دارد.</p>
-
+    
     <p>پس فرمول ما هر جا برقرار است که بتوانیم طرح سلولی بسازیم، و دو پرسشِ فوری سر برمی‌آورند. با گرافی داده‌شده، اصلاً چگونه طرحی سلولی از آن روی رویه‌ای <em>به دست آوریم</em>؟ و روی <em>کدام</em> رویه‌ها — نکند یکتایی به شکلی دردسرساز از دست برود؟ باقیِ این مقاله به هر دو پاسخ می‌دهد. اما نخست باید با رویه‌ها آشنا شویم.</p>
 
     <h2 class="subhead">بازیگرانِ نمایش: رویه‌ها</h2>

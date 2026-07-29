@@ -444,7 +444,9 @@ window.PM_CONTENT = {
             dek: "از نخستین روزهای مدرسه می‌آید و هر سال بازمی‌گردد — اما دانش‌آموز در پایان نمی‌تواند بگوید دایره چیست. جستاری، با شکل‌هایی که می‌توان با آن‌ها کار کرد، درباره‌ی تعریفی که هرگز از هر دو سو تجربه نشد.",
             author: "امیر اصغری", meta: "جستارِ تعاملی" } },
 
-    { section: "history", featured: false,
+
+    /* ---- Face to Face with Mathematics ---- */
+    { section: "conversations", featured: false,
       href: "articles/mathematics-of-chaos.html",
       added: "2026-07-26",
       issue: 2,
@@ -460,7 +462,6 @@ window.PM_CONTENT = {
             dek: "بازنشرِ نخستین مقاله‌ی نخستین شماره‌ی نشر ریاضی (فروردین ۱۳۶۷): عباس عدالت از دستگاه‌های دینامیکی و رباینده‌ها تا رباینده‌ی غریب لورنتس — این بار با شکل‌هایی که زنده‌اند. R را جابه‌جا کن و ببین دو مسیرِ تقریباً یکسان چگونه از هم می‌پاشند.",
             author: "عباس عدالت", meta: "مقاله · تعاملی" } },
 
-    /* ---- Face to Face with Mathematics ---- */
     { section: "conversations", featured: false,
       href: "articles/topological-graph-theory.html",
       added: "2026-07-09",

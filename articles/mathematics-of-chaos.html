@@ -7,7 +7,7 @@
 <meta name="description" content="Abbas Edalat's opening article from the very first issue of Nashr-e Riyāzi (April 1988): dynamical systems, attractors and bifurcations, up to Lorenz's strange attractor — republished with live, interactive figures. In Concepts &amp; Conceptions.">
 
 <meta property="og:title" content="The Mathematics of Chaos — Abbas Edalat">
-<meta property="og:description" content="History of Mathematics · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:description" content="Face to Face with Mathematics · People and Mathematics — آدم‌ها و ریاضیات">
 <meta property="og:image" content="../assets/logo.jpg">
 <meta property="og:type" content="article">
 
@@ -58,7 +58,10 @@
   .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
   .crumb .accent { color: var(--accent); font-weight: 600; }
 
-  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; position: relative; }
+  .stamp { position: absolute; top: 44px; inset-inline-end: 28px; transform: rotate(-8deg); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: #2E7D48; border: 3px double #2E7D48; border-radius: 7px; padding: 8px 16px 7px; opacity: .78; mix-blend-mode: multiply; filter: url(#stamp-rough); pointer-events: none; white-space: nowrap; }
+  [dir="rtl"] .stamp { transform: rotate(8deg); letter-spacing: .06em; font-size: 16.5px; }
+  @media (max-width: 640px) { .stamp { top: 20px; inset-inline-end: 18px; font-size: 12px; padding: 6px 12px 5px; } [dir="rtl"] .stamp { font-size: 14px; } }
   .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
   [dir="rtl"] .kicker { letter-spacing: 0; }
   h1.title { font-size: 46px; line-height: 1.08; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
@@ -80,6 +83,7 @@
   figure.pmfig { margin: 28px auto 30px; text-align: center; }
   figure.pmfig svg { max-width: 100%; height: auto; }
   figure.pmfig img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+  figure.pmfig canvas { max-width: 330px; width: 100%; height: auto; touch-action: none; cursor: grab; }
   .figcap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 9px; line-height: 1.6; }
   .figrow { display: flex; gap: 8px 26px; flex-wrap: wrap; justify-content: center; align-items: flex-end; }
   .figrow figure.pmfig { margin: 14px 0 16px; }
@@ -164,13 +168,16 @@
   </div>
 </div>
 <div class="subbar">
-  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="History of Mathematics" data-fa="تاریخ ریاضیات"></span></div>
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Face to Face with Mathematics" data-fa="رویارو با ریاضیات"></span></div>
   <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#B08A2E;display:inline-block;flex:0 0 auto;"></span><span data-en="University maths · Originally Nashr-e Riyāzi, No. 1, 1988" data-fa="ریاضیِ دانشگاه · نخست: نشر ریاضی، شماره‌ی ۱، ۱۳۶۷"></span></div>
 </div>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough"><feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+
 <!-- =================== ENGLISH =================== -->
 <article class="article" data-lang-block="en">
-  <div class="kicker">History of Mathematics</div>
+  <div class="stamp" aria-hidden="true">Republished</div>
+  <div class="kicker">Face to Face with Mathematics</div>
   <h1 class="title">The Mathematics of Chaos</h1>
   <p class="standfirst">The opening article of the very first issue of <em>Nashr-e Riyāzi</em> (April 1988): from dynamical systems and their attractors to Lorenz's strange attractor — republished with figures that are alive. Slide the parameter and cross the bifurcations yourself.</p>
   <div class="byline">
@@ -276,23 +283,9 @@
     <div class="eq">\[ T = \begin{pmatrix} -1 &amp; 1 &amp; 0 \\ -1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</div>
     <p>then the eigenvalues of \(T\) are \(-1 \pm i\) and \(1\). Here zero has a two-dimensional inset and a one-dimensional outset. Near the point zero the phase portrait of the system is, topologically, as in Figure 7.</p>
 
-    <figure class="pmfig">
-      <svg viewBox="0 0 280 210" width="280" role="img" aria-label="Figure 7">
-        <polygon points="52,150 118,86 234,86 168,150" fill="none" stroke="#B7AC99" stroke-width="1"/>
-        <line x1="143" y1="14" x2="143" y2="196" stroke="#1C1814" stroke-width="1.3"/>
-        <path d="M143 44 l-4.2 -11 h8.4 z M143 44" fill="#1C1814"/>
-        <path d="M139 33 h8.4 l-4.2 -11 z" fill="#1C1814"/>
-        <path d="M139 178 h8.4 l-4.2 11 z" fill="#1C1814"/>
-        <path d="M143 118 m0 0" fill="none"/>
-        <g fill="none" stroke="#1C1814" stroke-width="1.3">
-          <path d="M206 96 A46 22 0 1 1 108 122 A34 16 0 1 1 172 112 A22 10 0 1 1 130 116 A10 5 0 1 1 150 114"/>
-        </g>
-        <path d="M204 101 l4 -9 -10 2 z" fill="#1C1814"/>
-        <circle cx="143" cy="117" r="3.6" fill="#1C1814"/>
-        <text x="152" y="24" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155">outset</text>
-        <text x="216" y="146" font-family="Hanken Grotesk, sans-serif" font-size="11.5" fill="#6B6155">inset</text>
-      </svg>
-      <figcaption class="figcap">Fig. 7 — spiralling in along a two-dimensional inset, escaping along a one-dimensional outset.</figcaption>
+    <figure class="pmfig" data-widget="saddlefocus">
+      <canvas width="660" height="480" role="img" aria-label="Figure 7"></canvas>
+      <figcaption class="figcap">Fig. 7 — spiralling in along a two-dimensional inset, escaping along a one-dimensional outset. Drag to rotate.</figcaption>
     </figure>
 
     <p><span class="exlead">Example 4.</span></p>
@@ -472,9 +465,10 @@
 
 <!-- =================== فارسی =================== -->
 <article class="article" data-lang-block="fa" dir="rtl" lang="fa">
-  <div class="kicker">تاریخ ریاضیات</div>
+  <div class="stamp" aria-hidden="true">بازنشر</div>
+  <div class="kicker">رویارو با ریاضیات</div>
   <h1 class="title">ریاضیات آشوب</h1>
-  <p class="standfirst">بازنشرِ نخستین مقاله‌ی نخستین شماره‌ی «نشر ریاضی» (فروردین ۱۳۶۷): از دستگاه‌های دینامیکی و رباینده‌هایشان تا رباینده‌ی غریب لورنتس — این بار با شکل‌هایی که زنده‌اند. پارامتر را جابه‌جا کن و انشعاب‌ها را خودت رد کن.</p>
+  <p class="standfirst">بازنشرِ نخستین مقاله‌ی نخستین شماره‌ی «نشر ریاضی» (فروردین ۱۳۶۷): از دستگاه‌های دینامیکی و رباینده‌هایشان تا رباینده‌ی غریب لورنتس — این بار با شکل‌هایی که زنده‌اند. پارامتر را جابه‌جا کن و خودت از انشعاب‌ها عبور کن.</p>
   <div class="byline">
     <img class="avat" src="../assets/abbas-edalat.jpg" alt="عباس عدالت">
     <span class="name">عباس عدالت</span>
@@ -578,21 +572,9 @@
     <div class="eq">\[ T = \begin{pmatrix} -1 &amp; 1 &amp; 0 \\ -1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</div>
     <p>آنگاه مقادیر ویژه‌ی \(T\) عبارت‌اند از \(-1 \pm i\) و \(1\). در اینجا صفر دارای مجموعه‌ی درون‌رونده‌ی دوبعدی و مجموعه‌ی بیرون‌رونده‌ی یک‌بعدی خواهد بود. نمودار حالات دستگاه در نزدیکی نقطه‌ی صفر از لحاظ توپولوژیکی مطابق شکل ۷ است.</p>
 
-    <figure class="pmfig">
-      <svg viewBox="0 0 280 210" width="280" role="img" aria-label="شکل ۷">
-        <polygon points="52,150 118,86 234,86 168,150" fill="none" stroke="#B7AC99" stroke-width="1"/>
-        <line x1="143" y1="14" x2="143" y2="196" stroke="#1C1814" stroke-width="1.3"/>
-        <path d="M139 33 h8.4 l-4.2 -11 z" fill="#1C1814"/>
-        <path d="M139 178 h8.4 l-4.2 11 z" fill="#1C1814"/>
-        <g fill="none" stroke="#1C1814" stroke-width="1.3">
-          <path d="M206 96 A46 22 0 1 1 108 122 A34 16 0 1 1 172 112 A22 10 0 1 1 130 116 A10 5 0 1 1 150 114"/>
-        </g>
-        <path d="M204 101 l4 -9 -10 2 z" fill="#1C1814"/>
-        <circle cx="143" cy="117" r="3.6" fill="#1C1814"/>
-        <text x="152" y="24" font-family="Vazirmatn, sans-serif" font-size="11.5" fill="#6B6155">بیرون‌رونده</text>
-        <text x="204" y="146" font-family="Vazirmatn, sans-serif" font-size="11.5" fill="#6B6155">درون‌رونده</text>
-      </svg>
-      <figcaption class="figcap">شکل ۷ — مارپیچ به درون روی درون‌رونده‌ی دوبعدی، گریز در امتداد بیرون‌رونده‌ی یک‌بعدی.</figcaption>
+    <figure class="pmfig" data-widget="saddlefocus">
+      <canvas width="660" height="480" role="img" aria-label="شکل ۷"></canvas>
+      <figcaption class="figcap">شکل ۷ — مارپیچ به درون روی درون‌رونده‌ی دوبعدی، گریز در امتداد بیرون‌رونده‌ی یک‌بعدی. بکشید تا بچرخد.</figcaption>
     </figure>
 
     <p><span class="exlead">مثال ۴.</span></p>
@@ -671,7 +653,8 @@
 
     <p>تا اوایل دهه‌ی شصت میلادی تصور می‌شد که هر رباینده‌ای قابل تجزیه به یکی از سه رباینده‌ای است که تاکنون دیده‌ایم. در این زمان ریاضیدان آمریکایی اسمیل (S. Smale) اولین نمونه از یک «رباینده‌ی غریب» را ارائه کرد که در آن رباینده‌ی دستگاه شکل پیچیده‌ای داشت و رفتار جواب‌های دستگاه نیز در داخل و اطراف رباینده وضعیتی درهم و از نظر عملی غیرقابل پیش‌بینی بود. با این حال این مثال هنوز در قلمرو نظریه‌ی ریاضی بود و تصور نمی‌شد که در دستگاه‌های تابع قوانین فیزیک کلاسیک بتوان چنین پدیده‌ای را مشاهده کرد. ولی در ۱۹۶۳ یک ریاضیدان و هواشناس آمریکایی به نام لورنتس (E. N. Lorenz) مقاله‌ای منتشر کرد که در آن برای اولین بار رباینده‌ای از نوع جدید در مسائل طبیعی مطرح می‌شد. او که در جست‌وجوی یک مدل ریاضی برای توضیح تلاطم جوّی در هواشناسی بود، معادله‌ی دیفرانسیل زیر را در نظر گرفت:</p>
 
-    <div class="eq">\[ \left. \begin{aligned} \frac{dx}{dt} &amp;= -\sigma (x - y) \\[2pt] \frac{dy}{dt} &amp;= Rx - y - xz \\[2pt] \frac{dz}{dt} &amp;= xy - bz \end{aligned} \;\right\} \quad (*) \qquad \frac{d\mathbf{x}}{dt} = V(\mathbf{x}) \;\; \text{:یا به اختصار} \]</div>
+    <div class="eq">\[ (*) \quad \left\{ \begin{aligned} \frac{dx}{dt} &amp;= -\sigma (x - y) \\[2pt] \frac{dy}{dt} &amp;= Rx - y - xz \\[2pt] \frac{dz}{dt} &amp;= xy - bz \end{aligned} \right. \]</div>
+    <div class="eq">\[ \frac{d\mathbf{x}}{dt} = V(\mathbf{x}) \;\; \text{:یا به اختصار} \]</div></div>
 
     <p>که در اینجا \((x,y,z) \in \mathbf{R}^3\) و \(R\)، \(b\) و \(\sigma\) پارامترهای حقیقی هستند. لورنتس مقادیر \(\sigma = 10\) و \(b = 8/3\) را بررسی کرد و نشان داد که به ازای جمیع مقادیر مثبت \(R\)، یک ناحیه‌ی همبند ساده‌ی \(M\) — دربرگیرنده‌ی مبدأ مختصات — در \(\mathbf{R}^3\) وجود دارد، به‌طوری که میدان برداری \((*)\) در کلیه‌ی نقاط مرزی آن به طرف داخل است (شکل ۱۴).</p>
 
@@ -818,6 +801,86 @@
   function fmt(v, lang, dec){ var s = v.toFixed(dec); if (s.charAt(0) === '-') s = '−' + s.slice(1); return lang === 'fa' ? faDigits(s) : s; }
   function langOf(el){ var b = el.closest('[data-lang-block]'); return b ? b.getAttribute('data-lang-block') : 'en'; }
   function visible(el){ return el.offsetParent !== null; }
+
+  /* ---------- Saddle-focus: figure 7 ---------- */
+  document.querySelectorAll('[data-widget="saddlefocus"]').forEach(function(root){
+    var lang = langOf(root);
+    var L = lang === 'fa' ? { outset: 'بیرون‌رونده', inset: 'درون‌رونده' } : { outset: 'outset', inset: 'inset' };
+    var FONT = lang === 'fa' ? '11.5px Vazirmatn, sans-serif' : '11.5px Hanken Grotesk, sans-serif';
+    var cv = root.querySelector('canvas'), ctx = cv.getContext('2d');
+    var W = 330, H = 240, cx = 165, cy = 125, K = 92, CT = Math.cos(0.40), ST = Math.sin(0.40);
+    var th = 0.6, auto = true, dragX = null, resumeTimer = null;
+    var spirals = [0, Math.PI].map(function(a0){
+      var pts = [];
+      for (var t = 0; t <= 5.2; t += 0.02){
+        var r = 1.16 * Math.exp(-t), a = a0 - t;   /* r' = -r, th' = -1 : eigenvalues -1 +/- i */
+        pts.push([r * Math.cos(a), r * Math.sin(a)]);
+      }
+      return pts;
+    });
+    function P(x, y, z){
+      var c = Math.cos(th), s = Math.sin(th);
+      var X = x * c + y * s, Y = -x * s + y * c;
+      return [cx + X * K, cy - z * K * CT + Y * K * ST, Y];
+    }
+    function tri(x, y, rot){
+      ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+      ctx.beginPath(); ctx.moveTo(6, 0); ctx.lineTo(-5, -4.4); ctx.lineTo(-5, 4.4); ctx.closePath();
+      ctx.fillStyle = INK; ctx.fill(); ctx.restore();
+    }
+    function draw(){
+      ctx.setTransform(2, 0, 0, 2, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      // inset plane
+      var corners = [[-1.2,-1.2],[1.2,-1.2],[1.2,1.2],[-1.2,1.2]].map(function(c){ return P(c[0], c[1], 0); });
+      ctx.beginPath(); ctx.moveTo(corners[0][0], corners[0][1]);
+      for (var i = 1; i < 4; i++) ctx.lineTo(corners[i][0], corners[i][1]);
+      ctx.closePath(); ctx.strokeStyle = '#B7AC99'; ctx.lineWidth = 1; ctx.stroke();
+      // spirals on the plane, depth-shaded
+      ctx.lineWidth = 1.35;
+      spirals.forEach(function(pts){
+        var pr = pts.map(function(p){ return P(p[0], p[1], 0); });
+        for (var i = 0; i < pr.length - 1; i += 6){
+          var j = Math.min(i + 6, pr.length - 1);
+          var dep = (pr[i][2] + pr[j][2]) / 2;                 // -1.7..1.7, positive = nearer
+          ctx.globalAlpha = 0.5 + 0.5 * Math.min(1, Math.max(0, (dep + 1.7) / 3.4));
+          ctx.beginPath(); ctx.moveTo(pr[i][0], pr[i][1]);
+          for (var k = i + 1; k <= j; k++) ctx.lineTo(pr[k][0], pr[k][1]);
+          ctx.strokeStyle = INK; ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        var a1 = pr[12], a2 = pr[16];
+        tri(pr[14][0], pr[14][1], Math.atan2(a2[1] - a1[1], a2[0] - a1[0]));
+      });
+      // outset axis (screen-vertical under any yaw)
+      var top = P(0, 0, 1.02), bot = P(0, 0, -1.02);
+      ctx.beginPath(); ctx.moveTo(bot[0], bot[1]); ctx.lineTo(top[0], top[1]);
+      ctx.strokeStyle = INK; ctx.lineWidth = 1.3; ctx.stroke();
+      tri(cx, cy - 0.62 * K * CT, -Math.PI / 2);
+      tri(cx, cy - 0.78 * K * CT, -Math.PI / 2);
+      tri(cx, cy + 0.70 * K * CT, Math.PI / 2);
+      ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, 6.2832); ctx.fillStyle = INK; ctx.fill();
+      // labels
+      ctx.fillStyle = MUT; ctx.font = FONT;
+      ctx.textAlign = lang === 'fa' ? 'right' : 'left';
+      ctx.fillText(L.outset, lang === 'fa' ? cx - 9 : cx + 9, top[1] + 11);
+      ctx.fillText(L.inset, lang === 'fa' ? cx - 9 : cx + 9, cy + 1.2 * K * ST + 22);
+      ctx.textAlign = 'left';
+    }
+    cv.style.touchAction = 'none';
+    cv.addEventListener('pointerdown', function(e){ dragX = e.clientX; auto = false; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; });
+    cv.addEventListener('pointermove', function(e){ if (dragX !== null){ th += (e.clientX - dragX) * 0.008; dragX = e.clientX; } });
+    function endDrag(){ dragX = null; cv.style.cursor = 'grab';
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){ auto = true; }, 3000);
+    }
+    cv.addEventListener('pointerup', endDrag);
+    cv.addEventListener('pointercancel', endDrag);
+    (function loop(){
+      if (visible(cv)){ draw(); if (auto && dragX === null) th += 0.0035; }
+      requestAnimationFrame(loop);
+    })();
+  });
 
   /* ---------- Pitchfork: figures 8 & 9 ---------- */
   document.querySelectorAll('[data-widget="pitchfork"]').forEach(function(root){

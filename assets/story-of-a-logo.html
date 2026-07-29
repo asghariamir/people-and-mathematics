@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Story Behind a Logo — داستان یک لوگو · Mathematical Culture</title>
+<meta name="description" content="Three people, three generations of Iranian mathematics, and the art of asking favours: how the People and Mathematics emblem came to be.">
+
+<meta property="og:title" content="The Story Behind a Logo — داستان یک لوگو">
+<meta property="og:description" content="Mathematical Culture · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/logo.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Site rule: body text is justified, in both languages */
+  .standfirst, .body p, .article p { text-align: justify; }
+
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: inherit; }
+
+  /* ---------- Masthead ---------- */
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Article shell ---------- */
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  h1.title { font-size: 46px; line-height: 1.08; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+  .byline .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); align-self: center; }
+
+  /* ---------- The emblem plate ---------- */
+  .heroplate { margin: 34px 0 6px; display: flex; justify-content: center; }
+  .heroplate figure { margin: 0; max-width: 320px; width: 100%; }
+  .heroplate img { width: 100%; display: block; border-radius: 4px; box-shadow: 0 14px 34px rgba(28,24,20,.22); }
+  .cap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 12px; line-height: 1.55; text-align: center; }
+  .cap .lab { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 5px; }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .body p:first-of-type:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
+
+  /* ---------- In-body figures ---------- */
+  .bodyfig { margin: 30px 0 34px; }
+  .bodyfig .imgs { display: grid; gap: 14px; }
+  .bodyfig .imgs.two { grid-template-columns: 1fr 1fr; max-width: 560px; margin: 0 auto; }
+  .bodyfig .imgs.three { grid-template-columns: repeat(3, 1fr); }
+  .bodyfig img { width: 100%; height: 100%; object-fit: cover; display: block; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 6px 18px rgba(28,24,20,.10); }
+  .bodyfig .imgs.two img { aspect-ratio: 3 / 4.6; }
+  .bodyfig .imgs.three img { aspect-ratio: 4 / 3; }
+
+  /* ---------- The hands behind it ---------- */
+  .hands-head { display: flex; align-items: center; gap: 16px; margin: 44px 0 20px; }
+  .hands-head .t { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .hands-head .rule { height: 1px; background: var(--line); flex: 1; }
+  .hands { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .hand { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; text-decoration: none; border: 1px solid var(--line); border-radius: 10px; padding: 22px 16px 18px; background: #FFFDF8; transition: border-color .15s, box-shadow .15s; }
+  a.hand:hover { border-color: var(--accent); box-shadow: 0 6px 18px rgba(28,24,20,.10); }
+  .hand img, .hand .chip { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); }
+  .hand img[src*="lili-asghari"] { object-position: 50% 18%; }
+  .hand .chip { display: flex; align-items: center; justify-content: center; background: var(--black); color: var(--paper); font-family: "Vazirmatn", "Hanken Grotesk", sans-serif; font-size: 30px; font-weight: 600; }
+  .hand .hcol { display: flex; flex-direction: column; align-items: center; }
+  .hand .hn { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 700; margin-top: 13px; }
+  .hand .hr { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  .hand .hw { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; font-weight: 600; color: var(--accent); margin-top: 11px; }
+
+  /* contributor colophon */
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 26px; }
+  .colophon .role .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  /* ---------- Persian / RTL ---------- */
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.1; }
+  [dir="rtl"] .body p:first-of-type:first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 22px 32px; }
+    h1.title { font-size: 33px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .hands { grid-template-columns: 1fr; }
+    .bodyfig .imgs.three { grid-template-columns: 1fr; }
+    .bodyfig .imgs.three img { aspect-ratio: 4 / 2.6; }
+    .hand { flex-direction: row; text-align: start; gap: 16px; padding: 16px; }
+    .hand img, .hand .chip { width: 64px; height: 64px; flex: 0 0 auto; }
+    .hand .hcol { align-items: flex-start; }
+    .hand .hn { margin-top: 0; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" class="persian" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a> &nbsp;·&nbsp; <span class="accent" data-en="Mathematical Culture" data-fa="فرهنگ ریاضی"></span></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#8A7B66;display:inline-block;flex:0 0 auto;"></span><span data-en="For everyone · The journal’s own story · July 2026" data-fa="برای همه · قصه‌ی خودِ مجله · تیر ۱۴۰۵"></span></div>
+</div>
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">Mathematical Culture</div>
+  <h1 class="title">The Story Behind a Logo</h1>
+  <p class="standfirst">Three people, three generations of Iranian mathematics, and the art of asking favours: how the journal’s emblem came to be.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="Amir Asghari">
+    <span class="name">Amir Asghari</span>
+  </div>
+
+  <div class="heroplate">
+    <figure>
+      <img src="../assets/logo.jpg" alt="The People and Mathematics logo: three figures gathered around a torus, with the journal’s name in nastaʿlīq lettering beneath.">
+      <figcaption class="cap">
+        <span class="lab">The emblem</span>
+        Three figures around a torus — and beneath them, Heydar Radjavi’s lettering: «آدم‌ها و ریاضیات».
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="body">
+    <p>Of course you have seen the People and Mathematics logo. Of course, every time it has appeared before you, you have paused to admire how beautiful and meaningful it is. And of course you have wondered: how on earth did it come about?</p>
+
+    <p>Well, the story behind the logo is, in miniature, the story of People and Mathematics itself.</p>
+
+    <p>The first sketches were drawn by Tina Torkaman, at Amir Asghari’s request and in conversation with him. Tina is one of the wonderful younger members of Iran’s mathematical community.</p>
+
+    <figure class="bodyfig">
+      <div class="imgs two">
+        <img src="../assets/logo-sketch-grid.jpg" alt="Tina Torkaman’s ink sketches of the logo in a grid notebook, with آدم‌ها و ریاضیات handwritten beneath one of them.">
+        <img src="../assets/logo-sketch-black.jpg" alt="White-line studies of the logo in Tina Torkaman’s black sketchbook.">
+      </div>
+      <figcaption class="cap"><span class="lab">The first sketches</span>Tina’s notebooks: ink trials on grid paper, and white-line studies in a black sketchbook.</figcaption>
+    </figure>
+
+    <p>The Persian lettering beneath the logo was written — once again at Amir Asghari’s request — by Heydar Radjavi, one of the pioneering figures of modern mathematics in Iran.</p>
+
+    <figure class="bodyfig">
+      <div class="imgs three">
+        <img src="../assets/logo-lettering-1.jpg" alt="Three lettering trials of آدم‌ها و ریاضیات in black ink.">
+        <img src="../assets/logo-lettering-2.jpg" alt="Three more lettering trials in black ink.">
+        <img src="../assets/logo-lettering-3.jpg" alt="Playful colored trials of the lettering in red, with dotted decorations.">
+      </div>
+      <figcaption class="cap"><span class="lab">The lettering</span>Heydar Radjavi’s trials — page after page of «آدم‌ها و ریاضیات», down to a playful colored set.</figcaption>
+    </figure>
+
+    <p>Then came the job of bringing the two parts together. That fell to Lili Asghari — again, at Amir’s request. This was the hardest stage of all: Lili is family, and therefore entirely immune to Amir’s powers of persuasion. She does things in her own time. Eventually, however, the pieces found their place, and the People and Mathematics logo was born.</p>
+
+    <p>If there were a prize for the art of asking favours, Amir Asghari would surely win it.</p>
+  </div>
+
+  <div class="hands-head"><span class="t">The hands behind it</span><span class="rule"></span></div>
+  <div class="hands">
+    <a class="hand" href="https://sites.google.com/view/tina-torkaman/home" target="_blank" rel="noopener">
+      <img src="../assets/tina-torkaman.png" alt="Tina Torkaman">
+      <span class="hcol"><span class="hn">Tina Torkaman</span>
+      <span class="hr">The first sketches — of the younger generation</span>
+      <span class="hw">Visit her website ↗</span></span>
+    </a>
+    <a class="hand" href="https://uwaterloo.ca/pure-mathematics/profiles/heydar-radjavi" target="_blank" rel="noopener">
+      <img src="../assets/heydar-radjavi.png" alt="Heydar Radjavi">
+      <span class="hcol"><span class="hn">Heydar Radjavi</span>
+      <span class="hr">The Persian lettering — a pioneering figure</span>
+      <span class="hw">Visit his profile ↗</span></span>
+    </a>
+    <span class="hand">
+      <img src="../assets/lili-asghari.png" alt="Lili Asghari">
+      <span class="hcol"><span class="hn">Lili Asghari</span>
+      <span class="hr">Brought the two parts together — in her own time</span></span>
+    </span>
+  </div>
+
+  <!-- ===== Contributor colophon ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">Author</div>
+        <div class="who">Amir Asghari</div>
+        <div class="aff">Editor, People and Mathematics</div>
+      </div>
+      <div class="role">
+        <div class="lab">First sketches</div>
+        <div class="who">Tina Torkaman, in conversation with Amir Asghari</div>
+      </div>
+      <div class="role">
+        <div class="lab">Lettering</div>
+        <div class="who">Heydar Radjavi</div>
+      </div>
+      <div class="role">
+        <div class="lab">Composition</div>
+        <div class="who">Lili Asghari</div>
+      </div>
+    </div>
+    <div class="origin">Written for <em>People and Mathematics</em>, Mathematical Culture · July 2026.</div>
+  </div>
+</article>
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">فرهنگ ریاضی</div>
+  <h1 class="title">داستان یک لوگو</h1>
+  <p class="standfirst">سه آدم، سه نسل از ریاضیاتِ ایران، و هنرِ خواهش‌کردن: نشانِ مجله چگونه ساخته شد.</p>
+  <div class="byline">
+    <img class="avatar" src="../assets/amir.jpg" alt="امیر اصغری">
+    <span class="name">امیر اصغری</span>
+  </div>
+
+  <div class="heroplate">
+    <figure>
+      <img src="../assets/logo.jpg" alt="لوگوی آدم‌ها و ریاضیات: سه آدم دورِ یک چنبره، و زیرشان نامِ مجله به خطِ نستعلیق.">
+      <figcaption class="cap">
+        <span class="lab">نشان</span>
+        سه آدم دورِ یک چنبره — و زیرشان، خطِ حیدر رجوی: «آدم‌ها و ریاضیات».
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="body">
+    <p>حتماً لوگوی «آدم‌ها و ریاضیات» را دیده‌اید. حتماً هم هر بار که چشم‌تان به آن افتاده، با خودتان گفته‌اید: «چقدر زیبا و پرمعناست!» و احتمالاً بلافاصله از خودتان پرسیده‌اید: «مگه داریم؟ آخه چه‌جوری؟»</p>
+
+    <p>خب، داستان این لوگو واقعاً چکیده‌ی همان چیزی است که نامش می‌گوید: آدم‌ها و ریاضیات.</p>
+
+    <p>طرح اولیه‌ی لوگو، به خواهش امیر اصغری، با همفکری او و تینا ترکمان شکل گرفت. تینا از نسل دوست‌داشتنیِ سال‌های اخیر ریاضیات ایران است.</p>
+
+    <figure class="bodyfig">
+      <div class="imgs two">
+        <img src="../assets/logo-sketch-grid.jpg" alt="طرح‌های اولیه‌ی تینا ترکمان روی کاغذ شطرنجی، با «آدم‌ها و ریاضیات» به خط خودش.">
+        <img src="../assets/logo-sketch-black.jpg" alt="تمرین‌های سفید روی دفترچه‌ی سیاه تینا ترکمان.">
+      </div>
+      <figcaption class="cap"><span class="lab">طرح‌های اولیه</span>دفترهای تینا: تمرین با جوهر روی کاغذ شطرنجی، و طرح‌های سفید در دفترچه‌ی سیاه.</figcaption>
+    </figure>
+
+    <p>نوشته‌ی زیر لوگو هم، باز به خواهش امیر اصغری، به قلم حیدر رجوی، از نسل نخست ریاضی‌دانان ایران، نوشته شد.</p>
+
+    <figure class="bodyfig">
+      <div class="imgs three">
+        <img src="../assets/logo-lettering-1.jpg" alt="سه تمرین خوش‌نویسی «آدم‌ها و ریاضیات» با جوهر سیاه.">
+        <img src="../assets/logo-lettering-2.jpg" alt="سه تمرین دیگر با جوهر سیاه.">
+        <img src="../assets/logo-lettering-3.jpg" alt="تمرین‌های رنگی و بازیگوشانه‌ی خط با قرمز و نقطه‌چین.">
+      </div>
+      <figcaption class="cap"><span class="lab">خوش‌نویسی</span>تمرین‌های حیدر رجوی — صفحه پشت صفحه «آدم‌ها و ریاضیات»، تا یک دستِ رنگیِ بازیگوشانه.</figcaption>
+    </figure>
+
+    <p>بعد، این دو بخش باز هم به خواهش امیر اصغری، به دست لیلی اصغری کنار هم قرار گرفتند. این یکی از همه سخت‌تر بود؛ چون لیلی با امیر تعارف ندارد که کارها را زود انجام دهد! و این‌گونه لوگوی «آدم‌ها و ریاضیات» شکل گرفت.</p>
+
+    <p>به نظرم اگر جایزه‌ای برای هنرِ خواهش‌کردنِ موفقیت‌آمیز وجود داشت، باید به امیر اصغری می‌رسید.</p>
+  </div>
+
+  <div class="hands-head"><span class="t">دست‌هایی که ساختندش</span><span class="rule"></span></div>
+  <div class="hands">
+    <a class="hand" href="https://www.youtube.com/watch?v=jft2Fizl3m0" target="_blank" rel="noopener">
+      <img src="../assets/tina-torkaman.png" alt="تینا ترکمان">
+      <span class="hcol"><span class="hn">تینا ترکمان</span>
+      <span class="hr">طرح اولیه — از نسلِ دوست‌داشتنیِ سال‌های اخیر</span>
+      <span class="hw">آشنایی با او در یوتیوب ↗</span></span>
+    </a>
+    <a class="hand" href="https://www.youtube.com/watch?v=XTTW4fSV7LM" target="_blank" rel="noopener">
+      <img src="../assets/heydar-radjavi.png" alt="حیدر رجوی">
+      <span class="hcol"><span class="hn">حیدر رجوی</span>
+      <span class="hr">خطِ زیر لوگو — از نسلِ نخست</span>
+      <span class="hw">آشنایی با او در یوتیوب ↗</span></span>
+    </a>
+    <span class="hand">
+      <img src="../assets/lili-asghari.png" alt="لیلی اصغری">
+      <span class="hcol"><span class="hn">لیلی اصغری</span>
+      <span class="hr">کنارِ هم نشاندنِ آن دو — سرِ فرصت!</span></span>
+    </span>
+  </div>
+
+  <!-- ===== کارنامه ===== -->
+  <div class="colophon">
+    <div class="roles">
+      <div class="role">
+        <div class="lab">نویسنده</div>
+        <div class="who">امیر اصغری</div>
+        <div class="aff">سردبیرِ «آدم‌ها و ریاضیات»</div>
+      </div>
+      <div class="role">
+        <div class="lab">طراحی لوگو</div>
+        <div class="who">تینا ترکمان، با همفکریِ امیر اصغری</div>
+      </div>
+      <div class="role">
+        <div class="lab">خوش‌نویسی</div>
+        <div class="who">حیدر رجوی</div>
+      </div>
+      <div class="role">
+        <div class="lab">ترکیب‌بندی</div>
+        <div class="who">لیلی اصغری</div>
+      </div>
+    </div>
+    <div class="origin">نوشته‌شده برای «آدم‌ها و ریاضیات»، بخشِ فرهنگ ریاضی · تیر ۱۴۰۵.</div>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="javascript:window.print()" data-en="↓ Download PDF" data-fa="↓ دریافت پی‌دی‌اف"></a><a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a></span>
+</footer>
+
+<script>
+  function applyLabels(lang){
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+      var v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+  }
+  function setLang(lang){
+    var isFa = lang === 'fa';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-lang-block]').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+    });
+    document.querySelectorAll('.langtoggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    applyLabels(lang);
+    try { localStorage.setItem('pm-lang', lang); } catch(e){}
+  }
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

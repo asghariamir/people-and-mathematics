@@ -15,8 +15,9 @@ Optionally also add, as fallbacks for very old browsers:
 That's it — no code changes needed. Once the file is here and pushed to
 GitHub, Persian text uses B Nazanin automatically.
 
-UNTIL you add the file, Persian text uses "Noto Naskh Arabic" (a free,
-high-quality Google web font) so the site always looks correct.
+UNTIL you add the file, Persian text uses "Vazirmatn" (a free Google web
+font designed for Persian — round final heh, unlike Noto Naskh Arabic
+whose Arabic-style two-eyed final heh looks wrong in Farsi).
 
 NOTE ON LICENSING: B Nazanin is a commercial font. Please make sure you
 have the right to use it as a web font (embedding it in a website) before

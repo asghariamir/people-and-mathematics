@@ -28,7 +28,7 @@
   :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
   ::selection { background: var(--accent); color: var(--paper); }
   .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
   a { color: inherit; }
@@ -113,7 +113,7 @@
   .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
 
   /* RTL */
-  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
   [dir="rtl"] h1.title, [dir="rtl"] .film-concept, [dir="rtl"] .speaker-name { font-family: "Vazirmatn", "B Nazanin", serif; }
   [dir="rtl"] .speaker-name { white-space: normal; }
 
@@ -216,7 +216,7 @@
         <img src="../assets/artan-sheshmani.jpg" alt="Artan Sheshmani" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:1.5px solid #DBD0BA;margin-bottom:8px;">
         <div class="speaker-by" data-en="With" data-fa="با"></div>
         <div class="speaker-name">Artan Sheshmani</div>
-        <a class="speaker-mail" href="/cdn-cgi/l/email-protection#e8899a9c8986a885819cc68d8c9d"><span class="__cf_email__" data-cfemail="e5849791848ba5888c91cb808190">[email&#160;protected]</span></a>
+        <a class="speaker-mail" href="mailto:artan@mit.edu">artan@mit.edu</a>
       </div>
     </figcaption>
     <div class="film-note" dir="rtl" lang="fa">
@@ -260,7 +260,7 @@
   <a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function applyLabels(lang){
     document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
       var v = el.getAttribute('data-' + lang);

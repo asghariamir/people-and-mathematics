@@ -37,7 +37,7 @@
   :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Noto Naskh Arabic", Georgia, serif; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
   ::selection { background: var(--accent); color: var(--paper); }
   .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
   a { color: inherit; }
@@ -153,7 +153,7 @@
   .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
 
   /* ---------- Persian / RTL ---------- */
-  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Noto Naskh Arabic", "Vazirmatn", Georgia, serif; }
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
   [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
   [dir="rtl"] .body { font-size: 18px; line-height: 2.05; }
   [dir="rtl"] .body p:first-of-type:first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
@@ -243,7 +243,7 @@
       <div class="pg-hint">Click for a new vertex; drag from one vertex to another for a new edge; double-click a vertex to delete it. Crossings are refused — this is a plane, after all. The unbounded region ∞ counts too. While the graph is connected the sum sits at 2; each extra piece pushes it up by one.</div>
     </div>
 
-    <p>The formula also has teeth. A short argument with it shows that a planar sketch of a graph on at least \(3\) vertices always satisfies \(|E|\le 3|V|-6\), and \(|E|\le 2|V|-4\) if the graph has no triangles, and \(3|E|\le 5|V|-10\) if the graph has no cycles of length \(4\). And these innocent bounds are enough to convict: the complete graph \(K_5\), the complete bipartite graph \(K_{3,3}\), and the Petersen graph admit no planar sketch at all.</p>
+    <p>The formula also has teeth. A short argument with it shows that a planar graph with at least \(3\) vertices always satisfies \(|E|\le 3|V|-6\). Similarly, one can prove that \(|E|\le 2|V|-4\) holds for graphs with no triangles, and \(3|E|\le 5|V|-10\) holds if the graph has no cycles of length less than or equal to \(4\). And these innocent bounds are enough to convict: the complete graph \(K_5\), the complete bipartite graph \(K_{3,3}\), and the Petersen graph admit no planar sketch at all.</p>
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 316.5 105.0" style="aspect-ratio:316.5/105.0"><use href="#fig-Graph2" width="316.5" height="105.0"/></svg></div>
@@ -658,7 +658,7 @@
       <div class="pg-hint">برای رأس تازه کلیک کنید؛ برای یال تازه از رأسی به رأس دیگر بکشید؛ برای حذف رأس روی آن دوبار کلیک کنید. تقاطع پذیرفته نمی‌شود — اینجا صفحه است! ناحیه‌ی بی‌کران ∞ هم حساب است. تا وقتی گراف همبند است حاصل روی ۲ می‌نشیند؛ هر تکه‌ی جدا آن را یکی بالا می‌برد.</div>
     </div>
 
-    <p>فرمول دندان هم دارد. استدلالی کوتاه با آن نشان می‌دهد که طرح مسطحِ گرافی با دست‌کم ۳ رأس همیشه در \(|E|\le 3|V|-6\) صدق می‌کند، و اگر گراف مثلث نداشته باشد در \(|E|\le 2|V|-4\)، و اگر دوری به طولِ ۴ نداشته باشد در \(3|E|\le 5|V|-10\). و همین کران‌های معصوم برای صدور حکم کافی‌اند: گراف کامل \(K_5\)، گراف دوبخشیِ کامل \(K_{3,3}\) و گراف پترسن هیچ طرح مسطحی ندارند.</p>
+    <p>فرمول دندان هم دارد. استدلالی کوتاه با آن نشان می‌دهد که گراف مسطحی با دست‌کم ۳ رأس همیشه در \(|E|\le 3|V|-6\) صدق می‌کند. به همین ترتیب می‌توان ثابت کرد که برای گراف‌های بدونِ مثلث \(|E|\le 2|V|-4\) برقرار است، و اگر گراف دوری به طولِ حداکثر ۴ نداشته باشد، \(3|E|\le 5|V|-10\). و همین کران‌های معصوم برای صدور حکم کافی‌اند: گراف کامل \(K_5\)، گراف دوبخشیِ کامل \(K_{3,3}\) و گراف پترسن هیچ طرح مسطحی ندارند.</p>
 
     <figure class="figure">
       <div class="figsvg"><svg viewBox="0 0 316.5 105.0" style="aspect-ratio:316.5/105.0"><use href="#fig-Graph2" width="316.5" height="105.0"/></svg></div>

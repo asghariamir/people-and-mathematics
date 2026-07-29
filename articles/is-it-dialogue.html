@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is it dialogue? — a section from “Hamid Lesan: a life” · People and Mathematics</title>
+<meta name="description" content="One section of a longer piece on Hamid Lesan’s life: his 1990 machine made walkable, and his own question — is it dialogue? — asked again in the age of language models.">
+
+<meta property="og:title" content="Is it dialogue? — a section from “Hamid Lesan: a life”">
+<meta property="og:description" content="His question, asked again in the age of language models · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/hamid-lesan.jpg">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<template id="__bundler_thumbnail" data-bg-color="#FBF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FBF7EF"/>
+    <g fill="#fff" stroke="#1C1814" stroke-width="7">
+      <rect x="250" y="250" width="240" height="150"/>
+      <rect x="450" y="330" width="290" height="150"/>
+      <rect x="700" y="410" width="290" height="150"/>
+    </g>
+    <g fill="#1C1814">
+      <rect x="272" y="288" width="120" height="14"/>
+      <rect x="272" y="336" width="80" height="14"/>
+      <rect x="472" y="368" width="180" height="14"/>
+      <rect x="472" y="416" width="130" height="14"/>
+      <rect x="722" y="448" width="200" height="14"/>
+      <rect x="722" y="496" width="150" height="14"/>
+    </g>
+    <text x="600" y="215" font-family="Georgia, serif" font-size="130" fill="#C8633E" text-anchor="middle">?</text>
+  </svg>
+</template>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; --screen: #F4EEDF; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: var(--accent); }
+  a:hover { color: var(--ink); }
+  .standfirst, .body p, .body li { text-align: justify; }
+
+  /* ---------- Masthead ---------- */
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; color: inherit; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+  .crumb .accent { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Article shell ---------- */
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  h1.title { font-size: 46px; line-height: 1.08; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.5; font-style: italic; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+  .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+
+  .body { font-size: 19px; line-height: 1.72; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .body p.lead:first-letter { font-size: 58px; float: left; line-height: .78; padding: 7px 9px 0 0; font-weight: 600; color: var(--accent); font-family: Newsreader, serif; }
+  .subhead { font-family: "Newsreader", "Vazirmatn", serif; font-size: 27px; font-weight: 500; letter-spacing: -.01em; margin: 44px 0 14px; padding-top: 8px; }
+  .pullquote { font-size: 26px; line-height: 1.32; font-weight: 500; letter-spacing: -.01em; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); padding: 20px 0; margin: 32px 0; }
+  .pullquote .src { display: block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #948876; font-weight: 600; margin-top: 14px; }
+
+  figure.plate { margin: 30px 0; }
+  figure.plate img { display: block; width: 100%; border: 1px solid var(--ink); background: #fff; }
+  .figcap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-top: 9px; }
+  .figcap .fno { color: var(--accent); font-weight: 600; }
+  figure.plate.portrait { max-width: 320px; margin-left: auto; margin-right: auto; }
+  figure.plate.portrait .figcap { text-align: center; }
+
+  /* ============ Interactive shell (shared) ============ */
+  .pg { border: 1px solid var(--ink); border-radius: 4px; background: var(--screen); margin: 34px 0; overflow: hidden; }
+  .pg-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 1px solid var(--line); }
+  .pg-title { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  .pg-btn { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11.5px; font-weight: 600; background: transparent; border: 1px solid #C4B79E; color: #5B5245; border-radius: 999px; padding: 5px 13px; cursor: pointer; }
+  .pg-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .pg-btn.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pg-foot { border-top: 1px solid var(--line); padding: 11px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .pg-foot b { color: var(--ink); font-weight: 700; }
+  .pg-hint { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.6; padding: 0 16px 14px; }
+
+  .cons { border-bottom: 1px solid var(--line); background: #F9F4E7; padding: 10px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; line-height: 1.7; color: #6B6155; }
+  .cons b { color: var(--ink); font-weight: 700; }
+
+  /* ---- the 1990 screen ---- */
+  .scr { background: #fff; border: 1px solid var(--ink); margin: 16px; padding: 14px 16px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .tr { font-size: 14px; line-height: 1.5; }
+  .tr .ln { padding: 5px 6px; margin: 0 -6px; border-radius: 2px; cursor: pointer; position: relative; }
+  .tr .ln.mach { color: #2B2620; }
+  .tr .ln.user { font-weight: 700; color: var(--black); }
+  .tr .ln:hover { background: #F1E7D2; }
+  .tr .ln.pick { background: #EADFC6; box-shadow: inset 0 0 0 1px #C9B893; }
+  .tr .ln.fresh { animation: fadein .4s ease both; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+  .tr .who { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #A99C86; font-weight: 700; display: block; margin-bottom: 1px; }
+
+  .menus { display: flex; align-items: flex-start; gap: 0; margin-top: 20px; min-height: 150px; overflow-x: auto; padding-bottom: 4px; }
+  .col { flex: 0 0 auto; }
+  .colbox { border: 1px solid var(--ink); background: #fff; max-height: 132px; overflow-y: auto; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 26px; padding: 0 8px; font-size: 12.5px; font-weight: 700; color: var(--black); cursor: pointer; white-space: nowrap; border-bottom: 1px solid #E8E3D8; }
+  .row:last-child { border-bottom: 0; }
+  .row:hover { background: #EFE7D6; }
+  .row.on { background: #D8CFBB; }
+  .row .arw { font-weight: 700; color: #6B6155; }
+  .row.leaf .arw { display: none; }
+  .colnote { font-size: 10px; line-height: 1.35; color: var(--accent); font-weight: 600; margin-top: 5px; max-width: 132px; }
+  .endnote { font-size: 12.5px; color: var(--muted); padding: 6px 2px; }
+
+  /* ---- inspector ---- */
+  .insp { border-top: 1px solid var(--line); background: #EFE7D5; padding: 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .insp .q { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+  .insp .a { font-size: 15px; line-height: 1.6; margin-top: 8px; color: #332D25; }
+  .insp .quote { font-family: Newsreader, "B Nazanin", serif; font-size: 16.5px; line-height: 1.5; font-style: italic; color: var(--ink); border-inline-start: 3px solid var(--accent); padding: 2px 0 2px 14px; margin-top: 13px; }
+  [dir="rtl"] .insp .quote { padding: 2px 14px 2px 0; font-style: normal; }
+  .insp .quote .src { display: block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-style: normal; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #948876; font-weight: 600; margin-top: 8px; }
+  .insp .idle { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ---- verdict ---- */
+  .verdict { border-top: 1px solid var(--line); padding: 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .verdict .vq { font-size: 15px; font-weight: 600; }
+  .verdict .vopts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
+  .verdict .vans { display: none; margin-top: 15px; }
+  .verdict .vans.show { display: block; }
+
+  .secnote { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-top: 16px; padding-inline-start: 13px; border-inline-start: 2px solid var(--line); }
+  
+
+  
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .colophon .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .colophon .role .lab { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; margin-bottom: 7px; }
+  .colophon .role .who { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .colophon .role .aff { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); line-height: 1.6; }
+  .origin .lab { color: #948876; letter-spacing: .1em; text-transform: uppercase; font-size: 10px; font-weight: 600; }
+
+  .refs { margin-top: 40px; }
+  .refs h3 { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #948876; font-weight: 600; }
+  .refs ol { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; line-height: 1.6; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 10px; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  /* ---------- Persian / RTL ---------- */
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [dir="rtl"] .body { font-size: 18px; line-height: 2.05; }
+  [dir="rtl"] .body p.lead:first-letter { font-size: 1em; float: none; padding: 0; color: inherit; font-weight: inherit; }
+  [dir="rtl"] .standfirst { font-style: normal; }
+  [dir="rtl"] .pullquote { font-size: 24px; line-height: 1.7; }
+
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 20px 32px; }
+    h1.title { font-size: 32px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 17.5px; }
+    .pullquote { font-size: 21px; }
+    .colophon .roles { grid-template-columns: 1fr; gap: 18px; }
+    .scr { margin: 12px; padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
+    <button data-lang="fa" onclick="setLang('fa')">فارسی</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html">People and Mathematics</a></div>
+  <div class="crumb sans" style="display:flex;align-items:center;gap:7px;"><span style="width:8px;height:8px;border-radius:50%;background:#567D46;display:inline-block;flex:0 0 auto;"></span><span data-en="A section from a longer piece · Issue 02" data-fa="بخشی از نوشته‌ای بلندتر · دفترِ دوم"></span></div>
+</div>
+
+
+<!-- =================== ENGLISH =================== -->
+<article class="article" data-lang-block="en">
+  <div class="kicker">Hamid Lesan: a life</div>
+  <h1 class="title">Is it dialogue?</h1>
+  <div class="secnote">One section of “Hamid Lesan, a Logician Larger than Life”. <a href="hamid-lesan.html">The full piece is here</a>.</div>
+
+  <div class="body">
+    <p class="lead">In 1990, Hamid Lesan and Nigel Seel described a machine you could hold a conversation with — without typing a single character. It talked, you answered, and step by step a plan took shape. The machine below is built on theirs. Theirs, called the <em>Task Organiser</em>, arranged project plans; this one runs a smaller errand anyone can follow: helping two people fix a time to talk.</p>
+
+    <figure class="plate portrait">
+      <img src="../assets/hamid-lesan.jpg" alt="Hamid Lesan in doctoral robes, holding his degree scroll.">
+      <div class="figcap">Hamid Lesan at his doctoral graduation. Manchester, 1978 — twelve years before the machine below.</div>
+    </figure>
+
+    <p>Try it before reading on. Notice the one rule: you never type. At every moment the machine works out everything you <em>could</em> say next, and you pick one.</p>
+
+    <div class="pg" data-dlg data-dlg-lang="en" dir="ltr">
+      <div class="pg-head">
+        <span class="pg-title">Interactive · A machine you talk to without typing</span>
+        <button class="pg-btn" data-reset>Start again</button>
+      </div>
+      <div class="cons" data-cons></div>
+      <div class="scr">
+        <div class="tr" data-tr></div>
+        <div class="menus" data-menus></div>
+      </div>
+      <div class="pg-foot" data-count></div>
+      <div class="pg-hint">Hover or tap a phrase to open the next menu. A phrase with no arrow ends the sentence — pick it and it is said. When a menu comes up short, it tells you which fact removed the missing options. The mechanism is Lesan and Seel's; the errand is ours, kept small on purpose.</div>
+      <div class="insp" data-insp></div>
+      <div class="verdict" data-verdict></div>
+    </div>
+
+    <p>Everything you just said, the machine had already counted. The strip at the top of its screen is the whole of what it knows. Your half of the conversation was chosen by you, word by word — but composed in advance, by someone else.</p>
+
+    <h2 class="subhead">Their question</h2>
+
+    <p>Here is what makes their paper worth remembering. Having built the machine and shown that it worked, Lesan and Seel stopped and asked, in a section of their own paper, whether what it does deserves the word. The section's title is the title of this page: <em>Is it dialogue?</em> A real conversation, they said — borrowing from the philosopher Paul Grice — needs each side to mean something, and to want the other to recognise what they mean. Their machine speaks fluently, helpfully, always to the point. But whose intentions is it carrying?</p>
+
+    <div class="pullquote">“The <em>Task Organiser</em> certainly incorporates procedures for package-handling based on cooperative principles in dialogue, but it does not model the beliefs or intentions of the user at interaction-time <em>explicitly</em>.”<span class="src">Lesan &amp; Seel 1990, §3.4</span></div>
+
+    <p>Click any line of your transcript above — the machine's or your own — and their question will be put to that sentence.</p>
+
+    <h2 class="subhead">The machines we talk to now</h2>
+
+    <p>You have this kind of conversation every day now. You type something to a language model — one of the fluent assistants that answer anything — and an answer comes back; it feels far freer than walking through menus. This page itself was made that way.</p>
+
+    
+
+    <p>One difference is easy to miss. The 1990 machine could show you, at any moment, the complete list of everything you could say — the number sat on the screen. For your conversations with an assistant, no such list can be shown to anyone. The intentions are still set before you arrive, by people you will never meet; there is simply no page they can be printed on. The question has not gone away. It has just stopped being asked.</p>
+
+    
+
+    <p>So the next time an assistant answers you — warm, fluent, helpful — ask it Lesan and Seel's question. <em>Is this dialogue?</em> Whose intentions are in the room? They asked it of their own machine, in public, and answered against themselves. That is the part worth repeating.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">Source</span><br>H. Lesan &amp; N. R. Seel, “A Conversational Interface to a Constraint-Satisfaction System”, <em>ICL Technical Journal</em>, May 1990, 82–91. The interactive on this page is the journal's addition and is not part of the original work.</div>
+  </div>
+</article>
+
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">حمید لسان: یک زندگی</div>
+  <h1 class="title">آیا این گفت‌وگوست؟</h1>
+  <div class="secnote">بخشی از نوشتهٔ بلندِ «حمید لسان، منطق‌دانی زنده». <a href="hamid-lesan.html">متنِ کامل اینجاست</a>.</div>
+
+  <div class="body">
+    <p class="lead">در سال ۱۹۹۰، حمید لسان و نایجل سیل ماشینی را معرفی کردند که می‌شد با آن گفت‌وگو کرد — بی‌آنکه حتی یک حرف تایپ کنید. ماشین حرف می‌زد، شما جواب می‌دادید، و قدم‌به‌قدم برنامه‌ای شکل می‌گرفت. ماشینی که پایین می‌بینید بر پایه‌ی ماشینِ آن‌ها ساخته شده است. ماشینِ آن‌ها — به نامِ «سازمان‌دهِ کار» — برنامه‌ی پروژه‌ها را می‌چید؛ این یکی کارِ کوچک‌تری می‌کند که همه با آن آشناییم: به دو نفر کمک می‌کند وقتی برای گفت‌وگو پیدا کنند.</p>
+
+    <figure class="plate portrait">
+      <img src="../assets/hamid-lesan.jpg" alt="حمید لسان در ردای دکتری، با لوله‌ی مدرک در دست.">
+      <div class="figcap">حمید لسان در جشنِ فارغ‌التحصیلیِ دکتری؛ منچستر، ۱۳۵۷ — دوازده سال پیش از ماشینِ پایین.</div>
+    </figure>
+
+    <p>پیش از آنکه ادامه را بخوانید، امتحانش کنید. به یک قاعده دقت کنید: شما هیچ‌وقت تایپ نمی‌کنید. ماشین در هر لحظه حساب می‌کند چه حرف‌هایی <em>می‌توانید</em> بزنید، و شما یکی را انتخاب می‌کنید.</p>
+
+    <div class="pg" data-dlg data-dlg-lang="fa" dir="rtl">
+      <div class="pg-head">
+        <span class="pg-title">تعاملی · ماشینی که بی‌تایپ‌کردن با آن حرف می‌زنید</span>
+        <button class="pg-btn" data-reset>از نو</button>
+      </div>
+      <div class="cons" data-cons></div>
+      <div class="scr">
+        <div class="tr" data-tr></div>
+        <div class="menus" data-menus></div>
+      </div>
+      <div class="pg-foot" data-count></div>
+      <div class="pg-hint">نشانگر را روی عبارتی ببرید (یا لمسش کنید) تا فهرستِ بعدی باز شود. عبارتی که پیکان ندارد جمله را تمام می‌کند — انتخابش کنید تا گفته شود. هر جا فهرستی کوتاه بود، خودش می‌گوید کدام واقعیت گزینه‌های غایب را حذف کرده است. سازوکار از لسان و سیل است؛ این کارِ کوچک را ما به‌عمد جای کارِ آن‌ها گذاشته‌ایم.</div>
+      <div class="insp" data-insp></div>
+      <div class="verdict" data-verdict></div>
+    </div>
+
+    <p>هر چه همین حالا گفتید، ماشین از قبل شمرده بود. نوارِ بالای صفحه‌اش همه‌ی چیزی است که می‌داند. سهم شما از این گفت‌وگو را خودتان انتخاب کردید، کلمه به کلمه — اما جمله‌ها را کس دیگری، از پیش، ساخته بود.</p>
+
+    <h2 class="subhead">پرسشِ خودشان</h2>
+
+    <p>آنچه مقاله‌ی آن‌ها را ماندگار می‌کند همین‌جاست. لسان و سیل بعد از آنکه ماشین را ساختند و نشان دادند کار می‌کند، ایستادند و در بخشی از همان مقاله پرسیدند: آیا کاری که این ماشین می‌کند اصلاً سزاوارِ این کلمه هست؟ عنوانِ آن بخش، عنوانِ همین صفحه است: <em>آیا این گفت‌وگوست؟</em> می‌گفتند — به پیروی از پل گرایس، فیلسوف — گفت‌وگوی واقعی وقتی است که هر دو طرف منظوری داشته باشند و بخواهند طرفِ مقابل آن منظور را بفهمد. ماشینِ آن‌ها روان و مفید و همیشه سرِ مطلب حرف می‌زند. اما نیت‌هایی که با خود دارد از آنِ کیست؟</p>
+
+    <div class="pullquote">«سازمان‌دهِ کار بی‌تردید روال‌هایی دارد که بر اصولِ همکاری در گفت‌وگو تکیه دارند؛ اما باورها و نیت‌های کاربر را در خودِ لحظه‌ی گفت‌وگو، به‌صراحت، مدل نمی‌کند.»<span class="src">لسان و سیل، ۱۹۹۰، بخش ۳٫۴</span></div>
+
+    <p>روی هر سطر از گفت‌وگوی خودتان در بالا کلیک کنید — حرفِ ماشین یا حرفِ خودتان — تا پرسشِ آن‌ها درباره‌ی همان جمله پرسیده شود.</p>
+
+    <h2 class="subhead">ماشین‌هایی که حالا با آن‌ها حرف می‌زنیم</h2>
+
+    <p>شما حالا هر روز از این گفت‌وگوها دارید. به یک مدلِ زبانی — همین دستیارهای روانی که جوابِ هر چیزی را می‌دهند — چیزی تایپ می‌کنید و جوابی می‌گیرید؛ و این خیلی آزادتر از راه‌رفتن میان فهرست‌ها به نظر می‌رسد. خودِ همین صفحه همین‌طور ساخته شده است.</p>
+
+    
+
+    <p>یک تفاوت هست که آسان از چشم می‌افتد. ماشینِ ۱۹۹۰ می‌توانست در هر لحظه فهرستِ کاملِ هر چه را می‌توانستید بگویید نشانتان بدهد — عددش روی صفحه بود. برای گفت‌وگوهای شما با این دستیارها، چنین فهرستی را هیچ‌کس به هیچ‌کس نمی‌تواند نشان بدهد. نیت‌ها هنوز پیش از رسیدنِ شما تعیین شده‌اند، به دستِ کسانی که هرگز نمی‌بینیدشان؛ فقط دیگر صفحه‌ای نیست که بشود آن‌ها را رویش چاپ کرد. پرسش از بین نرفته است؛ فقط دیگر پرسیده نمی‌شود.</p>
+
+    
+
+    <p>پس بارِ دیگر که دستیاری گرم و روان و مفید جوابتان را داد، پرسشِ لسان و سیل را از او بپرسید: <em>آیا این گفت‌وگوست؟</em> نیتِ چه کسی در میان است؟ آن‌ها این پرسش را درباره‌ی ماشینِ خودشان پرسیدند، جلوی چشمِ همه، و به زیانِ خودشان جواب دادند. همین است آن کاری که ارزشِ تکرار دارد.</p>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">منبع</span><br>H. Lesan &amp; N. R. Seel, “A Conversational Interface to a Constraint-Satisfaction System”, <em>ICL Technical Journal</em>, May 1990, 82–91. تعاملیِ این صفحه افزوده‌ی مجله است و جزوِ کارِ اصلی نیست.</div>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="../index.html" data-en="← Back to the journal" data-fa="بازگشت به مجله →"></a></span>
+</footer>
+
+<script>
+/* ============================ language ============================ */
+function applyLabels(lang){
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+    var v = el.getAttribute('data-' + lang);
+    if (v !== null) el.textContent = v;
+  });
+}
+function setLang(lang){
+  var isFa = lang === 'fa';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-block]').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-lang-block') === lang);
+  });
+  document.querySelectorAll('.langtoggle button').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+  });
+  applyLabels(lang);
+  try { localStorage.setItem('pm-lang', lang); } catch(e){}
+}
+(function(){
+  var start = 'en';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+})();
+</script>
+
+<!-- =====================================================================
+     Interactive 1 — the Task Organiser's walking menus, reconstructed.
+     The machine generates every legal next sentence under the plan's
+     constraints (valid calendar date, start <= end); the reader selects.
+     Interactive 2 — the same conversation with the tree hidden.
+     ================================================================== -->
+<script>
+(function(){
+'use strict';
+
+function faDig(s){ return String(s).replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; }); }
+function el(tag, cls, txt){ var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
+
+/* The situation, as constraints. Both free: Mon 14–17, Tue 10–17, Wed 9–12.
+   He is away Thu & Fri. He teaches Tue 12–13. Nothing may run past the free
+   block. The office is booked Wednesday mornings. */
+var AVAIL = { 1: [14, 17], 2: [10, 17], 3: [9, 12] };
+var BUSY  = { 2: [12, 13] };
+var DAYN  = [1, 2, 3, 4, 5];
+var DURS  = [30, 60, 90];
+
+var S = {
+  en: {
+    num: function(n){ return String(n); },
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    cons: 'Everything the machine knows: <b>you are both free</b> Mon 14–17, Tue 10–17, Wed 9–12 · <b>he is away</b> Thu &amp; Fri · <b>he teaches</b> Tue 12–13 · nothing may run past the free block · <b>your office</b> is booked Wednesday mornings.',
+    p1: 'Do you want to say something about when we meet ?',
+    p1b: 'Returning to the time — do you want to say something about it ?',
+    p2: 'OK, how long shall we give it ?',
+    p3: 'OK, and where shall we sit ?',
+    p4: 'OK. The arrangement is well-formed: nothing in it breaks a constraint. Anything else ?',
+    yes: 'yes', no: 'no', yesT: 'yes,', noT: 'no,',
+    vBe: 'it will be', vLast: 'it will last', vSit: 'we will sit in', vBring: 'and I will bring',
+    pOn: 'on', pAt: 'at',
+    hour: function(h){ return h + ':00'; },
+    dur: function(n){ return n === 60 ? 'an hour' : (n === 90 ? 'an hour and a half' : n + ' minutes'); },
+    rooms: ['your office', 'the library corner'],
+    bring: ['the paper', 'a printout', 'nothing'],
+    avail: 'but I want to see when you are free',
+    who2: 'but someone else should be there',
+    about: 'but I want to know what we are meeting about',
+    later: 'but I would rather decide on the day',
+    thatsAll: "that's all for now",
+    whoM: 'the machine', whoU: 'you',
+    rAvail: 'You are both free Monday afternoon, Tuesday from 10 except 12–13, and Wednesday morning.',
+    rWho2: 'Noted. I will check that their diary allows it.',
+    rAbout: 'Noted: the paper. I will put it on the arrangement.',
+    rLater: 'Noted. I will leave the room open until the day.',
+    rOK: 'OK. That breaks no constraint.',
+    rWhen: 'OK. That is inside the time you are both free.',
+    ended: '— end of dialogue —',
+    wh: function(n, why){ return n + (n === 1 ? ' option' : ' options') + ' removed: ' + why; },
+    whyAway: 'he is away Thursday and Friday',
+    whyClass: 'he teaches Tuesday 12–13',
+    whyOver: 'it would run past the time you are both free',
+    whyBooked: 'your office is booked that morning',
+    count: function(n, k){ return 'The machine is offering you <b>' + n + '</b> sentence' + (n === 1 ? '' : 's') + ' at this moment. You will utter one of them. Characters typed so far: <b>' + k + '</b>.'; },
+    countEnd: function(k){ return 'The dialogue is closed. Characters typed, from beginning to end: <b>' + k + '</b>.'; },
+    nudge: ' Now click any line of the transcript.',
+    inspIdle: 'Click any line of the transcript above \u2014 the machine\u2019s or your own \u2014 and the question will be asked of it.',
+    inspMQ: 'The machine said this. Who meant it?',
+    inspMA: 'The program picked this sentence a moment ago. But the idea behind it \u2014 that a helpful assistant, told the day and the hour, should now ask how long \u2014 was worked out years before you sat down, by the people who wrote the program. The machine carries their intentions; it has none of its own.',
+    inspMquote: 'the analysis of user beliefs and intentions at various points in the task was done by the <em>Task Organiser</em> designers at design-time.',
+    inspMsrc: 'Lesan & Seel 1990, \u00a73.4',
+    inspUQ: 'You said this. Who composed it?',
+    inspUA: 'You chose it, and you meant it. But you did not compose it: every word was already on a list, and the list had been trimmed by the facts before you ever saw it. You selected; the machine generated.',
+    inspUquote: 'Generation-under-constraints is allocated to the machine, and selection (\u201Ctest\u201D) allocated to the user.',
+    inspUsrc: 'Lesan & Seel 1990, \u00a72.3',
+    vq: 'So \u2014 was that a dialogue?',
+    vopts: ['Yes', 'No', 'It is not that simple'],
+    vansLead: 'Lesan and Seel answered their own question, twice.',
+    vans1: 'Our suggestion is that for a stereotyped process such as project-plan creation, such a fixed intentional structure is adequate.',
+    vans1src: '\u00a73.4',
+    vans2: 'At best this is a crude assumption, and it is hard to see how even the levels of cooperativeness in Allen and Perrault\u2019s train information model could be achieved without deferring estimates of the conversation partner\u2019s intentions until the conversation itself.',
+    vans2src: '\u00a74.2',
+    vansTail: 'They asked it of their own machine and answered against themselves. Hold it beside the assistants you talk to now.',
+    
+  },
+  fa: {
+    num: function(n){ return faDig(n); },
+    days: ['دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه'],
+    cons: 'همه‌ی آنچه ماشین می‌داند: <b>هر دو وقت دارید</b> دوشنبه ۱۴ تا ۱۷، سه‌شنبه ۱۰ تا ۱۷، چهارشنبه ۹ تا ۱۲ · <b>او</b> پنج‌شنبه و جمعه نیست · سه‌شنبه ۱۲ تا ۱۳ <b>کلاس دارد</b> · هیچ قراری نباید از وقتِ آزاد بیرون بزند · <b>دفترِ شما</b> چهارشنبه‌ها صبح رزرو است.',
+    p1: 'می‌خواهید درباره‌ی زمانِ دیدارمان چیزی بگویید؟',
+    p1b: 'برگردیم به زمانِ دیدار — چیزی درباره‌اش می‌گویید؟',
+    p2: 'بسیار خوب. چقدر وقت برایش بگذاریم؟',
+    p3: 'بسیار خوب. کجا بنشینیم؟',
+    p4: 'بسیار خوب. قرارِ ما بی‌اشکال است؛ هیچ قیدی را زیر پا نمی‌گذارد. چیزِ دیگری هست؟',
+    yes: 'بله', no: 'نه', yesT: 'بله،', noT: 'نه،',
+    vBe: 'قرارمان', vLast: 'مدتش', vSit: 'می‌نشینیم در', vBring: 'و با خودم می‌آورم',
+    pOn: 'روزِ', pAt: 'ساعتِ',
+    hour: function(h){ return faDig(h) + ':۰۰'; },
+    dur: function(n){ return n === 60 ? 'یک ساعت' : (n === 90 ? 'یک ساعت و نیم' : faDig(n) + ' دقیقه'); },
+    rooms: ['دفترِ شما', 'گوشه‌ی کتابخانه'],
+    bring: ['مقاله را', 'یک نسخه‌ی چاپی', 'هیچ‌چیز'],
+    avail: 'اما می‌خواهم ببینم کِی وقت داریم',
+    who2: 'اما یک نفرِ دیگر هم باید باشد',
+    about: 'اما می‌خواهم بدانم موضوعِ دیدار چیست',
+    later: 'اما جایش را بگذاریم برای همان روز',
+    thatsAll: 'فعلاً همین',
+    whoM: 'ماشین', whoU: 'شما',
+    rAvail: 'دوشنبه بعدازظهر، سه‌شنبه از ۱۰ (جز ۱۲ تا ۱۳)، و چهارشنبه صبح هر دو وقت دارید.',
+    rWho2: 'ثبت شد. نگاه می‌کنم که وقتِ او هم اجازه بدهد.',
+    rAbout: 'ثبت شد: مقاله. در قرار می‌نویسمش.',
+    rLater: 'ثبت شد. جای دیدار را تا همان روز باز می‌گذارم.',
+    rOK: 'بسیار خوب. هیچ قیدی را زیر پا نمی‌گذارد.',
+    rWhen: 'بسیار خوب. این درست توی وقتی است که هر دو آزادید.',
+    ended: '— پایانِ گفت‌وگو —',
+    wh: function(n, why){ return faDig(n) + ' گزینه کنار گذاشته شد: ' + why; },
+    whyAway: 'او پنج‌شنبه و جمعه نیست',
+    whyClass: 'او سه‌شنبه ۱۲ تا ۱۳ کلاس دارد',
+    whyOver: 'از وقتِ آزادتان بیرون می‌زند',
+    whyBooked: 'دفترِ شما آن روز صبح رزرو است',
+    count: function(n, k){ return 'ماشین در این لحظه <b>' + faDig(n) + '</b> جمله پیشِ روی شما گذاشته است؛ یکی را انتخاب خواهید کرد. حرف‌هایی که تا حالا تایپ کرده‌اید: <b>' + faDig(k) + '</b>.'; },
+    countEnd: function(k){ return 'گفت‌وگو تمام شد. حرف‌هایی که از اول تا آخر تایپ کردید: <b>' + faDig(k) + '</b>.'; },
+    nudge: ' حالا روی یکی از سطرهای گفت‌وگو کلیک کنید.',
+    inspIdle: 'روی هر سطر از گفت‌وگوی بالا کلیک کنید — حرفِ ماشین یا حرفِ خودتان — تا پرسش درباره‌ی همان جمله پرسیده شود.',
+    inspMQ: 'ماشین این را گفت. منظورش از آنِ کیست؟',
+    inspMA: 'برنامه این جمله را همین حالا انتخاب کرد. اما فکرِ پشتِ آن — اینکه دستیارِ خوب وقتی روز و ساعت را شنید باید مدت را بپرسد — سال‌ها پیش از نشستنِ شما، به دستِ نویسندگانِ برنامه، شکل گرفته بود. ماشین نیتِ آن‌ها را با خود می‌بَرد؛ نیتی از خودش ندارد.',
+    inspMquote: 'تحلیلِ باورها و نیت‌های کاربر در مرحله‌های مختلفِ کار، پیش‌تر و به دستِ طراحانِ سازمان‌دهِ کار انجام شده بود.',
+    inspMsrc: 'لسان و سیل ۱۹۹۰، بخش ۳٫۴',
+    inspUQ: 'این را شما گفتید. اما چه کسی آن را ساخت؟',
+    inspUA: 'انتخابش با شما بود و منظورتان هم همان بود. اما جمله را شما نساختید: تک‌تکِ کلمه‌ها از قبل در فهرستی بود، و آن فهرست پیش از آنکه ببینیدش با واقعیت‌ها کوتاه شده بود. شما انتخاب کردید؛ ماشین ساخت.',
+    inspUquote: 'تولید، با همه‌ی قید و شرط‌ها، کارِ ماشین است و انتخاب («آزمودن») کارِ کاربر.',
+    inspUsrc: 'لسان و سیل ۱۹۹۰، بخش ۲٫۳',
+    vq: 'خب — این گفت‌وگو بود؟',
+    vopts: ['بله', 'نه', 'به این سادگی نمی‌شود گفت'],
+    vansLead: 'لسان و سیل خودشان دو بار جواب دادند.',
+    vans1: 'پیشنهادِ ما این است که برای کارِ روزمره‌ای مثلِ ساختنِ برنامه‌ی یک پروژه، همین ساختارِ ثابتِ نیت‌ها کافی است.',
+    vans1src: 'بخش ۳٫۴',
+    vans2: 'این در بهترین حالت فرضی خام است؛ و دشوار بشود تصور کرد که حتی همان اندازه همکاری که در مدلِ اطلاعاتِ قطارِ آلن و پرو هست، بدون آنکه برآوردِ نیت‌های طرفِ گفت‌وگو را به خودِ گفت‌وگو واگذار کنیم، به دست بیاید.',
+    vans2src: 'بخش ۴٫۲',
+    vansTail: 'این پرسش را درباره‌ی ماشینِ خودشان پرسیدند و به زیانِ خودشان جواب دادند. این جواب را کنارِ دستیارهایی بگذارید که حالا با آن‌ها حرف می‌زنید.',
+    
+  }
+};
+
+/* ============ generation under constraints: the branches ============ */
+function hoursFor(L, d){
+  var a = AVAIL[d], rows = [], cls = 0;
+  for (var h = a[0]; h < a[1]; h++){
+    if (BUSY[d] && h >= BUSY[d][0] && h < BUSY[d][1]) { cls++; continue; }
+    rows.push({ label: L.pAt + ' ' + L.hour(h), tail: '.', bind: { day: d, hour: h } });
+  }
+  return { rows: rows, note: cls ? L.wh(cls, L.whyClass) : null };
+}
+
+function whenBranch(L){
+  var rows = [], away = 0;
+  DAYN.forEach(function(d){
+    if (!AVAIL[d]) { away++; return; }
+    rows.push({ label: L.pOn + ' ' + L.days[d - 1], more: true, kids: function(){ return hoursFor(L, d); } });
+  });
+  return { rows: rows, note: away ? L.wh(away, L.whyAway) : null };
+}
+
+function durBranch(L, st){
+  var rows = [], cut = 0, lim = AVAIL[st.day][1];
+  if (BUSY[st.day] && st.hour < BUSY[st.day][0]) lim = BUSY[st.day][0];
+  DURS.forEach(function(n){
+    if (st.hour + n / 60 <= lim) rows.push({ label: L.dur(n), tail: '.', bind: { dur: n } });
+    else cut++;
+  });
+  return { rows: rows, note: cut ? L.wh(cut, L.whyOver) : null };
+}
+
+function roomBranch(L, st){
+  var rows = [], cut = 0;
+  L.rooms.forEach(function(r, i){
+    if (i === 0 && st.day === 3) { cut++; return; }
+    rows.push({ label: r, tail: '.', bind: { room: i } });
+  });
+  return { rows: rows, note: cut ? L.wh(cut, L.whyBooked) : null };
+}
+
+function Dialogue(root){
+  var self = this;
+  this.root = root;
+  this.lang = root.getAttribute('data-dlg-lang');
+  this.L = S[this.lang];
+  this.trEl = root.querySelector('[data-tr]');
+  this.mEl = root.querySelector('[data-menus]');
+  this.cEl = root.querySelector('[data-count]');
+  this.iEl = root.querySelector('[data-insp]');
+  this.vEl = root.querySelector('[data-verdict]');
+  var cs = root.querySelector('[data-cons]');
+  if (cs) cs.innerHTML = this.L.cons;
+  root.querySelector('[data-reset]').addEventListener('click', function(){ self.reset(); });
+  this.buildVerdict();
+  this.reset();
+}
+
+Dialogue.prototype.reset = function(){
+  this.st = { day: null, hour: null, dur: null, room: null, extra: false, done: false };
+  this.lines = [];
+  this.picked = -1;
+  this.freshFrom = 0;
+  this.say('mach', this.L.p1);
+  this.freshFrom = 1;
+  this.openRoot();
+  this.renderInsp();
+  if (this.vEl) this.vEl.querySelector('[data-vans]').classList.remove('show');
+  this.render();
+};
+
+Dialogue.prototype.say = function(kind, text){ this.lines.push({ kind: kind, text: text }); };
+
+/* --------- which turn are we in, and what may be said --------- */
+Dialogue.prototype.tree = function(){
+  var L = this.L, st = this.st, kids;
+  if (st.done) return null;
+  if (!st.hour){
+    kids = [{ label: L.vBe, more: true, kids: function(){ return whenBranch(L); } }];
+    return this.yesNo(kids, [
+      { label: L.avail, tail: '.', bind: { defer: 'avail' } },
+      { label: L.who2, tail: '.', bind: { defer: 'who2' } }
+    ]);
+  }
+  if (!st.dur){
+    kids = [{ label: L.vLast, more: true, kids: function(){ return durBranch(L, st); } }];
+    return this.yesNo(kids, [
+      { label: L.about, tail: '.', bind: { defer: 'about' } },
+      { label: L.avail, tail: '.', bind: { defer: 'avail' } }
+    ]);
+  }
+  if (st.room == null){
+    kids = [{ label: L.vSit, more: true, kids: function(){ return roomBranch(L, st); } }];
+    return this.yesNo(kids, [
+      { label: L.later, tail: '.', bind: { defer: 'later' } },
+      { label: L.who2, tail: '.', bind: { defer: 'who2' } }
+    ]);
+  }
+  if (st.extra) return { rows: [{ label: L.thatsAll, tail: '.', bind: { done: true } }], note: null };
+  kids = [{ label: L.vBring, more: true, kids: function(){
+    return { rows: L.bring.map(function(b){ return { label: b, tail: '.', bind: { extra: true } }; }), note: null };
+  } }];
+  return this.yesNo(kids, [{ label: L.thatsAll, tail: '.', bind: { done: true } }]);
+};
+
+Dialogue.prototype.yesNo = function(yesKids, noKids){
+  var L = this.L;
+  return { rows: [
+    { label: L.yes, text: L.yesT, more: true, kids: function(){ return { rows: yesKids, note: null }; } },
+    { label: L.no, text: L.noT, more: true, kids: function(){ return { rows: noKids, note: null }; } }
+  ], note: null };
+};
+
+Dialogue.prototype.openRoot = function(){
+  var t = this.tree();
+  this.cols = t ? [t] : [];
+  this.sel = [];
+};
+
+/* ------------------------- leaf counting ------------------------- */
+function leaves(col){
+  var n = 0;
+  for (var i = 0; i < col.rows.length; i++){
+    var r = col.rows[i];
+    n += r.more ? leaves(r.kids()) : 1;
+  }
+  return n;
+}
+
+/* --------------------------- interaction --------------------------- */
+Dialogue.prototype.open = function(depth, i){
+  var row = this.cols[depth].rows[i];
+  this.sel = this.sel.slice(0, depth); this.sel[depth] = i;
+  this.cols = this.cols.slice(0, depth + 1);
+  if (row.more) this.cols.push(row.kids());
+  this.renderMenus();
+};
+
+Dialogue.prototype.commit = function(depth, i){
+  var L = this.L, row = this.cols[depth].rows[i], st = this.st;
+  this.sel = this.sel.slice(0, depth); this.sel[depth] = i;
+  var parts = [];
+  for (var k = 0; k <= depth; k++){
+    var r = this.cols[k].rows[this.sel[k]];
+    parts.push(r.text != null ? r.text : r.label);
+  }
+  var b = row.bind || {};
+  this.freshFrom = this.lines.length;
+  this.say('user', parts.join(' ') + (row.tail || ''));
+
+  if (b.hour){ st.day = b.day; st.hour = b.hour; this.say('mach', L.rWhen); this.say('mach', L.p2); }
+  else if (b.dur != null){ st.dur = b.dur; this.say('mach', L.rOK); this.say('mach', L.p3); }
+  else if (b.room != null){ st.room = b.room; this.say('mach', L.rOK); this.say('mach', L.p4); }
+  else if (b.extra){ st.extra = true; this.say('mach', L.rOK); this.say('mach', L.p4); }
+  else if (b.done){ st.done = true; this.say('mach', L.ended); }
+  else if (b.defer){
+    this.say('mach', L[{ avail: 'rAvail', who2: 'rWho2', about: 'rAbout', later: 'rLater' }[b.defer]]);
+    /* §4.1 — the dialogue-state model brings the deferred topic back */
+    if (!st.hour) this.say('mach', L.p1b);
+    else if (!st.dur) this.say('mach', L.p2);
+    else if (st.room == null) this.say('mach', L.p3);
+    else this.say('mach', L.p4);
+  }
+  this.openRoot();
+  this.render();
+};
+
+/* ----------------------------- render ----------------------------- */
+Dialogue.prototype.render = function(){
+  this.renderTranscript();
+  this.renderMenus();
+  this.renderCount();
+};
+
+Dialogue.prototype.renderTranscript = function(){
+  var self = this, L = this.L;
+  this.trEl.textContent = '';
+  this.lines.forEach(function(ln, idx){
+    var d = el('div', 'ln ' + (ln.kind === 'mach' ? 'mach' : 'user') + (idx >= self.freshFrom ? ' fresh' : '') + (idx === self.picked ? ' pick' : ''));
+    d.appendChild(el('span', 'who', ln.kind === 'mach' ? L.whoM : L.whoU));
+    d.appendChild(document.createTextNode(ln.text));
+    d.setAttribute('tabindex', '0');
+    d.addEventListener('click', function(){ self.picked = idx; self.renderTranscript(); self.renderInsp(); });
+    d.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); d.click(); } });
+    self.trEl.appendChild(d);
+  });
+};
+
+Dialogue.prototype.renderMenus = function(){
+  var self = this, L = this.L;
+  this.mEl.textContent = '';
+  if (!this.cols.length){
+    this.mEl.appendChild(el('div', 'endnote', L.ended));
+    return;
+  }
+  var off = 0;
+  this.cols.forEach(function(col, depth){
+    if (depth > 0) off += Math.min(self.sel[depth - 1] || 0, 3) * 26;
+    var wrap = el('div', 'col');
+    wrap.style.marginTop = Math.min(off, 104) + 'px';
+    var box = el('div', 'colbox');
+    col.rows.forEach(function(row, i){
+      var r = el('div', 'row' + (row.more ? '' : ' leaf') + (self.sel[depth] === i ? ' on' : ''));
+      r.appendChild(el('span', 'lbl', row.label));
+      r.appendChild(el('span', 'arw', '›'));
+      r.setAttribute('tabindex', '0');
+      var act = function(){ if (row.more) self.open(depth, i); else self.commit(depth, i); };
+      r.addEventListener('mouseenter', function(){ if (row.more) self.open(depth, i); });
+      r.addEventListener('click', act);
+      r.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+      box.appendChild(r);
+    });
+    wrap.appendChild(box);
+    if (col.note) wrap.appendChild(el('div', 'colnote', col.note));
+    self.mEl.appendChild(wrap);
+  });
+};
+
+Dialogue.prototype.renderCount = function(){
+  var L = this.L;
+  if (!this.cols.length) { this.cEl.innerHTML = L.countEnd(0); return; }
+  var n = leaves(this.cols[0]);
+  var txt = L.count(n, 0);
+  if (this.lines.length > 2 && this.picked < 0) txt += '<b>' + L.nudge + '</b>';
+  this.cEl.innerHTML = txt;
+};
+
+Dialogue.prototype.renderInsp = function(){
+  var L = this.L;
+  this.iEl.textContent = '';
+  if (this.picked < 0 || !this.lines[this.picked]) { this.iEl.appendChild(el('div', 'idle', L.inspIdle)); return; }
+  var ln = this.lines[this.picked], mach = ln.kind === 'mach';
+  this.iEl.appendChild(el('div', 'q', mach ? L.inspMQ : L.inspUQ));
+  this.iEl.appendChild(el('div', 'a', mach ? L.inspMA : L.inspUA));
+  var q = el('div', 'quote');
+  q.innerHTML = '“' + (mach ? L.inspMquote : L.inspUquote) + '”<span class="src">' + (mach ? L.inspMsrc : L.inspUsrc) + '</span>';
+  this.iEl.appendChild(q);
+};
+
+Dialogue.prototype.buildVerdict = function(){
+  var L = this.L, v = this.vEl;
+  v.textContent = '';
+  v.appendChild(el('div', 'vq', L.vq));
+  var opts = el('div', 'vopts');
+  var ans = el('div', 'vans');
+  ans.setAttribute('data-vans', '');
+  L.vopts.forEach(function(o){
+    var b = el('button', 'pg-btn', o);
+    b.addEventListener('click', function(){
+      opts.querySelectorAll('.pg-btn').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      ans.classList.add('show');
+    });
+    opts.appendChild(b);
+  });
+  ans.innerHTML =
+    '<div class="a" style="margin-top:0">' + L.vansLead + '</div>' +
+    '<div class="quote">“' + L.vans1 + '”<span class="src">' + L.vans1src + '</span></div>' +
+    '<div class="quote">“' + L.vans2 + '”<span class="src">' + L.vans2src + '</span></div>' +
+    '<div class="a">' + L.vansTail + '</div>';
+  v.appendChild(opts);
+  v.appendChild(ans);
+};
+
+/* ---------------------------- boot ---------------------------- */
+document.querySelectorAll('[data-dlg]').forEach(function(n){ new Dialogue(n); });
+
+})();
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

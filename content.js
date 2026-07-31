@@ -391,6 +391,22 @@ window.PM_CONTENT = {
             dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از دریای نقره درآورد.",
             author: "یحیی تابش", meta: "گوشهٔ تاریخ" } },
 
+    /* ---- History of Mathematics  (retired flagship, issue 1) ---- */
+    { section: "history", featured: false,
+      href: "articles/firoozbakht.html",
+      added: "2026-06-20",
+      issue: 1,
+      level: "general",
+      imgSrc: "assets/farideh.jpg",
+      img: "photo — Farideh Firoozbakht, Isfahan",
+      date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
+      en: { title: "Farideh Firoozbakht and Her Conjecture About Primes",
+            dek: "She left almost no trace of herself — no photographs, barely a line of biography. What she left instead was one of the boldest unproven statements ever made about the prime numbers. The opening feature of Issue 01.",
+            author: "Amir Asghari", meta: "Essay" },
+      fa: { title: "فریده فیروزبخت و حدسِ او درباره‌ی اعداد اول",
+            dek: "از خودش تقریباً نشانی به‌جا نگذاشت — نه عکسی، نه چند سطر زندگی‌نامه. آنچه به‌جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود. مقالهٔ آغازگرِ دفترِ یکم.",
+            author: "امیر اصغری", meta: "مقاله" } },
+
     /* ---- History of Mathematics  (companion to the Firoozbakht lead feature) ---- */
     { section: "history", featured: false,
       href: "articles/firoozbakht-and-the-machine.html",
@@ -402,10 +418,10 @@ window.PM_CONTENT = {
       img: "photo — Behrooz Parhami",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
       en: { title: "The Machine She Didn’t Have",
-            dek: "A companion to the lead feature: Behrooz Parhami takes Firoozbakht’s conjecture from what a prime is to the bounds it beats — then reckons what testing it on a 1982 mainframe would truly have cost, and proves brute force was never an option. With three interactive playgrounds.",
+            dek: "A companion to Firoozbakht’s essay: Behrooz Parhami takes her conjecture from what a prime is to the bounds it beats — then reckons what testing it on a 1982 mainframe would truly have cost, and proves brute force was never an option. With three interactive playgrounds.",
             author: "Behrooz Parhami", meta: "Essay · Interactive" },
       fa: { title: "ماشینی که نداشت",
-            dek: "همراهِ مقاله‌ی اصلی: بهروز پرهامی حدسِ فیروزبخت را از اینکه عددِ اول چیست تا کران‌هایی که پشتِ سر می‌گذارد پی می‌گیرد — سپس حساب می‌کند که آزمودنِ آن روی مِین‌فریمِ ۱۹۸۲ به‌راستی چه می‌طلبید، و نشان می‌دهد راهِ سرراست هرگز در کار نبود. با سه بخشِ تعاملی.",
+            dek: "همراهِ مقاله‌ی فیروزبخت: بهروز پرهامی حدسِ او را از اینکه عددِ اول چیست تا کران‌هایی که پشتِ سر می‌گذارد پی می‌گیرد — سپس حساب می‌کند که آزمودنِ آن روی مِین‌فریمِ ۱۹۸۲ به‌راستی چه می‌طلبید، و نشان می‌دهد راهِ سرراست هرگز در کار نبود. با سه بخشِ تعاملی.",
             author: "بهروز پرهامی", meta: "مقاله · تعاملی" } },
 
     /* ---- Concepts & Conceptions ---- */
@@ -612,17 +628,17 @@ window.PM_CONTENT = {
      whenever you promote a new piece to the front.
      ===================================================================== */
   FLAGSHIP: {
-    href: "articles/firoozbakht.html",
-    level: "school",
-    imgSrc: "assets/farideh.jpg",
-    imgLabel: "photo — Farideh Firoozbakht, Isfahan",
+    href: "articles/hamid-lesan.html",
+    level: "general",
+    imgSrc: "assets/lesan-hero.jpg",
+    imgLabel: "photo — Hamid Lesan at his doctoral graduation, Manchester, 1978",
     en: { eyebrow: "People and Mathematics",
-          title: "Farideh Firoozbakht and Her Conjecture About Primes",
-          dek: "She left almost no trace of herself — no photographs, barely a line of biography. What she left instead was one of the boldest unproven statements ever made about the prime numbers.",
+          title: "Hamid Lesan, a Logician Larger than Life",
+          dek: "“He was a very lovable man.” It began with that one sentence — a search for a logician who lived in time, in place, and in language.",
           cta: "Read the essay", byline: "Essay · Amir Asghari" },
     fa: { eyebrow: "آدم‌ها و ریاضیات",
-          title: "فریده فیروزبخت و حدسِ او درباره‌ی اعداد اول",
-          dek: "از خودش تقریباً نشانی به‌جا نگذاشت — نه عکسی، نه چند سطر زندگی‌نامه. آنچه به‌جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود.",
+          title: "حمید لسان، منطق‌دانی زنده",
+          dek: "«او آدمی خیلی دوست‌داشتنی بود.» ــ از همین یک جمله شروع شد؛ جست‌وجویی در پیِ منطق‌دانی که در زمانه، در مکان و در زبان زیست.",
           cta: "خواندنِ مقاله", byline: "مقاله · امیر اصغری" }
   },
 

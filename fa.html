@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>آدم‌ها و ریاضیات</title>
+<meta name="description" content="زندگی‌ها، صداها و رویارویی‌ها در فرهنگ ریاضیات ایران.">
+<meta property="og:title" content="آدم‌ها و ریاضیات">
+<meta property="og:description" content="زندگی‌ها، صداها و رویارویی‌ها در فرهنگ ریاضیات ایران.">
+<link rel="alternate" hreflang="en" href="index.html">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body,#dc-root{height:auto!important;min-height:100%}
+html{direction:rtl}
+body{margin:0;background:#FBF7EF;color:#1C1814;font-family:"B Nazanin","Vazirmatn","Noto Naskh Arabic",sans-serif}
+a{color:#1C1814;text-decoration:none}
+a:hover{color:#C8633E}
+</style>
+</helmet>
+
+<div dir="rtl" style="max-width:1120px;margin:0 auto;padding:48px 48px 72px;display:flex;flex-direction:column;gap:64px;box-sizing:border-box;font-family:'B Nazanin','Vazirmatn','Noto Naskh Arabic',sans-serif">
+  <header style="display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #1C1814;padding-bottom:20px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div style="font-size:40px;font-weight:600">آدم‌ها و ریاضیات</div>
+      <div dir="ltr" style="font-family:'Newsreader',serif;font-size:28px;font-weight:500">People and Mathematics</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div style="font-size:20px;line-height:1.6">زندگی‌ها، صداها و روایت‌هایی از فرهنگ ریاضی در ایران</div>
+      <a href="index.html" dir="ltr" style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:500">English</a>
+    </div>
+  </header>
+
+  <div style="display:grid;grid-template-columns:96px 28px minmax(0,1fr);max-width:880px;font-family:'Vazirmatn',sans-serif">
+    <div style="grid-column:1 / 4;font-size:13px;color:#6B6259;padding:0 0 14px">سده‌های پنجم و ششم</div>
+    <div style="font-size:14px;color:#6B6259;padding-top:3px">۴۲۷</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 12px 28px 0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">عمر خیام</span><span style="font-size:13px;color:#6B6259">۴۲۷–۵۱۰ · به‌زودی</span></div>
+
+    <div style="font-size:16px;color:#6B6259;padding:4px 0 20px">⋮</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:0;border-left:2px dotted #1C1814"></div></div>
+    <div></div>
+
+    <div style="grid-column:1 / 4;font-size:13px;color:#6B6259;padding:8px 0 14px">سده‌های دوازدهم و سیزدهم</div>
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۱۹۴</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">میرزا جعفرخان مشیرالدوله</div>
+      <button onClick="{{ openMJ }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/moshir-od-dowleh.jpg" alt="میرزا جعفرخان مشیرالدوله" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">برگشت تا در تبریز ریاضی درس بدهد و نخستین کتاب درسی حساب به معنای نوین را در ایران نوشت.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showMJ }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeMJ }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeMJ }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۱۹۴ — اعزام پنج محصل به انگلستان</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/moshir-od-dowleh.jpg" alt="میرزا جعفرخان مشیرالدوله" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:22px;font-weight:600">میرزا جعفرخان مشیرالدوله</div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">در ۱۱۹۴ عباس میرزا پنج نفر را برای آموختن علم و صنعت به انگلستان فرستاد و میرزا جعفرخان یکی از آنان بود. چهار سال در انگلستان درس خواند، در ۱۱۹۸ به ایران برگشت و در تبریز مهندس‌خانه را راه انداخت و به تدریس ریاضیات پرداخت. چهار سال بعد، دولت به سیاست او بیش از ریاضیاتش نیاز پیدا کرد و باقی عمرش در کار دولت گذشت، از جمله به‌عنوان سیاستمداری مورد اعتماد امیرکبیر.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">حاصل آن چهار سال تبریز نخستین کتاب درسی حساب در ایران به معنای نوین آن بود. کتاب را برای محمدمیرزا، پیش از پادشاهی‌اش، نوشت و تاریخ آن ۱۲۲۴ است، شش سال پیش از گشایش دارالفنون. این نخستین کتابی است که با در نظر داشتن یادگیرنده نوشته شده؛ تمرین دارد، و در کتاب او تفریق افزون بر برداشتن به‌صورت فاصله هم دیده می‌شود. به نظر نمی‌رسد کتاب در دارالفنون به کار رفته باشد و آموزش ریاضی در آنجا بی‌آنکه از آن بهره بگیرد از نو آغاز شد.</p>
+                <a href="https://amirasghari.com/2023/04/28/mohandes-moshir-al-dowleh/" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">میرزا جعفرخان مشیرالدوله کیست؟ نوشتهٔ امیر اصغری ←</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۲۳۰</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">گشایش دارالفنون</div>
+      <button onClick="{{ openDF }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/najm-od-dowleh.jpg" alt="میرزا عبدالغفار نجم‌الدوله" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/alikhan-nazem-ol-oloum.png" alt="علیخان ناظم‌العلوم" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;filter:grayscale(1)">
+          <img src="assets/mohandes-ol-molk.png" alt="میرزا رضا مهندس‌الملک" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">نخستین معلمان ریاضی آن، و دانش‌آموختگانی که نخستین معلمان و مؤلفان کتاب‌های درسی مدرسه‌های تازه‌تأسیس ایران شدند.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showDF }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeDF }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeDF }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۳۰ — گشایش دارالفنون</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">معلمان ریاضی دارالفنون</div>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C">ریاضیات دارالفنون از معلم به شاگرد رسید: از ملا علی‌محمد اصفهانی و پسرش نجم‌الدوله به دانش‌آموختگانی که بعدها خود در آنجا درس دادند، و از راه آنان به مدرسه‌های بیرون از آن.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:1px solid #E2D8C6">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">ملا علی‌محمد اصفهانی</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">د. ۱۲۵۳</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">از نخستین معلمان ایرانی دارالفنون و پدر نجم‌الدوله. اثر به‌جامانده‌اش، تکملة‌العیون، دربارهٔ حل تقریبی معادله‌های درجهٔ سوم است، با تنگ‌تر کردن پی‌درپی بازه‌ای که ریشه در آن است.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/najm-od-dowleh.jpg" alt="میرزا عبدالغفار نجم‌الدوله" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">میرزا عبدالغفار نجم‌الدوله</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">از چهره‌های اصلی ریاضیات دارالفنون، که مرجعیت ریاضی مدرسه با او بود. در کتاب جبرش، بدایة‌الجبر، شیوه‌ای از نوشتار ریاضی برگزید که دانش‌آموز ایرانی را به ریاضیات جهانی پیوند می‌داد. از راه او، کار پدرش، ملا علی‌محمد اصفهانی، دربارهٔ معادله‌های درجهٔ سوم به درس‌های دارالفنون راه یافت.</p>
+                
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/alikhan-nazem-ol-oloum.png" alt="علیخان ناظم‌العلوم" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">علیخان ناظم‌العلوم</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۲۹–۱۲۷۸</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">شاگرد اول طبقهٔ مهندسی در دورهٔ دوم دارالفنون. در ۱۲۵۲ همراه ناصرالدین‌شاه به فرنگ رفت و در کلاس‌های پلی‌تکنیک، از جمله نزد ژوزف برتران، شرکت کرد. از ۱۲۵۴ در دارالفنون ریاضی و فیزیک طبقهٔ توپخانه را درس داد و نخستین کتاب فیزیک درسی تألیفی ایران را نوشت.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">حساب علیخان (۱۲۵۸) از نظر گسترهٔ جغرافیایی گسترده‌ترین کتاب ریاضی تاریخ معاصر ایران شد؛ کتابی که برخلاف بیشتر کتاب‌های درسی پیش و پس از خود، علاوه بر محاسبات بر معنا در ریاضیات هم تأکید داشت. در ۲۹ مهر ۱۲۷۸ درگذشت و خود شاهد موفقیت کتابش نبود.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Vazirmatn',sans-serif;font-size:14px"><span style="color:#6B6259">مرگ تاریخی علیخان ناظم‌العلوم و ریاضیات او</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://doi.org/10.30504/mct.2025.1552.2089" target="_blank" rel="noopener" style="color:#C8633E">مقالهٔ کامل ←</a></div></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mohandes-ol-molk.png" alt="میرزا رضا مهندس‌الملک" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">میرزا رضا مهندس‌الملک</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۵۸–۱۳۳۵</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">میرزا رضا مهندس نجمی، زادهٔ تبریز. از دارالفنون فارغ‌التحصیل شد، از ۱۲۷۸ در همان‌جا ریاضی درس داد و همهٔ عمر معلم و مؤلف کتاب درسی ماند. شاگرد نجم‌الدوله و معلم احمد بیرشک بود و ریاضیات دارالفنون را به مدرسه‌های بیرون از آن رساند.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">کتاب هندسه‌اش حدود دو دهه منبع اصلی تدریس بود تا در ۱۳۱۵ کتاب بیرشک جای آن را گرفت، و حل‌المسائل جبریه (۱۲۸۴) پنجره‌ای کم‌یاب به جبری است که نجم‌الدوله درس می‌داد. او را بسیاری از اوقات با میرزا نظام مهندس‌الممالک غفاری اشتباه گرفته‌اند که هیچ‌وقت معلم دارالفنون نبود.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Vazirmatn',sans-serif;font-size:14px"><span style="color:#6B6259">مهندس‌الملک: پل میان گذشته و آیندهٔ آموزش ریاضیات در ایران</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://doi.org/10.30504/mct.2025.1524.2065" target="_blank" rel="noopener" style="color:#C8633E">مقالهٔ کامل ←</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۲۴۴</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">میرزا نظام غفاری وارد پلی‌تکنیک می‌شود</div>
+      <button onClick="{{ openNZ }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/mirza-nezam-ghaffari.png" alt="میرزا نظام غفاری، مهندس‌الممالک" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 15%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">شاگرد اول ورودی پلی‌تکنیک پاریس، که به کشوری برگشت که جایی برای ریاضیاتش نداشت: تنهاترین ریاضی‌دان.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showNZ }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeNZ }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeNZ }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۴۴ — پلی‌تکنیک پاریس</div>
+            
+            
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mirza-nezam-ghaffari.png" alt="میرزا نظام غفاری، مهندس‌الممالک" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 15%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">میرزا نظام غفاری، مهندس‌الممالک</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۲۳–۱۲۹۴</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">زادهٔ ۱۲۲۳ در کاشان. از کودکی به فرانسه فرستاده شد، در ۱۲۴۳ نخستین مقالهٔ ریاضی‌اش را به فرانسوی منتشر کرد و در ۱۲۴۴ با رتبهٔ اول وارد پلی‌تکنیک شد. در ۱۲۴۶ به ایران برگشت و از شغلی به شغل دیگر چرخید: مترجم، معلم ناصرالدین‌شاه، مهندس راه، وزیر؛ اما هیچ‌وقت معلم دارالفنون نبود.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">در همان حال انبوهی ریاضی نوشت: حساب تغییرات، جبر، حساب دیفرانسیل و انتگرال، مثلثات، مکانیک، هندسهٔ تصویری و ترسیمی، دترمینان. نظامی نمادی متأثر از فارسی هم ساخت، با عددهایی که از راست به چپ نوشته می‌شوند و نمادهای جبری برگرفته از حروف فارسی. جز خود او کسی به این زبان ننوشت و کتاب‌هایش حتی در ایران ناخواندنی ماند.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Vazirmatn',sans-serif;font-size:14px"><span style="color:#6B6259">مهندس‌الممالک غفاری: تنهاترین ریاضی‌دان تاریخ</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://doi.org/10.30504/mct.2024.1458.2026" target="_blank" rel="noopener" style="color:#C8633E">مقالهٔ کامل ←</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    
+    <div style="grid-column:1 / 4;font-size:13px;color:#6B6259;padding:8px 0 14px">سدهٔ چهاردهم</div>
+    <div style="font-size:14px;color:#6B6259;padding-top:3px">۱۲۸۷</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 12px 22px 0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">محسن هشترودی</span><span style="font-size:13px;color:#6B6259">۱۲۸۷–۱۳۵۵</span></div>
+
+    <div style="font-size:14px;color:#6B6259;padding-top:3px">۱۲۸۹</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 12px 22px 0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">غلامحسین مصاحب</span><span style="font-size:13px;color:#6B6259">۱۲۸۹–۱۳۵۸</span></div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۲۹۰</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">نخستین معلم ریاضی زن</div>
+      <button onClick="{{ openMA }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">مریم اردلان در ۱۲۹۰ از دبیرستان دخترانه‌ای در تهران فارغ‌التحصیل شد و در همان مدرسه معلم ریاضی شد: نخستین معلم ریاضی زن در ایران.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showMA }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeMA }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeMA }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۹۰ — نخستین معلم ریاضی زن</div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span style="font-size:28px;font-weight:600;line-height:1.3">مریم اردلان</span><span style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#6B6259">۱۲۷۱–۱۳۴۵</span></div>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">در روزگار مریم اردلان، دورهٔ کامل دبیرستان برای دختران ایرانی تقریباً دست‌نیافتنی بود. پسرها شش سال دبستان و شش سال دبیرستان داشتند؛ تک و توک دبیرستان‌های دخترانه فقط سه سالِ دورهٔ اول را داشتند، با این هدف که دختران مادران بهتری شوند یا اگر ازدواج نکردند بتوانند خرج زندگی خود را درآورند. دورهٔ کامل دبیرستان دختران تنها پس از ۱۷ دی ۱۳۱۴ گسترش یافت، و حتی آن زمان معلم ریاضی مدرسه‌های دخترانه مرد بود، چون معلم ریاضی زن وجود نداشت.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">یک استثنا مدرسهٔ دخترانهٔ آمریکایی تهران بود که مبلغان مسیحی در ۱۲۵۳ گشوده بودند. این مدرسه نخست دختران خارجی را می‌پذیرفت، بعد دختران مسیحی ایرانی، بعد زرتشتی و یهودی، و از ۱۲۷۵ دختران مسلمان را؛ هرچند کمتر خانواده‌ای به دختر مسلمانش اجازهٔ رفتن به آن را می‌داد. مریم اردلان، زادهٔ ۱۲۷۱ در تهران، در ۱۲۸۰ وارد این مدرسه شد. در ۱۸ خرداد ۱۲۹۰، در هجده‌سالگی، یکی از تنها دو دختر ایرانی و مسلمانی بود که از آن فارغ‌التحصیل شدند (دیگری مهرتاج رخشان)، و موضوع سخنرانی فارغ‌التحصیلی‌اش «آزادی نسوان» بود. به‌خاطر استعدادش در ریاضیات، بی‌درنگ در همان مدرسه معلم ریاضی شد.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">زندگی‌اش ادامهٔ همان سخنرانی بود. جنگ جهانی اول او را در سنندج ماندگار کرد و خانه‌اش را به مدرسهٔ سوادآموزی زنان تبدیل کرد. ریاست یک مدرسهٔ پسرانهٔ خصوصی را به او پیشنهاد کردند؛ نپذیرفت و به‌جای آن خواست مدرسه‌ای دولتی برای دختران ساخته شود تا کارش پس از رفتنش از سنندج هم بماند. این دبستان در ۱۳۰۵ گشوده شد و به خواست خودش نه به نام او، که به نام شاعره مستوره اردلان نام گرفت. در ۱۳۱۷، وقتی برای نخستین هنرستان دختران ایران مدیر خارجی پیشنهاد شد، او به ریاست آن رسید. در ۱۳۴۵ درگذشت.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">زندگی‌نامه‌اش را در سازمان زنان به امانت گذاشت و بخش‌هایی از آن در کارنامهٔ زنان مشهور ایران (۱۳۵۲) نوشتهٔ فخری قویمی ماند. دهه‌ها بعد، نوه‌اش پروین اردلان از اعضای اولیهٔ کمپین یک میلیون امضا بود که در ۱۳۸۵ برای تغییر قوانین تبعیض‌آمیز علیه زنان آغاز شد.</p>
+            <div style="display:flex;flex-direction:column;gap:6px;padding-top:6px;font-family:'Vazirmatn',sans-serif;font-size:14px">
+              <a href="https://fa.wikipedia.org/wiki/%DA%A9%D9%85%D9%BE%DB%8C%D9%86_%DB%8C%DA%A9_%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86_%D8%A7%D9%85%D8%B6%D8%A7" target="_blank" rel="noopener" style="color:#C8633E">کمپین یک میلیون امضا ←</a>
+              <a href="https://amirasghari.com/2023/08/03/maryam-ardalan/" target="_blank" rel="noopener" style="color:#C8633E">مریم اردلان کیست؟ نوشتهٔ امیر اصغری ←</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۳۰۱</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">دبیرستان البرز به جای کنونی‌اش می‌رود</div>
+      <button onClick="{{ openAL }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/mohammad-vahid-tonekaboni.jpg" alt="محمد وحید تنکابنی" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 10%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">معلمان و شاگردان البرز، از نخستین رئیس ایرانی آن به بعد.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showAL }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeAL }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeAL }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۳۰۱ — دبیرستان البرز</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">معلمان و شاگردان البرز</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mohammad-vahid-tonekaboni.jpg" alt="محمد وحید تنکابنی" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 10%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">محمد وحید تنکابنی</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۲۷۲–۱۳۳۶</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">زادهٔ ۱۲۷۲ در تنکابن. دبستان را در بابل گذراند و برای تحصیل به دارالفنون تهران آمد. در ۱۲۸۹ همراه دیگر شاگردان اعزامی دولت به فرانسه رفت و پس از چهار سال تحصیل در پاریس، در ۱۲۹۳ به ایران برگشت. از ۱۲۹۵ در دارالفنون، مدرسهٔ نظام، علمیه و دارالمعلمین ریاضی درس داد.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">در ۱۳۰۴ عضو کمیسیون کتب وزارت فرهنگ شد، از ۱۳۰۸ تا ۱۳۱۶ عضو شورای عالی فرهنگ بود و در ۱۳۱۷ مدیرکل وزارت فرهنگ شد. در ۱۳۱۹، وقتی وزارت فرهنگ کالج آمریکایی البرز را خرید، نخستین رئیس ایرانی دبیرستان البرز شد. در ۱۳۲۲ به معاونت و سپس کفالت وزارت فرهنگ رسید، اما کلاس درسش را رها نکرد. یکی از شاگردانش به یاد می‌آورد:</p>
+                <blockquote style="margin:4px 0;padding:0 18px 0 0;border-right:2px solid #C8633E;font-size:17px;line-height:1.9;color:#3A332C">در این مقام هم استاد همواره سروقت برای درس دادن حاضر می‌شد. یادم هست که روزهای سرد زمستان که کمتر مأمور عالی‌رتبه‌ای از جای برمی‌خاست تا به سرکار خویش برود، کلاس سی‌چهل‌نفری ریاضی ما که درسش با استاد بود تعطیل نمی‌شد. هیچ‌وقت تأخیر و غیبت نداشت.</blockquote>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">بعدها معاون وزارت کشاورزی و دوباره معاون وزارت فرهنگ شد، در ۱۳۳۱ بازنشسته شد و در ۱۵ آذر ۱۳۳۶ در لندن درگذشت.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">کتابش، اصول علم جبر و مقابلهٔ مقدماتی، در ۱۳۰۰ برای سال‌های دوم و سوم متوسطه منتشر شد؛ تنها چند سال پس از نخستین امتحانات نهایی متوسطه در ایران (۱۲۹۲). جلدهای بعدی آن را به یک دورهٔ کامل جبر رساندند و تا سال‌ها کتاب درسی مدرسه‌های ایران ماند. کتاب برای هر چه ارائه می‌دهد استدلال می‌آورد، به زبانی که برای دانش‌آموز مناسب است؛ اما اوج هنر وحید در انتخاب و طراحی مسئله‌ها و تمرین‌های آن است.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Vazirmatn',sans-serif;font-size:14px"><span style="color:#6B6259">محمد وحید کیست؟</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://amirasghari.com/2023/04/22/vahid/" target="_blank" rel="noopener" style="color:#C8633E">نوشتهٔ کامل ←</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۳۰۶</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">حل‌المسائل ریاضی</div>
+      <button onClick="{{ openHM }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <img src="assets/hallol-masael-masthead.png" alt="سرلوحهٔ حل‌المسائل ریاضی با نام‌های ناصر، هورفر، ریاضی" style="width:100%;max-width:300px;aspect-ratio:188/92;object-fit:cover;filter:grayscale(1)">
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">احتمالاً نخستین مجلهٔ ریاضی ایران با توزیع عمومی، کارِ سه معلم جوان.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showHM }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeHM }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeHM }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۳۰۶ — حل‌المسائل ریاضی</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">حل‌المسائل ریاضی</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/hallol-masael-cover.png" alt="جلد حل‌المسائل ریاضی" style="width:100%;aspect-ratio:212/300;object-fit:cover;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">حل‌المسائل ریاضی در سال ۱۳۰۶ منتشر شد و احتمالاً نخستین مجلهٔ ریاضی ایران با توزیع عمومی است. در زمان انتشار آن، دبیرستان‌های ایران رو به افزایش بودند و حل‌المسائل ریاضی در هر شماره مسئله‌هایی از امتحانات نهایی ایران و امتحانات و مسابقات ریاضی اروپا ارائه می‌کرد، با این قول که در یکی دو شمارهٔ بعد راه‌حل آن‌ها را هم بیاورد. مجله حدود یک سال منتشر شد.</p>
+                <p style="margin:0;font-size:17px;line-height:1.9;color:#3A332C">روی جلد نوشته است «ناصر – هورفر – ریاضی»: نه یک نفر، که سه معلم.</p>
+                <ul style="margin:0;padding:0 20px 0 0;display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.9;color:#3A332C">
+                  <li><strong style="font-weight:600">علی‌اصغر ناصر</strong>، که بعدها رئیس بانک ملی ایران شد و امضایش روی اسکناس‌های ایران بود.</li>
+                  <li><strong style="font-weight:600">حسین هورفر</strong>، که بعدها از پرتألیف‌ترین نویسندگان نخستین دورهٔ کتاب‌های درسی ریاضی «مطابق برنامهٔ وزارت معارف» شد.</li>
+                  <li><strong style="font-weight:600">عبدالله ریاضی</strong>، که آن زمان بیست‌ویک ساله بود و بعدها رئیس دانشکدهٔ فنی دانشگاه تهران و رئیس مجلس شورای ملی شد.</li>
+                </ul>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Vazirmatn',sans-serif;font-size:14px;padding-top:6px"><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://amirasghari.com/2022/05/04/nasser-hoorfar/" target="_blank" rel="noopener" style="color:#C8633E">ناصر هورفر کیست؟ نوشتهٔ امیر اصغری ←</a><a href="https://amirasghari.com/magazines/hr/" target="_blank" rel="noopener" style="color:#C8633E">شماره‌های موجود مجله ←</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۳۱۴</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">ورود زنان به آموزش عالی</div>
+      <button onClick="{{ open1935 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/women-1935-batol-homayoun.webp" alt="بتول همایون" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+          <img src="assets/women-1935-mahpareh-mamagani-crop.png" alt="مهپاره ممقانی" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/women-1935-mahin-sang-crop.png" alt="مهین سنگ" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/women-1935-ghamar-ghamkhar-crop.png" alt="قمر غمخوار" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">چهار زن، چهار سال پیاپی: نخستین نسل زنان ایرانی که در رشتهٔ ریاضی فارغ‌التحصیل شدند، ۱۳۱۸ تا ۱۳۲۱.</div>
+        <div style="font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ show1935 }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ close1935 }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ close1935 }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۳۱۴ — ورود زنان به آموزش عالی</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.4">نخستین نسل زنان ریاضی ایران</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;padding:6px 0">
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-batol-homayoun.webp" alt="بتول همایون" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+                <figcaption style="font-family:'Vazirmatn',sans-serif;font-size:13px;line-height:1.5">بتول همایون — ۱۳۱۸</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-mahpareh-mamagani-crop.png" alt="مهپاره ممقانی" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+                <figcaption style="font-family:'Vazirmatn',sans-serif;font-size:13px;line-height:1.5">مهپاره ممقانی — ۱۳۱۹</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-mahin-sang-crop.png" alt="مهین سنگ" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+                <figcaption style="font-family:'Vazirmatn',sans-serif;font-size:13px;line-height:1.5">مهین سنگ — ۱۳۲۰</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-ghamar-ghamkhar-crop.png" alt="قمر غمخوار" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+                <figcaption style="font-family:'Vazirmatn',sans-serif;font-size:13px;line-height:1.5">قمر غمخوار — ۱۳۲۱</figcaption>
+              </figure>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;font-size:19px;line-height:1.9;color:#3A332C">
+              <p style="margin:0">در ۱۳۱۴، با گشوده شدن راه ورود زنان به دانشسرای عالی، فصل تازه‌ای در تاریخ ریاضیات ایران آغاز شد. تنها چند سال بعد، نخستین نسل زنان ایرانی که در رشتهٔ ریاضی فارغ‌التحصیل شدند پدیدار شد.</p>
+              <p style="margin:0">از ۱۳۱۸ تا ۱۳۲۱، در چهار سال پیاپی، چهار زن در رشتهٔ ریاضی فارغ‌التحصیل شدند: بتول همایون در ۱۳۱۸، مهپاره ممقانی در ۱۳۱۹، مهین سنگ در ۱۳۲۰ و قمر غمخوار در ۱۳۲۱.</p>
+              <p style="margin:0">این چهار زن در دوره‌ای گذار در آموزش عالی ایران تحصیل کردند. آموزش ریاضی هنوز پیوند نزدیکی با سنت قدیمی تربیت معلم و دانشسرا داشت، در حالی که دانشگاه تازه‌تأسیس تهران و دانشکدهٔ علوم آن در حال شکل‌گیری بود. اندکی بعد، تحصیل ریاضی به‌طور روشن‌تری در دانشکدهٔ علوم دنبال شد. به این معنا، این چهار زن در میان دو دورهٔ نهادی ایستاده‌اند و با هم آغاز حضور پیوستهٔ زنان در آموزش عالی ریاضی ایران را نشان می‌دهند.</p>
+            </div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;font-family:'Vazirmatn',sans-serif;font-size:14px;padding-top:14px;border-top:1px solid #E2D8C6"><a href="https://amirasghari.com/2022/07/05/batol/" target="_blank" rel="noopener" style="color:#C8633E">بتول همایون ←</a><a href="https://amirasghari.com/2024/03/17/mahpareh/" target="_blank" rel="noopener" style="color:#C8633E">مهپاره ممقانی ←</a></div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">۱۳۴۱</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:2px 12px 30px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:14px;font-weight:600">وازگن آوانسیان به تهران می‌آید</div>
+      <button onClick="{{ openVA }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/vazgen-avanessian.png" alt="وازگن آوانسیان" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'B Nazanin','Vazirmatn',sans-serif;font-size:18px;line-height:1.7;text-wrap:pretty">نخستین مدیر گروه ریاضی دانشگاه ملی. بسیاری از ریاضی‌دانان آیندهٔ ایران نخستین بار با کتاب او با ریاضیات مدرن آشنا شدند.</div>
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#C8633E">بیشتر بخوانید</div>
+      </button>
+      <sc-if value="{{ showVA }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeVA }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" dir="rtl" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;position:relative;font-family:'B Nazanin','Vazirmatn',sans-serif">
+            <button onClick="{{ closeVA }}" aria-label="بستن" style="all:unset;cursor:pointer;position:absolute;top:14px;left:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۳۴۱ — وازگن آوانسیان به تهران می‌آید</div>
+            <div style="width:140px"><img src="assets/vazgen-avanessian.png" alt="وازگن آوانسیان" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)"></div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span style="font-size:28px;font-weight:600;line-height:1.3">وازگن آوانسیان</span><span style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#6B6259">۱۳۰۶–۱۳۸۶</span></div>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">زادهٔ ۱۳۰۶. دبستان را در قزوین و دبیرستان را در البرز تهران گذراند. در شانزده‌سالگی دفترچه‌ای در هندسه نوشت، به تاریخ ۱۳۲۲، و آن را به فرهنگ ایران تقدیم کرد. سپس به فرانسه رفت و تا دکتری در آنجا درس خواند، همه‌جا همراه همسرش، آراکس پاپازیان.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">در ۱۳۴۱ برای سال تحصیلی‌ای به ایران دعوت شد که گروه ریاضی دانشگاه ملی در آن تأسیس شد، و نخستین مدیر این گروه شد. در دو سالی که در تهران بود، کتاب مقدمه‌ای بر آنالیز نوین را به فارسی نوشت. این کتاب در ۱۳۴۲ برندهٔ جایزهٔ سلطنتی کتاب سال شد، یکی از تنها شش کتابی که از ۱۳۳۲ تا ۱۳۵۷ در ردهٔ علوم محض این جایزه را گرفتند. بسیاری از ریاضی‌دانان آیندهٔ ایران نخستین بار با کتاب او با ریاضیات مدرن آشنا شدند.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">در قرارداد خود قید کرده بود که تا وقتی دکتر علی شیخ‌الاسلام رئیس دانشگاه است، قرارداد معتبر است، و زمزمهٔ برکناری شیخ‌الاسلام شنیده می‌شد که در ۱۳۴۳، سالی که مادر آراکس درگذشت، با خانواده‌اش به فرانسه رفت. در ۷ آذر ۱۳۴۳ از استراسبورگ نامه‌ای به مجلهٔ یکان نوشت تا استعفایش را اعلام کند: رشتهٔ ریاضی دانشکدهٔ علوم دانشگاه ملی بدون مشورت با او و بی‌اطلاع قبلی منحل شده بود، در حالی که او هنوز ریاست آن را بر عهده داشت؛ پس وجود خود را در کادر تعلیماتی دانشگاه زائد دانست و با وجود زیان مالی، لغو قراردادش را اعلام کرد.</p>
+            <p style="margin:0;font-size:18px;line-height:1.9;color:#3A332C;text-wrap:pretty">دیگر برنگشت. باقی عمر را در استراسبورگ به ریاضیات گذراند و با نام آزیک نقاشی می‌کرد.</p>
+            <a href="https://amirasghari.com/2022/06/08/vazik/" target="_blank" rel="noopener" style="padding-top:6px;font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">وازگن آوانسیان کیست؟ نوشتهٔ امیر اصغری ←</a>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-size:14px;color:#C8633E;padding-top:30px;font-weight:600">۱۳۹۳</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;height:40px;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:32px;width:16px;height:16px;border-radius:50%;background:#C8633E"></div></div>
+    <div style="margin:0 12px 0 0;display:flex;flex-direction:column;gap:10px">
+      <div style="padding-top:30px;font-size:14px;font-weight:600">مریم میرزاخانی مدال فیلدز را دریافت می‌کند</div>
+      <a href="articles/mathematical-culture.html" style="padding:18px;display:grid;grid-template-columns:112px minmax(0,1fr);gap:20px;align-items:center;background:#F3ECDF">
+        <img src="assets/mirzakhani-juan.jpg" alt="مریم میرزاخانی" style="width:112px;height:112px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px;font-family:'B Nazanin','Vazirmatn',sans-serif">
+          <div style="font-size:26px;font-weight:600;line-height:1.35">مریم میرزاخانی، به دستِ شما</div>
+          <div style="font-size:18px;line-height:1.7;color:#3A332C">مریم میرزاخانی بر جلدِ نشریهٔ انجمن ریاضیِ آمریکا؛ و پرتره‌هایی از او به‌دستِ هنرمندانِ سراسرِ جهان.</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">۱۳۵۶–۱۳۹۶ · یک نگارخانه</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#6B6259;border-bottom:1px solid #1C1814;padding-bottom:10px">تازه‌ترین روایت‌ها</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/hamid-lesan.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/lesan-hero.jpg" alt="حمید لسان" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:600;line-height:1.35">حمید لسان، منطق‌دانی زنده</div>
+        <div style="font-size:19px;line-height:1.7;color:#3A332C">«او آدمی خیلی دوست‌داشتنی بود.» ــ از همین یک جمله شروع شد؛ جست‌وجویی در پیِ منطق‌دانی که در زمانه، در مکان و در زبان زیست.</div>
+      </a>
+      <a href="articles/firoozbakht.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/farideh.jpg" alt="فریده فیروزبخت" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 14%">
+        <div style="font-size:28px;font-weight:600;line-height:1.35">فریده فیروزبخت و حدسِ او درباره‌ی اعداد اول</div>
+        <div style="font-size:19px;line-height:1.7;color:#3A332C">از خودش تقریباً نشانی به‌جا نگذاشت. آنچه به‌جا گذاشت یکی از جسورانه‌ترین گزاره‌های اثبات‌نشده درباره‌ی اعداد اول بود.</div>
+      </a>
+      <a href="articles/history-corner-silver-matrix.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/yahya-tabesh.webp" alt="یحیی تابش" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:600;line-height:1.35">ماتریسِ نقره‌ای</div>
+        <div style="font-size:19px;line-height:1.7;color:#3A332C">چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از دریای نقره درآورد.</div>
+      </a>
+      <a href="articles/women-in-mathematics.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/wim/authors-farnaz-bamdad.jpg" alt="فرناز حاج‌منوچهری و بامداد ترابی" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:600;line-height:1.35">رویدادِ زن در ریاضیات</div>
+        <div style="font-size:19px;line-height:1.7;color:#3A332C">چگونه دانشجویانِ شریف بزرگداشتی دوساله برای مریم میرزاخانی برپا کردند — و آنچه برگزاری‌اش طلبید.</div>
+      </a>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">روی پرده</div>
+        <div style="font-size:32px;font-weight:600;line-height:1.35">آدم‌ها و ریاضیات، مجموعهٔ فیلم</div>
+      </div>
+      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">تماشا در یوتیوب ←</a>
+    </div>
+    <div style="font-size:20px;line-height:1.7;color:#3A332C;max-width:720px">گپ و گفتی کنجکاوانه، صادقانه و بی‌پرده با آدم هایی که ریاضیات در زندگی آنها حضوری معنی دار داشته است</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
+        <button onClick="{{ s.select }}" style="font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;background:{{ s.bg }};color:{{ s.fg }}">{{ s.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
+      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
+        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
+          <img src="{{ e.img }}" alt="{{ e.fa }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Vazirmatn',sans-serif;font-size:12px;color:#6B6259">
+            <span>قسمت {{ e.n }}</span>
+            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">زیرنویس انگلیسی</span></sc-if>
+          </div>
+          <div style="font-size:20px;line-height:1.4">{{ e.fa }}</div>
+          <div dir="ltr" style="font-family:'Newsreader',serif;font-size:15px;color:#6B6259;text-align:right">{{ e.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#6B6259;border-bottom:1px solid #1C1814;padding-bottom:10px">ریشه‌ها</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/letter-x.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/abbas-eqbal.jpg" alt="عباس اقبال آشتیانی" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:23px;font-weight:600;line-height:1.4">علامتِ x به‌جای مجهول</div>
+          <div style="font-size:18px;line-height:1.7;color:#3A332C">علامتِ x، واژه‌ی «جبر» و ارقامِ «عربی» از کجا آمده‌اند؟ تاریخچه‌ای کوتاه از مجله‌ای در تهرانِ ۱۳۰۹.</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">عباس اقبالِ آشتیانی · ۱۳۰۹</div>
+        </div>
+      </a>
+      <a href="articles/thabit-amicable.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/abulghasem-ghorbani.jpg" alt="ابوالقاسم قربانی" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:23px;font-weight:600;line-height:1.4">دستور ثابت بن قره برای پیدا کردن عددهای متحاب</div>
+          <div style="font-size:18px;line-height:1.7;color:#3A332C">کهن‌ترین دستورِ ساختنِ عددهای متحاب، به قلمِ ابوالقاسم قربانی، مورخ ریاضیات ایرانی، در ۱۳۶۲.</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">ابوالقاسم قربانی · ۱۳۶۲</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="background:#0D0C0B;color:#FBF7EF;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+      <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#E08A66">چرا حمایت؟</div>
+      <div style="font-size:32px;line-height:1.5">برای تاریخ‌هایی که هنوز در انتظار پیدا شدن‌اند.</div>
+      <p style="margin:0;font-size:19px;line-height:1.9;color:#E9E2D6">خواندن آدم‌ها و ریاضیات رایگان است. حمایت شما به ما کمک می‌کند زندگی‌ها، عکس‌ها، اسناد و داستان‌های فراموش‌شده از تاریخ ریاضیات ایران را پیدا کنیم و آن‌ها را به فارسی و انگلیسی در دسترس همگان بگذاریم.</p>
+      <p style="margin:0;font-size:19px;line-height:1.9;color:#E9E2D6">هر کمک مالی ردهای پراکنده را به تاریخ‌هایی بدل می‌کند که دیگر از دست نخواهند رفت.</p>
+    </div>
+    <a href="https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;background:#C8633E;color:#FBF7EF;padding:14px 22px;white-space:nowrap;text-decoration:none" style-hover="background:#B4552F">هر اندازه که دوست دارید ←</a>
+  </div>
+
+  <a href="archive.html" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;border:1px solid #1C1814;padding:28px 32px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">داستانِ خودِ مجله</div>
+      <div style="font-size:24px;line-height:1.6;max-width:760px">مجله چگونه آغاز شد: نخستین دفترهایش، با مقاله‌ها، ایده‌های کلاسی، فیلم‌ها و گفت‌وگوهایی از پیش از آنکه به تاریخ رو کند.</div>
+    </div>
+    <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">گشودن بایگانی ←</div>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { seasons: [], sel: 0, show1935: false };
+  componentDidMount() {
+    fetch('data/people-and-maths-films.json').then(r => r.json()).then(d => this.setState({ seasons: d })).catch(() => {});
+  }
+  renderVals() {
+    const fd = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    const tc = s => (s && s === s.toUpperCase()) ? s.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()) : s;
+    const { seasons, sel } = this.state;
+    const cur = seasons[sel] || { episodes: [] };
+    return {
+      show1935: this.state.show1935,
+      open1935: () => this.setState({ show1935: true }),
+      close1935: () => this.setState({ show1935: false }),
+      stop: e => e.stopPropagation(),
+      showVA: !!this.state.showVA, openVA: () => this.setState({ showVA: true }), closeVA: () => this.setState({ showVA: false }),
+      showMA: !!this.state.showMA, openMA: () => this.setState({ showMA: true }), closeMA: () => this.setState({ showMA: false }),
+      showMJ: !!this.state.showMJ, openMJ: () => this.setState({ showMJ: true }), closeMJ: () => this.setState({ showMJ: false }),
+      showAL: !!this.state.showAL, openAL: () => this.setState({ showAL: true }), closeAL: () => this.setState({ showAL: false }),
+      showHM: !!this.state.showHM, openHM: () => this.setState({ showHM: true }), closeHM: () => this.setState({ showHM: false }),
+      showDF: !!this.state.showDF, openDF: () => this.setState({ showDF: true }), closeDF: () => this.setState({ showDF: false }),
+      showNZ: !!this.state.showNZ, openNZ: () => this.setState({ showNZ: true }), closeNZ: () => this.setState({ showNZ: false }),
+      seasons: seasons.map((s, i) => ({
+        label: s.season_fa,
+        bg: i === sel ? '#1C1814' : 'transparent', fg: i === sel ? '#FBF7EF' : '#1C1814',
+        select: () => this.setState({ sel: i })
+      })),
+      episodes: cur.episodes.map(e => ({
+        n: fd(e.episode_number), name: tc(e.name_en), fa: e.name_fa, url: e.youtube_url, img: e.image_medium, sub: !!e.has_en_sub
+      }))
+    };
+  }
+}
+</script>
+<script src="counter.js"></script>
+</body>
+</html>

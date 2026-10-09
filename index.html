@@ -1,544 +1,501 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>People and Mathematics · آدم‌ها و ریاضیات</title>
-<meta name="description" content="A bilingual journal for teaching, thinking, and conversation in mathematics. A Mathswell publication.">
-<link rel="alternate" type="application/rss+xml" title="People and Mathematics" href="feed.xml">
-
-<!-- Social / link-preview card (shows when shared, e.g. from the mathswell.com banner) -->
-<meta property="og:title" content="People and Mathematics · آدم‌ها و ریاضیات">
-<meta property="og:description" content="A bilingual journal for teaching, thinking, and conversation in mathematics.">
-<meta property="og:image" content="assets/logo.jpg">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-
-<link rel="icon" href="assets/logo.jpg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-  /* === Self-hosted B Nazanin (Persian) ===
-     Drop a licensed B-Nazanin web font file at  fonts/BNazanin.woff2
-     and it will be used automatically. Until then, Persian text falls
-     back to Noto Naskh Arabic (a high-quality Google web font) so the
-     site always looks correct for every visitor. */
-  @font-face {
-    font-family: "B Nazanin";
-    src: url("fonts/BNazanin.woff2") format("woff2"),
-         url("fonts/BNazanin.woff")  format("woff"),
-         url("fonts/BNazanin.ttf")   format("truetype");
-    font-weight: 400 700;
-    font-display: swap;
-  }
-
-  :root { --pm-accent: #C8633E; --pm-ink: #1C1814; --pm-paper: #FBF7EF; --pm-black: #0D0C0B; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif;
-    background: var(--pm-paper); color: var(--pm-ink);
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: var(--pm-accent); color: var(--pm-paper); }
-  .sans { font-family: "Hanken Grotesk", "Vazirmatn", "B Nazanin", sans-serif; }
-  .persian, [dir="rtl"] .persian { font-family: "Vazirmatn", "B Nazanin", "Noto Naskh Arabic", sans-serif; }
-  [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
-  .wrap { max-width: 1280px; margin: 0 auto; }
-  .pm-img { background-color: #EAE0CC; background-image: repeating-linear-gradient(135deg, #E6DAC1 0 13px, #EFE6D2 13px 26px); }
-  .accent { color: var(--pm-accent); }
-  a { color: inherit; }
-  button { font-family: inherit; }
-
-  /* Masthead — black top band */
-  .topband { background: var(--pm-black); color: var(--pm-paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 40px; }
-  .brand { display: flex; align-items: center; gap: 14px; }
-  .brand-logo { width: 54px; height: 54px; object-fit: contain; flex: 0 0 auto; }
-  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 21px; font-weight: 600; line-height: 1.1; }
-  .brand-en { font-size: 15px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
-  nav.menu { display: flex; align-items: center; gap: 24px; font-size: 13.5px; font-weight: 500; }
-  nav.menu span { cursor: pointer; }
-  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; margin-inline-start: 6px; }
-  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em; background: transparent; color: var(--pm-paper); }
-  .langtoggle button.on { background: var(--pm-paper); color: var(--pm-black); }
-
-  /* Sub-bar under the band */
-  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 40px; border-bottom: 1px solid var(--pm-ink); }
-  .subbar .kick { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
-  .subbar .pub { font-size: 13px; color: var(--pm-muted, #6B6155); }
-
-  /* Slim dedication line */
-  .dedline { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 40px; border-bottom: 1px solid var(--pm-ink); text-decoration: none; color: var(--pm-ink); background: #F5EFE2; }
-  .dedline:hover .dedline-txt { color: var(--pm-accent); }
-  .dedline .heart { color: var(--pm-accent); font-size: 12px; }
-  .dedline .dedline-txt { font-size: 13.5px; font-style: italic; letter-spacing: .01em; transition: color .15s; }
-  .dedline .go { font-size: 12px; color: var(--pm-accent); font-weight: 600; }
-
-  /* Hero — on cream */
-  .hero { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; padding: 48px 40px; border-bottom: 1px solid var(--pm-ink); }
-  .lead { display: flex; flex-direction: column; gap: 20px; }
-  .lead h1 { margin: 0; font-size: 60px; line-height: 1.0; font-weight: 500; letter-spacing: -0.02em; max-width: 10em; }
-  .lead .dek { margin: 0; font-size: 21px; line-height: 1.45; font-style: italic; color: #43392E; max-width: 28em; }
-  .lead-img { height: 280px; border: 1px solid #DBD0BA; border-radius: 3px; display: flex; align-items: flex-end; padding: 12px; }
-  .imglabel { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; letter-spacing: 0.03em; color: #7C7160; background: rgba(251,247,239,0.8); padding: 3px 7px; border-radius: 3px; }
-  .dot { width: 4px; height: 4px; border-radius: 50%; background: #B7AC99; display: inline-block; }
-
-  /* Sections rail */
-  .rail-label, .toc-label { padding: 16px 40px 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #948876; font-weight: 600; }
-  .rail { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--pm-ink); }
-  .rail-cell { padding: 18px 22px 30px; border-inline-start: 1px solid #E4DAC6; }
-
-  /* Features */
-  .features { padding: 44px 40px 8px; }
-  .features-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 2px solid var(--pm-ink); padding-bottom: 14px; margin-bottom: 30px; }
-
-  /* Issues shelf — the journal stays open; issues close */
-  .issues-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-  .issue-cell { padding: 18px 22px 26px; border-inline-start: 1px solid #E4DAC6; display: flex; flex-direction: column; gap: 9px; text-decoration: none; color: inherit; }
-  .issue-cell:first-child { border-inline-start: 0; }
-  a.issue-cell:hover .issue-see { color: var(--pm-accent); }
-  .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--pm-accent); display: inline-block; margin-inline-end: 7px; animation: pmpulse 2.2s ease-in-out infinite; }
-  @keyframes pmpulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
-
-  /* Author portrait chip — shows on contributions */
-  .avatar-chip { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #DBD0BA; flex: 0 0 auto; }
-  /* Maths-level chip — coloured dot + label */
-  .lvl { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-  .lvl .lvl-dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
-  /* Contributors strip */
-  .people { padding: 10px 40px 46px; display: flex; gap: 30px 38px; flex-wrap: wrap; }
-  .person { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-  .person img, .person .ph-ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid #DBD0BA; }
-  .person .ph-ava { display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: #948876; background: #EFE6D2; }
-  .person:hover .p-name { color: var(--pm-accent); }
-  .p-name { font-size: 16.5px; font-weight: 500; transition: color .15s; }
-  .p-count { font-size: 11.5px; color: #948876; margin-top: 2px; }
-  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
-  .feature { display: grid; grid-template-columns: 168px 1fr; gap: 22px; align-items: start; }
-  .feature .thumb { aspect-ratio: 4 / 5; border: 1px solid #DBD0BA; border-radius: 3px; display: flex; align-items: flex-end; padding: 9px; }
-  .feature h3 { margin: 8px 0 0; font-size: 25px; line-height: 1.12; font-weight: 500; letter-spacing: -0.01em; }
-  .feature p, .lead .dek, .note p, .getissue p { text-align: justify; }
-
-  /* TOC + note */
-  .lower { padding: 50px 40px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; }
-  .toc-row { display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline; gap: 16px; padding: 15px 0; border-bottom: 1px solid #E4DAC6; }
-  .note { background: var(--pm-black); color: var(--pm-paper); border-radius: 4px; padding: 38px 36px; align-self: start; }
-  .note h3 { margin: 16px 0 14px; font-size: 30px; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
-
-  /* Subscribe */
-  .subscribe { border-top: 1px solid var(--pm-ink); border-bottom: 1px solid var(--pm-ink); }
-  .subscribe-in { padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-  .subscribe h3 { margin: 0; font-size: 30px; font-weight: 500; letter-spacing: -0.01em; }
-  .subform { display: flex; align-items: stretch; border: 1px solid var(--pm-ink); border-radius: 999px; overflow: hidden; min-width: 360px; }
-  .subform input { border: 0; outline: none; background: transparent; padding: 14px 22px; font-size: 15px; flex: 1; color: var(--pm-ink); }
-  .subform button { border: 0; background: var(--pm-black); color: var(--pm-paper); padding: 14px 26px; font-size: 14px; font-weight: 600; cursor: pointer; }
-
-  /* Footer */
-  .footer { padding: 36px 40px 56px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-  .footer-brand { display: flex; align-items: center; gap: 14px; }
-  .footer-logo { width: 40px; height: 40px; border-radius: 6px; overflow: hidden; background: var(--pm-black); }
-  .footer-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
-  .footer-links { display: flex; gap: 26px; font-size: 13px; color: #43392E; }
-  .footer-links span { cursor: pointer; }
-  .yt { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font-size: 13px; font-weight: 600; color: var(--pm-ink); border: 1px solid var(--pm-ink); border-radius: 999px; padding: 8px 16px; white-space: nowrap; transition: background .15s, color .15s; }
-  .yt:hover { background: var(--pm-black); color: var(--pm-paper); }
-  .yt .play { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 14px; background: var(--pm-accent); border-radius: 3px; color: #fff; font-size: 8px; }
-
-  /* Get-the-issue band (free PDF + pay-what-you-like) */
-  .getissue { background: var(--pm-black); color: var(--pm-paper); border-top: 1px solid var(--pm-ink); }
-  .getissue-in { padding: 56px 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 48px; }
-  .getissue .kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--pm-accent); }
-  .getissue h3 { margin: 14px 0 12px; font-size: 36px; line-height: 1.05; font-weight: 500; letter-spacing: -0.015em; max-width: 13em; }
-  .getissue p { margin: 0; font-size: 17px; line-height: 1.6; color: #D9D0C0; max-width: 34em; }
-  .getissue-actions { display: flex; flex-direction: column; gap: 14px; min-width: 248px; }
-  .btn-pdf { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: var(--pm-paper); color: var(--pm-ink); border-radius: 999px; padding: 16px 26px; font-size: 16px; font-weight: 600; transition: transform .12s; }
-  .btn-pdf:hover { transform: translateY(-1px); }
-  .btn-donate { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: transparent; color: var(--pm-paper); border: 1px solid #4A443B; border-radius: 999px; padding: 15px 26px; font-size: 16px; font-weight: 600; transition: border-color .12s; }
-  .btn-donate:hover { border-color: var(--pm-accent); }
-  .btn-meta { text-align: center; font-size: 12px; color: #8C8474; margin-top: -4px; }
-  .btn-heart { color: var(--pm-accent); }
-
-  /* ---------- TABLET ---------- */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 28px; }
-    .lead h1 { font-size: 48px; }
-    .rail { grid-template-columns: repeat(3, 1fr); }
-    .rail-cell:nth-child(3n+1) { border-inline-start: 0; }
-    .features-grid { grid-template-columns: 1fr; gap: 32px; }
-    .lower { grid-template-columns: 1fr; gap: 36px; }
-    .getissue-in { grid-template-columns: 1fr; gap: 28px; }
-  }
-
-  /* ---------- PHONE ---------- */
-  @media (max-width: 560px) {
-    .topband { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
-    .subbar { flex-wrap: wrap; padding: 12px 20px; gap: 6px; }
-    .subbar .pub { display: none; }
-    nav.menu { gap: 16px; font-size: 12.5px; flex-wrap: wrap; }
-    .hero { padding: 28px 20px; }
-    .lead h1 { font-size: 38px; }
-    .lead .dek { font-size: 18px; }
-    .lead-img { height: 220px; }
-    .rail-label, .toc-label, .features, .lower, .subscribe-in, .footer { padding-left: 20px; padding-right: 20px; }
-    .rail { grid-template-columns: repeat(2, 1fr); }
-    .rail-cell { padding: 16px 16px 24px; }
-    .rail-cell:nth-child(3n+1) { border-inline-start: 1px solid #E4DAC6; }
-    .rail-cell:nth-child(2n+1) { border-inline-start: 0; }
-    .features { padding-top: 32px; }
-    .feature { grid-template-columns: 110px 1fr; gap: 16px; }
-    .feature h3 { font-size: 21px; }
-    .getissue-in { grid-template-columns: 1fr; gap: 28px; padding: 40px 20px; }
-    .getissue h3 { font-size: 28px; }
-    .getissue-actions { min-width: 0; }
-    .subscribe-in { padding: 28px 20px; }
-    .subform { min-width: 0; width: 100%; }
-    .footer { padding: 28px 20px 44px; }
-    .footer-right { align-items: flex-start; }
-  }
-
-  /* Contribute modal */
-  .pm-modal-backdrop { position: fixed; inset: 0; background: rgba(13,12,11,0.5); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
-  .pm-modal-backdrop.open { display: flex; }
-  .pm-modal { background: var(--pm-paper); border: 1px solid var(--pm-ink); border-radius: 12px; max-width: 430px; width: 100%; padding: 32px 32px 28px; box-shadow: 0 24px 60px rgba(13,12,11,0.35); position: relative; }
-  .pm-modal h3 { margin: 0 0 12px; font-size: 25px; font-weight: 500; letter-spacing: -0.01em; }
-  .pm-modal p { margin: 0 0 18px; font-size: 15.5px; line-height: 1.65; color: #43392E; }
-  .pm-modal a.email { display: inline-block; font-weight: 600; color: var(--pm-accent); font-size: 18px; text-decoration: none; word-break: break-all; }
-  .pm-modal a.email:hover { text-decoration: underline; }
-  .pm-modal-close { position: absolute; top: 10px; inset-inline-end: 14px; background: none; border: 0; font-size: 26px; line-height: 1; color: #6B6155; cursor: pointer; padding: 4px; }
-  .pm-modal-close:hover { color: var(--pm-ink); }
-</style>
+<title>People and Mathematics</title>
+<meta name="description" content="Lives, voices, and encounters in the culture of mathematics in Iran.">
+<meta property="og:title" content="People and Mathematics">
+<meta property="og:description" content="Lives, voices, and encounters in the culture of mathematics in Iran.">
+<link rel="alternate" hreflang="fa" href="fa.html">
+<script src="./support.js"></script>
 </head>
 <body>
-<div id="app"></div>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body,#dc-root{height:auto!important;min-height:100%}
+body{margin:0;background:#FBF7EF;color:#1C1814;font-family:"Newsreader",serif}
+a{color:#1C1814;text-decoration:none}
+a:hover{color:#C8633E}
+</style>
+</helmet>
 
-<!-- Your wording lives in content.js — edit that file, not this one. -->
-<script src="content.js"></script>
-<script>
-/* ---- Built-in fallback so the page never goes blank if content.js has a typo ---- */
-var FALLBACK = { SECTIONS:[], WORKS:[], FLAGSHIP:{}, en: { nav:{}, footerLinks:[] }, fa: { nav:{}, footerLinks:[] } };
-var DATA = (window.PM_CONTENT && window.PM_CONTENT.en && window.PM_CONTENT.fa) ? window.PM_CONTENT : FALLBACK;
-var YT = (window.PM_CONTENT && window.PM_CONTENT.youtubeUrl) || "https://www.youtube.com/@asghariamir";
+<div style="max-width:1120px;margin:0 auto;padding:48px 48px 72px;display:flex;flex-direction:column;gap:64px;box-sizing:border-box">
+  <header style="display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #1C1814;padding-bottom:20px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div style="font-size:42px;font-weight:500;letter-spacing:-.01em">People and Mathematics</div>
+      <div style="font-family:'Vazirmatn',sans-serif;font-size:30px;font-weight:500" dir="rtl">آدم‌ها و ریاضیات</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+      <div style="font-size:21px;line-height:1.4">Lives, voices, and encounters in the culture of mathematics in Iran.</div>
+      <a href="fa.html" dir="rtl" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500">فارسی</a>
+    </div>
+  </header>
 
-function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function pick(o, lang){ return o ? (o[lang] != null ? o[lang] : o.en) : ""; }
-function toLocal(n, isFa){ n = String(n); return isFa ? n.replace(/[0-9]/g, function(d){ return "۰۱۲۳۴۵۶۷۸۹"[+d]; }) : n; }
-function worksIn(id){ return (DATA.WORKS||[]).filter(function(w){ return w.section === id; }); }
-function featuredOf(id){ var l = worksIn(id); return l.filter(function(w){ return w.featured; })[0] || l[l.length-1] || null; }
+  <div style="display:grid;grid-template-columns:96px 28px minmax(0,1fr);max-width:880px">
+    <div style="grid-column:1 / 4;font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259;padding:0 0 14px">11th–12th century</div>
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#6B6259;padding-top:3px">1048</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 0 28px 12px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">Omar Khayyam</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1048–1131 · to come</span></div>
 
-/* ---- Issues: the journal stays open, issues close ---- */
-function openIssueN(){
-  var iss = DATA.ISSUES || [];
-  for (var k = iss.length - 1; k >= 0; k--) if (!effClosed(iss[k])) return iss[k].n;
-  return iss.length ? iss[iss.length-1].n + 1 : 1;   /* all closed → works without a home fall past the last */
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:16px;color:#6B6259;padding:4px 0 20px">⋮</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:0;border-left:2px dotted #1C1814"></div></div>
+    <div></div>
+
+    <div style="grid-column:1 / 4;font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259;padding:8px 0 14px">19th century</div>
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1815</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Mirza Jafar Khan Moshir-od-Dowleh</div>
+      <button onClick="{{ openMJ }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/moshir-od-dowleh.jpg" alt="Mirza Jafar Khan Moshir-od-Dowleh" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.45;text-wrap:pretty">He came back to teach mathematics in Tabriz, and wrote the first modern arithmetic textbook in Iran.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showMJ }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeMJ }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeMJ }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1815 — Five students sent to England</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/moshir-od-dowleh.jpg" alt="Mirza Jafar Khan Moshir-od-Dowleh" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:22px;font-weight:600">Mirza Jafar Khan Moshir-od-Dowleh</div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">In 1815 Abbas Mirza sent five young men to England to bring back science and industry, and Mirza Jafar Khan was one of them. He studied there for four years, returned in 1819, and in Tabriz set up the Mohandes-khaneh, a school of engineering, where he taught mathematics. Four years later the state needed his politics more than his mathematics, and he spent the rest of his career in government, trusted by Amir Kabir.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">Those four years in Tabriz produced the first arithmetic textbook in Iran in the modern sense. Written for the young Mohammad Mirza and dated 1845, six years before Dar al-Funun opened, his arithmetic was the first book written with a learner in mind. It has exercises, and in his book subtraction is treated as distance as well as taking away. Dar al-Funun does not seem to have used it, and mathematics teaching there started again without it.</p>
+                <a href="https://amirasghari.com/2023/04/28/mohandes-moshir-al-dowleh/" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#C8633E">Who is Mirza Jafar Khan Moshir-od-Dowleh? Amir Asghari (in Persian) →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1851</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Dar al-Funun opens</div>
+      <button onClick="{{ openDF }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/najm-od-dowleh.jpg" alt="Mirza Abdolghaffar Najm-od-Dowleh" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/alikhan-nazem-ol-oloum.png" alt="Ali Khan Nazem-ol-Oloum" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;filter:grayscale(1)">
+          <img src="assets/mohandes-ol-molk.png" alt="Mirza Reza Mohandes-ol-Molk" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.45;text-wrap:pretty">Its first mathematics teachers, and the graduates who became the first teachers and textbook authors of Iran’s newly established schools.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showDF }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeDF }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeDF }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1851 — Dar al-Funun opens</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">The mathematics teachers of Dar al-Funun</div>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C">Mathematics at Dar al-Funun passed from teacher to student: from Mulla Ali Mohammad Isfahani and his son Najm-od-Dowleh to the graduates who later taught there, and through them to schools beyond it.</p>
+            <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Mulla Ali Mohammad Isfahani</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">d. 1874</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">One of the first Iranian teachers of Dar al-Funun, and the father of Najm-od-Dowleh. His surviving work, Takmilat al-Oyun, dealt with approximate solutions of cubic equations by progressively narrowing intervals containing the root.</p>
+                
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/najm-od-dowleh.jpg" alt="Mirza Abdolghaffar Najm-od-Dowleh" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Mirza Abdolghaffar Najm-od-Dowleh</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">One of the central mathematical figures of Dar al-Funun, where the school’s mathematical authority rested with him. His algebra, Bedayat al-Jabr, chose a form of mathematical writing that connected Iranian learners to international mathematics. Through him, the work of his father, Mulla Ali Mohammad Isfahani, on cubic equations entered Dar al-Funun teaching.</p>
+                
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/alikhan-nazem-ol-oloum.png" alt="Ali Khan Nazem-ol-Oloum" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Ali Khan Nazem-ol-Oloum</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1850–1899</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">A top graduate of the engineering class in Dar al-Funun’s second cohort. He went to France with Naser al-Din Shah in 1873 and attended classes at the École Polytechnique, among them those of Joseph Bertrand. Back at Dar al-Funun from 1875, he taught mathematics and physics in the artillery section and wrote the first authored physics textbook in Persian.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">His arithmetic, Hesab-e Ali Khan (1879), became the most geographically widespread mathematics textbook in the modern history of Iran. It gave priority to meaning: a fraction is a number for measuring a given quantity by a known unit. He died in 1899, without seeing the book’s success.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Hanken Grotesk',sans-serif;font-size:14px"><span style="color:#6B6259">The Historic Death of Ali Khan Nazem al-Oloom and His Mathematics</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="papers/alikhan-nazem-ol-oloum-abstract-en.pdf" target="_blank" style="color:#C8633E">Extended abstract in English →</a><a href="https://doi.org/10.30504/mct.2025.1552.2089" target="_blank" rel="noopener" style="color:#C8633E">Full paper (in Persian) →</a></div></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mohandes-ol-molk.png" alt="Mirza Reza Mohandes-ol-Molk" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Mirza Reza Mohandes-ol-Molk</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1879–1956</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">Born in Tabriz, he graduated from Dar al-Funun and by 1899–1900 was teaching mathematics there. He remained a teacher and textbook author all his life. A student of Najm-od-Dowleh and a teacher of Ahmad Birashk, he carried Dar al-Funun mathematics into the wider world of Iranian schooling.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">His geometry was a main teaching text for about two decades, until Birashk’s replaced it in 1936–37, and his Hall al-Masa’el al-Jabriyeh (1905) is a rare window onto the algebra Najm-od-Dowleh taught. He is often confused with Mirza Nezam Mohandes-ol-Mamalek, who never taught at Dar al-Funun.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Hanken Grotesk',sans-serif;font-size:14px"><span style="color:#6B6259">Mohandes al-Mulk: A Bridge Between the Past and the Future of Mathematics Education in Iran</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="papers/mohandes-ol-molk-abstract-en.pdf" target="_blank" style="color:#C8633E">Extended abstract in English →</a><a href="https://doi.org/10.30504/mct.2025.1524.2065" target="_blank" rel="noopener" style="color:#C8633E">Full paper (in Persian) →</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1865</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Mirza Nezam Ghaffari enters the École Polytechnique</div>
+      <button onClick="{{ openNZ }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/mirza-nezam-ghaffari.png" alt="Mirza Nezam Ghaffari, Mohandes-ol-Mamalek" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 15%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.45;text-wrap:pretty">Top of his intake in Paris, he returned to a country that had no place for his mathematics: the loneliest mathematician.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showNZ }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeNZ }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeNZ }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1865 — The École Polytechnique</div>
+            
+            
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mirza-nezam-ghaffari.png" alt="Mirza Nezam Ghaffari, Mohandes-ol-Mamalek" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 15%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Mirza Nezam Ghaffari, Mohandes-ol-Mamalek</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1844–1915</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">Born in Kashan in 1844 and sent to France while still very young, he published his first mathematical article in French in 1864 and entered the École Polytechnique in 1865 as the top incoming student. He returned to Iran in 1867 and moved through state roles: translator, tutor to Naser al-Din Shah, road engineer, minister. He never taught at Dar al-Funun.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">Meanwhile he wrote a large body of mathematics: the calculus of variations, algebra, calculus, trigonometry, mechanics, projective and descriptive geometry, determinants. He also designed a Persianized notation, with numbers written right to left and algebraic symbols drawn from Persian letters. No community ever wrote it with him, and his books became inaccessible even within Iran. He created a mathematical language that only he truly spoke.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Hanken Grotesk',sans-serif;font-size:14px"><span style="color:#6B6259">Mirza Nezam de Gaffary: The Loneliest Mathematician</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="papers/mirza-nezam-abstract-en.pdf" target="_blank" style="color:#C8633E">Extended abstract in English →</a><a href="https://doi.org/10.30504/mct.2024.1458.2026" target="_blank" rel="noopener" style="color:#C8633E">Full paper (in Persian) →</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="grid-column:1 / 4;font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259;padding:8px 0 14px">20th century</div>
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#6B6259;padding-top:3px">1908</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 0 22px 12px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">Mohsen Hashtroodi</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1908–1976</span></div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#6B6259;padding-top:3px">1910</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:6px;width:12px;height:12px;border-radius:50%;border:1.5px solid #6B6259;background:#FBF7EF;box-sizing:border-box"></div></div>
+    <div style="padding:0 0 22px 12px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:19px">Gholamhossein Mosaheb</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1910–1979</span></div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1911</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">The first woman mathematics teacher</div>
+      <button onClick="{{ openMA }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.45;text-wrap:pretty">In 1911 Maryam Ardalan graduated from a girls’ high school in Tehran and stayed on to teach mathematics there: the first woman mathematics teacher in Iran.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showMA }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeMA }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeMA }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1911 — The first woman mathematics teacher</div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span style="font-size:28px;font-weight:600;line-height:1.3">Maryam Ardalan</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#6B6259">1892–1966</span></div>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">In Maryam Ardalan’s time a complete secondary education was almost out of reach for Iranian girls. Boys had six years of primary school and six of secondary. The few girls’ schools offered only the first three secondary years, meant to make better mothers or, for women who did not marry, to give them a way to earn a living. A full girls’ high school course spread only after January 1936, and even then mathematics in girls’ schools was taught by men, because there were no women mathematics teachers.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">One exception was the American Girls’ School in Tehran, opened by Christian missionaries in 1874. It took foreign girls first, then Iranian Christians, then Zoroastrian and Jewish girls, and from 1896 Muslim girls, though few Muslim families let their daughters attend. Maryam Ardalan, born in Tehran in 1892, entered in 1901. On 9 June 1911, aged eighteen, she was one of only two Iranian Muslim girls to graduate, the other being Mehrtaj Rakhshan. Her graduation speech was titled “The freedom of women”. Because of her gift for mathematics, the school took her on as its mathematics teacher straight away.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">Her life followed that speech. Stranded in Sanandaj by the First World War, she turned her house into a school for women. Offered the headship of a private boys’ school, she asked instead for a state school for girls, so that her work would outlast her stay. It opened in 1926, and she named it after the poet Mastoureh Ardalan rather than herself. In 1938, when a foreign director was proposed for Iran’s first girls’ technical school, she was appointed instead. She died in 1966.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">She left her autobiography with the Women’s Organization of Iran, and parts of it survive in Fakhri Qavimi’s Karnameh-ye Zanan-e Mashhur-e Iran (1973). Decades later her granddaughter, Parvin Ardalan, was among the founding members of the One Million Signatures Campaign, launched in 2006 to change laws that discriminate against women in Iran.</p>
+            <div style="display:flex;flex-direction:column;gap:6px;padding-top:6px;font-family:'Hanken Grotesk',sans-serif;font-size:14px">
+              <a href="https://en.wikipedia.org/wiki/One_Million_Signatures" target="_blank" rel="noopener" style="color:#C8633E">The One Million Signatures Campaign →</a>
+              <a href="https://amirasghari.com/2023/08/03/maryam-ardalan/" target="_blank" rel="noopener" style="color:#C8633E">Who is Maryam Ardalan? Amir Asghari (in Persian) →</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1922</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Alborz High School moves to its present site</div>
+      <button onClick="{{ openAL }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/mohammad-vahid-tonekaboni.jpg" alt="Mohammad Vahid Tonekaboni" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 10%;filter:grayscale(1)">
+        </div>
+        <div style="font-size:18px;line-height:1.5;text-wrap:pretty">The teachers and students of Alborz, beginning with its first Iranian principal.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showAL }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeAL }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeAL }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1922 — Alborz High School</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">The teachers and students of Alborz</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/mohammad-vahid-tonekaboni.jpg" alt="Mohammad Vahid Tonekaboni" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 10%;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-size:22px;font-weight:600">Mohammad Vahid Tonekaboni</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1893–1957</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">Born in Tonekabon in 1893, he went to primary school in Babol and came to Tehran to study at Dar al-Funun. In 1910 he was sent to France with the other government-sponsored students, and after four years in Paris returned to Iran in 1914. From 1916 he taught mathematics at Dar al-Funun, the military school, the Elmiyeh school and the teachers’ college.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">In 1925 he joined the Ministry of Education’s textbook commission; from 1929 to 1937 he sat on the Supreme Council of Education, and in 1938 became a director-general of the ministry. In 1940, when the ministry bought the American college of Alborz, he became the first Iranian principal of Alborz High School. In 1943 he rose to deputy and then acting minister of education, yet he did not give up his class. One of his students recalled:</p>
+                <blockquote style="margin:4px 0;padding:0 0 0 18px;border-left:2px solid #C8633E;font-size:17px;line-height:1.55;color:#3A332C;font-style:italic">Even in that post, he always arrived on time to teach. I remember that on cold winter days, when few senior officials would leave home for their offices, our maths class of thirty or forty, which he taught, was never cancelled. He was never late and never absent.</blockquote>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">He later served as deputy minister of agriculture and again as deputy minister of education, retired in 1952, and died in London on 6 December 1957.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">His book, Elementary Principles of Algebra (Osul-e Elm-e Jabr va Moqabeleh-ye Moqaddamati), appeared in 1921 for the second and third years of secondary school, only a few years after Iran’s first final secondary examinations (1913). Later volumes made it a complete course in algebra, and it stayed in Iran’s schools for years. The book gives reasons for everything it presents, in language suited to students; but Vahid’s real art lies in the choice and design of its problems and exercises.</p>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Hanken Grotesk',sans-serif;font-size:14px"><span style="color:#6B6259">Who was Mohammad Vahid? (in Farsi)</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://amirasghari.com/2023/04/22/vahid/" target="_blank" rel="noopener" style="color:#C8633E">Full post →</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1928</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Hallol-Masael-e Riazi</div>
+      <button onClick="{{ openHM }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <img src="assets/hallol-masael-masthead.png" alt="Masthead of Hallol-Masael-e Riazi, with the names Naser, Hoorfar, Riazi" style="width:100%;max-width:300px;aspect-ratio:188/92;object-fit:cover;filter:grayscale(1)">
+        <div style="font-size:18px;line-height:1.5;text-wrap:pretty">Probably Iran’s first mathematics magazine on general sale, made by three young teachers.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showHM }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeHM }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:760px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeHM }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1928 — Hallol-Masael-e Riazi</div>
+            <div style="font-size:28px;font-weight:600;line-height:1.3">Hallol-Masael-e Riazi (Solutions to Mathematical Problems)</div>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding-top:18px;border-top:1px solid #E2D8C6">
+              <img src="assets/hallol-masael-cover.png" alt="Cover of Hallol-Masael-e Riazi" style="width:100%;aspect-ratio:212/300;object-fit:cover;filter:grayscale(1)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">First published in January 1928 (1306 in the Iranian calendar), it is probably Iran’s first mathematics magazine with general distribution. Iran’s high schools were growing in number, and each issue printed problems from Iran’s final examinations and from mathematics examinations and competitions in Europe, with the promise of their solutions an issue or two later. The magazine ran for about a year.</p>
+                <p style="margin:0;font-size:17px;line-height:1.55;color:#3A332C">The cover reads “Naser – Hoorfar – Riazi”: not one person, but three teachers.</p>
+                <ul style="margin:0;padding:0 0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.55;color:#3A332C">
+                  <li><strong style="font-weight:600">Ali-Asghar Naser</strong>, later governor of Bank Melli Iran, whose signature appeared on Iran’s banknotes.</li>
+                  <li><strong style="font-weight:600">Hossein Hoorfar</strong>, later one of the most prolific authors of Iran’s first official school mathematics textbooks.</li>
+                  <li><strong style="font-weight:600">Abdollah Riazi</strong>, then twenty-one, later dean of the Faculty of Engineering at the University of Tehran and Speaker of the National Consultative Assembly.</li>
+                </ul>
+                <div style="display:flex;flex-direction:column;gap:4px;font-family:'Hanken Grotesk',sans-serif;font-size:14px;padding-top:6px"><span style="color:#6B6259">In Farsi</span><div style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://amirasghari.com/2022/05/04/nasser-hoorfar/" target="_blank" rel="noopener" style="color:#C8633E">Who is Naser Hoorfar? by Amir Asghari →</a><a href="https://amirasghari.com/magazines/hr/" target="_blank" rel="noopener" style="color:#C8633E">Read the surviving issues →</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1935</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Women enter higher education</div>
+      <button onClick="{{ open1935 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/women-1935-batol-homayoun.webp" alt="Batol Homayoun" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+          <img src="assets/women-1935-mahpareh-mamagani-crop.png" alt="Mahpareh Mamagani" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/women-1935-mahin-sang-crop.png" alt="Mahin Sang" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+          <img src="assets/women-1935-ghamar-ghamkhar-crop.png" alt="Ghamar Ghamkhar" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+        </div>
+        <div style="font-size:17px;line-height:1.45;text-wrap:pretty">Four women, four consecutive years: the first generation of Iranian women to graduate in mathematics, 1939–1942.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ show1935 }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ close1935 }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;position:relative">
+            <button onClick="{{ close1935 }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1935 — Women enter higher education</div>
+            <div style="font-size:28px;font-weight:500;line-height:1.2">The first generation of Iranian women in mathematics</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;padding:6px 0">
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-batol-homayoun.webp" alt="Batol Homayoun" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+                <figcaption style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;line-height:1.35">Batol Homayoun — 1939</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-mahpareh-mamagani-crop.png" alt="Mahpareh Mamagani" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+                <figcaption style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;line-height:1.35">Mahpareh Mamagani — 1940</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-mahin-sang-crop.png" alt="Mahin Sang" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;filter:grayscale(1)">
+                <figcaption style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;line-height:1.35">Mahin Sang — 1941</figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+                <img src="assets/women-1935-ghamar-ghamkhar-crop.png" alt="Ghamar Ghamkhar" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;filter:grayscale(1)">
+                <figcaption style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;line-height:1.35">Ghamar Ghamkhar — 1942</figcaption>
+              </figure>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">
+              <p style="margin:0">In 1935, the admission of women to the Higher Teachers’ College opened a new chapter in the history of mathematics in Iran. Within only a few years, the first generation of Iranian women to graduate in mathematics began to emerge.</p>
+              <p style="margin:0">From 1939 to 1942, four women graduated in mathematics in four consecutive years: Batol Homayoun in 1939, Mahpareh Mamagani in 1940, Mahin Sang in 1941, and Ghamar Ghamkhar in 1942.</p>
+              <p style="margin:0">They studied during a transitional period in Iranian higher education. Mathematics was still closely connected to the older system of teacher training, while the newly established University of Tehran and its Faculty of Science were taking shape. Soon afterwards, mathematics would be studied more clearly within the Faculty of Science. These four women therefore stand between two institutional eras—and together mark the beginning of women’s sustained presence in higher mathematics in Iran.</p>
+            </div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;font-family:'Hanken Grotesk',sans-serif;font-size:14px;padding-top:14px;border-top:1px solid #E2D8C6"><span style="color:#6B6259;width:100%">In Farsi</span><a href="https://amirasghari.com/2022/07/05/batol/" target="_blank" rel="noopener" style="color:#C8633E">Batol Homayoun →</a><a href="https://amirasghari.com/2024/03/17/mahpareh/" target="_blank" rel="noopener" style="color:#C8633E">Mahpareh Mamagani →</a></div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#1C1814;padding-top:3px;font-weight:600">1962</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:9px;width:14px;height:2px;background:#1C1814"></div></div>
+    <div style="padding:3px 0 30px 12px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Vazgen Avanessian comes to Tehran</div>
+      <button onClick="{{ openVA }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;max-width:420px" style-hover="color:#C8633E">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <img src="assets/vazgen-avanessian.png" alt="Vazgen Avanessian" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)">
+        </div>
+        <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.45;text-wrap:pretty">The first head of mathematics at the National University of Iran. Many of Iran’s future mathematicians first met modern mathematics through his book.</div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#C8633E">Read more</div>
+      </button>
+      <sc-if value="{{ showVA }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeVA }}" style="position:fixed;inset:0;background:rgba(13,12,11,.55);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto;box-sizing:border-box">
+          <div onClick="{{ stop }}" style="background:#FBF7EF;max-width:720px;width:100%;padding:40px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;position:relative;font-family:'Newsreader',serif">
+            <button onClick="{{ closeVA }}" aria-label="Close" style="all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-family:'Hanken Grotesk',sans-serif;font-size:26px;line-height:1;color:#6B6259" style-hover="color:#C8633E">×</button>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B6259">1962 — Vazgen Avanessian comes to Tehran</div>
+            <div style="width:140px"><img src="assets/vazgen-avanessian.png" alt="Vazgen Avanessian" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;filter:grayscale(1)"></div>
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span style="font-size:28px;font-weight:600;line-height:1.3">Vazgen Avanessian</span><span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#6B6259">1927–2007</span></div>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">Born in 1927, he went to primary school in Qazvin and to Alborz High School in Tehran. At sixteen he wrote a geometry notebook, dated 1943, and dedicated it to the culture of Iran. He then went to France and studied there up to his doctorate, always with his wife, Araks Papazian.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">In 1962 he was invited back for the academic year in which the mathematics department of the National University of Iran was founded, and he became its first head. In his two years in Tehran he wrote, in Persian, An Introduction to Modern Analysis. In 1963 it won the Royal Book of the Year prize, one of only six pure-science books to receive it between 1953 and 1979. Many of Iran’s future mathematicians first met modern mathematics through his book.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">His contract was to last as long as Ali Sheikh-ol-Eslam was president of the university, and talk of Sheikh-ol-Eslam’s removal had already begun when, in 1964, the year Araks’s mother died, he and his family moved to France. On 28 November 1964 he wrote from Strasbourg to the magazine Yekan to make his resignation public. The mathematics department of the National University had been dissolved without consulting him or informing him, though he was still its head, so he considered his presence on its teaching staff superfluous and, despite the financial loss, announced the cancellation of his contract.</p>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3A332C;text-wrap:pretty">He never returned. He spent the rest of his life in mathematics in Strasbourg, and painted under the name Azik.</p>
+            <a href="https://amirasghari.com/2022/06/08/vazik/" target="_blank" rel="noopener" style="padding-top:6px;font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#C8633E">Who is Vazgen Avanessian? Amir Asghari (in Persian) →</a>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="grid-column:1 / 4;font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259;padding:8px 0 14px">21st century</div>
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#C8633E;padding-top:30px;font-weight:600">2014</div>
+    <div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;height:40px;width:2px;background:#1C1814"></div><div style="position:relative;margin-top:32px;width:16px;height:16px;border-radius:50%;background:#C8633E"></div></div>
+    <div style="margin:0 0 0 12px;display:flex;flex-direction:column;gap:10px">
+      <div style="padding-top:30px;font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Maryam Mirzakhani receives the Fields Medal</div>
+      <a href="articles/mathematical-culture.html" style="padding:18px;display:grid;grid-template-columns:112px minmax(0,1fr);gap:20px;align-items:center;background:#F3ECDF">
+        <img src="assets/mirzakhani-juan.jpg" alt="Maryam Mirzakhani" style="width:112px;height:112px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:26px;font-weight:500;line-height:1.15">Maryam Mirzakhani, in Your Own Hand</div>
+          <div style="font-size:17px;line-height:1.45;color:#3A332C;text-wrap:pretty">Maryam Mirzakhani on the cover of the Notices, followed by portraits of her from artists around the world.</div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">1977–2017 · a gallery</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259;border-bottom:1px solid #1C1814;padding-bottom:10px">Latest lives</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/hamid-lesan.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/lesan-hero.jpg" alt="Hamid Lesan" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:500;line-height:1.15">Hamid Lesan, a Logician Larger than Life</div>
+        <div style="font-size:18px;line-height:1.45;color:#3A332C">“He was a very lovable man.” It began with that one sentence — a search for a logician who lived in time, in place, and in language.</div>
+      </a>
+      <a href="articles/firoozbakht.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/farideh.jpg" alt="Farideh Firoozbakht" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 14%">
+        <div style="font-size:28px;font-weight:500;line-height:1.15">Farideh Firoozbakht and Her Conjecture About Primes</div>
+        <div style="font-size:18px;line-height:1.45;color:#3A332C">She left almost no trace of herself. What she left instead was one of the boldest unproven statements ever made about the prime numbers.</div>
+      </a>
+      <a href="articles/history-corner-silver-matrix.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/yahya-tabesh.webp" alt="Yahya Tabesh" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:500;line-height:1.15">The Silver Matrix</div>
+        <div style="font-size:18px;line-height:1.45;color:#3A332C">How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the Silver Sea.</div>
+      </a>
+      <a href="articles/women-in-mathematics.html" style="display:flex;flex-direction:column;gap:12px">
+        <img src="assets/wim/authors-farnaz-bamdad.jpg" alt="Farnaz Haj Manouchehri and Bamdad Torabi" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+        <div style="font-size:28px;font-weight:500;line-height:1.15">Women in Mathematics Event</div>
+        <div style="font-size:18px;line-height:1.45;color:#3A332C">How students at Sharif built a two-year celebration of Maryam Mirzakhani — and everything it took to hold it.</div>
+      </a>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8633E">On film</div>
+        <div style="font-size:32px;font-weight:500;line-height:1.15">People and Mathematics, the series</div>
+      </div>
+      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">Watch on YouTube →</a>
+    </div>
+    <div style="font-size:19px;line-height:1.5;color:#3A332C;max-width:720px;text-wrap:pretty">Curious, honest, and candid conversations with individuals whose lives have been intertwined with mathematics.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
+        <button onClick="{{ s.select }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;display:flex;gap:8px;align-items:baseline;background:{{ s.bg }};color:{{ s.fg }}"><span>{{ s.label }}</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;opacity:.75">{{ s.fa }}</span></button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
+      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
+        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
+          <img src="{{ e.img }}" alt="{{ e.name }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Hanken Grotesk',sans-serif;font-size:12px;color:#6B6259">
+            <span>Episode {{ e.n }}</span>
+            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">EN subtitles</span></sc-if>
+          </div>
+          <div style="font-size:19px;line-height:1.2">{{ e.name }}</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;color:#6B6259" dir="rtl">{{ e.fa }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #1C1814;padding-bottom:10px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259">Roots</div>
+      <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;color:#6B6259" dir="rtl">ریشه‌ها</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/letter-x.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/abbas-eqbal.jpg" alt="Abbas Eqbal Ashtiani" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:22px;font-weight:500;line-height:1.2">The symbol x for the unknown</div>
+          <div style="font-size:17px;line-height:1.45;color:#3A332C">Where did the sign x, the word algebra, and the “Arabic” numerals come from? A short history from a 1930 Tehran journal.</div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">Abbas Eqbal Āshtiāni · 1930</div>
+        </div>
+      </a>
+      <a href="articles/thabit-amicable.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/abulghasem-ghorbani.jpg" alt="Abulghasem Ghorbani" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:22px;font-weight:500;line-height:1.2">Thābit ibn Qurra’s Rule for Finding Amicable Numbers</div>
+          <div style="font-size:17px;line-height:1.45;color:#3A332C">The oldest rule for producing amicable numbers, set out in 1983 by the historian of Persian mathematics Abulghasem Ghorbani.</div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">Abulghasem Ghorbani · 1983</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="background:#0D0C0B;color:#FBF7EF;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#E08A66">Why donate</div>
+      <div style="font-size:32px;line-height:1.2;text-wrap:pretty">For the histories still waiting to be found.</div>
+      <p style="margin:0;font-size:18px;line-height:1.55;color:#E9E2D6;text-wrap:pretty">People and Mathematics is free to read. Your support helps us find forgotten lives, photographs, documents, and stories from the history of mathematics in Iran, and make them openly available in Persian and English.</p>
+      <p style="margin:0;font-size:18px;line-height:1.55;color:#E9E2D6;text-wrap:pretty">A donation helps turn scattered traces into histories that will not be lost.</p>
+    </div>
+    <a href="https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;background:#C8633E;color:#FBF7EF;padding:14px 22px;white-space:nowrap;text-decoration:none" style-hover="background:#B4552F">Pay what you like →</a>
+  </div>
+
+  <a href="archive.html" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;border:1px solid #1C1814;padding:28px 32px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8633E">The journal’s own story</div>
+      <div style="font-size:24px;line-height:1.35;max-width:760px;text-wrap:pretty">How the journal began: its first issues, with essays, classroom ideas, films and conversations from before it turned to history.</div>
+    </div>
+    <div style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">Open the archive →</div>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { seasons: [], sel: 0 };
+  componentDidMount() {
+    fetch('data/people-and-maths-films.json').then(r => r.json()).then(d => this.setState({ seasons: d })).catch(() => {});
+  }
+  renderVals() {
+    const tc = s => (s && s === s.toUpperCase()) ? s.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()) : s;
+    const { seasons, sel } = this.state;
+    const cur = seasons[sel] || { episodes: [] };
+    return {
+      show1935: !!this.state.show1935,
+      open1935: () => this.setState({ show1935: true }),
+      close1935: () => this.setState({ show1935: false }),
+      stop: e => e.stopPropagation(),
+      showVA: !!this.state.showVA, openVA: () => this.setState({ showVA: true }), closeVA: () => this.setState({ showVA: false }),
+      showMA: !!this.state.showMA, openMA: () => this.setState({ showMA: true }), closeMA: () => this.setState({ showMA: false }),
+      showMJ: !!this.state.showMJ, openMJ: () => this.setState({ showMJ: true }), closeMJ: () => this.setState({ showMJ: false }),
+      showAL: !!this.state.showAL, openAL: () => this.setState({ showAL: true }), closeAL: () => this.setState({ showAL: false }),
+      showHM: !!this.state.showHM, openHM: () => this.setState({ showHM: true }), closeHM: () => this.setState({ showHM: false }),
+      showDF: !!this.state.showDF, openDF: () => this.setState({ showDF: true }), closeDF: () => this.setState({ showDF: false }),
+      showNZ: !!this.state.showNZ, openNZ: () => this.setState({ showNZ: true }), closeNZ: () => this.setState({ showNZ: false }),
+      seasons: seasons.map((s, i) => ({
+        label: s.season_en, fa: s.season_fa,
+        bg: i === sel ? '#1C1814' : 'transparent', fg: i === sel ? '#FBF7EF' : '#1C1814',
+        select: () => this.setState({ sel: i })
+      })),
+      episodes: cur.episodes.map(e => ({
+        n: e.episode_number, name: tc(e.name_en), fa: e.name_fa, url: e.youtube_url, img: e.image_medium, sub: !!e.has_en_sub
+      }))
+    };
+  }
 }
-function issueByN(n){ return (DATA.ISSUES||[]).filter(function(i){ return i.n === n; })[0] || null; }
-function issueOfWork(w){ return issueByN(w.issue != null ? w.issue : openIssueN()); }
-function todayISO(){ try { return new Date().toISOString().slice(0,10); } catch(e){ return ""; } }
-/* effective closed date: an explicit  closed:  OR a scheduled  closes:  that has arrived */
-function effClosed(iss){ if (!iss) return ""; if (iss.closed) return iss.closed; if (iss.closes && todayISO() >= iss.closes) return iss.closes; return ""; }
-
-/* ---- Maths-level chip: coloured dot + label ---- */
-function levelChip(levelId, lang){
-  var L = (DATA.LEVELS||[]).filter(function(x){ return x.id === levelId; })[0];
-  if (!L) return "";
-  return '<span class="lvl sans" title="'+esc(pick((DATA[lang]||DATA.en).levelLabel ? {en:DATA.en.levelLabel,fa:DATA.fa.levelLabel} : {}, lang))+'"><span class="lvl-dot" style="background:'+esc(L.color)+';"></span><span>'+esc(pick(L.name,lang))+'</span></span>';
-}
-
-function render(lang){
-  var c = DATA[lang] || DATA.en;
-  var isFa = lang === "fa";
-  var dir = isFa ? "rtl" : "ltr";
-  var arrow = isFa ? "←" : "→";
-  var fg = DATA.FLAGSHIP || {};
-  var fgt = fg[lang] || fg.en || {};
-  document.documentElement.lang = lang;
-  document.documentElement.dir = dir;
-
-  var sectionsHtml = (DATA.SECTIONS||[]).map(function(s){
-    var works = worksIn(s.id);
-    var count = works.length;
-    var countTxt = count === 0 ? c.sectionEmpty
-      : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
-    var live = count > 0;
-    var inner = '<div class="sans accent" style="font-size:12px;font-weight:600;">'+esc(pick(s.n,lang))+'</div>'
-      + '<div style="font-size:19px;font-weight:500;margin-top:10px;line-height:1.15;">'+esc(pick(s.name,lang))+(live?' <span class="accent" style="font-weight:600;">'+arrow+'</span>':'')+'</div>'
-      + '<div class="sans" style="font-size:13px;color:#6B6155;margin-top:8px;line-height:1.4;">'+esc(pick(s.blurb,lang))+'</div>'
-      + '<div class="sans" style="font-size:11.5px;letter-spacing:.04em;color:'+(live?'#948876':'#B7AC99')+';margin-top:12px;text-transform:uppercase;">'+esc(countTxt)+'</div>';
-    return live
-      ? '<a class="rail-cell" href="sections/section.html?id='+esc(s.id)+'" style="text-decoration:none;color:inherit;">'+inner+'</a>'
-      : '<div class="rail-cell">'+inner+'</div>';
-  }).join("");
-
-  function workCard(w){
-    var t = w[lang] || w.en || {};
-    var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
-    var ci = DATA.cardImage(w);
-    var thumb = ci
-      ? '<div class="thumb" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(ci)+'" alt="'+esc(t.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
-      : '<div class="thumb pm-img"><span class="imglabel" style="font-size:9.5px;line-height:1.3;">'+esc(w.img)+'</span></div>';
-    var avatar = (w.authorImg && w.authorImg !== ci)
-      ? '<img class="avatar-chip" src="'+esc(w.authorImg)+'" alt="'+esc(t.author)+'" loading="lazy">' : '';
-    var iss = issueOfWork(w);
-    var issTag = (iss && effClosed(iss))
-      ? '<span class="dot" style="width:3px;height:3px;"></span><span>'+esc(pick(iss.label,lang))+'</span>' : '';
-    var lvl = levelChip(w.level, lang);
-    var lvlTag = lvl ? '<span class="dot" style="width:3px;height:3px;"></span>'+lvl : '';
-    var inner = thumb
-      + '<div>'
-        + '<div class="sans accent" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;">'+esc(pick(sec.name,lang))+'</div>'
-        + '<h3>'+esc(t.title)+'</h3>'
-        + '<p style="margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#43392E;">'+esc(t.dek)+'</p>'
-        + '<div class="sans" style="display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12.5px;color:#6B6155;">'
-          + avatar
-          + '<span style="font-weight:600;color:var(--pm-ink);">'+esc(t.author)+'</span><span class="dot" style="width:3px;height:3px;"></span><span>'+esc(t.meta)+'</span>'+lvlTag+issTag
-          + (w.href?'<span class="accent" style="font-weight:600;">'+arrow+'</span>':'')
-        + '</div>'
-      + '</div>';
-    return w.href
-      ? '<a class="feature" href="'+esc(w.href)+'" style="text-decoration:none;color:inherit;">'+inner+'</a>'
-      : '<article class="feature">'+inner+'</article>';
-  }
-
-  var featuredWorks = (DATA.SECTIONS||[]).map(function(s){ return featuredOf(s.id); }).filter(Boolean);
-  var featuresHtml = featuredWorks.map(workCard).join("");
-
-  var alsoWorks = (DATA.WORKS||[]).filter(function(w){ return featuredOf(w.section) !== w; });
-  var alsoHtml = alsoWorks.map(function(w, i){
-    var t = w[lang] || w.en || {};
-    var sec = (DATA.SECTIONS||[]).filter(function(s){ return s.id === w.section; })[0] || {};
-    var iss = issueOfWork(w);
-    var issTxt = (iss && effClosed(iss)) ? ' · ' + esc(pick(iss.label,lang)) : '';
-    var lvl = levelChip(w.level, lang);
-    var titleHtml = w.href
-      ? '<a href="'+esc(w.href)+'" style="font-size:19px;font-weight:500;line-height:1.2;text-decoration:none;color:inherit;">'+esc(t.title)+' <span class="accent">'+arrow+'</span></a>'
-      : '<span style="font-size:19px;font-weight:500;line-height:1.2;">'+esc(t.title)+'</span>';
-    return '<div class="toc-row">'
-      + '<span class="sans accent" style="font-size:14px;font-weight:600;">'+esc(toLocal(String(i+1).padStart(2,"0"), isFa))+'</span>'
-      + '<div>'+titleHtml+'<div class="sans" style="display:flex;align-items:center;gap:10px;font-size:12px;color:#948876;margin-top:4px;flex-wrap:wrap;"><span>'+esc(w.date?pick(w.date,lang):"")+issTxt+'</span>'+lvl+'</div></div>'
-      + '<span class="sans" style="font-size:12px;color:#6B6155;text-transform:uppercase;letter-spacing:.06em;">'+esc(pick(sec.name,lang))+'</span>'
-      + '</div>';
-  }).join("");
-
-  var contactEmail = (window.PM_CONTENT && window.PM_CONTENT.contactEmail) || "amir@mathswell.com";
-  var subscribeUrl = (window.PM_CONTENT && window.PM_CONTENT.subscribeUrl) || "";
-  var footerLinksHtml = (c.footerLinks||[]).map(function(l){
-    if (/contact|تماس/i.test(l)) return '<a href="mailto:'+esc(contactEmail)+'" style="text-decoration:none;">'+esc(l)+'</a>';
-    if (/rss/i.test(l)) return '<a href="feed.xml" style="text-decoration:none;">'+esc(l)+'</a>';
-    if (/contributor|نویسندگان/i.test(l)) return '<a href="sections/contributors.html" style="text-decoration:none;">'+esc(l)+'</a>';
-    if (/sections|بخش/i.test(l)) return '<a href="#sections" style="text-decoration:none;">'+esc(l)+'</a>';
-    return '<span>'+esc(l)+'</span>';
-  }).join("");
-  var nav = c.nav || {};
-
-  var pdfUrl = (window.PM_CONTENT && window.PM_CONTENT.issuePdfUrl) || "";
-  var donateUrl = (window.PM_CONTENT && window.PM_CONTENT.donateUrl) || "";
-
-  /* ---- the issues shelf: the live/launch issue, plus any that have closed ---- */
-  var openN = openIssueN();
-  var issuesShelf = "";
-  if ((DATA.ISSUES||[]).some(function(i){ return !!effClosed(i) || !!i.closes; })){
-    var cells = (DATA.ISSUES||[]).slice().reverse().map(function(iss){
-      var ecl = effClosed(iss);
-      var isOpen = !ecl;
-      var count = (DATA.WORKS||[]).filter(function(w){ return (w.issue != null ? w.issue : openN) === iss.n; }).length;
-      var countTxt = count === 0 ? c.sectionEmpty : (count === 1 ? c.sectionCountOne : (c.sectionCountMany||"{n}").replace("{n}", toLocal(count, isFa)));
-      var closesHint = (isOpen && iss.closes) ? '<span style="color:#8C8474;font-weight:500;"> · '+esc(c.issueClosesWord)+' '+esc(pick(iss.closedLabel,lang)||iss.closes)+'</span>' : '';
-      var status = isOpen
-        ? '<span class="sans" style="font-size:12.5px;color:var(--pm-accent);font-weight:600;"><span class="pulse"></span>'+esc(c.issueOpenStatus)+closesHint+'</span>'
-        : '<span class="sans" style="font-size:12.5px;color:#43392E;font-weight:600;">'+esc(c.issueClosedWord)+' · '+esc(pick(iss.closedLabel,lang)||ecl)+'</span>';
-      var metaLine = '<span class="sans" style="font-size:11.5px;letter-spacing:.05em;color:#948876;text-transform:uppercase;">'+esc(c.issueOpenedWord)+' '+esc(pick(iss.openedLabel,lang))+' · '+esc(countTxt)+'</span>';
-      var inner =
-        '<span style="font-size:30px;font-weight:500;letter-spacing:-.01em;line-height:1;">'+esc(pick(iss.title||iss.label,lang))+'</span>'
-        + status + metaLine
-        + '<span class="issue-see sans" style="font-size:12.5px;font-weight:600;">'+esc(c.issueSee)+' '+arrow+'</span>';
-      return '<a class="issue-cell" href="sections/issue.html?n='+esc(iss.n)+'">'+inner+'</a>';
-    }).join("");
-    issuesShelf =
-      '<section class="wrap" id="issues" style="border-bottom:1px solid var(--pm-ink);">'
-      + '<div class="rail-label sans" style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span>'+esc(c.issuesLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.issuesTag)+'</span></div>'
-      + '<div class="issues-row">'+cells+'</div>'
-      + '</section>';
-  }
-  /* ---- the contributors strip: every author, portrait + name ---- */
-  var seenAuthors = {};
-  var authors = [];
-  (DATA.WORKS||[]).forEach(function(w){
-    var key = (w.en && w.en.author) || "";
-    if (!key || !w.authorImg) return;
-    if (!seenAuthors[key]) { seenAuthors[key] = { img: w.authorImg, en: key, fa: (w.fa && w.fa.author) || key, count: 0 }; authors.push(seenAuthors[key]); }
-    seenAuthors[key].count++;
-  });
-  var peopleHtml = authors.map(function(a){
-    var nm = isFa ? a.fa : a.en;
-    var cnt = a.count === 1 ? c.contributorWorksOne : (c.contributorWorksMany||"{n}").replace("{n}", toLocal(a.count, isFa));
-    return '<a class="person" href="sections/contributors.html#'+encodeURIComponent(a.en.replace(/\s+/g,"-").toLowerCase())+'">'
-      + '<img src="'+esc(a.img)+'" alt="'+esc(nm)+'" loading="lazy">'
-      + '<span><span class="p-name" style="display:block;">'+esc(nm)+'</span><span class="p-count sans" style="display:block;">'+esc(cnt)+'</span></span>'
-      + '</a>';
-  }).join("");
-  var contributorsStrip = authors.length
-    ? '<section class="wrap" id="contributors" style="border-bottom:1px solid var(--pm-ink);">'
-      + '<div class="rail-label sans" style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span>'+esc(c.contributorsLabel)+'</span><span style="font-size:11px;letter-spacing:.04em;color:#B7AC99;text-transform:none;">'+esc(c.contributorsTag)+'</span>'
-      + '<a class="sans" href="sections/contributors.html" style="margin-inline-start:auto;text-decoration:none;font-size:12px;font-weight:600;color:var(--pm-accent);text-transform:none;letter-spacing:.02em;">'+esc(c.contributorsAll)+' '+arrow+'</a></div>'
-      + '<div class="people">'+peopleHtml+'</div>'
-      + '</section>'
-    : "";
-
-  var dedUrl = (window.PM_CONTENT && window.PM_CONTENT.dedicationUrl) || "";
-  var dedHtml = (dedUrl && c.dedication)
-    ? '<a class="dedline sans" href="'+esc(dedUrl)+'"><span class="heart">♦</span><span class="dedline-txt">'+esc(c.dedication)+'</span><span class="go">'+arrow+'</span></a>'
-    : '';
-  var heart = isFa ? "♥" : "♥";
-  var aboutCardHtml =
-    '<section class="getissue" id="about"><div class="getissue-in wrap" style="grid-template-columns:1fr;">'
-      + '<div>'
-        + '<div class="kicker sans">'+esc(c.noteLabel)+'</div>'
-        + '<h3>'+esc(c.noteTitle)+'</h3>'
-        + '<p>'+esc(c.noteBody)+'</p>'
-        + '<div class="sans" style="margin-top:18px;font-size:14px;color:#8C8474;">— '+esc(c.noteSign)+'</div>'
-      + '</div>'
-    + '</div></section>';
-  var getIssueHtml =
-    '<section class="getissue" id="why-donate"><div class="getissue-in wrap">'
-      + '<div>'
-        + '<div class="kicker sans">'+esc(c.getKicker)+'</div>'
-        + '<h3>'+esc(c.getTitle)+'</h3>'
-        + '<p>'+esc(c.getBody)+'</p>'
-      + '</div>'
-      + '<div class="getissue-actions">'
-        + (donateUrl ? '<a class="btn-pdf sans" href="'+esc(donateUrl)+'" target="_blank" rel="noopener"><span class="btn-heart">'+heart+'</span><span>'+esc(c.donateCta)+'</span></a><div class="btn-meta sans">'+esc(c.donateMeta)+'</div>' : '')
-      + '</div>'
-    + '</div></section>';
-
-  var contribBody = isFa
-    ? "اگر احساس می‌کنید چیزی برای هم‌رساندن دارید، آن را با سردبیر در میان بگذارید:"
-    : "If you feel you have something to share, please share it with the editor:";
-  var contributeModalHtml =
-    '<div class="pm-modal-backdrop" id="pm-contribute-modal" dir="'+(isFa?'rtl':'ltr')+'">'
-      + '<div class="pm-modal">'
-        + '<button class="pm-modal-close" type="button" id="pm-contribute-close" aria-label="'+(isFa?'بستن':'Close')+'">\u00d7</button>'
-        + '<h3>'+esc(nav.submit)+'</h3>'
-        + '<p>'+esc(contribBody)+'</p>'
-        + '<a class="email sans" href="mailto:'+esc(contactEmail)+'">'+esc(contactEmail)+'</a>'
-      + '</div>'
-    + '</div>';
-
-  document.getElementById("app").innerHTML =
-    '<div class="topband">'
-      + '<div class="brand">'
-        + '<img class="brand-logo" src="assets/logo.jpg" alt="People and Mathematics · آدم‌ها و ریاضیات">'
-        + '<div><div class="brand-fa persian">آدم‌ها و ریاضیات</div><div class="brand-en">People and Mathematics</div></div>'
-      + '</div>'
-      + '<nav class="menu sans">'
-        + '<a href="#sections" style="text-decoration:none;color:inherit;">'+esc(nav.issues)+'</a><a href="sections/contributors.html" style="text-decoration:none;color:inherit;">'+esc(c.contributorsLabel)+'</a><a href="#about" style="text-decoration:none;color:inherit;">'+esc(nav.about)+'</a><a href="#why-donate" style="text-decoration:none;color:inherit;">'+esc(nav.donate)+'</a><a href="#" id="pm-contribute-link" style="text-decoration:none;color:inherit;">'+esc(nav.submit)+'</a>'
-        + '<div class="langtoggle">'
-          + '<button data-lang="en" class="'+(!isFa?'on':'')+'">EN</button>'
-          + '<button data-lang="fa" class="persian '+(isFa?'on':'')+'">فارسی</button>'
-        + '</div>'
-      + '</nav>'
-    + '</div>'
-
-    + '<div class="subbar">'
-      + '<div class="kick sans accent">'+esc(c.issueKicker)+'</div>'
-      + '<div class="pub sans">'+esc(c.subtitle)+'</div>'
-    + '</div>'
-
-    + dedHtml
-
-    + (fg.href ? '<a class="hero wrap" href="'+esc(fg.href)+'" style="text-decoration:none;color:inherit;">' : '<section class="hero wrap">')
-      + '<div class="lead">'
-        + '<div class="sans accent" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">'+esc(fgt.eyebrow)+'</div>'
-        + '<h1>'+esc(fgt.title)+'</h1>'
-        + '<p class="dek">'+esc(fgt.dek)+'</p>'
-        + '<div class="sans" style="display:flex;align-items:center;gap:18px;font-size:13.5px;color:#6B6155;flex-wrap:wrap;">'
-          + '<span style="font-weight:600;">'+esc(fgt.cta)+' '+arrow+'</span><span class="dot"></span><span>'+esc(fgt.byline)+'</span>'+(fg.level?'<span class="dot"></span>'+levelChip(fg.level,lang):'')
-        + '</div>'
-      + '</div>'
-      + (fg.imgSrc
-          ? '<div class="lead-img" style="padding:0;overflow:hidden;background:#0D0C0B;"><img src="'+esc(fg.imgSrc)+'" alt="'+esc(fgt.title)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
-          : '<div class="lead-img pm-img"><span class="imglabel">'+esc(fg.imgLabel)+'</span></div>')
-    + (fg.href ? '</a>' : '</section>')
-
-    + '<section class="wrap" id="sections" style="border-bottom:1px solid var(--pm-ink);">'
-      + '<div class="rail-label sans">'+esc(c.sectionsLabel)+'</div>'
-      + '<div class="rail">'+sectionsHtml+'</div>'
-    + '</section>'
-
-    + issuesShelf
-
-    + '<section class="features wrap">'
-      + '<div class="features-head"><h2 style="margin:0;font-size:30px;font-weight:500;letter-spacing:-.01em;">'+esc(c.featuresLabel)+'</h2><span class="sans" style="font-size:13px;color:#6B6155;">'+esc(c.featuresTag)+'</span></div>'
-      + '<div class="features-grid">'+featuresHtml+'</div>'
-    + '</section>'
-
-    + contributorsStrip
-
-    + getIssueHtml
-
-    + '<section class="subscribe"><div class="subscribe-in wrap">'
-      + '<div><h3>'+esc(c.subTitle)+'</h3><p class="sans" style="margin:8px 0 0;font-size:14px;color:#6B6155;">'+esc(c.subNote)+'</p></div>'
-      + '<form class="subform" id="pm-subform">'
-        + '<input class="sans" name="name" placeholder="'+esc(c.subNamePlaceholder)+'" style="max-width:38%;">'
-        + '<span aria-hidden="true" style="width:1px;align-self:stretch;background:var(--pm-ink);opacity:.22;"></span>'
-        + '<input class="sans" name="email" type="email" required placeholder="'+esc(c.subPlaceholder)+'">'
-        + '<button class="sans" type="submit">'+esc(c.subCta)+'</button>'
-      + '</form>'
-    + '</div></section>'
-
-    + '<footer class="footer wrap">'
-      + '<div class="footer-brand"><div class="footer-logo"><img src="assets/logo.jpg" alt=""></div><div style="line-height:1.1;"><div style="font-size:17px;font-weight:600;">People and Mathematics · آدم‌ها و ریاضیات</div><div class="sans" style="font-size:12.5px;color:#6B6155;margin-top:3px;">'+esc(c.pubLine).replace('mathswell.com','<a href="index.html" style="color:inherit;">mathswell.com</a>')+'</div></div></div>'
-      + '<div class="footer-right">'
-        + '<div class="footer-links sans">'+footerLinksHtml+'</div>'
-        + '<a class="yt sans" href="'+esc(YT)+'" target="_blank" rel="noopener"><span class="play">▶</span><span>'+esc(c.youtubeLabel)+'</span></a>'
-      + '</div>'
-    + '</footer>'
-
-    + aboutCardHtml
-    + contributeModalHtml;
-
-  // wire the subscribe form: post to a connected service if set, else open the visitor's email app
-  var sf = document.getElementById("pm-subform");
-  if (sf){
-    sf.addEventListener("submit", function(e){
-      if (subscribeUrl){ sf.setAttribute("action", subscribeUrl); sf.setAttribute("method", "post"); return; }
-      e.preventDefault();
-      var nm = (sf.querySelector('[name=name]')||{}).value || "";
-      var em = (sf.querySelector('[name=email]')||{}).value || "";
-      var subj = isFa ? "عضویت در آدم‌ها و ریاضیات" : "Subscribe: People and Mathematics";
-      var body = (nm ? ((isFa?"نام: ":"Name: ")+nm+"\n") : "") + (isFa?"ایمیل: ":"Email: ")+em;
-      window.location.href = "mailto:"+contactEmail+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
-    });
-  }
-
-  var cLink = document.getElementById("pm-contribute-link");
-  var cModal = document.getElementById("pm-contribute-modal");
-  if (cLink && cModal){
-    var closeC = function(){ cModal.classList.remove("open"); };
-    cLink.addEventListener("click", function(e){ e.preventDefault(); cModal.classList.add("open"); });
-    var cClose = document.getElementById("pm-contribute-close");
-    if (cClose) cClose.addEventListener("click", closeC);
-    cModal.addEventListener("click", function(e){ if (e.target === cModal) closeC(); });
-    document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeC(); });
-  }
-
-  // wire language toggle + remember choice
-  document.querySelectorAll(".langtoggle button").forEach(function(b){
-    b.addEventListener("click", function(){
-      var l = b.getAttribute("data-lang");
-      try { localStorage.setItem("pm-lang", l); } catch(e){}
-      render(l);
-      window.scrollTo(0, 0);
-    });
-  });
-}
-
-var startLang = "en";
-try { var saved = localStorage.getItem("pm-lang"); if (saved === "en" || saved === "fa") startLang = saved; } catch(e){}
-render(startLang);
 </script>
 <script src="counter.js"></script>
 </body>

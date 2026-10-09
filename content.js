@@ -614,10 +614,10 @@ window.PM_CONTENT = {
       img: "artwork — Mirzakhani portrait",
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "Maryam Mirzakhani, in Your Own Hand",
-            dek: "A 1946 newspaper clipping set against Maryam Mirzakhani on the cover of the Notices, followed by portraits of her from artists around the world. The section stays open.",
+            dek: "Maryam Mirzakhani on the cover of the Notices, followed by portraits of her from artists around the world. The section stays open.",
             author: "A gallery", meta: "Open call" },
       fa: { title: "مریم میرزاخانی، به دستِ شما",
-            dek: "یک برشِ روزنامه از ۱۳۲۵، در برابرِ جلدِ نشریهٔ انجمن ریاضیِ آمریکا با مریم میرزاخانی؛ و پرتره‌هایی از او به‌دستِ هنرمندانِ سراسرِ جهان. این بخش باز می‌مانَد.",
+            dek: "مریم میرزاخانی بر جلدِ نشریهٔ انجمن ریاضیِ آمریکا؛ و پرتره‌هایی از او به‌دستِ هنرمندانِ سراسرِ جهان. این بخش باز می‌مانَد.",
             author: "یک نگارخانه", meta: "فراخوانِ باز" } }
   ],
 

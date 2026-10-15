@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive · People and Mathematics</title>
+<meta name="description" content="Photographs and documents from the history of mathematics in Iran.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF7EF;color:#1C1814;font-family:"Newsreader",serif}
+a{color:#1C1814;text-decoration:none}
+a:hover{color:#C8633E}
+.wrap{max-width:1120px;margin:0 auto;padding:48px 48px 72px;display:flex;flex-direction:column;gap:40px;box-sizing:border-box}
+.sans{font-family:"Hanken Grotesk",sans-serif}
+[dir=rtl] body,[dir=rtl] .serif{font-family:"B Nazanin","Vazirmatn","Noto Naskh Arabic",serif}
+[dir=rtl] .sans{font-family:"Vazirmatn",sans-serif;letter-spacing:0!important;text-transform:none!important}
+header{display:flex;flex-direction:column;gap:10px;border-bottom:1px solid #1C1814;padding-bottom:20px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+h1{margin:0;font-size:42px;font-weight:500;letter-spacing:-.01em}
+.intro{margin:0;font-size:20px;line-height:1.5;max-width:720px;text-wrap:pretty}
+[dir=rtl] .intro{line-height:1.9}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{all:unset;cursor:pointer;font-size:14px;padding:7px 14px;border:1px solid #1C1814}
+.filters button[aria-pressed=true]{background:#1C1814;color:#FBF7EF}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:36px 28px}
+.card{display:flex;flex-direction:column;gap:10px}
+.card .ph{background:#EFE8DA;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.card:hover img{filter:none}
+.meta{font-size:13px;color:#6B6259}
+.ttl{font-size:19px;line-height:1.35;text-wrap:pretty}
+[dir=rtl] .ttl{font-size:20px;line-height:1.7}
+.empty{color:#6B6259}
+.note{border-top:1px solid #E2D8C6;padding-top:20px;font-size:17px;line-height:1.6;color:#3A332C;max-width:720px}
+.note a{color:#C8633E}
+@media (max-width:640px){.wrap{padding:28px 20px 56px}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top">
+      <a href="../index.html" id="home" class="sans" style="font-size:14px">← People and Mathematics</a>
+      <a href="#" id="lang" class="sans" style="font-size:15px;font-weight:500"></a>
+    </div>
+    <h1 id="h1"></h1>
+    <p class="intro serif" id="intro"></p>
+  </header>
+  <div class="filters sans" id="filters"></div>
+  <div class="grid" id="grid"></div>
+  <p class="note serif" id="note"></p>
+</div>
+<script src="../data/archive.js"></script>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var L = q.get('lang') === 'fa' ? 'fa' : 'en';
+  var fd = function(s){ return L==='fa' ? String(s).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d];}) : String(s); };
+  var T = {
+    en:{ title:"Archive", h1:"Archive", intro:"Photographs and documents from the history of mathematics in Iran. Some already appear in our stories; others are kept here because they may one day be part of one, or because they matter on their own.", all:"All", lang:"فارسی", home:"← People and Mathematics", empty:"Nothing here yet.", note:'Do you recognise someone, know a date, or hold a document that belongs here? <a href="mailto:'+PM_ARCHIVE_CONTACT+'">Write to us</a>.' },
+    fa:{ title:"اسناد و تصاویر", h1:"اسناد و تصاویر", intro:"عکس‌ها و اسنادی از تاریخ ریاضیات ایران. برخی در داستان‌های ما آمده‌اند؛ برخی دیگر اینجا نگه داشته می‌شوند، چون شاید روزی بخشی از داستانی شوند، یا چون به‌تنهایی ارزشمندند.", all:"همه", lang:"English", home:"آدم‌ها و ریاضیات →", empty:"هنوز چیزی اینجا نیست.", note:'کسی را در این تصاویر می‌شناسید، تاریخی می‌دانید، یا سندی دارید که جایش اینجاست؟ <a href="mailto:'+PM_ARCHIVE_CONTACT+'">برای ما بنویسید</a>.' }
+  }[L];
+  if (L==='fa'){ document.documentElement.dir='rtl'; document.documentElement.lang='fa'; }
+  document.title = T.title + (L==='fa' ? ' · آدم‌ها و ریاضیات' : ' · People and Mathematics');
+  var $ = function(id){ return document.getElementById(id); };
+  $('h1').textContent=T.h1; $('intro').textContent=T.intro; $('note').innerHTML=T.note;
+  $('home').textContent=T.home; $('home').href = L==='fa' ? '../fa.html' : '../index.html';
+  $('lang').textContent=T.lang; $('lang').href = L==='fa' ? '?' : '?lang=fa';
+  if (L==='fa') $('lang').style.fontFamily="'Hanken Grotesk',sans-serif"; else $('lang').style.fontFamily="'Vazirmatn',sans-serif";
+  var items = window.PM_ARCHIVE || [];
+  var types = Object.keys(PM_ARCHIVE_TYPES).filter(function(t){ return items.some(function(i){return i.type===t;}); });
+  var cur = q.get('type') || '';
+  function draw(){
+    $('filters').innerHTML = '';
+    [''].concat(types).forEach(function(t){
+      var b=document.createElement('button');
+      b.textContent = t ? PM_ARCHIVE_TYPES[t][L] : T.all;
+      b.setAttribute('aria-pressed', String(t===cur));
+      b.onclick=function(){ cur=t; draw(); };
+      $('filters').appendChild(b);
+    });
+    var list = items.filter(function(i){ return !cur || i.type===cur; });
+    $('grid').innerHTML = list.length ? '' : '<p class="empty serif">'+T.empty+'</p>';
+    list.forEach(function(i){
+      var d=i[L], a=document.createElement('a');
+      a.className='card'; a.href='item.html?id='+encodeURIComponent(i.id)+(L==='fa'?'&lang=fa':'');
+      a.innerHTML='<div class="ph"><img loading="lazy" src="../'+i.img+'" alt=""></div>'+
+        '<div class="meta sans">'+PM_ARCHIVE_TYPES[i.type][L]+' · '+fd(d.date)+'</div>'+
+        '<div class="ttl serif"></div>';
+      a.querySelector('.ttl').textContent=d.title;
+      a.querySelector('img').alt=d.title;
+      $('grid').appendChild(a);
+    });
+  }
+  draw();
+})();
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

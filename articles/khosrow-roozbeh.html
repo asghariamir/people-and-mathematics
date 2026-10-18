@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«ناشکفته پژمرده شد»: خسرو روزبه · People and Mathematics</title>
+<meta name="description" content="خسرو روزبه (۱۲۹۴–۱۳۳۷): افسری که اعدام شد، کتابی دربارهٔ تیراندازی که در آن حساب احتمالات به کار رفته بود، و رساله‌ای گم‌شده دربارهٔ معادلات درجهٔ چهارم.">
+
+<meta property="og:title" content="“It Withered Before It Bloomed”: Khosrow Roozbeh">
+<meta property="og:description" content="«ناشکفته پژمرده شد»: خسرو روزبه · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/roozbeh-execution.webp">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="../assets/logo.jpg">
+
+<template id="__bundler_thumbnail" data-bg-color="#FBF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FBF7EF"/>
+    <circle cx="600" cy="330" r="150" fill="none" stroke="#C8633E" stroke-width="10"/>
+    <text x="600" y="385" font-family="Georgia, serif" font-size="150" fill="#1C1814" text-anchor="middle">خ ر</text>
+    <rect x="420" y="560" width="360" height="12" fill="#1C1814"/>
+  </svg>
+</template>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  .katex, .katex-display { direction: ltr; unicode-bidi: isolate; }
+  [dir="rtl"] .katex { font-family: KaTeX_Main, "Vazirmatn", "Times New Roman", serif; }
+  .katex-display { margin: 18px 0; overflow-x: auto; overflow-y: hidden; }
+  .poem { margin: 24px 0; padding-inline-start: 22px; border-inline-start: 3px solid var(--accent); line-height: 2.1; }
+  .poem .sig { display:block; font-family: "Hanken Grotesk","Vazirmatn",sans-serif; font-size:12px; letter-spacing:.08em; color:#948876; font-weight:600; margin-top:8px; }
+  figure.plate.lead { max-width: 380px; margin: 34px auto 6px; }
+  figure.plate.lead .figcap { text-align: center; }
+  /* bin interactive */
+  .bin-ctl { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:18px; padding:16px; font-family:"Hanken Grotesk","Vazirmatn",sans-serif; }
+  .bin-ctl label { display:flex; flex-direction:column; gap:8px; font-size:13px; color:#43392E; }
+  .bin-ctl .v { font-size:22px; font-weight:600; color:var(--ink); }
+  .bin-ctl input[type=range] { width:100%; accent-color: var(--accent); }
+  .bin-out { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:"Hanken Grotesk","Vazirmatn",sans-serif; }
+  .bin-out div { background:#FBF7EF; padding:12px 14px; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .bin-out b { display:block; font-size:26px; font-weight:600; color:var(--ink); }
+  .bin-sim { padding:14px 16px 16px; display:flex; flex-direction:column; gap:12px; font-family:"Hanken Grotesk","Vazirmatn",sans-serif; font-size:13px; color:#43392E; }
+  .bin-grid { display:grid; grid-template-columns: repeat(10, minmax(0,1fr)); gap:6px; }
+  .bin-grid span { aspect-ratio:1; border:1px solid #C4B79E; border-radius:50%; background:#fff; transition: background .25s; }
+  .bin-grid span.hit { background: var(--ink); border-color: var(--ink); }
+  .bin-grid span.miss { background: var(--accent); border-color: var(--accent); }
+  @media (max-width:640px){ .bin-ctl { grid-template-columns: minmax(0,1fr); } .bin-out b { font-size:21px; } }
+</style>
+<style>
+  @font-face {
+    font-family: "B Nazanin";
+    src: url("../fonts/BNazanin.woff2") format("woff2"),
+         url("../fonts/BNazanin.woff")  format("woff"),
+         url("../fonts/BNazanin.ttf")   format("truetype");
+    font-weight: 400 700; font-display: swap;
+  }
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; --screen: #F4EEDF; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .sans { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  a { color: var(--accent); }
+  a:hover { color: var(--ink); }
+  .standfirst, .body p, .body li { text-align: justify; }
+
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", "B Nazanin", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; letter-spacing: .02em; background: transparent; color: var(--paper); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; color: inherit; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  h1.title { font-size: 46px; line-height: 1.15; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 21px; line-height: 1.75; color: #43392E; margin: 18px 0 0; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .avchip { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+  .byline .meta { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+
+  .body { font-size: 18px; line-height: 2.05; margin-top: 30px; }
+  .body p { margin: 0 0 20px; text-wrap: pretty; }
+  .subhead { font-family: "Vazirmatn", "B Nazanin", serif; font-size: 27px; font-weight: 600; letter-spacing: -.01em; margin: 46px 0 16px; padding-top: 8px; }
+  .ltr { direction: ltr; unicode-bidi: isolate; }
+
+  .bq { border-inline-start: 3px solid var(--accent); padding: 4px 18px 4px 0; margin: 26px 0; color: #33291F; }
+  [dir="ltr"] .bq { padding: 4px 0 4px 18px; }
+  .bq p { margin: 0 0 10px; }
+  .bq p:last-child { margin-bottom: 0; }
+  .bq .sig { display: block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .08em; color: #948876; font-weight: 600; margin-top: 10px; }
+
+  .letter { background: var(--screen); border: 1px solid var(--line); border-radius: 3px; padding: 18px 22px; margin: 26px 0; }
+  .letter p { margin: 0 0 10px; }
+  .letter p:last-child { margin-bottom: 0; }
+  .letter .sig { display: block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: #948876; font-weight: 600; margin-top: 12px; }
+
+  .digest { border: 1px solid var(--line); background: #F8F2E4; border-radius: 3px; padding: 20px 24px; margin: 26px 0; font-size: 17px; line-height: 2; }
+  .digest p { margin: 0 0 14px; }
+  .digest p:last-child { margin-bottom: 0; }
+  .digest .bq { margin: 16px 0; }
+
+  ul.plain { padding-inline-start: 22px; margin: 0 0 20px; }
+  ul.plain li { margin-bottom: 10px; }
+
+  .say { padding-inline-start: 26px; font-weight: 600; color: var(--black); margin: 0 0 14px; }
+
+  figure.plate { margin: 30px 0; }
+  figure.plate img { display: block; width: 100%; border: 1px solid var(--ink); background: #fff; }
+  figure.plate.portrait { max-width: 330px; margin-left: auto; margin-right: auto; }
+  figure.plate.portrait .figcap { text-align: center; }
+  figure.plate.soft img { border-color: var(--line); }
+  .fmark { position: absolute; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; box-shadow: 0 0 0 3px rgba(200,99,62,.12); }
+  .figcap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.8; margin-top: 9px; }
+  .twoup { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; align-items: start; }
+  .twoup figure.plate { margin: 0; }
+  @media (max-width: 640px) { .twoup { grid-template-columns: 1fr; } }
+
+  .secnote { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); line-height: 1.9; margin-top: 16px; padding-inline-start: 13px; border-inline-start: 2px solid var(--line); }
+
+  /* ============ Interactive shell ============ */
+  .pg { border: 1px solid var(--ink); border-radius: 4px; background: var(--screen); margin: 34px 0; overflow: hidden; }
+  .pg-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 1px solid var(--line); }
+  .pg-title { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  .pg-btn { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 11.5px; font-weight: 600; background: transparent; border: 1px solid #C4B79E; color: #5B5245; border-radius: 999px; padding: 5px 13px; cursor: pointer; }
+  .pg-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .pg-btn.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pg-foot { border-top: 1px solid var(--line); padding: 11px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .pg-foot b { color: var(--ink); font-weight: 700; }
+  .pg-hint { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.7; padding: 0 16px 14px; }
+  .cons { border-bottom: 1px solid var(--line); background: #F9F4E7; padding: 10px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; line-height: 1.8; color: #6B6155; }
+  .cons b { color: var(--ink); font-weight: 700; }
+  .scr { background: #fff; border: 1px solid var(--ink); margin: 16px; padding: 14px 16px 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .tr { font-size: 14px; line-height: 1.6; }
+  .tr .ln { padding: 5px 6px; margin: 0 -6px; border-radius: 2px; cursor: pointer; position: relative; }
+  .tr .ln.mach { color: #2B2620; }
+  .tr .ln.user { font-weight: 700; color: var(--black); }
+  .tr .ln:hover { background: #F1E7D2; }
+  .tr .ln.pick { background: #EADFC6; box-shadow: inset 0 0 0 1px #C9B893; }
+  .tr .ln.fresh { animation: fadein .4s ease both; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+  .tr .who { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #A99C86; font-weight: 700; display: block; margin-bottom: 1px; }
+  .menus { display: flex; align-items: flex-start; gap: 0; margin-top: 20px; min-height: 150px; overflow-x: auto; padding-bottom: 4px; }
+  .col { flex: 0 0 auto; }
+  .colbox { border: 1px solid var(--ink); background: #fff; max-height: 132px; overflow-y: auto; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 26px; padding: 0 8px; font-size: 12.5px; font-weight: 700; color: var(--black); cursor: pointer; white-space: nowrap; border-bottom: 1px solid #E8E3D8; }
+  .row:last-child { border-bottom: 0; }
+  .row:hover { background: #EFE7D6; }
+  .row.on { background: #D8CFBB; }
+  .row .arw { font-weight: 700; color: #6B6155; }
+  .row.leaf .arw { display: none; }
+  .colnote { font-size: 10px; line-height: 1.5; color: var(--accent); font-weight: 600; margin-top: 5px; max-width: 132px; }
+  .endnote { font-size: 12.5px; color: var(--muted); padding: 6px 2px; }
+  .insp { border-top: 1px solid var(--line); background: #EFE7D5; padding: 16px; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .insp .q { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+  .insp .a { font-size: 15px; line-height: 1.8; margin-top: 8px; color: #332D25; }
+  .insp .quote { font-family: Newsreader, "B Nazanin", serif; font-size: 16.5px; line-height: 1.7; font-style: italic; color: var(--ink); border-inline-start: 3px solid var(--accent); padding: 2px 0 2px 14px; margin-top: 13px; }
+  [dir="rtl"] .insp .quote { padding: 2px 14px 2px 0; font-style: normal; }
+  .insp .quote .src { display: block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-style: normal; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #948876; font-weight: 600; margin-top: 8px; }
+  .insp .idle { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+
+  .refs { margin-top: 14px; }
+  .refs ul { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; line-height: 1.9; color: #43392E; padding-inline-start: 20px; margin: 10px 0 0; }
+  .refs li { margin-bottom: 9px; unicode-bidi: plaintext; text-align: start; }
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.9; }
+  .origin .lab { color: #948876; letter-spacing: .1em; text-transform: uppercase; font-size: 10px; font-weight: 600; }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  .pdfbtn { display: inline-block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; margin-top: 20px; }
+  .pdfbtn:hover { color: var(--accent); }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 16mm 14mm; }
+    body { background: #fff; }
+    .topband, .subbar, .footer, .langtoggle, .pdfbtn, .pg { display: none !important; }
+    .article { max-width: none; padding: 0; }
+    figure.plate, .bq, .letter, .digest { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  [dir="rtl"] h1.title, [dir="rtl"] .subhead { font-family: "Vazirmatn", "B Nazanin", serif; }
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+  [dir="ltr"] .body { font-size: 19px; line-height: 1.72; }
+  [dir="ltr"] .standfirst { font-style: italic; line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 20px 32px; }
+    h1.title { font-size: 31px; }
+    .standfirst { font-size: 18px; }
+    .body { font-size: 16.5px; }
+    .scr { margin: 12px; padding: 12px; }
+    .digest { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="fa" class="on" onclick="setLang('fa')">فارسی</button>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb sans"><a href="../index.html" data-en="People and Mathematics" data-fa="آدم‌ها و ریاضیات"></a></div>
+  <div class="crumb sans"><span data-en="People and Mathematics · Lives" data-fa="آدم‌ها و ریاضیات · روایت‌ها"></span></div>
+</div>
+
+
+
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">آدم‌ها و ریاضیات</div>
+  <h1 class="title">«ناشکفته پژمرده شد»: خسرو روزبه</h1>
+  <div class="standfirst">«استعدادی برای پیشرفت در تحصیل ریاضی در من وجود داشت و ناشکفته پژمرده شد.» افسری که اعدام شد، کتابی دربارهٔ تیراندازی که در آن حساب احتمالات به کار رفته بود، و رساله‌ای گم‌شده دربارهٔ معادلات درجهٔ چهارم.</div>
+  <div class="byline">
+    <img class="avchip" src="../assets/amir.jpg" alt="امیر اصغری">
+    <span class="name">امیر اصغری</span>
+  </div>
+
+  <figure class="plate lead">
+    <img src="../assets/roozbeh-execution.webp" alt="خسرو روزبه در روز اعدام">
+    <div class="figcap">خسرو روزبه در روز اعدام، بیست‌ویکم اردیبهشت ۱۳۳۷.</div>
+  </figure>
+
+  <div class="body">
+    <p>خسرو روزبه از کسانی است که بعضی او را یکسره سفید می‌بینند و بعضی یکسره سیاه. عباس میلانی او را «<a href="https://www.bbc.com/persian/iran/2012/01/120117_l44_tudeh_party_ruzbe_khosro">اسطورهٔ حزب توده</a>» لقب داده است، تندیسی از او در هنگام تیرباران در شهری در نزدیکی رم قرار دارد، و احمد شاملو کنار این تندیس عکس یادگاری دارد و «خطابهٔ تدفین» را به یاد خسرو روزبه سرود، اما بعدها شعر را نگه داشت و تقدیم آن را پس گرفت.</p>
+
+    <figure class="plate portrait">
+      <img src="../assets/roozbeh-statue.jpg" alt="تندیس خسرو روزبه در فیانو رومانو">
+      <div class="figcap">تندیس خسرو روزبه در لحظهٔ تیرباران، ساختهٔ رضا اولیا، مجسمه‌ساز ایرانیِ ساکن ایتالیا، در یکی از میدان‌های شهر فیانو رومانو در نزدیکی رم.</div>
+    </figure>
+
+    <p>پیشنهاد نام او برای مجموعهٔ «<a href="https://amirasghari.com/who-is-who/">او کیست؟</a>» (مجموعه‌ای که سال‌ها پیش شروع شد و می‌توان آن را بذر «آدم‌ها و ریاضیات» دانست) هم با همین تردید همراه بود: افسری سرشناس که توده‌ای شد و اعدام شد و به همین هم معروف بود، ولی پیشنهاددهندهٔ نام او، با ناباوری از اینکه در <a href="https://fa.wikipedia.org/wiki/%D8%AE%D8%B3%D8%B1%D9%88_%D8%B1%D9%88%D8%B2%D8%A8%D9%87">ویکی‌پدیا</a> او را ریاضی‌دان خوانده‌اند، درخواست تحقیق و نوشتن دربارهٔ او را داشت.</p>
+
+    <p>اما تحقیق و نوشتن دربارهٔ او از همین رو دشوار بود. دربارهٔ او آن‌قدر نوشته‌اند، و او را آن‌قدر ساخته‌اند و ویران کرده‌اند، که دیگر یافتن حقیقت آسان نیست. پس در ادامه، تا جایی که ممکن است، تنها از نوشته‌های خود او و از وقایع، و نه از تعبیرهایی که بر وقایع افزوده شده، استفاده می‌کنم، و در ناحیهٔ خاکستری او می‌مانم؛ جایی که ریاضیات راهی به آن می‌گشاید.</p>
+
+    <h2 class="subhead">کمی زندگی‌نامه</h2>
+
+    <p>خسرو روزبه در شهریور ۱۲۹۴ (اوت ۱۹۱۵) در ملایر به دنیا آمد و در بیست‌ویکم اردیبهشت ۱۳۳۷ تیرباران شد. احتمالاً در لحظهٔ تیرباران به این فکر می‌کرد ای کاش علاوه بر نوشتن کتابی دربارهٔ اصول علمی تیراندازی به اهداف متحرک، کتابی هم دربارهٔ تیراندازی به اهداف غیرمتحرک نوشته بود. آخرین دفاعیات او در دادگاهی که در نهایت حکم به اعدام او داد، شاید شما را هم به این تفکر سورئال سوق دهد:</p>
+
+    <div class="bq"><p>دادگاه: آری این خسرو روزبه است که با بی‌پروایی ناشی از بی‌شرفی و فقدان وجدان و خلاص بودن از قید هر گونه خصلت انسانی می‌گوید: قتل هر کسی را که با مرام و رویه‌ام مخالف بوده و باشد واجب شمرده و می‌شمارم</p><p>خسرو روزبه: به دو دلیل می‌توانم ادعا کنم که جمله من نیست. دلیل اول. کلمه‌ی «رویه» یک کلمه فارسی و درست نیست و معلوم نیست چه کسی آن را برای نخستین بار به‌کار برده است و بعداً متداول گردیده و حتی وارد قوانین هم شده است. لغت صحیحی که به جای آن می‌توان به کار برد، واژه‌ی زیبای «روش» است که حاصل معنی مصدر از فعل «رفتن» است. من عادتاً هرگز کلمه‌ی «رویه» را به کار نمی‌برم و اگر تحت تأثیر دیگران اشتباهاً آن را به‌کار ببرم فوراً گفته‌ی خودم را تصحیح می‌کنم</p><span class="sig">آخرین دفاع خسرو روزبه در دادگاه تجدید نظر نظامی</span></div>
+
+    <p>دلیل دومی هم می‌آورد که از دلایل عقیدتی است، و جلسهٔ بعدی دادگاه تجدیدنظر نظامی را چنین آغاز می‌کند:</p>
+
+    <div class="bq"><p>من اگر بگویم احساس امنیت قضایی نمی‌کنم سخنی بگزاف نگفته‌ام … بین واژه‌های فرهنگستان بندرت به لغت‌های مناسبی برمی‌خوریم، ولی واژه دادگاه تصادفاً یکی از لغت‌های خوب آن است. کلمه «دیوان حرب» و «محکمه» موجب چندش متهم می‌شود، ولی واژه دادگاه حس اعتماد و عدالت را در روح او القا می‌کند</p><span class="sig">آخرین دفاع</span></div>
+
+    <p>روزبه در همین دفاع، زیر عنوان «من کیستم»، شرحی از کودکی خود می‌دهد: اینکه با همهٔ تلاش‌های پدر، خانواده در تنگنای مالی بود؛ اینکه برای قدردانی از پدر شبانه‌روز درس می‌خواند و دورهٔ شش‌سالهٔ دبیرستان را در چهار سال، با معدل ۱۸٫۵۵، به پایان رساند؛ اینکه همیشه در ریاضیات خوب بود، همهٔ نمره‌های ریاضی‌اش بیست بود، به دیگران، حتی به شاگردان سال‌های بالاتر و گاه به معلمان ریاضی‌اش، کمک می‌کرد و معلم زیر ورقه‌اش می‌نوشت «صدقنا»؛ و سرانجام اینکه:</p>
+
+    <div class="bq"><p>در کلاس پنجم متوسط که بودم رساله‌ای در زمینه‌ی حل معادلات درجه چهارم و درجات عالی از طریق تقسیم مسلسل نوشتم و به کمک آن مسایل شیخ بها را که به معادلات درجه‌ی عالی منتهی می‌گردد حل کردم … بعداً هنگامی که در دانشکده فنی دانشگاه تهران در رشته الکترونیک مکانیک تحصیل می‌کردم این رساله را تکمیل نموده و با اضافه کردن راه‌حل‌های گرافیک و تدوین جداول ویژه نقایص آن را برطرف ساختم، ولی اکنون نمی‌دانم در جریان سال‌های اخیر به چه سرنوشتی دچار گردیده است</p><span class="sig">آخرین دفاع</span></div>
+
+    <p>جملهٔ بعدی، جملهٔ کلیدی داستان خسرو روزبه است:</p>
+
+    <div class="bq"><p>نظر باینکه شرایط مادی پدرم اجازه نمی‌داد در شعبه ریاضیات دانشکده علوم تحصیل کنم، تصمیم گرفتم وارد خدمت ارتش شوم</p><span class="sig">آخرین دفاع</span></div>
+
+    <p>داستان او را پیش از رسیدن به روز دادگاه می‌توان در کتاب خود او، «اطاعت کورکورانه»، خواند؛ جایی که داستان زندگی و مبارزاتش را با نگاهی انتقادی به دورهٔ سلطنت رضاشاه، یا آنچه خود «دوران دیکتاتوری و انحطاط ملت ایران» می‌خواند، گره می‌زند.</p>
+
+    <p>خسرو روزبه در ۱۳۱۶ دانشکدهٔ افسری را به پایان رساند و تا ۱۳۱۸، افزون بر تدریس در همان دانشکده، دربارهٔ اصول علمی تیر ضدهوایی پژوهش کرد. در آغاز ۱۳۱۸ به اهواز منتقل شد، انتقالی که به گفتهٔ خودش «بیشتر حالت تبعید داشت»، اما دلیلش را نمی‌گوید، چون «شرح مفصل آن ملال‌آور است». در مهر ۱۳۱۸ به دانشکدهٔ افسری بازگشت و شش سال در آنجا درس داد. در همین سال‌ها، به میل خود، سال‌های اول و دوم دانشکدهٔ فنی دانشگاه تهران را گذراند، کتاب‌های بسیاری نوشت، و برای خدمات علمی‌اش، به پیشنهاد فرماندهی دانشکدهٔ افسری، نشان دانش گرفت. سخنرانی‌های غیرعلمی او برای دانشجویان از ۱۳۲۰ به بعد، از جمله «اندرز به فارغ‌التحصیلان ۱۳۲۰–۱۳۲۱»، با معنای معمول اندرز سازگار نبود، و روشن بود که دیر یا زود به سراغش خواهند آمد. خودش نیز این را می‌دانست. در ۱۳۲۴، در همان روزی که قرار بود بازداشت شود، «ترک خدمت را به خدمت ننگین» ترجیح داد، و از آن پس تا پایان عمر یا پنهان بود، یا در زندان، یا در حال فرار از زندان.</p>
+
+    <h2 class="subhead">اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک</h2>
+
+    <p>روزبه در آن شش سالِ دانشکدهٔ افسری، و حتی پس از آن، نوشته‌های بسیاری پدید آورد. در فهرست کتاب‌هایش (آن‌هایی که خود نام می‌برد) کتابی دوجلدی هست که از عنوانش پیداست کتابی ریاضی است: «ریاضیات عالی تخصصی رستهٔ توپخانه». هیچ‌یک از این دو جلد را نیافتم. اما در کمال شگفتی، کتابی که یافتم از نظر ریاضی به اندازهٔ کافی هیجان‌انگیز بود: «اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک»، یکی از چند کتابی که دربارهٔ توپ و تانک در همان دورهٔ شش‌ساله نوشت.</p>
+
+    <p>نخست اینکه مقدمهٔ همین کتاب، در کنار «اطاعت کورکورانه»، تحول خسرو روزبه را به‌خوبی نشان می‌دهد: از کسی که قرار است «از طریق تألیف و ترجمه و اکتشاف به جامعه خدمت کند» به کسی که «طوفان عظیمی اعصاب و روحش را تحت استیلای خود می‌گیرد و فکر محدود خدمت‌های جزیی را کنار می‌گذارد و تصمیم می‌گیرد کار را از ریشه اصلاح کند تا به بدبختی میلیون‌ها نفر از هموطنانش پایان دهد» (از کتاب آخرین دفاع).</p>
+
+    <div class="bq"><p>تا آنجا که به سلامت عبارات لطمه وارد نیامده کوشش گردیده است که از واژه‌های نو و مصوبه فرهنگستان استفاده شود</p><span class="sig">اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک</span></div>
+
+    <div class="bq"><p>ایرانی در مدت کمی خائن را از خادم و طالح را از صالح تمیز می‌دهد. ایرانی تمام مسببین بدبختی و بیچارگی خود را می‌شناسد و در روز انتقام کله‌های بی‌مغز و سرهای پرکاه آنها را به بالای دار می‌فرستد</p><span class="sig">اطاعت کورکورانه</span></div>
+
+    <p>تصور کنید دغدغهٔ کسی از «سلامت عبارات» به فرستادن «سرهای پرکاه» به «بالای دار» تغییر کند. دلیلش هرچه باشد، تاب آوردن چنین تغییری برای خود آن آدم آسان نیست. کوشیدم «اطاعت کورکورانه» را بخوانم. حدس می‌زنم اگر در میانهٔ انقلاب ۵۷ آن را خوانده بودم، بسیار با آن همدل می‌شدم؛ اما اکنون نتوانستم با آن ارتباط برقرار کنم. کتاب بیشتر به خطابهٔ آدمی خشمگین می‌ماند؛ نه نثر زیبایی دارد و نه استدلال محکمی. با این همه، از نظر تاریخی، و به‌ویژه به سبب نام بردن از افراد بسیار، به نیکی یا به بدی، اهمیت دارد. در مقایسه، دفاعیات او بسیار خواندنی‌ترند. برای نمونه، این جمله را بسیار دوست دارم:</p>
+
+    <div class="bq"><p>اینها قصه نیست، داستان هزار و یک شب نیست، محصول خیالبافی یک قلندر بی‌سواد نیست، هذیان و گفته‌های تب‌آلود نیست، بلکه واقعیت زندگی اجتماعی کشور ما و هر کشور سرمایه‌داری در هر گوشه‌ی جهانست</p><span class="sig">آخرین دفاع</span></div>
+
+    <figure class="plate portrait">
+      <img src="../assets/roozbeh-book-cover.webp" alt="جلد کتاب اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک">
+      <div class="figcap">جلد «اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک»، نوشتهٔ خسرو روزبه (۱۳۲۱).</div>
+    </figure>
+
+    <p>کتاب دو بخش، یا به تعبیر روزبه دو «پاره»، دارد. پارهٔ یکم دربارهٔ تیر ضدهوایی با ادوات سبک است و پارهٔ دوم دربارهٔ تیر ضدارابه. هر پاره با تعریف‌های کلی و بیان اهمیت مسئله آغاز می‌شود و سپس شرایطی را بررسی می‌کند که در آن‌ها، به جای ادوات سنگین، ناچار از ادوات سبک (مانند مسلسل) استفاده می‌شود. گام بعدی شرح دشواری مسئله است: هدف تنها مدت کوتاهی در منطقهٔ تیر است و افزون بر آن حرکت می‌کند و می‌تواند تنظیم تیر را بر هم بزند. سپس ریاضیاتِ همهٔ متغیرها را یکی‌یکی بررسی می‌کند: از فاصلهٔ مسلسل تا هدف، سرعت هدف، تندی باد و زاویهٔ آن با افق، تا زاویهٔ مسلسل با زمین. پارهٔ یکم بیشتر مکانیک است.</p>
+
+    <p>بخش شگفت‌انگیز، پارهٔ دوم کتاب است، دربارهٔ تیر ضدارابه. در این بخش است که روزبه از حساب احتمالات استفاده می‌کند. حساب احتمالات به طور کلی بسیار دیر در ایران جدی گرفته شد. برای نمونه، تا سال ۱۳۲۱، یعنی سال انتشار کتاب روزبه، در میان درس‌های دانشسرای عالی نبود. (این تا سالی است که من بررسی کردم؛ نمی‌دانم پس از آن چه شد و کی، اگر اصلاً، وارد شد.) گمان نمی‌کنم در دانشکدهٔ فنی دانشگاه تهران نیز تا سال‌ها بعد تدریس شده باشد. اصولاً یکی از پرسش‌های امروز این است که آموزش احتمال کی و کجا در ایران آغاز شد. به هر روی، به نظر می‌رسد روزبه احتمال را از یکی از آن سه هزار کتاب انگلیسی آموخته باشد که همهٔ پولش را صرف خریدشان کرده بود (ماجرای این سه هزار کتاب در آخرین دفاع آمده است). حتی اگر احتمال را در کلاسی آموخته بود، که بسیار بعید می‌دانم، ممکن نیست مسئله‌ای را که با آن حل کرده در کلاسی آموخته باشد.</p>
+
+    <h3 class="subhead" style="font-size:22px">مسئلهٔ تیر توقیف</h3>
+
+    <p>«تیر توقیف» اصطلاحی نظامی است برای تیرهایی که قرار است ارابه‌های جنگی دشمن (همان تانک) را از کار بیندازند. نکتهٔ مهم این است که زاویه و جهت جنگ‌افزار از پیش تعیین می‌شود و تغییر دادن آن‌ها آسان نیست؛ چون هدف متحرک است و فرصت تنظیم دوباره نیست. از این رو، معمولاً چند جنگ‌افزار به کار می‌رود که هر یک از پیش تنظیم شده است: منطقه‌ای که ارابه‌های دشمن در آن حرکت می‌کنند به چند ناحیه تقسیم می‌شود، جنگ‌افزارها به چند دسته، و هر دسته به یکی از ناحیه‌ها اختصاص می‌یابد. مسئله این است: اگر سرعت ارابه و ناحیه‌ای را که در آن می‌توان به آن شلیک کرد بدانیم، به چند جنگ‌افزار نیاز داریم تا به اندازهٔ کافی مطمئن باشیم که پیش از خروج ارابه از منطقهٔ تیر، دست‌کم یکی از تیرها به آن اصابت می‌کند؟</p>
+
+    <p>فرض کنید احتمال اصابت تیرِ یکی از جنگ‌افزارها به ارابه \(p\) باشد و احتمال اصابت دست‌کم یکی از \(n\) تیر به ارابه \(P\). احتمال اینکه هیچ‌یک از \(n\) تیر به ارابه نخورد برابر است با</p>
+    \[(1-p)^n\]
+    <p>در نتیجه احتمال اینکه دست‌کم یکی از آن \(n\) تیر به ارابه بخورد برابر است با</p>
+    \[1-(1-p)^n\]
+    <p>و این همان \(P\) است:</p>
+    \[P=1-(1-p)^n\]
+    <p>از سوی دیگر می‌دانیم</p>
+    \[e^x=1+\frac{x}{1}+\frac{x^2}{1\times 2}+\frac{x^3}{1\times 2\times 3}+\frac{x^4}{1\times 2\times 3\times 4}+\cdots\]
+    <p>در نتیجه</p>
+    \[e^{-p}=1-p+\frac{p^2}{1\times 2}-\frac{p^3}{1\times 2\times 3}+\frac{p^4}{1\times 2\times 3\times 4}-\cdots\]
+    <p>پس به تقریب می‌توان نوشت</p>
+    \[e^{-p}\approx 1-p\]
+    <p>این را در عبارت \(P\) قرار می‌دهیم:</p>
+    \[P=1-(1-p)^n\approx 1-e^{-np}\]
+    <p>با جابه‌جا کردن جمله‌ها و گرفتن لگاریتم طبیعی خواهیم داشت</p>
+    \[np=\ln\left(\frac{1}{1-P}\right)\]
+    <p>اکنون نکتهٔ جالب پیش می‌آید. \(p\) احتمال اصابت تیرِ یک جنگ‌افزار به ارابه بود. با تعبیر رایج احتمال، اگر \(np\) را \(N\) بنامیم، معنایش این است که از \(n\) تیرِ شلیک‌شده، \(N\) تیر به ارابه اصابت کرده است:</p>
+    \[N=np \qquad N=\ln\left(\frac{1}{1-P}\right)\]
+    <p>این به چه کار می‌آید؟ فرض کنید می‌خواهید با اطمینان ۹۹ درصد ارابه را از کار بیندازید. پرسش این است که دست‌کم چند تیر باید شلیک کنید. آنچه نمی‌توانید تغییر دهید احتمال اصابت یک گلولهٔ تنها از یک جنگ‌افزار است؛ یعنی \(p\) در اختیار شما نیست. (البته می‌توانید جنگ‌افزار را چنان تنظیم کنید که این احتمال بالا برود؛ اما پس از تنظیم، دیگر ثابت است.) پس آن ۹۹ درصد مربوط به \(P\) است. از آن \(N\) به دست می‌آید، و با قرار دادن آن در فرمول دیگر، \(n\). اکنون می‌دانیم در بازهٔ زمانی‌ای که فرصت داریم، چند تیر باید شلیک شود؛ و با دانستن اینکه هر جنگ‌افزار در آن بازه چند تیر می‌تواند شلیک کند، دربارهٔ شمار جنگ‌افزارها تصمیم می‌گیریم.</p>
+
+    <p>خود روزبه این را به شیوهٔ بلند فکر کردن نوشته است و در میانهٔ آن متغیرهای فراوانی می‌آیند و می‌روند. با این همه، این یکی از بهترین نمونه‌های کاربرد احتمال است که در همهٔ این سال‌ها دیده‌ام، و به گمانم با تغییر زمینه می‌تواند نمونهٔ خوبی برای کلاس درس نیز باشد.</p>
+
+    <p>یعنی وقتی خسرو روزبه می‌گوید استعداد ریاضی‌دان شدن را داشته است، به‌راستی داشته است. پرسش مهم این است: اگر او در بیست سالگی کشته می‌شد، چه می‌شد؟</p>
+
+    <h2 class="subhead">اگر خسرو روزبه در بیست سالگی کشته می‌شد</h2>
+
+    <p>چرا بیست سالگی؟ چون <a href="https://fa.wikipedia.org/wiki/%D8%A7%D9%88%D8%A7%D8%B1%DB%8C%D8%B3%D8%AA_%DA%AF%D8%A7%D9%84%D9%88%D8%A7">اواریست گالوا</a> (۱۸۱۱–۱۸۳۲) در بیست سالگی کشته شد، و شباهت میان این دو انکارناپذیر است. همین ابتدا، به‌صراحت، بگویم: منظورم این نیست که نتیجهٔ کار ریاضی خسرو روزبه هم‌سطح کار گالوا بود. ریاضیاتی که گالوا پدید آورد دنیای ریاضیات را برای همیشه تغییر داد. اما خسرو روزبه این بخت را نیافت؛ نه لزوماً به سبب انقلابی‌گری، بلکه بیشتر به سبب شرایط ریاضیِ جامعه. روزبه هفت سال پس از مرگ <a href="https://amirasghari.com/mirza/">عبدالغفار اصفهانی</a> به دنیا آمد، یعنی در آغاز دگرگونی جامعهٔ ریاضی و حرکت آن به سوی ریاضی‌دانِ نمادین. نخستین ریاضی‌دان جدی و به معنای امروزی ایران، محسن هشترودی، در سال ۱۳۱۶ دکتری گرفت؛ همان سالی که روزبه از دانشکدهٔ افسری فارغ‌التحصیل شد. مسائلی که گالوا با آن‌ها روبه‌رو بود با مسائلی که روزبه با آن‌ها روبه‌رو بود تفاوت داشت. جامعهٔ ریاضی گالوا حل معادلات درجهٔ سه و چهار را پشت سر گذاشته بود و گام‌های بسیار دیگری نیز برداشته بود. جامعهٔ ریاضیِ روزبه، اگر بتوان چنین تعبیری به کار برد، همچنان درگیر مسائل «خلاصة‌الحساب» شیخ بهایی بود. با این همه، این دو آدمِ تنها، در دو جامعهٔ یکسره متفاوت، شباهت‌های فراوانی دارند.</p>
+
+    <figure class="plate">
+      <img src="../assets/schnetz-battle-town-hall.webp" alt="نقاشی نبرد برای تالار شهر، اثر ژان‌ویکتور شنتز">
+      <div class="figcap">ژان‌ویکتور شنتز، «نبرد برای تالار شهر»، از روزهای انقلاب ژوئیهٔ ۱۸۳۰ در پاریس.</div>
+    </figure>
+
+    <p>گالوا از نظر سیاسی به همان اندازهٔ روزبه پرشور بود. در روزهای انقلاب ژوئیهٔ ۱۸۳۰ می‌خواست در خیابان باشد، اما مدیر مدرسه‌اش مانع شد. یک بار بازداشت شد، چون در ضیافتی، دشنه در دست، به سلامتی پادشاه فرانسه جام بلند کرده بود. فردای روزی که آزاد شد، این بار با چند تپانچه، دوباره بازداشت شد. خلاصه، پیوسته در راه زندان می‌رفت و می‌آمد. تفاوت اساسی او با روزبه در این بود که در هر رفت‌وآمد فرصتی ریاضی برایش وجود داشت. (اینکه چندان از آن فرصت‌ها بهره برده نشد، داستان خود را دارد؛ مهم این است که فرصت وجود داشت.) برای نمونه، این فرصت را داشت که ریاضی‌دانی در اندازهٔ <a href="https://fa.wikipedia.org/wiki/%D8%A2%DA%AF%D9%88%D8%B3%D8%AA%DB%8C%D9%86_%D9%84%D9%88%DB%8C%DB%8C_%DA%A9%D9%88%D8%B4%DB%8C">کوشی</a> دو مقالهٔ او را رد کند و پیشنهاد دهد آن دو را یکی کند و با آن در جایزهٔ بزرگ ریاضی آکادمی فرانسه شرکت کند. یا مجله‌ای ریاضی وجود داشت که او می‌توانست نخستین مقالهٔ خود را، دربارهٔ تقسیم‌های مسلسل، در آن منتشر کند. تقسیم‌های مسلسل همان موضوع رسالهٔ گم‌شدهٔ خسرو روزبه است؛ و گالوا نیز به سبب مسئلهٔ حل معادلات به آن‌ها علاقه‌مند بود.</p>
+
+    <h2 class="subhead">ریاضی به چه کار می‌آید؟</h2>
+
+    <div class="bq"><p>نظر به اینکه شرایط مادی پدرم اجازه نمی‌داد در شعبه ریاضیات دانشکده علوم تحصیل کنم، تصمیم گرفتم وارد خدمت ارتش شوم. هیچ‌کس نمی‌تواند پیش‌بینی کند که اگر من در رشته ریاضی به تحصیلات خود ادامه می‌دادم چه سرنوشتی داشتم، ولی مسلم این است که استعدادی برای پیشرفت در تحصیل ریاضی در من وجود داشت و ناشکفته پژمرده شد و بدون تردید این سرخوردگی ناشی از تضییقات شرایط مادی نمی‌توانست در من ایجاد نفرت نکند و نسبت به اصول سرمایه‌داری که مادر همه‌ی بدبختی‌های کنونی جامعه است بدبین و متنفر نگردم</p><span class="sig">آخرین دفاع</span></div>
+
+    <p>هر معلم ریاضی بارها با این پرسش روبه‌رو شده است که «ریاضی به چه کار می‌آید؟» و بی‌گمان پاسخ‌های گوناگونی برای آن دارد. پیشنهاد من این است که به این پرسش با پرسشی دیگر پاسخ دهید و از پرسنده بخواهید بیندیشد که اگر ریاضی نخواند، چه ممکن است پیش آید. سپس داستان خسرو روزبه، یا اگر شرایط اقتضا نمی‌کند داستان اواریست گالوا، را برایش بگویید، و بگذارید خود روزبه پایان آن را بگوید: «هیچ‌کس نمی‌تواند پیش‌بینی کند که اگر من در رشته ریاضی به تحصیلات خود ادامه می‌دادم چه سرنوشتی داشتم.»</p>
+
+    <div class="refs">
+      <h2 class="subhead" style="font-size:20px">منابع</h2>
+      <ul>
+        <li>خسرو روزبه، <em>اصول علمی تیراندازی ادوات سبک بر علیه هدف‌های متحرک</em>، تهران، ۱۳۲۱.</li>
+        <li>خسرو روزبه، <em>اطاعت کورکورانه</em>.</li>
+        <li>خسرو روزبه، <em>آخرین دفاع</em> (دفاعیات در دادگاه تجدیدنظر نظامی، ۱۳۳۷).</li>
+        <li>احمد شاملو، «خطابهٔ تدفین».</li>
+        <li>عباس میلانی، «<a href="https://www.bbc.com/persian/iran/2012/01/120117_l44_tudeh_party_ruzbe_khosro">خسرو روزبه، اسطورهٔ حزب توده</a>»، بی‌بی‌سی فارسی، ۱۳۹۰.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">دربارۀ این نوشته</span><br>نوشتۀ امیر اصغری. نخستین بار در ۴ مرداد ۱۴۰۱ با عنوان «<a href="https://amirasghari.com/2022/07/26/khr/">خسرو روزبه کیست؟</a>»، در مجموعهٔ «او کیست؟»، در amirasghari.com منتشر شد. در این ویرایش، نثر به زبان نوشتار برگردانده شده و نقل‌قول‌ها بی‌تغییر آمده‌اند. تصویر نقاشی: ژان‌ویکتور شنتز، «نبرد برای تالار شهر»، موزهٔ پتی‌پاله، پاریس.</div>
+    <a class="pdfbtn" href="javascript:window.print()">↓ دریافت نسخۀ پی‌دی‌اف</a>
+  </div>
+</article>
+
+<article class="article" data-lang-block="en" dir="ltr" lang="en">
+  <div class="kicker">People and Mathematics</div>
+  <h1 class="title">“It Withered Before It Bloomed”: Khosrow Roozbeh</h1>
+  <div class="standfirst">“There was in me a talent for advancing in the study of mathematics, and it withered before it bloomed.” An officer who was executed, a gunnery manual that used probability, and a lost treatise on quartic equations.</div>
+  <div class="byline">
+    <img class="avchip" src="../assets/amir.jpg" alt="Amir Asghari">
+    <span class="name">Amir Asghari</span>
+  </div>
+
+  <figure class="plate lead">
+    <img src="../assets/roozbeh-execution.webp" alt="Khosrow Roozbeh on the day of his execution">
+    <div class="figcap">Khosrow Roozbeh on the day of his execution, 11 May 1958.</div>
+  </figure>
+
+  <div class="body">
+    <p>Khosrow Roozbeh is one of those people whom some see as entirely white and others as entirely black. Abbas Milani has called him “<a href="https://www.bbc.com/persian/iran/2012/01/120117_l44_tudeh_party_ruzbe_khosro">the myth of the Tudeh Party</a>”; a statue of him at the moment of his execution stands in a town near Rome; and Ahmad Shamlou, who has a souvenir photograph beside that statue, wrote his “Funeral Oration” in Roozbeh’s memory, but later kept the poem and withdrew its dedication.</p>
+
+    <figure class="plate portrait">
+      <img src="../assets/roozbeh-statue.jpg" alt="Statue of Khosrow Roozbeh in Fiano Romano">
+      <div class="figcap">Statue of Khosrow Roozbeh at the moment of his execution, by Reza Olia, an Iranian sculptor living in Italy, in a square in Fiano Romano near Rome.</div>
+    </figure>
+
+    <p>The suggestion of his name for the series “<a href="https://amirasghari.com/who-is-who/">Who is who?</a>” (a series begun years ago that can be seen as the seed of <em>People and Mathematics</em>) came with the same hesitation: a well-known officer who joined the Tudeh Party and was executed, and was famous for exactly that; yet the person who suggested his name, incredulous that <a href="https://en.wikipedia.org/wiki/Khosrow_Roozbeh">Wikipedia</a> called him a mathematician, asked for him to be researched and written about.</p>
+
+    <p>But that is exactly what made researching and writing about him difficult. So much has been written about him, and he has been built and demolished so many times, that the truth is hard to find. In what follows I draw, as far as possible, only on what he himself wrote and on events, not on the interpretations laid over them, and I stay in his grey area, where mathematics offers a way in.</p>
+
+    <h2 class="subhead">A little biography</h2>
+
+    <p>Khosrow Roozbeh was born in Malayer in August 1915 (Shahrivar 1294) and was shot by firing squad on 11 May 1958. At the moment of his execution he was probably wishing that, besides writing a book on the scientific principles of firing at moving targets, he had also written one on firing at stationary targets. His final defence, before the court that in the end sentenced him to death, may lead you to the same surreal thought:</p>
+
+    <div class="bq"><p>The court: Yes, this is Khosrow Roozbeh who, with a recklessness born of dishonour and lack of conscience and of being free from any human quality, says: I have considered, and consider, it obligatory to kill anyone who has been or is opposed to my creed and my <em>raviyeh</em>.</p><p>Khosrow Roozbeh: For two reasons I can claim that this sentence is not mine. The first reason. The word <em>raviyeh</em> is not a correct Persian word, and it is not known who first used it; it later became common and even entered the laws. The correct word that can be used in its place is the beautiful word <em>ravesh</em>, the verbal noun of the verb <em>raftan</em>, “to go”. By habit I never use the word <em>raviyeh</em>, and if under the influence of others I use it by mistake, I immediately correct myself.</p><span class="sig">Khosrow Roozbeh’s final defence before the military court of appeal</span></div>
+
+    <p>He then gives a second, ideological reason, and opens the next session of the military court of appeal like this:</p>
+
+    <div class="bq"><p>If I say that I do not feel judicially safe, I am not exaggerating … Among the words of the Academy one rarely comes across suitable ones, but the word <em>dadgah</em> [court] happens to be one of its good ones. The words <em>divan-e harb</em> and <em>mahkameh</em> make the accused shudder, but the word <em>dadgah</em> instils a sense of trust and justice in his soul.</p><span class="sig">Final defence</span></div>
+
+    <p>In the same defence, under the heading “Who am I”, Roozbeh describes his childhood: that despite all his father’s efforts the family was poor; that to thank his father he studied day and night and finished the six years of secondary school in four, with an average of 18.55 out of 20; that he was always good at mathematics, all his mathematics marks were twenty, he helped others, even older pupils and sometimes his mathematics teachers, and the teacher would write under his paper <em>sadaqna</em> (“we confirm it”); and finally that:</p>
+
+    <div class="bq"><p>When I was in the fifth year of secondary school I wrote a treatise on solving equations of the fourth and higher degrees by continued division, and with it I solved the problems of Sheikh Baha’i that lead to equations of higher degree … Later, when I was studying electro-mechanics at the Faculty of Engineering of the University of Tehran, I completed this treatise and removed its shortcomings by adding graphical solutions and compiling special tables, but I do not now know what fate it has met in the course of recent years.</p><span class="sig">Final defence</span></div>
+
+    <p>The next sentence is the key sentence of Khosrow Roozbeh’s story:</p>
+
+    <div class="bq"><p>Since my father’s material circumstances did not allow me to study in the mathematics department of the Faculty of Science, I decided to enter the army.</p><span class="sig">Final defence</span></div>
+
+    <p>His story before the day of the trial can be read in his own book, <em>Blind Obedience</em>, where he ties the account of his life and struggles to a critical view of the reign of Reza Shah, or what he calls “the era of dictatorship and the decline of the Iranian nation”.</p>
+
+    <p>Roozbeh graduated from the Officers’ College in 1937 (1316) and until 1939, besides teaching at the same college, researched the scientific principles of anti-aircraft fire. Early in 1939 he was transferred to Ahvaz, a move that in his words “was more like exile”, though he does not say why, because “a detailed account of it would be tedious”. In autumn 1939 he returned to the Officers’ College and taught there for six years. In those years, of his own accord, he completed the first and second years of the Faculty of Engineering of the University of Tehran, wrote a good number of books, and for his scientific services, on the recommendation of the college’s command, received the Order of Knowledge. From 1941 onwards his non-scientific talks to cadets, such as his “Advice to the graduates of 1941–42”, did not fit the usual meaning of advice, and it was clear that sooner or later they would come for him. He knew it too. In 1945, on the very day he was to be arrested, he “preferred leaving the service to disgraceful service”, and from then until the end of his life he was in hiding, in prison, or escaping from prison.</p>
+
+    <h2 class="subhead">Scientific Principles of Firing Light Weapons against Moving Targets</h2>
+
+    <p>In those six years at the Officers’ College, and even afterwards, Roozbeh wrote a great deal. His list of books (those he names himself) includes a two-volume work whose title shows it to be a mathematics book: <em>Higher Mathematics for the Artillery</em>. I found neither volume. But, to my great surprise, the book I did find was mathematically exciting enough: <em>Scientific Principles of Firing Light Weapons against Moving Targets</em>, one of several books on guns and tanks he wrote in that six-year period.</p>
+
+    <p>First, the book’s own preface, set beside <em>Blind Obedience</em>, shows Roozbeh’s transformation well: from someone who means to “serve society through writing, translation and discovery” to someone over whose nerves and soul “a great storm takes hold”, who “sets aside the narrow idea of small services and decides to reform things from the root, to put an end to the misery of millions of his compatriots” (from the <em>Final defence</em>).</p>
+
+    <div class="bq"><p>As far as the soundness of the phrasing has not been harmed, an effort has been made to use the new words approved by the Academy.</p><span class="sig">Scientific Principles of Firing Light Weapons against Moving Targets</span></div>
+
+    <div class="bq"><p>In a short time the Iranian tells the traitor from the servant and the wicked from the righteous. The Iranian knows all those who caused his misery and wretchedness, and on the day of revenge he will send their brainless heads, their straw-filled skulls, up to the gallows.</p><span class="sig">Blind Obedience</span></div>
+
+    <p>Imagine someone’s concern shifting from “the soundness of the phrasing” to sending “straw-filled skulls” to “the gallows”. Whatever the reason, such a change cannot have been easy for the man himself to bear. I tried to read <em>Blind Obedience</em>. I suspect that had I read it in the middle of the 1979 revolution I would have sympathised with it greatly, but now I could not connect with it. The book reads like the speech of an angry man; it has neither fine prose nor solid argument. Even so, it matters historically, not least because it names many people, for good or ill. By comparison, his defences are far more readable. I love this sentence, for example:</p>
+
+    <div class="bq"><p>These are not tales, not the Thousand and One Nights, not the product of an illiterate dervish’s fantasies, not delirium and feverish talk, but the reality of the social life of our country and of every capitalist country in every corner of the world.</p><span class="sig">Final defence</span></div>
+
+    <figure class="plate portrait">
+      <img src="../assets/roozbeh-book-cover.webp" alt="Cover of Scientific Principles of Firing Light Weapons against Moving Targets">
+      <div class="figcap">Cover of <em>Scientific Principles of Firing Light Weapons against Moving Targets</em> by Khosrow Roozbeh (1942).</div>
+    </figure>
+
+    <p>The book has two main parts, or in Roozbeh’s word two “pieces”. The first is about anti-aircraft fire with light weapons, the second about anti-tank fire. Each begins with general definitions and the importance of the problem, then examines the conditions in which light weapons (such as machine guns) must be used instead of heavy ones. The next step explains why the problem is hard: the target is in the zone of fire for only a short time, and it moves, which can upset the aim. Then he works through the mathematics of every variable one by one: the distance from gun to target, the target’s speed, the wind’s speed and its angle with the horizon, the gun’s angle with the ground. The first part is mostly mechanics.</p>
+
+    <p>The remarkable part is the second, on anti-tank fire. Here Roozbeh uses the calculus of probability. Probability as a whole was taken up very late in Iran. For example, as late as 1942, the year Roozbeh’s book appeared, it was not among the courses of the Higher Teachers’ College. (That is as far as I checked; I do not know what happened afterwards, or when, if ever, it entered.) I do not think it was taught at the Faculty of Engineering of the University of Tehran until years later either. Indeed, one open question today is when and where the teaching of probability began in Iran. It seems that Roozbeh learned probability from one of the three thousand English books on which he spent all his money (the three thousand books are mentioned in the <em>Final defence</em>). Even if he had learned probability in a class, which I very much doubt, he could not have learned in any class the problem he solved with it.</p>
+
+    <h3 class="subhead" style="font-size:22px">The problem of interdiction fire</h3>
+
+    <p>“Interdiction fire” is a military term for shots meant to disable the enemy’s war chariots (tanks). The important point is that the angle and direction of each gun are set in advance and are not easy to change; the target moves, and there is no time to re-aim. So several guns are usually used, each set beforehand: the area in which enemy tanks move is divided into several zones, the guns into several groups, and each group is assigned to one zone. The problem is this: knowing the tank’s speed and the zone in which we can fire at it, how many guns do we need to be reasonably sure that at least one shot hits the tank before it leaves the zone of fire?</p>
+
+    <p>Suppose the probability that one gun’s shot hits the tank is \(p\), and the probability that at least one of \(n\) shots hits it is \(P\). The probability that none of the \(n\) shots hits the tank is</p>
+    \[(1-p)^n\]
+    <p>so the probability that at least one of the \(n\) shots hits it is</p>
+    \[1-(1-p)^n\]
+    <p>and this is \(P\):</p>
+    \[P=1-(1-p)^n\]
+    <p>On the other hand, we know that</p>
+    \[e^x=1+\frac{x}{1}+\frac{x^2}{1\times 2}+\frac{x^3}{1\times 2\times 3}+\frac{x^4}{1\times 2\times 3\times 4}+\cdots\]
+    <p>so</p>
+    \[e^{-p}=1-p+\frac{p^2}{1\times 2}-\frac{p^3}{1\times 2\times 3}+\frac{p^4}{1\times 2\times 3\times 4}-\cdots\]
+    <p>and approximately</p>
+    \[e^{-p}\approx 1-p\]
+    <p>Substituting this into the expression for \(P\):</p>
+    \[P=1-(1-p)^n\approx 1-e^{-np}\]
+    <p>Rearranging and taking natural logarithms gives</p>
+    \[np=\ln\left(\frac{1}{1-P}\right)\]
+    <p>Now comes the interesting step. \(p\) was the probability that one gun’s shot hits the tank. Using the everyday reading of probability, if we call \(np\) \(N\), it means that of the \(n\) shots fired, \(N\) hit the tank:</p>
+    \[N=np \qquad N=\ln\left(\frac{1}{1-P}\right)\]
+    <p>What is this good for? Suppose you want to disable the tank with 99 per cent certainty. The question is how many shots, at least, you must fire. What you cannot change is the probability that a single bullet from a single gun hits the tank; \(p\) is not in your hands. (You can set the gun so that this probability rises; but once it is set, it is fixed.) So the 99 per cent belongs to \(P\). From it \(N\) is found, and putting that into the other formula, \(n\). Now we know how many shots must be fired in the time available; and knowing how many shots each gun can fire in that time, we decide how many guns are needed.</p>
+
+    <p>Roozbeh himself wrote this as if thinking aloud, with many variables coming and going along the way. Even so, it is one of the best examples of applied probability I have seen in all these years, and I think that, with a change of context, it could also be a good example for the classroom.</p>
+
+    <p>So when Khosrow Roozbeh says he had the talent to become a mathematician, he really did. The important question is: what if he had been killed at twenty?</p>
+
+    <h2 class="subhead">What if Khosrow Roozbeh had been killed at twenty?</h2>
+
+    <p>Why twenty? Because <a href="https://en.wikipedia.org/wiki/%C3%89variste_Galois">Évariste Galois</a> (1811–1832) was killed at twenty, and the likeness between the two is undeniable. Let me say clearly, at the outset: I do not mean that the result of Roozbeh’s mathematical work was at Galois’s level. The mathematics Galois produced changed mathematics for ever. But Khosrow Roozbeh never had that chance; not necessarily because of revolutionary zeal, but rather because of the mathematical conditions of his society. Roozbeh was born seven years after the death of <a href="https://amirasghari.com/mirza/">Abdolghaffar Isfahani</a>, at the beginning of the mathematical community’s transformation and its move towards the symbolic mathematician. Iran’s first serious mathematician in the modern sense, Mohsen Hashtroodi, received his doctorate in 1937, the same year Roozbeh graduated from the Officers’ College. The problems Galois faced were different from those Roozbeh faced. Galois’s mathematical community had left the solution of cubic and quartic equations behind and taken many other steps. Roozbeh’s mathematical community, if one can even use the term, was still occupied with the problems of Sheikh Baha’i’s <em>Kholasat al-Hesab</em>. Yet these two lonely people, in two utterly different societies, have a great deal in common.</p>
+
+    <figure class="plate">
+      <img src="../assets/schnetz-battle-town-hall.webp" alt="Painting of the battle for the Paris town hall by Jean-Victor Schnetz">
+      <div class="figcap">Jean-Victor Schnetz, <em>Battle for the Town Hall</em>, from the July Revolution of 1830 in Paris.</div>
+    </figure>
+
+    <p>Galois was as politically passionate as Roozbeh. During the July Revolution of 1830 he wanted to be in the streets, but his school’s director stopped him. Once he was arrested for raising a glass to the King of France at a banquet with a dagger in his hand. The day after his release he was arrested again, this time with several pistols. In short, he was forever coming and going on the road to prison. The essential difference between him and Roozbeh was that on each of these journeys there was a mathematical opportunity for him. (That those opportunities were not much used is a story of its own; what matters is that they existed.) He had, for example, the chance of a mathematician of Cauchy’s stature turning down two of his papers and suggesting that he merge them into one and enter it for the Grand Prize in Mathematics of the French Academy. Or there was a mathematics journal in which he could publish his first paper, on continued fractions. Continued fractions, the “continued division” of Roozbeh’s lost treatise; Galois, too, was interested in them because of the problem of solving equations.</p>
+
+    <h2 class="subhead">What is mathematics good for?</h2>
+
+    <div class="bq"><p>Since my father’s material circumstances did not allow me to study in the mathematics department of the Faculty of Science, I decided to enter the army. No one can predict what my fate would have been had I continued my studies in mathematics, but what is certain is that there was in me a talent for advancing in the study of mathematics, and it withered before it bloomed; and without doubt this frustration, born of the constraints of material circumstances, could not fail to create hatred in me and to make me pessimistic about, and hateful of, the principles of capitalism, which is the mother of all the present miseries of society.</p><span class="sig">Final defence</span></div>
+
+    <p>Every mathematics teacher has faced the question “What is mathematics good for?” many times, and no doubt has many answers to it. My suggestion is to answer the question with another question, and ask the one who asked it to think about what might happen if they do not study mathematics. Then tell them the story of Khosrow Roozbeh, or, if circumstances do not allow, the story of Évariste Galois, and let Roozbeh himself tell its ending: “No one can predict what my fate would have been had I continued my studies in mathematics.”</p>
+
+    <div class="refs">
+      <h2 class="subhead" style="font-size:20px">Sources</h2>
+      <ul>
+        <li>Khosrow Roozbeh, <em>Osul-e elmi-ye tirandazi-ye adavat-e sabok bar alayh-e hadaf-ha-ye motaharrek</em> [Scientific Principles of Firing Light Weapons against Moving Targets], Tehran, 1942.</li>
+        <li>Khosrow Roozbeh, <em>Eta‘at-e kurkuraneh</em> [Blind Obedience].</li>
+        <li>Khosrow Roozbeh, <em>Akharin defa‘</em> [Final Defence], his defences before the military court of appeal, 1958.</li>
+        <li>Ahmad Shamlou, “Khatabeh-ye tadfin” [Funeral Oration].</li>
+        <li>Abbas Milani, “<a href="https://www.bbc.com/persian/iran/2012/01/120117_l44_tudeh_party_ruzbe_khosro">Khosrow Roozbeh, the myth of the Tudeh Party</a>” (in Persian), BBC Persian, January 2012.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">About this piece</span><br>Written by Amir Asghari. First published on 26 July 2022 as “<a href="https://amirasghari.com/2022/07/26/khr/">Who Is Khosrow Roozbeh?</a>” in the series “Who is who?” on amirasghari.com. Translated from the Farsi. Painting: Jean-Victor Schnetz, <em>Battle for the Town Hall</em>, Petit Palais, Paris.</div>
+    <a class="pdfbtn" href="javascript:window.print()">↓ Download PDF</a>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <span style="display:flex;gap:14px;align-items:center;"><a class="back" href="../index.html" data-en="← People and Mathematics" data-fa="آدم‌ها و ریاضیات →"></a></span>
+</footer>
+
+<script>
+var FD = '۰۱۲۳۴۵۶۷۸۹';
+function faNum(s){ return String(s).replace(/[0-9]/g, function(d){ return FD[+d]; }).replace(/\./g, '٫'); }
+var mathDone = {};
+function renderMathIn(lang){
+  if (!window.renderMathInElement || mathDone[lang]) return;
+  var block = document.querySelector('[data-lang-block="' + lang + '"]');
+  renderMathInElement(block, { output: 'html', delimiters: [{left:'\\[', right:'\\]', display:true},{left:'\\(', right:'\\)', display:false}], throwOnError: false });
+  if (lang === 'fa') block.querySelectorAll('.katex').forEach(function(k){
+    var tw = document.createTreeWalker(k, NodeFilter.SHOW_TEXT), nd;
+    while ((nd = tw.nextNode())) nd.nodeValue = nd.nodeValue.replace(/[0-9]/g, function(d){ return FD[+d]; });
+  });
+  mathDone[lang] = true;
+}
+function applyLabels(lang){
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el){ var v = el.getAttribute('data-' + lang); if (v !== null) el.textContent = v; });
+}
+function setLang(lang){
+  var isFa = lang === 'fa';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-block]').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+  document.querySelectorAll('.langtoggle button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+  applyLabels(lang);
+  renderMathIn(lang);
+  try { localStorage.setItem('pm-lang', lang); } catch(e){}
+}
+(function(){
+  var start = 'fa';
+  try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') start = s; } catch(e){}
+  setLang(start);
+  (function wait(){ if (!window.renderMathInElement) return setTimeout(wait, 60); renderMathIn(document.documentElement.lang === 'fa' ? 'fa' : 'en'); })();
+})();
+
+</script>
+
+<script src="../counter.js"></script>
+</body>
+</html>

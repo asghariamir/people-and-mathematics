@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>آدم‌ها و ریاضیات</title>
-<meta name="description" content="زندگی‌ها، صداها و رویارویی‌ها در فرهنگ ریاضیات ایران.">
+<meta name="description" content="زندگی‌ها، صداها و روایت‌هایی از فرهنگ ریاضی در ایران.">
 <meta property="og:title" content="آدم‌ها و ریاضیات">
-<meta property="og:description" content="زندگی‌ها، صداها و رویارویی‌ها در فرهنگ ریاضیات ایران.">
+<meta property="og:description" content="زندگی‌ها، صداها و روایت‌هایی از فرهنگ ریاضی در ایران.">
 <link rel="alternate" hreflang="en" href="index.html">
 <script>try{localStorage.setItem('pm-lang','fa')}catch(e){}</script>
 <script src="./support.js"></script>
@@ -395,32 +395,26 @@ a:hover{color:#C8633E}
     </div>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:22px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">روی پرده</div>
-        <div style="font-size:32px;font-weight:600;line-height:1.35">آدم‌ها و ریاضیات، مجموعهٔ فیلم</div>
-      </div>
-      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">تماشا در یوتیوب ←</a>
-    </div>
-    <div style="font-size:20px;line-height:1.7;color:#3A332C;max-width:720px">گپ و گفتی کنجکاوانه، صادقانه و بی‌پرده با آدم هایی که ریاضیات در زندگی آنها حضوری معنی دار داشته است</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
-        <button onClick="{{ s.select }}" style="font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;background:{{ s.bg }};color:{{ s.fg }}">{{ s.label }}</button>
-      </sc-for>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
-      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
-        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
-          <img src="{{ e.img }}" alt="{{ e.fa }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Vazirmatn',sans-serif;font-size:12px;color:#6B6259">
-            <span>قسمت {{ e.n }}</span>
-            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">زیرنویس انگلیسی</span></sc-if>
-          </div>
-          <div style="font-size:20px;line-height:1.4">{{ e.fa }}</div>
-          <div dir="ltr" style="font-family:'Newsreader',serif;font-size:15px;color:#6B6259;text-align:right">{{ e.name }}</div>
-        </a>
-      </sc-for>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#6B6259;border-bottom:1px solid #1C1814;padding-bottom:10px">کارنامه</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/beyond-the-natural-numbers.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/saeideh-bahrami.png" alt="سعیده بهرامی" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:23px;font-weight:600;line-height:1.4">فراتر از اعداد طبیعی</div>
+          <div style="font-size:18px;line-height:1.7;color:#3A332C">درآمدی مقدماتی به مدل‌های نااستانده‌ی حساب، موضوعِ رساله‌ی حمید لسان.</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">سعیده بهرامی و علی عنایت · درباره‌ی حمید لسان</div>
+        </div>
+      </a>
+      <a href="articles/firoozbakht-and-the-machine.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/behrooz-parhami.jpg" alt="بهروز پرهامی" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:23px;font-weight:600;line-height:1.4">ماشینی که نداشت</div>
+          <div style="font-size:18px;line-height:1.7;color:#3A332C">حدسِ فیروزبخت، از اینکه عددِ اول چیست تا کران‌هایی که پشتِ سر می‌گذارد، و اینکه آزمودنش روی مِین‌فریمِ ۱۹۸۲ چه می‌طلبید.</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:13px;color:#6B6259">بهروز پرهامی · درباره‌ی فریده فیروزبخت</div>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -465,6 +459,35 @@ a:hover{color:#C8633E}
     </div>
   </div>
 
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#C8633E">روی پرده</div>
+        <div style="font-size:32px;font-weight:600;line-height:1.35">آدم‌ها و ریاضیات، مجموعهٔ فیلم</div>
+      </div>
+      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">تماشا در یوتیوب ←</a>
+    </div>
+    <div style="font-size:20px;line-height:1.7;color:#3A332C;max-width:720px">گپ و گفتی کنجکاوانه، صادقانه و بی‌پرده با آدم هایی که ریاضیات در زندگی آنها حضوری معنی دار داشته است</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
+        <button onClick="{{ s.select }}" style="font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;background:{{ s.bg }};color:{{ s.fg }}">{{ s.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
+      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
+        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
+          <img src="{{ e.img }}" alt="{{ e.fa }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Vazirmatn',sans-serif;font-size:12px;color:#6B6259">
+            <span>قسمت {{ e.n }}</span>
+            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">زیرنویس انگلیسی</span></sc-if>
+          </div>
+          <div style="font-size:20px;line-height:1.4">{{ e.fa }}</div>
+          <div dir="ltr" style="font-family:'Newsreader',serif;font-size:15px;color:#6B6259;text-align:right">{{ e.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
   <div style="background:#0D0C0B;color:#FBF7EF;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
       <div style="font-family:'Vazirmatn',sans-serif;font-size:14px;color:#E08A66">چرا حمایت؟</div>
@@ -475,7 +498,7 @@ a:hover{color:#C8633E}
     <a href="https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02" target="_blank" rel="noopener" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;background:#C8633E;color:#FBF7EF;padding:14px 22px;white-space:nowrap;text-decoration:none" style-hover="background:#B4552F">هر اندازه که دوست دارید ←</a>
   </div>
 
-  <a href="archive.html" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500;align-self:flex-start">نسخهٔ پیشین ←</a>
+  <div style="display:flex;gap:28px;flex-wrap:wrap"><a href="sections/contributors.html" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500">نویسندگان و همکاران ←</a><a href="archive.html" style="font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:500">نسخهٔ پیشین ←</a></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>

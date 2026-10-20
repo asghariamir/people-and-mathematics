@@ -398,32 +398,29 @@ a:hover{color:#C8633E}
     </div>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:22px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8633E">On film</div>
-        <div style="font-size:32px;font-weight:500;line-height:1.15">People and Mathematics, the series</div>
-      </div>
-      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">Watch on YouTube →</a>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #1C1814;padding-bottom:10px">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6259">Works</div>
+      <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;color:#6B6259" dir="rtl">کارنامه</div>
     </div>
-    <div style="font-size:19px;line-height:1.5;color:#3A332C;max-width:720px;text-wrap:pretty">Curious, honest, and candid conversations with individuals whose lives have been intertwined with mathematics.</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
-        <button onClick="{{ s.select }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;display:flex;gap:8px;align-items:baseline;background:{{ s.bg }};color:{{ s.fg }}"><span>{{ s.label }}</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;opacity:.75">{{ s.fa }}</span></button>
-      </sc-for>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
-      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
-        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
-          <img src="{{ e.img }}" alt="{{ e.name }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Hanken Grotesk',sans-serif;font-size:12px;color:#6B6259">
-            <span>Episode {{ e.n }}</span>
-            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">EN subtitles</span></sc-if>
-          </div>
-          <div style="font-size:19px;line-height:1.2">{{ e.name }}</div>
-          <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;color:#6B6259" dir="rtl">{{ e.fa }}</div>
-        </a>
-      </sc-for>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px">
+      <a href="articles/beyond-the-natural-numbers.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/saeideh-bahrami.png" alt="Saeideh Bahrami" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:22px;font-weight:500;line-height:1.2">Beyond the Natural Numbers</div>
+          <div style="font-size:17px;line-height:1.45;color:#3A332C">An elementary introduction to nonstandard models of arithmetic, the subject of Hamid Lessan’s thesis.</div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">Saeideh Bahrami &amp; Ali Enayat · on Hamid Lesan</div>
+        </div>
+      </a>
+      <a href="articles/firoozbakht-and-the-machine.html" style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start">
+        <img src="assets/behrooz-parhami.jpg" alt="Behrooz Parhami" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:22px;font-weight:500;line-height:1.2">The Machine She Didn’t Have</div>
+          <div style="font-size:17px;line-height:1.45;color:#3A332C">Firoozbakht’s conjecture, from what a prime is to the bounds it beats, and what testing it on a 1982 mainframe would have cost.</div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#6B6259">Behrooz Parhami · on Farideh Firoozbakht</div>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -471,6 +468,35 @@ a:hover{color:#C8633E}
     </div>
   </div>
 
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1C1814;padding-bottom:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8633E">On film</div>
+        <div style="font-size:32px;font-weight:500;line-height:1.15">People and Mathematics, the series</div>
+      </div>
+      <a href="https://www.youtube.com/@asghariamir" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;white-space:nowrap">Watch on YouTube →</a>
+    </div>
+    <div style="font-size:19px;line-height:1.5;color:#3A332C;max-width:720px;text-wrap:pretty">Curious, honest, and candid conversations with individuals whose lives have been intertwined with mathematics.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="6">
+        <button onClick="{{ s.select }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #1C1814;border-radius:999px;padding:7px 16px;display:flex;gap:8px;align-items:baseline;background:{{ s.bg }};color:{{ s.fg }}"><span>{{ s.label }}</span><span style="font-family:'Vazirmatn',sans-serif;font-size:13px;opacity:.75">{{ s.fa }}</span></button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 22px">
+      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="8">
+        <a href="{{ e.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px">
+          <img src="{{ e.img }}" alt="{{ e.name }}" style="width:100%;aspect-ratio:16/9;object-fit:cover;background:#EFE6D2;display:block">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Hanken Grotesk',sans-serif;font-size:12px;color:#6B6259">
+            <span>Episode {{ e.n }}</span>
+            <sc-if value="{{ e.sub }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #B9AE9E;border-radius:3px;padding:0 5px">EN subtitles</span></sc-if>
+          </div>
+          <div style="font-size:19px;line-height:1.2">{{ e.name }}</div>
+          <div style="font-family:'Vazirmatn',sans-serif;font-size:15px;color:#6B6259" dir="rtl">{{ e.fa }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
   <div style="background:#0D0C0B;color:#FBF7EF;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
       <div style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#E08A66">Why donate</div>
@@ -481,7 +507,7 @@ a:hover{color:#C8633E}
     <a href="https://buy.stripe.com/4gMbJ10GTcTs4OkeuPgUM02" target="_blank" rel="noopener" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;background:#C8633E;color:#FBF7EF;padding:14px 22px;white-space:nowrap;text-decoration:none" style-hover="background:#B4552F">Pay what you like →</a>
   </div>
 
-  <a href="archive.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500;align-self:flex-start">Earlier site →</a>
+  <div style="display:flex;gap:28px;flex-wrap:wrap"><a href="sections/contributors.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500">Contributors →</a><a href="archive.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:500">Earlier site →</a></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>

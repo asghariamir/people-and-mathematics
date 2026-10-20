@@ -16,9 +16,9 @@
    The site has TWO languages:  en  = English   |   fa = فارسی (Persian)
 
    ─────────────────────────────────────────────────────────────────────
-   HOW THE JOURNAL IS ORGANISED  (read this once — it's simple)
+   HOW PEOPLE AND MATHEMATICS IS ORGANISED  (read this once — it's simple)
 
-   This is an OPEN journal with six permanent SECTIONS. You add WORKS
+   People and Mathematics stays OPEN, with permanent SECTIONS. You add WORKS
    whenever a new piece is ready — no deadlines. New works gather in
    the one OPEN ISSUE, and when the moment feels right YOU close that
    issue (see ISSUES below): instead of a publication date, an issue
@@ -84,7 +84,7 @@ window.PM_CONTENT = {
 
   /* =====================================================================
      STANDING TITLES  (optional)
-     A person's ONGOING role in the journal — e.g. Founding Editor — as
+     A person's ONGOING role in People and Mathematics — e.g. Founding Editor — as
      opposed to a per-work credit (translator of one piece, etc.). It shows
      as a small badge beside their name on the Contributors page. Keyed by
      the person's name EXACTLY as written in a work's author line.
@@ -105,6 +105,7 @@ window.PM_CONTENT = {
     "Yahya Tabesh": { en: "", fa: "", url: "https://en.wikipedia.org/wiki/Yahya_Tabesh" },
     "Hung-Hsi Wu": { en: "University of California, Berkeley", fa: "دانشگاه کالیفرنیا، برکلی", url: "https://en.wikipedia.org/wiki/Hung-Hsi_Wu" },
     "Ali Enayat": { en: "", fa: "" },
+    "Saeideh Bahrami": { en: "", fa: "" },
     "Donald R. Weidman": { en: "Boston College · the 1965 letter", fa: "بوستون‌کالج · نامهٔ ۱۹۶۵" }
   },
 
@@ -163,7 +164,13 @@ window.PM_CONTENT = {
       n:     { en: "06", fa: "۰۶" },
       name:  { en: "Mathematical Culture",     fa: "فرهنگ ریاضی" },
       blurb: { en: "Life with mathematics and its people.",
-               fa: "زندگی با ریاضی و در کنارِ اهلِ آن." } }
+               fa: "زندگی با ریاضی و در کنارِ اهلِ آن." } },
+
+    { id: "works",
+      n:     { en: "07", fa: "۰۷" },
+      name:  { en: "Works",                    fa: "کارنامه" },
+      blurb: { en: "The mathematics itself: what the people in these pages did, explained for a wider reader.",
+               fa: "خودِ ریاضی: آنچه آدم‌های این صفحه‌ها کردند، برای خواننده‌ای گسترده‌تر." } }
   ],
 
 
@@ -187,7 +194,7 @@ window.PM_CONTENT = {
 
 
   /* =====================================================================
-     THE ISSUES  —  the journal stays open; issues CLOSE.
+     THE ISSUES  —  People and Mathematics stays open; issues CLOSE.
 
      Works are added whenever they are ready and gather in the one OPEN
      issue (the block whose  closed:  is ""). No date is announced in
@@ -408,7 +415,7 @@ window.PM_CONTENT = {
             author: "امیر اصغری", meta: "مقاله" } },
 
     /* ---- History of Mathematics  (companion to the Firoozbakht lead feature) ---- */
-    { section: "history", featured: false,
+    { section: "works", featured: false,
       href: "articles/firoozbakht-and-the-machine.html",
       added: "2026-07-10",
       issue: 1,
@@ -598,11 +605,33 @@ window.PM_CONTENT = {
       img: "logo — People and Mathematics",
       date: { en: "July 2026", fa: "تیر ۱۴۰۵" },
       en: { title: "The Story Behind a Logo",
-            dek: "Three people, three generations of Iranian mathematics, and the art of asking favours: how the journal's emblem came to be.",
+            dek: "Three people, three generations of Iranian mathematics, and the art of asking favours: how the emblem of People and Mathematics came to be.",
             author: "Amir Asghari", meta: "Backstory" },
       fa: { title: "داستان یک لوگو",
-            dek: "سه آدم، سه نسل از ریاضیاتِ ایران، و هنرِ خواهش‌کردن: نشانِ مجله چگونه ساخته شد.",
+            dek: "سه آدم، سه نسل از ریاضیاتِ ایران، و هنرِ خواهش‌کردن: نشانِ آدم‌ها و ریاضیات چگونه ساخته شد.",
             author: "امیر اصغری", meta: "پشتِ صحنه" } },
+
+    /* ---- Works  (companion to the Lesan essay) ---- */
+    { section: "works", featured: true,
+      href: "articles/beyond-the-natural-numbers.html",
+      added: "2026-10-20",
+      issue: 2,
+      level: "undergraduate",
+      authorImg: "assets/saeideh-bahrami.png",
+      credits: [
+        { img: "assets/ali-enayat.jpg",
+          en: { name: "Ali Enayat", role: "Co-author" },
+          fa: { name: "علی عنایت", role: "هم‌نویسنده" } }
+      ],
+      img: "photo — Saeideh Bahrami",
+      contribAuthor: { en: "Saeideh Bahrami", fa: "سعیده بهرامی" },
+      date: { en: "October 2026", fa: "مهر ۱۴۰۵" },
+      en: { title: "Beyond the Natural Numbers",
+            dek: "An elementary introduction to nonstandard models of arithmetic: how they arise, what they look like, and what they reveal. Background for Hamid Lessan’s thesis, Models of Arithmetic.",
+            author: "Saeideh Bahrami & Ali Enayat", meta: "Expository essay" },
+      fa: { title: "فراتر از اعداد طبیعی",
+            dek: "درآمدی مقدماتی به مدل‌های نااستانده‌ی حساب: چه‌گونه پدید می‌آیند، چه شکلی دارند و چه چیزی را آشکار می‌کنند. زمینه‌ای برای فهمِ رساله‌ی حمید لسان، «مدل‌های حساب».",
+            author: "سعیده بهرامی و علی عنایت", meta: "مقاله‌ی توضیحی" } },
 
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,
@@ -647,8 +676,8 @@ window.PM_CONTENT = {
   en: {
     nav: { issues: "Sections", sections: "Read", about: "About", submit: "Contribute", donate: "Why donate" },
 
-    issueKicker: "An open journal · since June 2026",
-    subtitle: "A bilingual journal for teaching, thinking, and conversation in mathematics.",
+    issueKicker: "Open since June 2026",
+    subtitle: "Lives, voices, and encounters in the culture of mathematics in Iran.",
     dedication: "Dedicated to the memory of Safoura Jafari and David Tall",
 
     /* Section-rail heading, and the two browse blocks */
@@ -672,7 +701,7 @@ window.PM_CONTENT = {
     acksTag: "Who read it first",
 
     issuesLabel: "The Issues",
-    issuesTag: "The journal stays open — issues close",
+    issuesTag: "People and Mathematics stays open — issues close",
     issueOpenStatus: "Open — gathering new work",
     issueOpenedWord: "opened",
     issueClosedWord: "Closed",
@@ -682,13 +711,13 @@ window.PM_CONTENT = {
     issueOpenNote: "This issue is open; new work is still joining it.",
 
     noteLabel: "From the Editors",
-    noteTitle: "Why a bilingual journal",
-    noteBody: "Mathematics is made by people, in places, in languages. We wanted a place where the location we are in and the language we speak are no barrier to us — people who want to share their love of mathematics, and through it learn about each other. People and Mathematics is an open journal: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
+    noteTitle: "Why bilingual",
+    noteBody: "Mathematics is made by people, in places, in languages. We wanted a place where the location we are in and the language we speak are no barrier to us — people who want to share their love of mathematics, and through it learn about each other. People and Mathematics stays open: new work joins its sections whenever it is ready, and the lead essay changes from time to time. It belongs to its readers. Write to us.",
     noteSign: "The Editors",
 
     getKicker: "Why donate",
     getTitle: "For teaching — for everyone who keeps trying.",
-    getBody: "The journal is free to use. Every article can be downloaded as a PDF from its own page — free to read, print, and share in class. And yet, without your support, our passion might not carry us far enough. So please consider supporting People and Mathematics — to keep it alive not only for those who might learn from it, but also for those whose contribution to the journal is their own way to freedom.",
+    getBody: "People and Mathematics is free to use. Every article can be downloaded as a PDF from its own page — free to read, print, and share in class. And yet, without your support, our passion might not carry us far enough. So please consider supporting People and Mathematics — to keep it alive not only for those who might learn from it, but also for those whose contribution to it is their own way to freedom.",
     browseCta: "Browse the sections",
     browseMeta: "Six sections · pick one",
     donateCta: "Pay what you like",
@@ -703,7 +732,7 @@ window.PM_CONTENT = {
     pubLine: "A publication of mathswell.com",
     footerLinks: ["Contributors", "Sections", "Contact", "RSS"],
     youtubeLabel: "Films on YouTube",
-    backToJournal: "← Back to the journal",
+    backToJournal: "← Back to People and Mathematics",
     readCta: "Read"
   },
 
@@ -711,8 +740,8 @@ window.PM_CONTENT = {
   fa: {
     nav: { issues: "بخش‌ها", sections: "خواندن", about: "درباره", submit: "مشارکت", donate: "چرا حمایت؟" },
 
-    issueKicker: "مجله‌ای باز · از خرداد ۱۴۰۵",
-    subtitle: "مجله‌ای دوزبانه برای آموزش، اندیشیدن و گفت‌وگو در ریاضیات.",
+    issueKicker: "باز از خرداد ۱۴۰۵",
+    subtitle: "زندگی‌ها، صداها و روایت‌هایی از فرهنگ ریاضی در ایران",
     dedication: "به یادِ صفورا جعفری و دیوید تال",
 
     sectionsLabel: "بخش‌ها",
@@ -735,7 +764,7 @@ window.PM_CONTENT = {
     acksTag: "کسانی که پیش از همه خواندند",
 
     issuesLabel: "دفترها",
-    issuesTag: "مجله باز می‌مانَد — دفترها بسته می‌شوند",
+    issuesTag: "آدم‌ها و ریاضیات باز می‌مانَد — دفترها بسته می‌شوند",
     issueOpenStatus: "باز — در حالِ گردآوری",
     issueOpenedWord: "گشوده از",
     issueClosedWord: "بسته شد",
@@ -745,13 +774,13 @@ window.PM_CONTENT = {
     issueOpenNote: "این دفتر باز است؛ مطالبِ تازه هنوز به آن می‌پیوندند.",
 
     noteLabel: "از سردبیران",
-    noteTitle: "چرا مجله‌ای دوزبانه",
-    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم جایی باشد که مکانی که در آن هستیم و زبانی که به آن سخن می‌گوییم مانعِ ما نباشد — ما، آدم‌هایی که می‌خواهیم عشقمان به ریاضی را با هم قسمت کنیم و از این راه یکدیگر را بشناسیم. «آدم‌ها و ریاضیات» مجله‌ای باز است: هر گاه کاری تازه آماده شود به بخش‌هایش افزوده می‌شود و مقاله‌ی اصلی هرازگاهی تغییر می‌کند. از آنِ خوانندگانش است. برای ما بنویسید.",
+    noteTitle: "چرا دوزبانه",
+    noteBody: "ریاضیات را آدم‌ها می‌سازند؛ در مکان‌ها، در زبان‌ها. می‌خواستیم جایی باشد که مکانی که در آن هستیم و زبانی که به آن سخن می‌گوییم مانعِ ما نباشد — ما، آدم‌هایی که می‌خواهیم عشقمان به ریاضی را با هم قسمت کنیم و از این راه یکدیگر را بشناسیم. «آدم‌ها و ریاضیات» باز است: هر گاه کاری تازه آماده شود به بخش‌هایش افزوده می‌شود و مقاله‌ی اصلی هرازگاهی تغییر می‌کند. از آنِ خوانندگانش است. برای ما بنویسید.",
     noteSign: "سردبیران",
 
     getKicker: "چرا حمایت؟",
     getTitle: "برای آموزش، برای آن‌ها که می‌کوشند.",
-    getBody: "این مجله رایگان است. هر مقاله را می‌توانید از صفحهٔ خودش به‌شکلِ پی‌دی‌اف دانلود کنید — برای خواندن، چاپ‌کردن و هم‌رسانی در کلاس. و با این‌همه، بی‌پشتیبانیِ شما، شورِ ما شاید ما را چندان دور نبرد. پس اگر می‌توانید، از «آدم‌ها و ریاضیات» حمایت کنید — تا زنده بماند؛ نه تنها برای آن‌ها که از آن می‌آموزند، که برای آن‌ها نیز که مشارکت در این مجله راهِ آزادیِ آنان است.",
+    getBody: "آدم‌ها و ریاضیات رایگان است. هر مقاله را می‌توانید از صفحهٔ خودش به‌شکلِ پی‌دی‌اف دانلود کنید — برای خواندن، چاپ‌کردن و هم‌رسانی در کلاس. و با این‌همه، بی‌پشتیبانیِ شما، شورِ ما شاید ما را چندان دور نبرد. پس اگر می‌توانید، از «آدم‌ها و ریاضیات» حمایت کنید — تا زنده بماند؛ نه تنها برای آن‌ها که از آن می‌آموزند، که برای آن‌ها نیز که مشارکت در آن راهِ آزادیِ آنان است.",
     browseCta: "مرورِ بخش‌ها",
     browseMeta: "شش بخش · یکی را برگزینید",
     donateCta: "هر اندازه که دوست دارید",
@@ -766,7 +795,7 @@ window.PM_CONTENT = {
     pubLine: "منتشرشده در mathswell.com",
     footerLinks: ["نویسندگان و همکاران", "بخش‌ها", "تماس", "RSS"],
     youtubeLabel: "فیلم‌ها در یوتیوب",
-    backToJournal: "بازگشت به مجله →",
+    backToJournal: "بازگشت به آدم‌ها و ریاضیات →",
     readCta: "خواندن"
   }
 };

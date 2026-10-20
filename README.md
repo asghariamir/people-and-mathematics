@@ -1,6 +1,6 @@
 # People and Mathematics · آدم‌ها و ریاضیات
 
-A bilingual online journal for teaching, thinking, and conversation in mathematics.
+Lives, voices, and encounters in the culture of mathematics in Iran.
 A **Mathswell** publication.
 
 ---
@@ -81,7 +81,7 @@ To edit the issue's words, edit the text directly inside
 
 ## ❤️ "Pay what you like" support (Stripe)
 
-The journal is free; support is a gift, never a gate.
+People and Mathematics is free; support is a gift, never a gate.
 
 1. In **Stripe → Payment Links**, create a link with
    **"Let customers choose what to pay"** turned ON.

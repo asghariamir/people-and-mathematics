@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>فراتر از اعداد طبیعی · Beyond the Natural Numbers · People and Mathematics</title>
+<meta name="description" content="Saeideh Bahrami and Ali Enayat: an elementary introduction to nonstandard models of arithmetic, the subject of Hamid Lessan's thesis.">
+<meta property="og:title" content="Beyond the Natural Numbers — Saeideh Bahrami & Ali Enayat">
+<meta property="og:description" content="فراتر از اعداد طبیعی · People and Mathematics — آدم‌ها و ریاضیات">
+<meta property="og:image" content="../assets/bahrami-enayat-zchains-en.png">
+<meta property="og:type" content="article">
+<link rel="icon" href="../assets/logo.jpg">
+
+<template id="__bundler_thumbnail" data-bg-color="#FBF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FBF7EF"/>
+    <text x="600" y="430" font-family="Georgia, serif" font-size="220" fill="#1C1814" text-anchor="middle">ω+ζη</text>
+    <rect x="420" y="560" width="360" height="12" fill="#C8633E"/>
+  </svg>
+</template>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+  :root { --accent: #C8633E; --ink: #1C1814; --paper: #FBF7EF; --black: #0D0C0B; --muted: #6B6155; --line: #E4DAC6; --screen: #F4EEDF; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; font-family: Newsreader, "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  a { color: var(--accent); }
+  a:hover { color: var(--ink); }
+
+  .topband { background: var(--black); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 40px; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; }
+  .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 6px; }
+  .brand-fa { font-family: "Vazirmatn", sans-serif; font-size: 18px; font-weight: 600; line-height: 1.05; }
+  .brand-en { font-size: 12.5px; font-style: italic; color: #B9AE9B; margin-top: 2px; }
+  .langtoggle { display: inline-flex; border: 1px solid #4A443B; border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; cursor: pointer; padding: 7px 15px; font-size: 12.5px; font-weight: 600; background: transparent; color: var(--paper); font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; }
+  .langtoggle button.on { background: var(--paper); color: var(--black); }
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 40px; border-bottom: 1px solid var(--ink); }
+  .subbar a { text-decoration: none; color: inherit; }
+  .crumb { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); }
+
+  .article { max-width: 760px; margin: 0 auto; padding: 54px 28px 40px; }
+  .kicker { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+  h1.title { font-size: 46px; line-height: 1.15; font-weight: 500; letter-spacing: -.02em; margin: 16px 0 0; }
+  .standfirst { font-size: 19px; line-height: 1.8; color: #43392E; margin: 18px 0 0; text-wrap: pretty; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; margin-top: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .byline .who { display: flex; align-items: center; gap: 10px; }
+  .avchip { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+  .avmono { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: #EFE6D2; display: flex; align-items: center; justify-content: center; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 14px; font-weight: 600; color: var(--muted); }
+  .byline .name { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 15px; font-weight: 600; }
+  .byline .amp { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 14px; color: var(--muted); }
+
+  .body { font-size: 18px; line-height: 2; margin-top: 30px; }
+  .body p { margin: 0 0 18px; }
+  h2.sec { font-family: "Vazirmatn", serif; font-size: 26px; font-weight: 600; margin: 48px 0 16px; line-height: 1.4; }
+  h3.sub { font-family: "Vazirmatn", serif; font-size: 20px; font-weight: 600; margin: 34px 0 12px; }
+  .run { font-weight: 700; }
+  .gl { font-family: Newsreader, Georgia, serif; font-size: .78em; color: var(--muted); direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+  .gl::before { content: "("; } .gl::after { content: ")"; }
+  .dline { text-align: center; margin: 14px 0 18px !important; }
+  .thm { margin: 24px 0; padding: 16px 20px; background: var(--screen); border: 1px solid var(--line); border-radius: 3px; }
+  .thm p:last-child { margin-bottom: 0; }
+  .thm .lab { font-family: "Vazirmatn", "Hanken Grotesk", sans-serif; font-weight: 700; font-size: .92em; }
+  .proof { margin: 0 0 22px; }
+  .proof .lab { font-style: italic; font-weight: 600; }
+  .proof p:last-child::after { content: "∎"; float: inline-end; color: var(--muted); }
+  .remark { margin: 22px 0; }
+  .remark .lab { font-weight: 700; font-style: italic; }
+  .axioms { columns: 2; column-gap: 32px; margin: 8px 0 20px; padding: 0; list-style: none; }
+  .axioms li { break-inside: avoid; display: flex; gap: 10px; }
+  .axioms .n { font-family: "Hanken Grotesk", sans-serif; font-size: 14px; color: var(--muted); min-width: 40px; direction: ltr; }
+  .qs { padding-inline-start: 26px; margin: 0 0 20px; }
+  .qs li { margin-bottom: 14px; }
+  .cite { text-decoration: none; white-space: nowrap; }
+  .katex { font-size: 1.05em; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+  [dir="rtl"] .katex { direction: ltr; unicode-bidi: isolate; }
+
+  figure.plate { margin: 32px 0; }
+  figure.plate img { display: block; width: 100%; border: 1px solid var(--line); background: #fff; }
+  .figcap { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 12.5px; color: var(--muted); line-height: 1.8; margin-top: 9px; }
+  .secnote { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); line-height: 1.9; margin: 16px 0 24px; padding-inline-start: 13px; border-inline-start: 2px solid var(--line); }
+  .notes { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13.5px; line-height: 1.9; color: #43392E; margin-top: 34px; }
+
+  .refs { margin-top: 30px; }
+  .refs h2 { font-family: "Vazirmatn", serif; font-size: 22px; font-weight: 600; margin: 0 0 8px; }
+  .refs ol { font-family: Newsreader, Georgia, serif; font-size: 15px; line-height: 1.7; color: #43392E; padding-left: 28px; margin: 10px 0 0; direction: ltr; text-align: left; }
+  .refs li { margin-bottom: 8px; }
+  .refs li:target { background: #F1E7D2; }
+
+  .colophon { margin-top: 46px; border-top: 2px solid var(--ink); padding-top: 22px; }
+  .origin { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); line-height: 1.9; }
+  .origin .lab { color: #948876; letter-spacing: .1em; text-transform: uppercase; font-size: 10px; font-weight: 600; }
+  .pdfbtn { display: inline-block; font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; margin-top: 20px; }
+  .pdfbtn:hover { color: var(--accent); }
+
+  .footer { border-top: 1px solid var(--ink); padding: 30px 40px 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .footer .fl { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; color: var(--muted); }
+  .footer a.back { font-family: "Hanken Grotesk", "Vazirmatn", sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 18px; }
+
+  [dir="rtl"] body, [dir="rtl"] { font-family: "B Nazanin", "Vazirmatn", "Noto Naskh Arabic", Georgia, serif; }
+  [dir="rtl"] h1.title { font-family: "Vazirmatn", serif; }
+  [dir="rtl"] .body p, [dir="rtl"] .standfirst { text-align: justify; }
+  [dir="ltr"] .body { font-size: 19px; line-height: 1.7; }
+  [dir="ltr"] .body p { text-align: justify; hyphens: auto; }
+  [dir="ltr"] h2.sec, [dir="ltr"] h3.sub, [dir="ltr"] .refs h2 { font-family: Newsreader, serif; font-weight: 600; }
+  [dir="ltr"] .thm .lab { font-family: Newsreader, serif; }
+  [dir="ltr"] .thm .stmt { font-style: italic; }
+  [dir="ltr"] .standfirst { font-style: italic; line-height: 1.55; }
+  [data-lang-block] { display: none; }
+  [data-lang-block].active { display: block; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 16mm 14mm; }
+    body { background: #fff; }
+    .topband, .subbar, .footer, .langtoggle, .pdfbtn { display: none !important; }
+    .article { max-width: none; padding: 0; }
+    figure.plate, .thm { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+  @media (max-width: 640px) {
+    .topband, .subbar { padding-left: 20px; padding-right: 20px; }
+    .article { padding: 34px 20px 32px; }
+    h1.title { font-size: 32px; }
+    .standfirst { font-size: 17px; }
+    .body { font-size: 16.5px; }
+    .axioms { columns: 1; }
+    .thm { padding: 14px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topband">
+  <a class="brand" href="../index.html">
+    <img src="../assets/logo.jpg" alt="People and Mathematics">
+    <span><span class="brand-fa">آدم‌ها و ریاضیات</span><br><span class="brand-en">People and Mathematics</span></span>
+  </a>
+  <div class="langtoggle">
+    <button data-lang="fa" class="on" onclick="setLang('fa')">فارسی</button>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+<div class="subbar">
+  <div class="crumb"><a href="../index.html" data-en="People and Mathematics" data-fa="آدم‌ها و ریاضیات"></a></div>
+  <div class="crumb"><span data-en="Works · Issue 02" data-fa="کارنامه · دفترِ دوم"></span></div>
+</div>
+
+
+<!-- =================== فارسی =================== -->
+<article class="article" data-lang-block="fa" dir="rtl" lang="fa">
+  <div class="kicker">کارنامه</div>
+  <h1 class="title">فراتر از اعداد طبیعی</h1>
+  <div class="standfirst">این مقاله‌ی توضیحی، درآمدی مقدماتی به مدل‌های نااستانده‌ی حساب، برای خوانندگانی که آشنایی اندکی با منطق ریاضی دارند، فراهم می‌کند. با ارائه‌ی چند نمونه‌ی روشن از چه‌گونگی ساخت مدل‌ها و گزیده‌ای از قضیه‌های کلاسیک، نشان می‌دهیم که مدل‌های نااستانده چه‌گونه پدید می‌آیند، چه شکلی دارند، و چه ‌ویژگی‌های ساختاری و محاسباتی برجسته‌ای از خود نشان می‌دهند. در این‌جا هدف ما آشنا ساختن خواننده با مفاهیم اساسی مدل‌های نااستانده‌ی حساب است، تا از این طریق درکی از موضوع و محتوای رساله‌ی لسان به دست آید.</div>
+  <div class="byline">
+    <span class="who"><img class="avchip" src="../assets/saeideh-bahrami.png" alt="سعیده بهرامی"><span class="name">سعیده بهرامی</span></span>
+    <span class="amp">و</span>
+    <span class="who"><img class="avchip" src="../assets/ali-enayat.jpg" alt="علی عنایت"><span class="name">علی عنایت</span></span>
+  </div>
+
+  <div class="body">
+    <p><span class="run">درباره‌ی این مقاله.</span> این نوشته‌ مکمل نوشته‌ی امیر اصغری در معرفی حمید لسان است <a class="cite" href="#fa-r1">[۱]</a>. رساله‌ی دکتری لسان، با عنوان <span class="ltr" dir="ltr">Models of Arithmetic</span>، که در سال ۱۹۷۸ در دانشگاه منچستر به پایان رسید و در سال ۲۰۱۳ تجدید چاپ شد <a class="cite" href="#fa-r2">[۲]</a>، به مدل‌های نااستانده‌ی<span class="gl">Nonstandard models</span> حساب می‌پرداخت. هدف ما در این‌جا مرور این رساله نیست، زیرا چنین کاری مستلزم آشنایی با حوزه‌های پیش‌رفته‌ی منطق ریاضی است؛ بل‌که می‌خواهیم خوانندگان را با موضوع کلی آن، یعنی نظریه‌ی ساختاری مدل‌های نااستانده‌ی حساب، آشنا کنیم.</p>
+
+    <p>اهمیت این موضوع به پرسش‌های مربوط به مبانی ریاضیات محدود نمی‌شود. آبراهام رابینسون<span class="gl">Abraham Robinson</span> با پایه‌ریزی <em>آنالیز نااستانده</em><span class="gl">Nonstandard analysis</span> از گسترش‌های نااستانده‌ی دستگاه اعداد حقیقی بهره گرفت تا چارچوبی دقیق برای بی‌نهایت‌کوچک‌ها و روش‌های مرتبط در آنالیز فراهم کند <a class="cite" href="#fa-r6">[۶، ۷]</a>. در زمینه‌ای دیگر، مدل‌های نااستانده‌ در علوم کامپیوتر نظری کاربرد یافته‌اند؛ این مدل‌ها ابزارهایی برای بررسی پیچیدگی محاسباتی و طول برهان‌های گزاره‌ای فراهم می‌کنند <a class="cite" href="#fa-r8">[۸، ۹]</a>. این پیوندها انگیزه‌ی دیگری برای درک این موضوع فراهم می‌کنند که چرا حساب می‌تواند مدل‌های نااستانده داشته باشد.</p>
+
+    <p>از دیدگاه نظریه‌ی مدل، دستگاه اعداد طبیعی یکی از ساختارهای بنیادی ریاضیات است: دنباله‌ها، الگوریتم‌ها، فرمول‌ها، و حتی برهان‌های صوری را می‌توان با اعداد طبیعی کدگذاری کرد. برای مطالعه‌ی چنین ساختاری، نخست باید زبانی برای عناصر، ‌‌عمل‌ها و روابط آن مشخص کرد. برای این منظور، در ادامه زبان حساب را با جزییات بیش‌تری بررسی می‌کنیم.</p>
+
+    <h3 class="sub">سخنی درباره‌ی زبان‌های مرتبه‌اول</h3>
+
+    <p>پیش از معرفی زبان حساب، بیاید به اختصار یادآوری کنیم که منظور از یک <em>زبان مرتبه‌اول</em><span class="gl">First-order language</span> چیست. چنین زبانی شامل نمادهایی برای ساختارهای ریاضی مورد نظر — برای مثال، نمادهایی برای ‌‌عمل‌ها و روابط —، به همراه نمادهای منطقی معمول زیر است:</p>
+    \[ \neg,\qquad \wedge,\qquad \vee,\qquad \longrightarrow,\qquad \forall,\qquad \exists,\qquad =. \]
+    <p>چهار نماد نخست همان رابط‌های بولی آشنا هستند: $\neg\varphi$ یعنی «نقیضِ $\varphi$»، $\varphi\wedge\psi$ یعنی «$\varphi$ و $\psi$»، $\varphi\vee\psi$ یعنی «$\varphi$ یا $\psi$»، و $\varphi\to\psi$ یعنی «اگر $\varphi$، آن‌گاه $\psi$». نمادهای $\forall$ و $\exists$ <em>سورها</em><span class="gl">Quantifiers</span> هستند:</p>
+    <p class="dline">$\forall x\,\varphi(x)$ یعنی «برای هر $x$، $\varphi(x)$»،</p>
+    <p>و</p>
+    <p class="dline">$\exists x\,\varphi(x)$ یعنی «$x$ای وجود دارد که $\varphi(x)$».</p>
+    <p>عبارت‌هایی که مطابق قواعد نحوی معمول از نمادهای زبان، متغیرها، تساوی، رابط‌های بولی و سورها ساخته می‌شوند <em>فرمول</em><span class="gl">Formula</span> نام دارند. وقوع یک متغیر در یک فرمول را <em>مقید</em><span class="gl">Bound</span> ‌می‌نامیم هر گاه در حوزه‌ی تاثیر سوری متناظر قرار داشته باشد؛ در غیر این صورت، <em>آزاد</em><span class="gl">Free</span> است. متغیری را در یک فرمول آزاد می‌نامیم هر گاه در آن فرمول وقوع آزادی داشته باشد. به عنوان مثال، در فرمولِ</p>
+    \[ \exists y\,(x=y) \]
+    <p>وقوع $y$ به‌ وسیله‌ی سور $\exists y$ مقید است، در حالی که $x$ آزاد است. فرمولی که هیچ متغیر آزادی ندارد <em>جمله</em><span class="gl">Sentence</span> نامیده می‌شود. بنابراین یک جمله، بدون آن‌که ابتدا مقداری به متغیرها نسبت داده شود، در یک ساختار می‌تواند صادق یا کاذب باشد.</p>
+
+    <p>پس آن‌چه در این چارچوب یک زبان ریاضی را از زبانی دیگر متمایز می‌کند نمادهای منطقی آن نیست — زیرا که این نمادها ثابت‌اند — بلکه <em>نمادهای غیرمنطقی</em><span class="gl">Nonlogical symbols</span> آن است: نمادهایی که برای توصیف ‌‌عمل‌ها و روابط ساختارهای مورد مطالعه برگزیده می‌شود.</p>
+
+    <p>یک نمونه‌‌ی آشنا، زبان مرتبه‌اول $L_G$ برای گروه‌ها است. می‌توانیم زبان $L_G$ را دارای تنها یک نماد غیرمنطقی $*$ برای ‌‌عملی دوتایی در نظر بگیریم. می‌توان گروه‌ها را تنها با استفاده از همین زبان اصل‌بندی کرد. شرکت‌پذیری با جمله‌ی زیر بیان می‌شود:</p>
+    \[ (G_1):\quad \forall x\,\forall y\,\forall z\,\bigl((x*y)*z=x*(y*z)\bigr). \]
+    <p>گرچه معمولاً گروه را به صورت $(G,*,e,{}^{-1})$ می‌نویسیم، عنصر همانی و ‌‌عمل‌ معکوس به وسیله‌ی $*$ <em>تعریف‌پذیر</em><span class="gl">Definable</span>ند. به بیان دقیق‌تر، عنصر همانی تنها عنصری است که در $L_G$-فرمول زیر صدق می‌کند:</p>
+    \[ \operatorname{Id}(e)\;:\Longleftrightarrow\;\forall x\,(e*x=x\wedge x*e=x). \]
+    <p>و این‌که $y$ معکوس $x$ است با $L_G$-فرمول زیر بیان می‌شود:</p>
+    \[ \operatorname{Inv}(e,x,y)\;:\Longleftrightarrow\;(x*y=e\wedge y*x=e). \]
+    <p>بنابراین وجود عنصر همانی و معکوس‌ را نیز، بدون افزودن نمادی در زبان برای هیچ‌‌کدام، می‌توان با جمله‌ی زیر بیان کرد:</p>
+    \[ (G_2):\quad \exists e\ \bigl(\operatorname{Id}(e)\ \wedge\ \forall x\,\exists y\,(\operatorname{Inv}(e,x,y))\bigr). \]
+    <p>بنابراین یک گروه صرفاً یک $L_G$-ساختارِ $(G,*)$ است که دو جمله‌ی $G_1$ و $G_2$ را برآورده می‌کند.</p>
+
+    <p>دو ساختار مشخص برای همین زبان عبارت‌اند از گروه جمعی $(\mathbb Z,+)$، که در آن $*$ به صورت جمع تعبیر می‌شود، و گروه $(S_3,\circ)$ شامل شش‌ جایگشت از سه شیء، که در آن $*$ به صورت $\circ$ (یعنی ترکیب) تعبیر می‌شود. اولی نامتناهی و آبلی است و دومی متناهی و ناآبلی، اما هر دو را می توان به عنوان ساختارهایی برای یک زبان تلقی کرد. این مطلب نکته‌ی مهمی را روشن می‌کند: <em>یک زبان مشخص می‌کند درباره‌ی چه چیزهایی می‌توان سخن گفت، اما تعیین نمی‌کند که درباره‌ی کدام ساختار صحبت می‌کنیم؛ نمادهای غیرمنطقی آن ممکن است در ساختارهای مختلف تعبیرهای متفاوتی داشته باشند.</em></p>
+
+    <p>اگر $M$ یک ساختار و $\varphi$ یک جمله‌ی مرتبه‌اول باشد، عبارتِ</p>
+    \[ M\models\varphi \]
+    <p>خوانده می‌شود «$M$، $\varphi$ را برآورده می‌کند» یا به سادگی «$\varphi$ در $M$ صادق است». به طور کلی‌تر، اگر $\varphi(x_1,\ldots,x_n)$ فرمولی باشد که $x_1$، $\ldots$، $x_n$ فهرستی از متغیرهای آزاد آن‌، و $a_1$، $\ldots$، $a_n$ عناصری از $M$ باشد، آن‌گاه عبارتِ</p>
+    \[ M\models\varphi(a_1,\ldots,a_n) \]
+    <p>به این معناست که هر گاه متغیرهای آزاد $\varphi$ با $a_1$، $\ldots$، $a_n$ تعبیر شود، $\varphi$ در $M$ صادق باشد.</p>
+
+    <p>در این‌جا یک مثال ساده می‌آوریم. $L_G$-فرمول $\varphi(x,y)$ برابر با $x*y=y*x$ را در نظر بگیرید. توجه کنید که هر دو متغیر $x$ و $y$ در $\varphi$ آزادند. در گروه $S_3$ عناصر زیر را در نظر بگیرید:</p>
+    <p class="dline">$a_1=(1\,2\,3)$ و $a_2=(1\,3\,2)$.</p>
+    <p>چون $a_2=a_1^{-1}$، این دو جایگشت با هم جابه‌جا می‌شوند. بنابراین:</p>
+    \[ (S_3,\circ)\models\varphi(a_1,a_2). \]
+    <p>به بیان دیگر، فرمول $\varphi(x,y)$ در ساختار $S_3$ هنگامی صادق است که $x$ با $(1\,2\,3)$ و $y$ با $(1\,3\,2)$ تعبیر شود. در مقابل، $(1\,2)$ و $(2\,3)$ با هم جابه‌جا نمی‌شوند، پس</p>
+    \[ S_3\models\lnot\varphi\bigl((1\,2),(2\,3)\bigr). \]
+
+    <p>مطابق معمول، هرگاه خطر ایجاد ابهام نباشد، از یک نماد یک‌سان برای ساختار و مجموعه‌ی عناصر آن (یا <em>دامنه</em><span class="gl">Domain</span>) استفاده می‌کنیم. بنابراین اگر $M$ یک ساختار باشد، می‌توانیم هم بنویسیم $a\in M$ و هم $M\models\varphi$؛ در عبارت نخست $M$ به دامنه‌ی ساختار اشاره دارد و در عبارت دوم به خود ساختار. تنها هنگامی که مفید باشد این دو را صریحاً از یکدیگر متمایز می‌کنیم.</p>
+
+    <p>منظور از یک <em>نظریه</em><span class="gl">Theory</span> مجموعه‌ای از جمله‌ها در یک زبان مشخص است. اگر $T$ یک نظریه باشد، $M\models T$ یعنی $M$ همه‌ی جمله‌های $T$ را برآورده می‌کند؛ در این صورت $M$ را <em>مدلی از $T$</em><span class="gl">A model of T</span> می‌نامیم. بنابراین $M\models\PA$ یعنی $M$ همه‌ی اصول نظریه‌ی حساب پئانو<span class="gl">Peano arithmetic</span> را برآورده می‌کند؛ نظریه‌ای که در بخش بعد با آن آشنا می‌شویم.</p>
+
+    <h2 class="sec">۱. اصول حساب</h2>
+    <p>ما در زبان مرتبه‌اول زیر کار می‌کنیم:</p>
+    \[ L_A=\{0,1,+,\cdot,\lt\}. \]
+    <p>اعداد طبیعیِ معمولی $L_A$-ساختار زیر را تشکیل می‌دهند:</p>
+    \[ \N=(\{0,1,2,\ldots\},0,1,+,\cdot,\lt). \]
+    <p>در بحث ما، هر $L_A$-ساختاری که مجموعه‌ی مشخصی از اصول حساب را برآورده کند <em>مدلی از حساب</em><span class="gl">A model of arithmetic</span> نامیده می‌شود. یک مدل از حساب را <em>استانده</em><span class="gl">Standard</span> می‌نامیم هرگاه با $\N$ ‌یک‌ریخت باشد؛ در غیر این صورت آن را <em>نااستانده</em><span class="gl">Nonstandard</span> می‌نامیم.</p>
+
+    <p>ابتدا نظریه‌ی <em>بدون استقرا</em><span class="gl">Induction-free</span>ی $\PAm$ را معرفی می‌کنیم. این نظریه دقیقاً بخش‌های نامنفی حلقه‌های مرتب گسسته را اصل‌بندی می‌کند، یعنی حلقه‌های مرتبی که در آن‌ها $1$ کوچک‌ترین عنصر مثبت است <a class="cite" href="#fa-r3">[۳، فصل ۲]</a>. از $x\le y$ به عنوان مخفف $x\lt y\lor x=y$ استفاده می‌کنیم.</p>
+
+    <p><span class="run">اصول $\PAm$.</span> برای همه‌ی $x,y,z$ها داریم:</p>
+    <ul class="axioms" dir="ltr">
+      <li><span class="n">(P1)</span><span>$(x+y)+z=x+(y+z)$</span></li>
+      <li><span class="n">(P2)</span><span>$x+y=y+x$</span></li>
+      <li><span class="n">(P3)</span><span>$(x\cdot y)\cdot z=x\cdot(y\cdot z)$</span></li>
+      <li><span class="n">(P4)</span><span>$x\cdot y=y\cdot x$</span></li>
+      <li><span class="n">(P5)</span><span>$x\cdot(y+z)=x\cdot y+x\cdot z$</span></li>
+      <li><span class="n">(P6)</span><span>$x+0=x$ و $x\cdot0=0$</span></li>
+      <li><span class="n">(P7)</span><span>$x\cdot1=x$</span></li>
+      <li><span class="n">(P8)</span><span>$(x\lt y\wedge y\lt z)\to x\lt z$</span></li>
+      <li><span class="n">(P9)</span><span>$\neg(x\lt x)$</span></li>
+      <li><span class="n">(P10)</span><span>$x\lt y\lor x=y\lor y\lt x$</span></li>
+      <li><span class="n">(P11)</span><span>$x\lt y\to x+z\lt y+z$</span></li>
+      <li><span class="n">(P12)</span><span>$(0\lt z\wedge x\lt y)\to x\cdot z\lt y\cdot z$</span></li>
+      <li><span class="n">(P13)</span><span>$x\lt y\to\exists z\,(x+z=y)$</span></li>
+      <li><span class="n">(P14)</span><span>$0\lt 1$ و $x\gt 0\to x\ge1$</span></li>
+      <li><span class="n">(P15)</span><span>$x\ge0$</span></li>
+    </ul>
+    <p>هفت اصل نخست قوانین آشنای نیم‌حلقه‌ی جابه‌جایی را بیان می‌کنند؛ اصول باقی‌مانده بیان‌گر این هستند که ترتیبْ خطی است، با عمل‌های حساب سازگاری دارد، و گسسته است. اصل (P13) می‌گوید اگر $x\lt y$، آن‌گاه تفاضل $y-x$ در بخش نامنفی موجود است. این اصل‌ها در مجموع دقیقاً همان چیزی را به دست می‌دهند که با در نظر گرفتن بخش نامنفی یک حلقه‌ی مرتب گسسته حاصل می‌شود.</p>
+
+    <p><span class="run">اصول $\PA$.</span> حساب پئانو با افزودن <em>شِمای استقرا</em><span class="gl">Induction scheme</span> به $\PAm$ به دست می‌آید. یعنی برای هر $L_A$-فرمول مرتبه‌اول $\varphi(x,\bar y)$، اصل زیر را اضافه می‌کنیم:</p>
+    \[ \forall\bar y\,\Bigl[\bigl(\varphi(0,\bar y)\wedge\forall x\,[\varphi(x,\bar y)\to\varphi(x+1,\bar y)]\bigr)\to\forall x\,\varphi(x,\bar y)\Bigr]. \tag{1} \]
+    <p>بنابراین</p>
+    <p class="dline">$\boxed{\ \PA=\PAm+\ }$ استقرا برای هر فرمول مرتبه‌اول</p>
+    <p>این <em>شِما</em><span class="gl">Scheme</span> یک شِمای نامتناهی است، یعنی: به ازای هر $L_A$-فرمول $\varphi$ یک اصل استقرا داریم. تفاوت میان $\PAm$ و $\PA$ در دو ساختار نخست ما آشکار خواهد شد.</p>
+    <p>در بخش بعد، ابتدا تنها با استفاده از ابزارهای جبری یک مدل نااستانده از $\PAm$ می‌سازیم.</p>
+
+    <h2 class="sec">۲. مدلی نااستانده از $\PAm$</h2>
+    <p>فرض کنید $t$ یک متغیر مستقل باشد و میدان زیر را در نظر بگیرید:</p>
+    \[ K=\Q(t)=\left\{\frac{p(t)}{q(t)}:p,q\in\Q[t],\ q\ne0\right\}. \]
+    <p>ترتیبی روی $K$ در نظر می‌گیریم به طوری که متغیر حقیقی $t$ مثبت باشد و به سمت بی‌نهایت میل ‌کند. به بیان دقیق‌تر، برای تابع گویای ناصفر $f$ تعریف می‌کنیم:</p>
+    <p class="dline">$f\gt 0$ هرگاه برای همه‌ی $r$های حقیقیِ به‌اندازه‌ی کافی بزرگ داشته باشیم $f(r)\gt 0$.</p>
+    <p>هر تابع گویای ناصفر از جایی به بعد علامت ثابتی دارد: برای $r$های بزرگ، علامت آن را ضرایب پیش‌روی صورت و مخرج تعیین می‌کنند. در نتیجه دقیقاً یکی از $f\gt 0$، $f=0$، یا $-f\gt 0$ برقرار است؛ قوانین معمول ترتیب نیز از نامساوی‌های نهایی نتیجه می‌شوند.</p>
+
+    <p><span class="run">ارشمیدسی در برابر ناارشمیدسی.</span> یادآوری می‌کنیم که میدان مرتب $F$ را <em>ارشمیدسی</em><span class="gl">Archimedean</span> می‌نامیم هر گاه به ازای هر عنصر $x\in F$ عدد صحیح مثبت معمول $n$ای وجود داشته باشد به طوری که $x\lt n$. برای مثال، $\Q$ و $\mathbb R$ ارشمیدسی‌اند. میدان مرتب $F$ <em>ناارشمیدسی</em><span class="gl">Non-Archimedean</span> است اگر شامل عنصر $a$ای باشد به طوری که:</p>
+    <p class="dline">برای هر عدد صحیح مثبت $n$ داشته باشیم $a\gt n$.<sup><a href="#fa-fn1" class="cite">۱</a></sup></p>
+    <p>چنین عنصری را <em>بی‌نهایت‌بزرگ</em><span class="gl">Infinitely large</span> می‌نامیم. به طور معادل، این میدان دارای یک <em>بی‌نهایت‌کوچک</em><span class="gl">Infinitesimal</span> مثبت است؛ به این معنا که شامل عنصر $\varepsilon\gt 0$ای است که:</p>
+    <p class="dline">برای هر عدد صحیح مثبت $n$ داشته باشیم $\varepsilon\lt\frac1n$.</p>
+    <p>در واقع، معکوس یک عنصر بی‌نهایت‌بزرگ بی‌نهایت‌کوچک است و برعکس.</p>
+
+    <div class="thm"><p><span class="lab">گزاره‌ی ۲.۱.</span> <span class="stmt">$K$ یک میدان مرتب شامل $\Q$ است و</span></p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots\lt t. \]
+    <p><span class="stmt">به‌ویژه، $K$ ناارشمیدسی است.</span></p></div>
+    <div class="proof"><p><span class="lab">برهان.</span> برای هر عدد صحیح ثابت $n$، چندجمله‌ای $t-n$ از جایی به بعد مثبت است، پس $t\gt n$. از سوی دیگر، در هر میدان مرتب ارشمیدسی هر عنصر به‌ وسیله‌ی یک عدد طبیعی از بالا کران‌دار می‌شود. بنابراین $K$ ارشمیدسی نیست.</p></div>
+    <p>در نتیجه $t$ بی‌نهایت‌بزرگ و $1/t$، $1/t^2$، و $\ldots$ بی‌نهایت‌کوچک‌اند. بنابراین میدان مرتب $K$ هم عناصر بی‌نهایت‌بزرگ دارد و هم عناصر بی‌نهایت‌کوچک، هرچند که عمل‌های حساب آن چیزی جز اعمال حساب توابع گویا نیست.</p>
+
+    <p><span class="run">یادداشت تاریخی.</span> این مثال نسخه‌ای ساده‌شده از روش ساختی است که دیوید هیلبرت<span class="gl">David Hilbert</span> در <span dir="ltr">Foundations of Geometry</span> (۱۸۹۹، فصل ۱۲) به کار برد. هیلبرت میدان بزرگ‌تری از توابع جبریِ $t$ را، بر حسب علامت آن‌ها روی مقادیر مثبت به‌ اندازه‌ی کافی بزرگ $t$، مرتب کرد و از آن برای اثبات استقلال اصل ارشمیدسی در هندسه استفاده کرد <a class="cite" href="#fa-r18">[۱۸]</a>. پیش از آن نیز پژوهش‌هایی روی هندسه‌ی ناارشمیدسی توسط جوزپه ورونزه<span class="gl">Giuseppe Veronese</span> انجام گرفته بود <a class="cite" href="#fa-r19">[۱۹]</a>.</p>
+
+    <p>اکنون زیرحلقه‌ای طبیعی از $K$ را در نظر می‌گیریم:</p>
+    \[ I=\Z+t\Q[t]=\{m+a_1t+\cdots+a_dt^d:m\in\Z,\ a_i\in\Q\}. \tag{2} \]
+    <p>برای مثال، $t/2$، $t^2/7-3t+5$، و $t$ در $I$ هستند، اما $1/2$ در آن نیست. به‌ آسانی می‌توان دید که $I$ یک حلقه است.</p>
+
+    <div class="thm"><p><span class="lab">گزاره‌ی ۲.۲.</span> <span class="stmt">حلقه‌ی $I$ به‌طور گسسته مرتب است. قوی‌تر از آن این که، $I$ یک <em>بخش صحیح</em><span class="gl">Integer part</span> از $K$ است: برای هر $f\in K$ عنصر $a\in I$ای وجود دارد به طوری که:</span></p>
+    \[ a\le f\lt a+1. \tag{3} \]</div>
+    <div class="proof"><p><span class="lab">برهان.</span> هر چندجمله‌ای غیرثابت در $I$ از جایی به بعد یا از $1$ بزرگ‌تر است یا از $0$ کوچک‌تر؛ و هر عنصر ثابت $I$ یک عدد صحیح است. پس $1$ کوچک‌ترین عنصر مثبت $I$ است.</p>
+    <p>برای اثبات ادعای قوی‌تر، طبق تقسیم چندجمله‌ای‌ها، هر $f\in K$ را می‌توان به صورت زیر نوشت:</p>
+    \[ f(t)=q(t)+\varepsilon(t),\qquad q\in\Q[t],\quad \varepsilon(t)\longrightarrow0\quad(t\to+\infty). \]
+    <p>قرار دهید $q(t)=p(t)+c$، که در آن $p\in t\Q[t]$ و $c\in\Q$. اگر $c$ عددی صحیح نباشد، برای $t$های به‌اندازه‌ی کافی بزرگ داریم $\lfloor c\rfloor\le c+\varepsilon(t)\lt\lfloor c\rfloor+1$؛ پس با قرار دادن $a=p+\lfloor c\rfloor$ برهان کامل است. اگر $c$ عددی صحیح باشد، در صورتی که $\varepsilon$ از جایی به بعد نامنفی باشد قرار می‌دهیم $a=p+c$، و در غیر این صورت $a=p+c-1$. در هر حالت $a\in I$ و (۳) برقرار است.</p></div>
+
+    <p>مجموعه‌ی $I^{\ge0}=\{a\in I:a\ge0\}$ را، با همان عمل‌ها و ترتیبی که از $I$ به ارث می‌برد، در نظر بگیرید. چون $I$ یک حلقه‌ی مرتب گسسته است، نتیجه می‌گیریم که:</p>
+    \[ \boxed{\quad (I^{\ge0},0,1,+,\cdot,\lt)\models\PAm.\quad} \]
+    <p>$I^{\ge0}$ یک مدل نااستانده از حساب ضعیف $\PAm$ است: عنصر $t$ از هر عدد طبیعی معمولی بزرگ‌تر است. در واقع، بر هر عدد صحیح مثبت معمولی بخش‌پذیر است، زیرا $t/n\in I$.</p>
+
+    <p><span class="run">نگاهی دیگر به این روش ساخت.</span> می‌توان مدل ساخته‌شده در بالا را به شیوه‌ای سودمند بازنویسی کرد که زمینه‌ساز ساخت مدل نااستانده‌ای از حساب پئانو در ادامه‌ی بحث باشد. فرض کنید $\mathcal E$ مجموعه‌ی همه‌ی آن توابع $f:\N\to\Q$ای باشد که <em>سرانجام یک چندجمله‌ای</em><span class="gl">Eventually polynomial</span> روی $I$ هستند: یعنی برای $p\in I$ای داشته باشیم:</p>
+    <p class="dline">برای همه‌ی $n$های به اندازه‌ی کافی بزرگ $f(n)=p(n)$.</p>
+    <p>تعریف می‌کنیم:</p>
+    <p class="dline">$f\sim_{\mathrm{fin}}g\iff$ برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ $f(n)=g(n)$.</p>
+    <p>روی خانواده‌ی کلاس‌های هم‌ارزی حاصل از رابطه‌ی $\sim_{\mathrm{fin}}$ اعمال جمع و ضرب را به صورت نقطه‌به‌نقطه و ترتیب را به صورت زیر تعریف می‌کنیم:</p>
+    <p class="dline">$[f]\lt[g]\iff$ برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ $f(n)\lt g(n)$.</p>
+    <p>هر کلاس هم‌ارزی شامل یک تابع یک‌تای $n\mapsto p(n)$ است به طوری که $p\in I$ است؛ بنابراین داریم:</p>
+    \[ \mathcal E/{\sim_{\mathrm{fin}}}\cong I. \]
+    <p>برای مثال، چندجمله‌ای $t$ متناظر با کلاس تابع $n\mapsto n$ با مقادیر زیر است:</p>
+    \[ 0,1,2,3,\ldots. \]
+    <p>و $t/2$ متناظر با کلاس $n\mapsto n/2$ است که مقادیر آن عبارت‌اند از:</p>
+    \[ 0,\frac12,1,\frac32,2,\ldots. \]
+    <p>بنابراین بخش نامنفی این فضای خارج‌قسمتی صرفاً نمایش دیگری از مدل $I^{\ge0}$ از $\PAm$ است.</p>
+    <p>در نتیجه، با یکی‌ گرفتن تابع‌هایی که از جایی به بعد با هم برابرند، یا به‌طور معادل، روی زیرمجموعه‌ای هم‌متناهی<span class="gl">Cofinite</span> (یعنی زیرمجموعه‌ای با مکمل متناهی) از $\N$ توافق دارند، ساختار حسابی جدیدی از تابع‌ها ساخته‌ایم. اهمیت این دیدگاه در ساخت مدلی از نظریه‌ی قوی‌تر $\PA$ در ادامه روشن خواهد شد.</p>
+
+    <p><span class="run">ترتیب ساختار چه شکلی دارد؟</span> ترتیب این مدل خاص را نیز می‌توان به‌ صراحت توصیف کرد. عناصر استانده‌ی آن یک <em>قطعه‌ی آغازین</em><span class="gl">Initial segment</span> تشکیل می‌دهند؛ به این معنا که اگر $m$ یک عدد طبیعی معمولی باشد و $a\lt m$ در $I^{\ge0}$ صادق باشد، آن‌گاه $a=k$ برای یک $k\lt m$ معمولی:</p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots. \]
+    <p>اگر $a\in I^{\ge0}$ عنصری نااستانده باشد، آن‌گاه $a$ از هر عدد طبیعی معمولی بزرگ‌تر است و از این رو دنباله‌ی زیر یک زنجیر دوسویه با <em>نوع ترتیب</em><span class="gl">Order type</span> $\Z$ تشکیل می‌دهد:</p>
+    \[ \ldots\lt a-2\lt a-1\lt a\lt a+1\lt a+2\lt\ldots. \]
+    <p>دنباله‌ی فوق را یک <em>$\Z$-زنجیرِ</em><span class="gl">Z-chain</span> شامل $a$ می‌نامیم. دو عنصر نااستانده دقیقاً هنگامی در یک $\Z$-زنجیر قرار دارند که تفاضلشان یک عدد صحیح معمولی باشد. خودِ $\Z$-زنجیرهای متفاوت به‌طور چگال مرتب‌اند. در واقع، اگر $a\lt b$ در دو زنجیر متفاوت باشند، $b-a$ بی‌نهایت‌بزرگ است. به کمک گزاره‌ی ۲.۲، $d\in I$ را چنان انتخاب کنید که:</p>
+    \[ d\le\frac{b-a}{2}\lt d+1. \]
+    <p>آن‌گاه $\Z$-زنجیر حول $a+d$ اکیداً میان زنجیرهای شامل $a$ و $b$ قرار می‌گیرد. هم‌چنین هیچ زنجیر نااستانده‌ای نخستین یا آخرین زنجیر نااستانده نیست: برای مثال، زنجیر شامل جزء صحیح $a/2$ و زنجیر حول عنصر $2a$، به ترتیب، اکیداً کم‌تر و بیش‌تر از زنجیر حول $a$ هستند.</p>
+    <p>پس، همان‌گونه که در شکل ۱ نشان داده شده است، این مدل خاص تشکیل شده است از قطعه‌ی آغازین استانده‌‌ی</p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots \]
+    <p>و پس از آن مجموعه‌ای به‌طور چگال مرتب از $\Z$-زنجیرها تشکیل شده است. بعداً به نوع ترتیب این تصویر بازخواهیم گشت.</p>
+
+    <figure class="plate" id="fa-fig1">
+      <img src="../assets/bahrami-enayat-zchains-fa.png" alt="ترتیب I≥0: قطعه‌ی آغازین استانده و پس از آن Z-زنجیرها">
+      <figcaption class="figcap">شکل ۱. ترتیب $I^{\ge0}$: پس از قطعه‌ی آغازین استانده، $\Z$-زنجیرهایی قرار دارند که به‌طور چگال مرتب شده‌اند. برچسب‌های $-2,-1,0,1,2$ فاصله از مرکزهای انتخاب‌شده‌اند و عناصر منفی مدل نیستند.</figcaption>
+    </figure>
+
+    <p><span class="run">چرا استقرا شکست می‌خورد؟</span> مثال زیر از این جهت سودمند است که نمونه‌ی مشخصی از شِمای (۱) را نشان می‌دهد که برقرار نیست. فرمول زیر را در نظر بگیرید:</p>
+    \[ \varphi(x)\;:\Longleftrightarrow\;\exists y\,\bigl(y^2\le x\lt(y+1)^2\bigr). \tag{4} \]
+    <p>این فرمول بیان می‌کند که $x$ میان دو مربع متوالی قرار دارد. فرمول برای $0$ صادق است. افزون بر این، در هر حلقه‌ی مرتب گسسته، اگر $y^2\le x\lt(y+1)^2$، آن‌گاه یا $x+1\lt(y+1)^2$ است (پس همان $y$ برای $x+1$ کار می‌کند)، یا $x+1=(y+1)^2$ است (پس $y+1$ کار می‌کند). بنابراین $\varphi(x)\to\varphi(x+1)$ نیز در سراسر $I^{\ge0}$ برقرار است.</p>
+    <p>اما $\varphi(t)$ کاذب است: اگر $y\in I^{\ge0}$ غیرثابت باشد، با مقایسه‌ی درجات چندجمله‌ای‌ها $y^2\gt t$؛ و اگر $y$ ثابت باشد، یک عدد صحیح نامنفی معمولی است و $(y+1)^2\lt t$. پس هیچ $y$ای (۴) را برای $x=t$ برآورده نمی‌کند. بنابراین</p>
+    \[ I^{\ge0}\not\models\PA. \]
+    <p>روش ساخت بعدی دقیقاً این نقص را برطرف می‌کند.</p>
+
+    <h2 class="sec">۳. برهانی کوتاه برای وجود با بهره‌گیری از فشردگی</h2>
+    <p>وجود مدل‌های نااستانده‌ی حساب پئانو را می‌توان با برهانی بسیار کوتاه نشان داد. این برهان بر قضیه‌ای کلی در منطق مرتبه‌‌اول تکیه دارد که در ادامه، بدون برهان، بیان می‌کنیم (برای نمونه به <a class="cite" href="#fa-r17">[۱۷]</a> نگاه کنید).</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۳.۱ (قضیه‌ی فشردگی<span class="gl">Compactness</span> برای منطق مرتبه‌اول).</span> <span class="stmt">فرض کنید $T$ هر مجموعه‌ای از جمله‌های مرتبه‌اول در یک زبان ثابت باشد. اگر هر زیرمجموعه‌ی متناهی $T$ مدلی داشته باشد، آن‌گاه خود $T$ نیز مدلی دارد.</span></p></div>
+    <p>از یک قضیه‌ی استانده دیگر در منطق مرتبه‌اول نیز، باز بدون برهان، استفاده خواهیم کرد.</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۳.۲ (قضیه‌ی لوونهایم-اسکولم<span class="gl">Löwenheim–Skolem</span>).</span> <span class="stmt">اگر نظریه‌ای در یک زبان مرتبه‌اول شمارا مدلی نامتناهی داشته باشد، آن‌گاه مدلی شمارا نیز دارد.</span></p></div>
+    <div class="thm"><p><span class="lab">گزاره‌ی ۳.۳.</span> <span class="stmt">یک مدل شمارای نااستانده از $\PA$ وجود دارد.</span></p></div>
+    <div class="proof"><p><span class="lab">برهان.</span> یک نماد ثابت تازه $c$ به زبان حساب بیفزایید و نظریه‌ی زیر را در نظر بگیرید (که در آن $\overline n$ <em>عددنما</em><span class="gl">Numeral</span>ی $n$ است؛ یعنی مجموع $n$تا عدد $1$، و یا در حالتی که $n=0$ برابر با $0$ است):</p>
+    \[ T=\PA\;\cup\;\{\overline n\lt c:n\in\N\}. \]
+    <p>هر زیرمجموعه‌ی متناهی $T$ مدلی دارد: نمادهای حسابی را با ساختار اعداد طبیعی معمولی تعبیر کنید و $c$ را بزرگ‌تر از همه‌ی تعداد متناهی عددنمای ذکرشده انتخاب کنید. در نتیجه، بنا بر فشردگی، $T$ مدلی دارد. چون $T$ نظریه‌ای در یک زبان شماراست و هر مدل $T$ نامتناهی است، قضیه‌ی لوونهایم-اسکولم مدلی شمارا از $T$ به دست می‌دهد. اکنون با فراموش کردن تفسیر $c$، مدل شمارای $M$ از $\PA$ باقی می‌ماند که عنصری بزرگ‌تر از هر عددنمای استانده دارد. پس $M$ نااستانده است.</p></div>
+    <p>برهان بالا مثل یک <em>جعبه‌‌ی دربسته</em> است: فشردگی و لوونهایم-اسکولم وجود یک مدل شمارای نااستانده را تضمین می‌کنند، اما به ما نمی‌گویند عناصر و اعمال آن چگونه ساخته شده‌اند. اکنون روش ساختی صریح ارائه می‌کنیم که عناصرش کلاس‌های هم‌ارزیِ توابع آشنا هستند.</p>
+
+    <h2 class="sec">۴. یک مدل نااستانده از حساب پئانو</h2>
+    <p>در این بخش گونه‌ای از روش ساخت اسکولم برای یک مدل نااستانده‌ی حساب، متعلق به دهه‌ی ۱۹۳۰، را ارائه می‌کنیم <a class="cite" href="#fa-r5">[۵]</a>. شکل ۲ رابطه‌ی میان این روش ساخت و مدل پیشین ما از $\PAm$ را نشان می‌دهد.</p>
+    <figure class="plate" id="fa-fig2">
+      <img src="../assets/bahrami-enayat-comparison-fa.png" alt="تکرار دوباره‌ی یک ایده: مدل PA⁻ و مدل PA">
+      <figcaption class="figcap">شکل ۲. یک الگوی ساخت یک‌سان در دو چارچوب. در مدل $\PAm$، دو تابع هنگامی یکی گرفته می‌شوند که از جایی به بعد با هم برابر باشند، یا به طور معادل روی یک مجموعه‌ی هم‌متناهی توافق داشته باشند. در فراتوان تعریف‌پذیر، دو تابع هنگامی یکی گرفته می‌شوند که روی مجموعه‌ای متعلق به فراپالایه‌ی $\U$ با هم برابر باشند.</figcaption>
+    </figure>
+
+    <h3 class="sub">گام ۱: یک فراپالایه روی مجموعه‌های تعریف‌پذیر</h3>
+    <p>زیرمجموعه‌ی $A\subseteq\N$ را <em>حسابی</em><span class="gl">Arithmetical</span> می‌نامیم هر گاه برای یک $L_A$-فرمول $\theta(n)$ داشته باشیم:</p>
+    \[ A=\{n\in\N:\N\models\theta(n)\}. \]
+    <p>خانواده‌ی $\A$ از مجموعه‌های حسابی شماراست، همه‌ی مجموعه‌های متناهی را دربر می‌گیرد، و نسبت به مکمل، اجتماع متناهی و اشتراک متناهی بسته است. آن را به صورت $A_0,A_1,\ldots$ فهرست کنید.</p>
+    <p>دنباله‌ای نزولی از مجموعه‌های حسابی <em>نامتناهی</em> $C_0\supseteq C_1\supseteq\cdots$ به صورت زیر می‌سازیم. قرار دهید $C_0=\N$. در مرحله‌ی $n$، دست‌ِ کم یکی از $C_n\cap A_n$ و $C_n\setminus A_n$ نامتناهی است؛ یکی از این دو مجموعه‌ی نامتناهی را به عنوان $C_{n+1}$ برگزینید. تعریف کنید:</p>
+    <p class="dline">$\U=\{A\in\A:$ $n$ای وجود دارد به طوری که $C_n\subseteq A\}$. &nbsp;&nbsp;(۵)</p>
+    <p>خانواده‌ی $\U$ شامل $\N$ است و نسبت به ابرمجموعه‌ها<span class="gl">Supersets</span> و اشتراک‌های متناهی بسته است. برای هر $A\in\A$، داریم $A\in\U$ یا $\N\setminus A\in\U$، زیرا $A$ در فهرست ما ظاهر می‌شود. ویژگی‌های بیان‌شده در دو جمله‌ی قبل برای $\U$ را خاصیت <em>فراپالایه</em><span class="gl">Ultrafilter</span> می‌نامیم. هیچ مجموعه‌ی متناهی عضو $\U$ نیست، چون هر $C_n$ نامتناهی است. به زبان جبرهای بولی، $\U$ یک فراپالایه‌ی <em>غیراصلی</em><span class="gl">Nonprincipal</span> روی جبر بولی $\A$ است. توجه کنید که این روش ساخت در ریاضیات معمولی انجام می‌شود؛ ادعا نمی‌کنیم که خود $\U$ در زبان حساب تعریف‌پذیر است.</p>
+
+    <h3 class="sub">گام ۲: دنباله‌های تعریف‌پذیر و کلاس‌های آن‌ها</h3>
+    <p>$\F$ را مجموعه‌ی همه‌ی توابع $f:\N\to\N$ قرار می‌دهیم که <em>نمودار</em><span class="gl">Graph</span> آن‌ها حسابی است؛ به این معنا که $L_A$-فرمول $\theta(x,y)$ای وجود دارد که نمودار $f$ را تعریف می‌کند (با در نظر گرفتن نمودار $f$ به عنوان زیرمجموعه‌ای از حاصل‌ضرب دکارتی $\N\times\N$). این‌ توابع دقیقا <em>توابع به‌طور حسابی تعریف‌پذیر</em><span class="gl">Arithmetically definable functions</span> هستند. هر تابع ثابت و تابع همانی $\mathrm{id}(n)=n$ در $\F$ قرار دارد. هم‌چنین اگر $f,g\in\F$، آن‌گاه $f+g$ و $fg$ نیز در $\F$ قرار دارند.</p>
+    <p>برای $f,g\in\F$ تعریف می‌کنیم:</p>
+    \[ f\sim g\quad\Longleftrightarrow\quad\{n:f(n)=g(n)\}\in\U. \]
+    <p>این یک رابطه‌ی هم‌ارزی است. کلاس $f$ را با $[f]$ نشان می‌دهیم و قرار می‌دهیم $M=\F/\!\sim$. عمل‌های حساب را روی کلاس‌ها به صورت نقطه‌به‌نقطه تعریف می‌کنیم:</p>
+    <p class="dline">$[f]+[g]=[f+g]$ و $[f]\cdot[g]=[fg]$،</p>
+    <p>و قرار می‌دهیم:</p>
+    \[ [f]\lt[g]\quad\Longleftrightarrow\quad\{n:f(n)\lt g(n)\}\in\U. \]
+    <p>این تعریف‌ها به نماینده‌های انتخاب‌شده وابسته نیستند، زیرا $\U$ نسبت به اشتراک‌های متناهی بسته است.</p>
+
+    <h3 class="sub">گام ۳: چرا هر $L_A$-جمله حفظ می‌شود؟</h3>
+    <p>نتیجه‌ی کلیدی زیر در زمینه‌ی فراتوان‌ها معمولاً <em>قضیه‌ی واش</em><span class="gl">Łoś's theorem</span> نامیده می‌شود.</p>
+    <div class="thm"><p><span class="lab">لم ۴.۱ (لم صدق).</span> <span class="stmt">برای هر $L_A$-فرمول $\psi(x_1,\ldots,x_k)$ و هر $f_1,\ldots,f_k\in\F$ داریم:</span></p>
+    \[ M\models\psi([f_1],\ldots,[f_k])\quad\Longleftrightarrow\quad\{n:\N\models\psi(f_1(n),\ldots,f_k(n))\}\in\U. \tag{6} \]</div>
+    <div class="proof"><p><span class="lab">طرحی از برهان.</span> برهان را با استقرا روی نحوه‌ی ساخته شدن $\psi$ پیش می‌بریم. برای تساوی‌ و نامساوی‌، قضیه از تعریف‌ نتیجه می‌شود. برای نقیض از این واقعیت استفاده می‌کنیم که $\U$ دقیقاً یکی از یک مجموعه‌ی تعریف‌پذیر و مکمل آن را در بر می‌گیرد. و برای عطف از بسته بودن نسبت به اشتراک استفاده می‌شود.</p>
+    <p>تنها حالت دشوار $\exists y\,\psi(\bar x,y)$ است. فرض کنید مجموعه‌ی تمام اندیس‌های $n$ای که در آن‌ها شاهدی برای $\psi(f_1(n),\ldots,f_k(n),y)$ وجود دارد عضو $\U$ باشد. برای همه‌ی چنین $n$هایی، $g(n)$ را <em>کوچک‌ترین</em> شاهد بگیرید و اگر شاهدی وجود ندارد قرار دهید $g(n)=0$. نمودار $g$ حسابی است: عبارت «$g(n)$ کوچک‌ترین شاهد $\psi(f_1(n),\ldots,f_k(n),y)$ است» خود با یک $L_A$-فرمول بیان می‌شود. پس $g\in\F$، و $[g]$ در $M$ شاهد لازم را برای $\psi([f_1],\ldots,[f_k],y)$ فراهم می‌کند. جهت عکس (۶) نیز به سادگی نتیجه می‌شود. به این ترتیب، گزاره‌ی (۶) را با استقرا روی فرمول‌ها ثابت کردیم.</p></div>
+
+    <div class="thm"><p><span class="lab">قضیه‌ی ۴.۲.</span> <span class="stmt">$M$ یک <em>مدل شمارای نااستانده از $\PA$</em> است.</span></p></div>
+    <div class="proof"><p><span class="lab">برهان.</span> با توجه به لم صدق و این‌که فراپالایه‌ی ما حاوی مجموعه‌ی اعداد طبیعی است، هر اصل حساب پئانو در $M$ صادق است. چون فقط تعداد شمارایی $L_A$-فرمول وجود دارد؛ در نتیجه تعداد شمارایی تابع در $\F$ وجود دارد، و بنابراین $M$ شماراست.</p>
+    <p>قرار دهید $h=[\mathrm{id}]$. برای هر $m\in\N$ داریم:</p>
+    \[ \{n:n\gt m\}\in\U, \]
+    <p>زیرا مکمل آن متناهی است. پس $h\gt[f_m]$ در $M$ صادق است (که در آن $f_m$ تابع ثابت با مقدار $m$ است). بنابراین عنصر $h$ از هر عددنمای استانده بزرگ‌تر است؛ پس $M$ نااستانده است.</p></div>
+
+    <div class="remark"><p><span class="lab">ملاحظه‌ی ۴.۳.</span> نسخه‌ی $\N$ که از کلاس‌های ثابت تشکیل شده است یک <em>قطعه‌ی آغازین</em> از $M$ است؛ به این معنا که اگر $a=[f]\lt\overline m$ در $M$ صادق باشد، آن‌گاه $a=\overline k$ برای یک $k\lt m$ استانده. این امر از افراز مجموعه‌ی $\U$-بزرگِ $\{n:f(n)\lt m\}$ به تعداد متناهی مجموعه‌ی $\{n:f(n)=k\}$ برای $k$های کم‌تر از $m$ و استفاده از خاصیت فراپالایه نتیجه می‌شود. با این‌ حال، <em>بزرگ‌ترین</em><span class="gl">Largest</span> عنصر استانده‌ای وجود ندارد، یعنی نسخه‌ی استانده درون $M$ نقطه‌ی پایانی ندارد.</p></div>
+
+    <h2 class="sec">۵. یک مدل نااستانده چه شکلی دارد؟</h2>
+    <p>مدل مشخص $I^{\ge0}$ از $\PAm$ تصویر اولیه‌ای را به دست داد: اعداد طبیعی استانده و پس از آن‌ها خانواده‌ای به‌طور چگال مرتب از $\Z$-زنجیرها. مشاهده‌ای کلاسیک از لئون هنکین<span class="gl">Leon Henkin</span> نشان می‌دهد که همین تصویر، به شکلی شگفت‌آور، ترتیب هر مدل نااستانده‌ی شمارای حساب کامل پئانو را نیز توصیف می‌کند (<a href="#fa-fig1">شکل ۱</a> را ببینید).</p>
+    <p>این مشاهده را هنکین در سال ۱۹۵۰ ثبت کرده است <a class="cite" href="#fa-r12">[۱۲]</a>. در برهان آن از یک قضیه‌ی کلاسیک از کانتور<span class="gl">G. Cantor</span> استفاده می‌شود: <em>هر ترتیب خطی شمارای چگال و بدون ابتدا و انتها با $(\Q,\lt)$ یک‌ریخت است</em> (نگاه کنید به <a class="cite" href="#fa-r10">[۱۰، ۱۱]</a>).</p>
+    <p>در این متن برای ترکیب نوع‌های ترتیب از نمادگذاری معمول استفاده می‌کنیم: اگر $\alpha$ و $\beta$ نوع ترتیب باشند، <em>جمع ترتیبی</em><span class="gl">Order sum</span> $\alpha+\beta$ با قرار دادن نسخه‌ای از ترتیب از نوع $\beta$ پس از همه‌ی عناصر ترتیبی از نوع $\alpha$ به دست می‌آید. <em>ضرب ترتیبی</em><span class="gl">Order product</span> $\alpha\cdot\beta$ با جایگزین کردن هر نقطه‌ی ترتیبی از نوع $\beta$ با نسخه‌ای از ترتیبی از نوع $\alpha$ به دست می‌آید، به طوری که این نسخه‌ها مطابق ترتیب $\beta$ مرتب شده باشند. <em>این اعمال به آرایش‌های مرتب مربوط‌اند و نباید با جمع و ضرب معمول اعداد اصلی اشتباه شوند.</em></p>
+    <p>فرض کنید $\omega$، $\zeta$ و $\eta$ به‌ترتیب نوع‌های ترتیب $\N$، $\Z$ و $\Q$ باشند. بنابراین $\zeta\cdot\eta$ یعنی نسخه‌هایی از $\Z$ که مانند $\Q$ مرتب شده‌اند، و $\omega+\zeta\cdot\eta$ یعنی یک نسخه‌ی آغازین از $\N$ و پس از آن خانواده‌ی به‌طور چگال مرتبی از $\Z$-زنجیرها و بدون زنجیر ابتدا و انتها.</p>
+
+    <div class="thm"><p><span class="lab">قضیه‌ی ۵.۱ (قضیه‌ی نوع ترتیب هنکین).</span> <span class="stmt">هر مدل شمارای نااستانده $M\models\PA$ دارای نوع ترتیب زیر است:</span></p>
+    \[ \boxed{\qquad\omega+\zeta\cdot\eta.\qquad} \]</div>
+    <div class="proof"><p><span class="lab">طرحی از برهان.</span> ‌عناصر استانده‌ی $M$ قطعه‌ای آغازین از نوع ترتیب $\omega$ تشکیل می‌دهند. برای هر $a\in M$ نااستانده، عناصر</p>
+    \[ \ldots\lt a-2\lt a-1\lt a\lt a+1\lt a+2\lt\ldots \]
+    <p>یک $\Z$-زنجیر دوسویه تشکیل می‌دهند. دو عنصر نااستانده دقیقاً هنگامی در یک زنجیر قرار دارند که تفاضلشان یک عدد صحیح استانده باشد.</p>
+    <p>در این‌جا استدلالی مشابه آن‌چه برای مدل مشخص $I^{\ge0}$ به کار بردیم، می‌آوریم: اگر $a\lt b$ در دو زنجیر متفاوت باشند، $b-a$ از هر عدد صحیح استانده بزرگ‌تر است. تقسیم با باقیمانده بر $2$، که در $\PA$ برقرار است، زنجیری اکیداً میان آن دو به دست می‌دهد. همچنین زنجیرهای شامل جزء صحیح $a/2$ و $2a$ نشان می‌دهند که نه نخستین زنجیر نااستانده‌ای وجود دارد و نه آخرین آن.</p>
+    <p>چون $M$ شماراست، ترتیب زنجیرهای نااستانده آن یک ترتیب خطی شمارای چگال و بدون ابتدا و انتهاست. <em>دقیقاً در اینجا قضیه‌ی کانتور به کار می‌آید</em>: زنجیرها مانند $\Q$ مرتب شده‌اند. هر زنجیر نوع ترتیب $\zeta$ دارد، پس اجتماع آن‌ها نوع $\zeta\cdot\eta$ دارد. با افزودن قطعه‌ی آغازین استانده در ابتدا، $\omega+\zeta\cdot\eta$ به دست می‌آید.</p></div>
+
+    <div class="remark"><p><span class="lab">ملاحظه‌ی ۵.۲.</span> قضیه‌ی هنکین فقط <em>ترتیب</em> را توصیف می‌کند. دو مدل شمارای نااستانده از $\PA$ ممکن است دقیقاً همین نوع ترتیب را داشته باشند، در حالی که اعمال جمع و ضرب آن‌ها بسیار متفاوت باشد. بنابراین شکل ۱، هرچند تصویر درست ترتیب هر مدل شمارای نااستانده $\PA$ را نشان می‌دهد، تصویری از اعمال حسابی آن‌ها به دست نمی‌دهد.</p></div>
+
+    <h3 class="sub">یک اصل ساده اما مهم: سرریز</h3>
+    <p>یکی از ویژگی‌های بنیادی مدل‌های نااستانده‌ی حساب <em>اصل سرریز</em><span class="gl">Overspill principle</span> است. این اصل صورت‌های سودمند متعددی دارد؛ صورت زیر برای مقاصد ما کافی است (برای بحث بیشتر بنگرید به <a class="cite" href="#fa-r3">[۳]</a>).</p>
+    <div class="thm"><p><span class="lab">گزاره‌ی ۵.۳ (سرریز).</span> <span class="stmt">فرض کنید $M\models\PA$ نااستانده باشد و $\varphi(x)$ فرمولی مرتبه‌اول، احتمالاً با <em>پارامترهایی</em> از $M$، باشد (یعنی برخی عناصر ثابت $M$ موقتاً با نمادهای ثابت اضافی نام‌گذاری شده باشند). اگر</span></p>
+    <p class="dline">برای هر $n\in\N$ داشته باشیم $M\models\varphi(\overline n)$،</p>
+    <p><span class="stmt">آن‌گاه عنصر نااستانده‌ی $a\in M$ وجود دارد که $M\models\varphi(a)$.</span></p></div>
+    <p>‌به زبان غیررسمی، خاصیتی که با یک فرمول مرتبه‌اول بیان‌پذیر است نمی‌تواند هم برای همه‌ی اعداد طبیعی استانده برقرار باشد و هم درست در مرزی نادیدنی میان بخش استانده و نااستانده متوقف شود؛ این خاصیت ناگزیر به ناحیه‌ی نااستانده «سرریز» می‌کند.</p>
+    <p>یک نتیجه‌ی فوری و مهم این است که نسخه‌ی استانده‌ی $\N$ درون $M$ با هیچ فرمول مرتبه‌اولی، حتی با پارامترهایی از $M$، تعریف‌پذیر نیست. در واقع، اگر $\theta(x)$ دقیقاً عناصر استانده را تعریف می‌کرد، $\theta(0)$ صادق بود و در سراسر $M$ صدق $\theta(x)$ مستلزم صدق $\theta(x+1)$ می‌شد. آن‌گاه شِمای استقرا نتیجه می‌داد که $\theta(x)$ برای هر عنصر $M$ برقرار است، که با نااستانده بودن $M$ تناقض دارد. این یکی از نخستین نشانه‌هاست که «بخش استانده» از بیرون مدل کاملاً روشن است، اما از درون خود مدل دست‌نیافتنی است.</p>
+
+    <h2 class="sec">۶. چند مدل شمارا وجود دارد؟</h2>
+    <p>فراتوان تعریف‌پذیر، یک مدل شمارای نااستانده به دست داد. قضیه‌ی فشردگی (قضیه‌ی ۳.۱) نشان می‌دهد که این تنها بخش کوچکی از ماجراست.</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۶.۱.</span> <span class="stmt">تا مرز یک‌ریختی، دقیقاً به تعداد $2^{\aleph_0}$ مدل شمارای نااستانده از $\PA$ وجود دارد.</span></p></div>
+    <div class="proof"><p><span class="lab">طرحی از برهان.</span> فرض کنید $p_0,p_1,p_2,\ldots$ اعداد اول معمولی باشند. زبان حساب را با یک نماد ثابت جدید $c$ گسترش دهید، و برای هر مجموعه‌ی $S\subseteq\N$، $T_S$ را نظریه‌ای بگیرید که با افزودن اصول زیر به $\PA$ به دست می‌آید:</p>
+    \[ \begin{array}{ll} \textup{(1)} & \overline n\lt c \qquad (n\in\N),\\[2mm] \textup{(2)} & \overline{p_n}\mid c \qquad (n\in S),\\[2mm] \textup{(3)} & \overline{p_n}\nmid c \qquad (n\notin S), \end{array} \]
+    <p>که در آن $\overline m$ عددنمای $m$ است و $\overline{p_n}\mid c$ مخفف گزاره‌ی زیر است:</p>
+    \[ \exists y\,(c=\overline{p_n}\cdot y). \]
+    <p>هر زیرمجموعه‌ی متناهی $T_S$ مدلی در $\N$ دارد: در واقع، حاصل‌ضرب تعداد متناهی اعداد اولی را که باید مقسوم‌علیه $c$ باشد را در نظر بگیرید (اگر چنین اعداد اولی در زیرمجموعه‌ی متناهی مورد نظر $T_S$ وجود ندارد، حاصل‌ضرب را $1$ بگیرید) و آن را در توان به‌اندازه‌ی کافی بزرگی از یک عدد اول، که در میان هیچ‌کدام از اعداد اول ظاهرشده در زیرمجموعه‌ی متناهی مورد نظر $T_S$ نباشد، ضرب کنید. عدد صحیح حاصل را می‌توان به هر اندازه بزرگ کرد و در عین حال الگوی بخش‌پذیریِ تجویزشده برای اعداد اول مورد نظر را حفظ کرد. بنابراین بنا بر فشردگی، $T_S$ مدلی دارد. چون $T_S$ نظریه‌ای در یک زبان شماراست، قضیه‌ی لوونهایم-اسکولم (قضیه‌ی ۳.۲) مدلی شمارا از $T_S$ به دست می‌دهد. در این مدل، تعبیر $c$ از هر عددنمای استانده بزرگ‌تر است و دقیقاً الگوی بخش‌پذیری تجویزشده را دارد. با فراموش کردن تعبیر $c$، یک مدل شمارای نااستانده از $\PA$ باقی می‌ماند.</p>
+    <p>پس هر زیرمجموعه‌ی $S$ از $\N$ را می‌توان، به‌صورت زیر، از الگوی بخش‌پذیری به اعداد اولِ یک عنصر $a$ در یک مدل شمارای نااستانده‌ی $M$ از $\PA$ به دست آورد:</p>
+    \[ X_a=\{n\in\N:M\models\overline{p_n}\mid a\}. \]
+    <p>اکنون فرض کنید $\kappa$ تعداد نوع‌های یک‌ریختی مدل‌های شمارای نااستانده $\PA$ باشد و از هر نوع یک نماینده انتخاب کنید. بدون کاستن از کلیت بحث، می‌توانیم فرض کنیم دامنه‌ی هر مدل $M$، برابر با $\N$ است. بنابراین، در این‌جا ساختار را با دامنه‌ی آن یکی نمی‌گیریم. هر مدلِ نماینده‌ی $M$ شماراست و برای هر $M$، تنها تعداد شمارایی مجموعه به شکل $X_a$ وجود دارد. در نتیجه همه‌ی نماینده‌ها روی‌هم حداکثر تعداد</p>
+    \[ \kappa\cdot\aleph_0 \]
+    <p>الگو را تحقق می‌بخشند. اما هر یک از $2^{\aleph_0}$ زیرمجموعه‌ی $\N$ باید در میان آن‌ها ظاهر شود. از آن‌جایی که مدل‌های یک‌ریخت دقیقاً الگوهای بخش‌پذیری یک‌سانی بر اعداد اول را تحقق می‌بخشند، پس داریم:</p>
+    \[ 2^{\aleph_0}\le\kappa\cdot\aleph_0. \]
+    <p>این نامساوی به‌ویژه نشان می‌دهد که $\kappa$ نامتناهی است. بنابراین $\kappa\cdot\aleph_0=\kappa$ و در نتیجه:</p>
+    \[ \kappa\ge2^{\aleph_0}. \]
+    <p>از سوی دیگر، در یک زبان شمارا حداکثر $2^{\aleph_0}$ ساختار با دامنه‌ی $\N$ وجود دارد. پس، همان‌گونه که می‌خواستیم، داریم:</p>
+    \[ \kappa=2^{\aleph_0}. \]</div>
+    <p>زیرمجموعه‌های اعداد طبیعی که به این شیوه در یک مدل نااستانده کدگذاری می‌شوند بخشی از <em>دستگاه استانده</em><span class="gl">Standard system</span>ی آن مدل را تشکیل می‌دهند؛ مفهومی که در بررسی ساختارهای پیچیده‌تر مدل‌های حساب نقش مهمی دارد.</p>
+
+    <h2 class="sec">۷. یک مانع محاسباتی: قضیه‌ی تِنِنْبام</h2>
+    <p>قضیه‌ی هنکین می‌گوید <em>ترتیب</em> هر مدل شمارای نااستانده شکل یک‌سانی دارد. بنابراین شاید امید داشته باشیم که بتوانیم روی مجموعه‌ی اعداد طبیعی $L_A$-ساختار جدیدی، مثل $(\{0,1,2,\ldots\},n_0,n_1,\bigoplus,\bigodot,\oleq)$، تعریف کنیم که هم‌زمان هم مدلی نااستانده از $\PA$ باشد (پس رابطه‌‌ی ترتیبِ $\oleq$ ترتیبی از نوع $\omega+\zeta\cdot\eta$ روی $\N$ اعمال می‌کند) و هم اعمالِ $\bigoplus$ و $\bigodot$ توسط الگوریتمی قابل‌محاسبه باشند. قضیه‌ی تننبام<span class="gl">Tennenbaum’s theorem</span> می‌گوید این کار ناممکن است.</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۷.۱ (تننبام، ۱۹۵۹).</span> <span class="stmt">هیچ مدل نااستانده‌ی محاسبه‌پذیری از $\PA$ وجود ندارد. به بیان دقیق‌تر، اگر مدل شمارای نااستانده‌ی $M\models\PA$ با دامنه‌ی $\N$ ارائه شده باشد، هیچ کدام از جمع و ضرب آن نمی‌توانند توابع محاسبه‌پذیرِ $\N^2\to\N$ باشند.</span></p></div>
+    <p>هرچند در این‌جا قضیه را اثبات نمی‌کنیم، اهمیت و پیامدهای آن درخور توجه است. بنا بر قضیه‌ی ۵.۱، ترتیب خطی یک مدل شمارای نااستانده نوع ترتیب بسیار مشخص $\omega+\zeta\cdot\eta$ را دارد و می‌توان برای آن نمایشی محاسبه‌پذیر ارائه داد. اما قضیه‌ی تننبام می‌گوید اعمال حسابی را نمی‌توان به شیوه‌ای مشابه محاسبه‌پذیر کرد. پس نااستانده بودن صرفاً به معنای وجود «اعداد صحیح بسیار بزرگ» نیست؛ بلکه پیچیدگی الگوریتمی واقعی را به ساختار حسابی تحمیل می‌کند. تننبام نتیجه‌ی اصلی را، با صورتی کمی ضعیف‌تر، در سال ۱۹۵۹ اعلام کرد <a class="cite" href="#fa-r15">[۱۵]</a> (برای شرح این موضوع در کتاب‌های درسی به <a class="cite" href="#fa-r16">[۱۶، فصل ۲۵]</a> و <a class="cite" href="#fa-r3">[۳]</a> مراجعه کنید).</p>
+
+    <h2 class="sec">۸. دو قضیه‌ی برجسته (بدون برهان)</h2>
+    <p>وجود مدل‌های نااستانده تنها نقطه‌ی آغاز کار است. نشاندن‌ها<span class="gl">Embeddings</span> و ‌گسترش‌ها<span class="gl">Extensions</span>ی ممکن ‌این مدل‌ها دارای خواص بسیار قوی و قابل‌توجهی هستند. در ادامه، دو نتیجه‌ی کلاسیک را بیان می‌کنیم (برهان‌ آن‌ها را می‌توان در <a class="cite" href="#fa-r3">[۳، ۴]</a> یافت).</p>
+    <p>زیرمدل $M$ از $N$ را <em>زیرمدل مقدماتی</em><span class="gl">Elementary submodel</span> می‌نامیم، و می‌نویسیم $M\preccurlyeq N$، هر گاه هر فرمول مرتبه‌اول با پارامترهایی از $M$ در هر دو ساختار ارزش صدق یکسانی داشته باشد. گسترشی را <em>گسترش انتهایی</em><span class="gl">End extension</span> می‌نامیم هر گاه هیچ عنصر جدیدی از $N$ پایین‌تر از یک عنصر قدیمیِ $M$ قرار نگیرد.</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۸.۱ (مک‌داول-اشپکر<span class="gl">MacDowell–Specker</span>، ۱۹۶۱).</span> <span class="stmt">هر مدل $M\models\PA$ یک <em>گسترش انتهایی مقدماتی سرّه</em><span class="gl">Proper</span> دارد؛ یعنی مدل $N\models\PA$ای وجود دارد به طوری که:</span></p>
+    \[ M\preccurlyeq N,\qquad M\ne N, \]
+    <p><span class="stmt">و هر عنصر $N\setminus M$ از هر عنصر $M$ بزرگ‌تر است.</span></p></div>
+    <p>این نتیجه از صرفاً افزودن یک عنصر بی‌نهایت‌بزرگ قوی‌تر است، زیرا صدق <em>تمام</em> گزاره‌های مرتبه‌‌اول درباره‌ی عناصر مدل قبلی را حفظ می‌کند و حتی برای مدل‌های ناشمارا نیز برقرار است.</p>
+    <p>زیرمجموعه‌ی $I$ از مدل مرتب $M$ را <em>قطعه‌ی آغازین</em> می‌نامیم هر گاه از $a\in I$ و $0\le b\lt a$ نتیجه شود $b\in I$. یک <em>خود‌نشانی آغازین</em><span class="gl">Initial self-embedding</span> از $M$ یک‌ریختی‌ای از $M$ با یک قطعه‌ی آغازین خودش است.</p>
+    <div class="thm"><p><span class="lab">قضیه‌ی ۸.۲ (فریدمن<span class="gl">H. Friedman</span>، ۱۹۷۳).</span> <span class="stmt">هر مدل شمارا و نااستانده‌ی $M\models\PA$ با یک قطعه‌ی آغازین سرّه از خودش یک‌ریخت است.</span></p></div>
+    <p>بنابراین یک مدل شمارای نااستانده از $\PA$ قطعه‌ی آغازینی اکیداً کوچک‌تر در خود دارد که <em>از نظر ساختار حسابی دقیقاً با کل مدل یک‌سان است</em>. این قضیه نمونه‌ای قابل توجه از خودهمانندی است. برخلاف یک گسترش انتهایی مقدماتی، در قضیه‌ی فریدمن ادعا نمی‌شود که قطعه‌ی آغازین سرّه، مقدماتی است.</p>
+
+    <p><span class="run">راهی به‌سوی رساله‌ی لسان.</span> نتایج بالا تنها ابتدای راه نظریه‌ی ساختاری مدل‌های نااستانده‌اند. رساله‌ی لسان پرسش‌های ظریف‌تری را درباره‌ی تعریف‌پذیری، زیرمجموعه‌های کدگذاری‌شده‌ی اعداد طبیعی، گسترش‌های انتهایی و خود‌نشانی‌های آغازین بررسی می‌کند. واکاوی این مسائل به مفاهیمی چون برش‌ها<span class="gl">Cuts</span>، دستگاه‌های استانده و بازگشتی آکندگی<span class="gl">Recursive saturation</span> می‌انجامد که از ابزارهای محوری نظریه‌ی مدل‌های حساب در دوران جدید هستند <a class="cite" href="#fa-r2">[۲]</a>.</p>
+
+    <h2 class="sec">برای اندیشیدن بیش‌تر</h2>
+    <p>پرسش‌های زیر خواننده را به کاوش بیشتر در روش‌های ساخت‌ و نتایج بالا دعوت می‌کنند.</p>
+    <ol class="qs">
+      <li>در مدل $I^{\ge0}$ از $\PAm$، فرض کنید $x$ نااستانده باشد. کدام‌یک از عناصر $10^6+x$ یا $x^2-10^9$ بزرگ‌تر است؟</li>
+      <li>آیا مدل $I^{\ge0}$ شماراست؟</li>
+      <li>حلقه‌ی چندجمله‌ای $\Z[t]$ را در نظر بگیرید که مانند قبل با ترتیب مثبت بی‌نهایت مرتب شده است، و $\Z[t]^{\ge0}$ را بخش نامنفی آن بگیرید. نشان دهید که $\Z[t]^{\ge0}$ یک مدل نااستانده از $\PAm$ است.</li>
+      <li>گزاره‌ی ۵.۳ را اثبات کنید. <em>راهنمایی: فرض کنید $\varphi(x)$ برای هر عنصر استانده برقرار باشد، اما برای هیچ عنصر نااستانده‌ای برقرار نباشد. شِمای استقرا را برای $\varphi(x)$ اعمال کنید.</em></li>
+      <li>آیا مجموعه‌ی اعداد اول استانده در یک مدل نااستانده‌ی $M\models\PA$ را می‌توان با یک $L_A$-فرمول از $M$، تعریف کرد؟ درباره‌ی مجموعه‌ی اعداد اول دوقلوی<span class="gl">Twin primes</span> استانده چه می‌توان گفت؟ <em>هشدار: پرسش دوم نکته‌ای غافل‌گیرکننده دارد.</em></li>
+    </ol>
+
+    <h2 class="sec">برای مطالعه‌ی بیش‌تر</h2>
+    <p>پژوهش‌ها‌ی انجام‌شده درباره‌ی نظریه‌ی مدل‌های نااستانده‌ی حساب بسیار گسترده‌تر از چند نتیجه‌ای است که در این‌جا معرفی کردیم. دو کتاب مرجع در این زمینه عبارت‌اند از کتاب ریچارد کِی<span class="gl">Richard Kaye</span> <em dir="ltr">Models of Peano Arithmetic</em> <a class="cite" href="#fa-r3">[۳]</a>، که نقطه‌ی ورود خوبی به این حوزه است، و کتاب کوساک<span class="gl">Roman Kossak</span> و اشمرل<span class="gl">James Schmerl</span> <em dir="ltr">The Structure of Models of Peano Arithmetic</em> <a class="cite" href="#fa-r4">[۴]</a>، که نظریه‌ی ساختاری این مدل‌ها را با جزئیات بیش‌تری بررسی می‌کند.</p>
+    <p>هم‌چنین، برای آشنایی غیررسمی‌تر و گفت‌وگومحور با چندین موضوع این حوزه، از جمله مطالبی فراتر از محدوده‌ی این مقاله، مجموعه‌ی آن‌لاین <em dir="ltr">Nonstandard Models of Arithmetic</em> را پیشنهاد می‌کنیم <a class="cite" href="#fa-r20">[۲۰]</a>.</p>
+
+    <div class="notes" id="fa-fn1">۱. توجه کنید که برای ساده‌تر شدن نمادگذاری، $n$ را با عنصری از $F$ یکی می‌گیریم که از جمع‌کردن $n$ باره‌ی $1_F$، یعنی عنصر همانی ضربی $F$، به دست می‌آید.</div>
+
+    <div class="refs">
+      <h2>منابع</h2>
+      <ol data-refs="fa"></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">دربارۀ این نوشته</span><br>نوشتۀ سعیده بهرامی و علی عنایت؛ مکملِ <a href="hamid-lesan.html">«حمید لسان، منطق‌دانی زنده»</a> نوشتۀ امیر اصغری. نویسندگان از پیشنهادها و کمک‌های ارزش‌مند دکتر سیاوش شهشهانی در آماده‌سازی این مقاله سپاس‌گزارند.<br>کارنامه · دفترِ دوم · مهر ۱۴۰۵</div>
+    <a class="pdfbtn" href="javascript:window.print()">↓ دریافت نسخۀ پی‌دی‌اف</a>
+  </div>
+</article>
+
+
+<!-- =================== English =================== -->
+<article class="article" data-lang-block="en" dir="ltr" lang="en">
+  <div class="kicker">Works</div>
+  <h1 class="title">Beyond the Natural Numbers</h1>
+  <div class="standfirst">This expository essay offers an elementary introduction to nonstandard models of arithmetic for readers with little background in mathematical logic. Through several explicit constructions and a selection of classical theorems, we illustrate how nonstandard models arise, what they look like, and some of the remarkable structural and computational phenomena they exhibit. The essay is intended in particular to provide the background for the study of Hamid Lessan’s work on models of arithmetic.</div>
+  <div class="byline">
+    <span class="who"><img class="avchip" src="../assets/saeideh-bahrami.png" alt="Saeideh Bahrami"><span class="name">Saeideh Bahrami</span></span>
+    <span class="amp">&amp;</span>
+    <span class="who"><img class="avchip" src="../assets/ali-enayat.jpg" alt="Ali Enayat"><span class="name">Ali Enayat</span></span>
+  </div>
+
+  <div class="body">
+    <p><span class="run">About this essay.</span> This essay accompanies Amir Asghari’s portrait of Hamid Lessan <a class="cite" href="#en-r1">[1]</a>. Lessan’s doctoral thesis, <em>Models of Arithmetic</em>, completed at the University of Manchester in 1978 and reprinted in 2013 <a class="cite" href="#en-r2">[2]</a>, concerned nonstandard models of arithmetic. Our purpose here is not to survey the thesis, since that would require familiarity with advanced areas of mathematical logic, but to acquaint readers with its general subject: the structure theory of nonstandard models of arithmetic.</p>
+    <p>The interest of this subject extends beyond foundational questions. Abraham Robinson’s development of <em>nonstandard analysis</em> used nonstandard extensions of the real number system to give a rigorous setting for infinitesimals and related methods of analysis <a class="cite" href="#en-r6">[6, 7]</a>. In another direction, nonstandard models have become useful in theoretical computer science: they provide tools for investigating computational complexity and the lengths of propositional proofs <a class="cite" href="#en-r8">[8, 9]</a>. These connections provide further motivation for understanding how arithmetic can have nonstandard models.</p>
+    <p>From the viewpoint of model theory, the natural-number system is one of the fundamental structures of mathematics: sequences, algorithms, formulas, and even formal proofs can be coded by natural numbers. To study such a structure, one first specifies a language for its elements, operations, and relations. For this purpose, below we will take a look at the language of arithmetic in more detail.</p>
+
+    <h3 class="sub">A word about first-order languages</h3>
+    <p>Before introducing the language of arithmetic, let us briefly recall what is meant by a <em>first-order language</em>. Such a language contains symbols for the particular mathematical structures under consideration—for example, symbols for operations and relations—together with the usual logical symbols</p>
+    \[ \neg,\qquad \wedge,\qquad \vee,\qquad \longrightarrow,\qquad \forall,\qquad \exists,\qquad =. \]
+    <p>The first four are the familiar Boolean connectives: $\neg\varphi$ means “not $\varphi$,” $\varphi\wedge\psi$ means “$\varphi$ and $\psi$,” $\varphi\vee\psi$ means “$\varphi$ or $\psi$,” and $\varphi\to\psi$ means “if $\varphi$, then $\psi$.” The symbols $\forall$ and $\exists$ are the <em>quantifiers</em>:</p>
+    \[ \forall x\,\varphi(x)\quad\text{means}\quad\text{“for every $x$, $\varphi(x)$,”} \]
+    <p>while</p>
+    \[ \exists x\,\varphi(x)\quad\text{means}\quad\text{“there is an $x$ such that $\varphi(x)$.”} \]
+    <p>Expressions built from the symbols of the language, variables, equality, the Boolean connectives, and quantifiers according to the usual syntactic rules are called <em>formulas</em>. An occurrence of a variable in a formula is <em>bound</em> if it lies within the scope of a corresponding quantifier; otherwise it is <em>free</em>. A variable is called free in a formula if it has a free occurrence there. For example, in</p>
+    \[ \exists y\,(x=y) \]
+    <p>the occurrence of $y$ is bound by the quantifier $\exists y$, whereas $x$ is free. A formula with no free variables is called a <em>sentence</em>. Thus a sentence makes an assertion that can be true or false in a structure without first assigning values to any variables.</p>
+    <p>Within this framework, what distinguishes one mathematical language from another is therefore not its logical symbols, which remain the same, but its <em>nonlogical symbols</em>: the symbols chosen to describe the operations and relations of the structures being studied.</p>
+    <p>A familiar example is the first-order language $L_G$ of groups. We may take $L_G$ to have just one nonlogical symbol, $*$ for a binary operation. Groups can be axiomatized in this language alone. Associativity is expressed by the sentence</p>
+    \[ (G_1):\quad \forall x\,\forall y\,\forall z\,\bigl((x*y)*z=x*(y*z)\bigr). \]
+    <p>Although one commonly writes a group as $(G,*,e,{}^{-1})$, the identity element and the inverse operation are <em>definable</em> from $*$. More precisely, the identity is the unique element satisfying the $L_G$-formula</p>
+    \[ \operatorname{Id}(e)\;:\Longleftrightarrow\;\forall x\,(e*x=x\wedge x*e=x), \]
+    <p>and the statement that $y$ is the inverse of $x$ can be expressed by the $L_G$-formula</p>
+    \[ \operatorname{Inv}(e,x,y)\;:\Longleftrightarrow\;(x*y=e\wedge y*x=e). \]
+    <p>The existence of an identity and of inverses can be expressed, without having symbols in the language for either of them, by</p>
+    \[ (G_2):\quad \exists e\ \bigl(\operatorname{Id}(e)\ \wedge\ \forall x\,\exists y\,(\operatorname{Inv}(e,x,y))\bigr). \]
+    <p>Thus a group is simply an $L_G$-structure $(G,*)$ satisfying the two sentences $(G_1)$ and $(G_2)$.</p>
+    <p>Two concrete structures for this same language are the additive group $(\mathbb Z,+)$, where $*$ is interpreted as addition, and $(S_3,\circ)$, the group of the six permutations of three objects, where $*$ is interpreted as $\circ$ (i.e., composition). The first is infinite and abelian, the second finite and nonabelian, yet both are structures for exactly the same first-order language. This illustrates an important point: <em>a language tells us what we may talk about, but not which structure we are talking about. Its nonlogical symbols may receive different interpretations in different structures</em>.</p>
+    <p>If $M$ is a structure and $\varphi$ is a first-order sentence, then</p>
+    \[ M\models\varphi \]
+    <p>is read “$M$ satisfies $\varphi$,” or simply “$\varphi$ is true in $M$.” More generally, if $\varphi(x_1,\ldots,x_n)$ is a formula, where $x_1,\ldots,x_n$ is a list of free variables of $\varphi$, and $a_1,\ldots,a_n$ are elements of $M$, then</p>
+    \[ M\models\varphi(a_1,\ldots,a_n) \]
+    <p>means that $\varphi$ becomes true in $M$ when its free variables are interpreted by $a_1,\ldots,a_n$.</p>
+    <p>Here is a simple example. Let $\varphi(x,y)$ be the $L_G$-formula $x*y=y*x$. Note that both $x$ and $y$ are free variables in $\varphi$. In the group $S_3$, let</p>
+    \[ a_1=(1\,2\,3),\qquad a_2=(1\,3\,2). \]
+    <p>Since $a_2=a_1^{-1}$, these two permutations commute. Consequently,</p>
+    \[ (S_3,\circ)\models\varphi(a_1,a_2). \]
+    <p>In words, the formula $\varphi(x,y)$ becomes true in the structure $S_3$ when $x$ is interpreted as $(1\,2\,3)$ and $y$ as $(1\,3\,2)$. By contrast, $(1\,2)$ and $(2\,3)$ do not commute, so</p>
+    \[ S_3\models\lnot\varphi\bigl((1\,2),(2\,3)\bigr). \]
+    <p>As is customary, when there is no danger of confusion we shall use the same symbol for a structure and for its underlying set (or <em>domain</em>). Thus, if $M$ is a structure, we may write both $a\in M$ and $M\models\varphi$; in the first expression $M$ refers to the domain of the structure, while in the second it refers to the structure itself. We shall make the distinction explicit only when it is useful to do so.</p>
+    <p>By a <em>theory</em> we mean a collection of sentences in a specific language. If $T$ is a theory, we write $M\models T$ to mean that $M$ satisfies every sentence in $T$; in this case we say that $M$ is a <em>model of $T$</em>. Thus $M\models\PA$ means that $M$ satisfies all the axioms of Peano arithmetic, the theory that we introduce in the following section.</p>
+
+    <h2 class="sec">1. The axioms of arithmetic</h2>
+    <p>We work in the first-order language</p>
+    \[ L_A=\{0,1,+,\cdot,\lt\}. \]
+    <p>The familiar natural numbers form the $L_A$-structure</p>
+    \[ \N=(\{0,1,2,\ldots\},0,1,+,\cdot,\lt). \]
+    <p>For the purposes of our discussion, a <em>model of arithmetic</em> is any $L_A$-structure satisfying some specified arithmetic axioms. A model of arithmetic is <em>standard</em> if it is isomorphic to $\N$, otherwise it is called <em>nonstandard</em>.</p>
+    <p>We begin with the <em>induction-free</em> theory $\PAm$. This theory axiomatizes exactly the <em>nonnegative parts of discretely ordered rings</em>, that is, ordered rings in which $1$ is the least positive element <a class="cite" href="#en-r3">[3, Ch. 2]</a>. We use $x\le y$ as an abbreviation for $x\lt y\lor x=y$.</p>
+    <p><span class="run">The axioms of $\PAm$.</span> For all $x,y,z$:</p>
+    <ul class="axioms">
+      <li><span class="n">(P1)</span><span>$(x+y)+z=x+(y+z)$;</span></li>
+      <li><span class="n">(P2)</span><span>$x+y=y+x$;</span></li>
+      <li><span class="n">(P3)</span><span>$(x\cdot y)\cdot z=x\cdot(y\cdot z)$;</span></li>
+      <li><span class="n">(P4)</span><span>$x\cdot y=y\cdot x$;</span></li>
+      <li><span class="n">(P5)</span><span>$x\cdot(y+z)=x\cdot y+x\cdot z$;</span></li>
+      <li><span class="n">(P6)</span><span>$x+0=x$ and $x\cdot0=0$;</span></li>
+      <li><span class="n">(P7)</span><span>$x\cdot1=x$;</span></li>
+      <li><span class="n">(P8)</span><span>$(x\lt y\wedge y\lt z)\to x\lt z$;</span></li>
+      <li><span class="n">(P9)</span><span>$\neg(x\lt x)$;</span></li>
+      <li><span class="n">(P10)</span><span>$x\lt y\lor x=y\lor y\lt x$;</span></li>
+      <li><span class="n">(P11)</span><span>$x\lt y\to x+z\lt y+z$;</span></li>
+      <li><span class="n">(P12)</span><span>$(0\lt z\wedge x\lt y)\to x\cdot z\lt y\cdot z$;</span></li>
+      <li><span class="n">(P13)</span><span>$x\lt y\to\exists z\,(x+z=y)$;</span></li>
+      <li><span class="n">(P14)</span><span>$0\lt 1$ and $x\gt 0\to x\ge1$;</span></li>
+      <li><span class="n">(P15)</span><span>$x\ge0$.</span></li>
+    </ul>
+    <p>The first seven axioms give the familiar commutative semiring laws; the remaining ones say that the order is linear, compatible with the arithmetic, and discrete. Axiom (P13) says that if $x\lt y$, then the difference $y-x$ exists inside the nonnegative part. Together these axioms are precisely what one obtains by taking the nonnegative cone of a discretely ordered ring.</p>
+    <p><span class="run">The axioms of $\PA$.</span> Peano arithmetic is obtained by adjoining to $\PAm$ the <em>induction scheme</em>. For every first-order $L_A$-formula $\varphi(x,\bar y)$ we include</p>
+    \[ \forall\bar y\,\Bigl[\bigl(\varphi(0,\bar y)\wedge\forall x\,[\varphi(x,\bar y)\to\varphi(x+1,\bar y)]\bigr)\to\forall x\,\varphi(x,\bar y)\Bigr]. \tag{1} \]
+    <p>Thus</p>
+    \[ \boxed{\qquad \PA=\PAm+\text{induction for every first-order formula}.\qquad} \]
+    <p>This is an infinite <em>scheme</em>: there is one induction axiom for each $L_A$-formula $\varphi$. The distinction between $\PAm$ and $\PA$ will be visible in our first two constructions.</p>
+    <p>In the next section we first construct a nonstandard model of $\PAm$ using only algebra.</p>
+
+    <h2 class="sec">2. A nonstandard model of $\PAm$</h2>
+    <p>Let $t$ be an indeterminate and form the field</p>
+    \[ K=\Q(t)=\left\{\frac{p(t)}{q(t)}:p,q\in\Q[t],\ q\ne0\right\}. \]
+    <p>We order $K$ by thinking of $t$ as a positive real variable that tends to infinity. Precisely, for a nonzero rational function $f$, declare</p>
+    \[ f\gt 0\quad\text{if }f(r)\gt 0\text{ for all sufficiently large real }r. \]
+    <p>Every nonzero rational function has an eventual sign: for large $r$, its sign is determined by the leading coefficients of its numerator and denominator. Consequently, exactly one of $f\gt 0$, $f=0$, or $-f\gt 0$ holds; the usual order laws follow from eventual inequalities.</p>
+    <p><span class="run">Archimedean versus non-Archimedean.</span> Recall that an ordered field $F$ is <em>Archimedean</em> if, for every $x\in F$, there is an ordinary positive integer $n$ such that $x\lt n$. For example, $\Q$ and $\mathbb R$ are Archimedean. An ordered field $F$ is <em>non-Archimedean</em> if it contains an element $a$ satisfying</p>
+    <p class="dline">$a\gt n\quad$ for every positive integer $n$.<sup><a href="#en-fn1" class="cite">1</a></sup></p>
+    <p>Such an element is called <em>infinitely large</em>. Equivalently, the field contains a positive <em>infinitesimal</em>, that is, an element $\varepsilon\gt 0$ such that</p>
+    \[ \varepsilon\lt\frac1n\qquad\text{for every positive integer }n. \]
+    <p>Indeed, the reciprocal of an infinitely large element is an infinitesimal, and conversely.</p>
+    <div class="thm"><p><span class="lab">Proposition 2.1.</span> <span class="stmt">$K$ is an ordered field extending $\Q$, and</span></p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots\lt t. \]
+    <p><span class="stmt">In particular, $K$ is non-Archimedean.</span></p></div>
+    <div class="proof"><p><span class="lab">Proof.</span> For each fixed integer $n$, the polynomial $t-n$ is eventually positive, so $t\gt n$. Moreover, in an Archimedean ordered field every element is bounded above by some natural number. Hence, $K$ is not Archimedean.</p></div>
+    <p>Thus $t$ is infinitely large and $1/t,1/t^2,\ldots$ are infinitesimal. The ordered field $K$ therefore contains both infinitely large and infinitesimal elements, although its arithmetic is just the arithmetic of rational functions.</p>
+    <p><span class="run">A historical note.</span> This example is a simplified version of a construction used by David Hilbert in his <em>Foundations of Geometry</em> (1899, §12). Hilbert ordered a larger field of algebraic functions of $t$ by their signs for sufficiently large positive values of $t$, and used it to establish the independence of the Archimedean axiom in geometry <a class="cite" href="#en-r18">[18]</a>. Earlier investigations of non-Archimedean geometry were undertaken by Giuseppe Veronese <a class="cite" href="#en-r19">[19]</a>.</p>
+    <p>We now identify a particularly natural subring of $K$:</p>
+    \[ I=\Z+t\Q[t]=\{m+a_1t+\cdots+a_dt^d:m\in\Z,\ a_i\in\Q\}. \tag{2} \]
+    <p>For example, $t/2$, $t^2/7-3t+5$, and $t$ belong to $I$, whereas $1/2$ does not. It is straightforward to check that $I$ is a ring.</p>
+    <div class="thm"><p><span class="lab">Proposition 2.2.</span> <span class="stmt">The ring $I$ is discretely ordered. More strongly, it is an <em>integer part</em> of $K$: for every $f\in K$ there exists $a\in I$ such that</span></p>
+    \[ a\le f\lt a+1. \tag{3} \]</div>
+    <div class="proof"><p><span class="lab">Proof.</span> A nonconstant polynomial in $I$ is eventually either larger than $1$ or smaller than $0$; a constant element of $I$ is an integer. Thus $1$ is the least positive element of $I$.</p>
+    <p>For the stronger assertion, polynomial division writes each $f\in K$ as</p>
+    \[ f(t)=q(t)+\varepsilon(t),\qquad q\in\Q[t],\quad\varepsilon(t)\longrightarrow0\quad(t\to+\infty). \]
+    <p>Write $q(t)=p(t)+c$, with $p\in t\Q[t]$ and $c\in\Q$. If $c$ is not an integer, then for sufficiently large $t$ we have $\lfloor c\rfloor\le c+\varepsilon(t)\lt\lfloor c\rfloor+1$; so $a=p+\lfloor c\rfloor$ works. If $c$ is an integer, use $a=p+c$ when $\varepsilon$ is eventually nonnegative and $a=p+c-1$ otherwise. In each case $a\in I$ and (3) holds.</p></div>
+    <p>Set $I^{\ge0}=\{a\in I:a\ge0\}$, with the inherited operations and order. Since $I$ is a discretely ordered ring,</p>
+    \[ \boxed{\quad (I^{\ge0},0,1,+,\cdot,\lt)\models\PAm.\quad} \]
+    <p>It is a nonstandard model of this weak arithmetic: the element $t$ is larger than every ordinary natural number. Indeed, it is divisible by every ordinary positive integer, since $t/n\in I$.</p>
+    <p><span class="run">Another view of the construction.</span> There is a useful way to recast the model just constructed which anticipates our later construction of a nonstandard model of full Peano arithmetic. Let $\mathcal E$ consist of all functions $f:\N\to\Q$ which are <em>eventually polynomial</em> over $I$, i.e., for some $p\in I$,</p>
+    \[ f(n)=p(n) \]
+    <p>for all sufficiently large $n$. Define</p>
+    \[ f\sim_{\mathrm{fin}}g\quad\Longleftrightarrow\quad f(n)=g(n)\quad\text{for all sufficiently large }n. \]
+    <p>Addition and multiplication are defined pointwise on the family of $\sim_{\mathrm{fin}}$-equivalence classes, and we put</p>
+    \[ [f]\lt[g]\quad\Longleftrightarrow\quad f(n)\lt g(n)\quad\text{for all sufficiently large }n. \]
+    <p>Every equivalence class contains a unique function of the form $n\mapsto p(n)$ with $p\in I$, so</p>
+    \[ \mathcal E/{\sim_{\mathrm{fin}}}\cong I. \]
+    <p>For example, the polynomial $t$ corresponds to the class of the function $n\mapsto n$, whose values are</p>
+    \[ 0,1,2,3,\ldots, \]
+    <p>and $t/2$ corresponds to the class of $n\mapsto n/2$, whose values are</p>
+    \[ 0,\frac12,1,\frac32,2,\ldots. \]
+    <p>Thus the nonnegative part of this quotient is simply another presentation of our model $I^{\ge0}$ of $\PAm$.</p>
+    <p>Thus we have constructed a new arithmetic structure from functions by identifying functions that agree eventually, or equivalently, on a cofinite subset of $\N$ (that is, a subset of $\N$ whose complement is finite). The significance of this viewpoint will become apparent in the construction of a model of full $\PA$ below.</p>
+    <p><span class="run">What does the ordering look like?</span> The ordering of this particular model can also be described explicitly. Its standard elements form the following <em>initial segment</em> (i.e. if $m$ is an ordinary natural number and $a\lt m$ holds in $I^{\ge0}$, then $a=k$ for some ordinary $k\lt m$):</p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots. \]
+    <p>If $a\in I^{\ge0}$ is nonstandard, then $a$ is larger than every ordinary natural number, and hence</p>
+    \[ \ldots\lt a-2\lt a-1\lt a\lt a+1\lt a+2\lt\ldots \]
+    <p>is a two-sided chain having the order type of $\Z$. We call this the <em>$\Z$-chain</em> containing $a$. Two nonstandard elements lie in the same $\Z$-chain exactly when their difference is an ordinary integer. The different $\Z$-chains are themselves densely ordered. Indeed, if $a\lt b$ belong to different chains, then $b-a$ is infinitely large. By Proposition 2.2, choose $d\in I$ such that</p>
+    \[ d\le\frac{b-a}{2}\lt d+1. \]
+    <p>Then the $\Z$-chain of $a+d$ lies strictly between the chains of $a$ and $b$. There is no first or last nonstandard chain: for example, the chains containing an integer part of $a/2$ and the element $2a$ lie strictly below and above the chain of $a$.</p>
+    <p>Thus this particular model consists of the standard initial segment</p>
+    \[ 0\lt 1\lt 2\lt 3\lt\cdots \]
+    <p>followed by a densely ordered collection of $\Z$-chains, as illustrated in Figure 1. We shall return to the order type of this picture later.</p>
+    <figure class="plate" id="en-fig1">
+      <img src="../assets/bahrami-enayat-zchains-en.png" alt="The order of I≥0: the standard natural numbers followed by Z-chains around a1, a2, a3, a4">
+      <figcaption class="figcap">Figure 1. The order of $I^{\ge0}$: the standard initial segment is followed by densely ordered $\Z$-chains. The labels $-2,-1,0,1,2$ are offsets from the chosen centers, not negative elements of the model.</figcaption>
+    </figure>
+    <p><span class="run">Why does induction fail?</span> The following example is useful because it identifies a specific instance of (1) that fails. Consider the formula</p>
+    \[ \varphi(x)\;:\Longleftrightarrow\;\exists y\,\bigl(y^2\le x\lt(y+1)^2\bigr). \tag{4} \]
+    <p>It says that $x$ lies between two consecutive squares. It holds at $0$. Moreover, in any discretely ordered ring, if $y^2\le x\lt(y+1)^2$, then either $x+1\lt(y+1)^2$ (so the same $y$ works for $x+1$), or $x+1=(y+1)^2$ (so $y+1$ works). Thus $\varphi(x)\to\varphi(x+1)$ holds throughout $I^{\ge0}$.</p>
+    <p>But $\varphi(t)$ is false. If $y\in I^{\ge0}$ is nonconstant, then $y^2\gt t$ by comparing polynomial degrees. If $y$ is constant, it is an ordinary nonnegative integer, and $(y+1)^2\lt t$. No $y$ satisfies (4) at $x=t$. Therefore</p>
+    \[ I^{\ge0}\not\models\PA. \]
+    <p>The next construction remedies precisely this defect.</p>
+
+    <h2 class="sec">3. A quick existence proof using compactness</h2>
+    <p>There is a very short proof that nonstandard models of full $\PA$ exist. It relies on a general theorem of first-order logic, which we state without proof; see, e.g., <a class="cite" href="#en-r17">[17]</a>.</p>
+    <div class="thm"><p><span class="lab">Theorem 3.1 (Compactness theorem for first-order logic).</span> <span class="stmt">Let $T$ be any set of first-order sentences in a fixed language. If every finite subset of $T$ has a model, then $T$ has a model.</span></p></div>
+    <p>We shall also use one other standard theorem of first-order logic, again without proof.</p>
+    <div class="thm"><p><span class="lab">Theorem 3.2 (Löwenheim–Skolem theorem).</span> <span class="stmt">If a theory in a countable first-order language has an infinite model, then it has a countable model.</span></p></div>
+    <div class="thm"><p><span class="lab">Proposition 3.3.</span> <span class="stmt">There exists a countable nonstandard model of $\PA$.</span></p></div>
+    <div class="proof"><p><span class="lab">Proof.</span> Add a new constant symbol $c$ to the language of arithmetic, and consider the theory</p>
+    \[ T=\PA\;\cup\;\{\overline n\lt c:n\in\N\}, \]
+    <p>where $\overline n$ is the <em>numeral</em> for $n$ (that is, $1+\cdots+1$ with $n$ summands, or $0$ when $n=0$). Every finite subset of $T$ has a model: interpret the arithmetic symbols in the ordinary natural numbers and choose $c$ larger than the finitely many numerals mentioned. Thus, by compactness, $T$ has a model. Since $T$ is a theory in a countable language and every model of $T$ is infinite, the Löwenheim–Skolem theorem gives a countable model of $T$. Forgetting the interpretation of $c$ then leaves a countable model $M$ of $\PA$ containing an element larger than every standard numeral. Thus $M$ is nonstandard.</p></div>
+    <p>The above proof is a <em>black-box</em> argument: compactness and Löwenheim–Skolem guarantee the existence of a countable nonstandard model, but they do not tell us how its elements and operations are built. We now give a concrete construction whose elements are equivalence classes of familiar functions.</p>
+
+    <h2 class="sec">4. A nonstandard model of full Peano arithmetic</h2>
+    <p>We now present a variant of Skolem’s construction of a nonstandard model of arithmetic, dating from the 1930s <a class="cite" href="#en-r5">[5]</a>. Figure 2 illustrates the relationship between this construction and our earlier model of $\PAm$.</p>
+    <figure class="plate" id="en-fig2">
+      <img src="../assets/bahrami-enayat-comparison-en.png" alt="The same idea, twice: the model of PA⁻ and the model of PA">
+      <figcaption class="figcap">Figure 2. The same construction pattern in two settings. For the model of $\PAm$, functions are identified when they agree eventually, equivalently on a cofinite set. For the definable ultrapower, they are identified when they agree on a set belonging to the ultrafilter $\U$.</figcaption>
+    </figure>
+    <h3 class="sub">Step 1: an ultrafilter on definable sets</h3>
+    <p>Call $A\subseteq\N$ <em>arithmetical</em> if, for some $L_A$-formula $\theta(n)$,</p>
+    \[ A=\{n\in\N:\N\models\theta(n)\}. \]
+    <p>The family $\A$ of arithmetical sets is countable, contains all finite sets, and is closed under complements and finite unions and intersections. Enumerate it as $A_0,A_1,\ldots$.</p>
+    <p>We construct a descending sequence of <em>infinite</em> arithmetical sets $C_0\supseteq C_1\supseteq\cdots$ as follows. Put $C_0=\N$. At stage $n$, at least one of $C_n\cap A_n$ and $C_n\setminus A_n$ is infinite; let $C_{n+1}$ be one such infinite set. Define</p>
+    \[ \U=\{A\in\A:\text{for some }n,\ C_n\subseteq A\}. \tag{5} \]
+    <p>The family $\U$ contains $\N$ and is closed under supersets and finite intersections. For every $A\in\A$, either $A\in\U$ or $\N\setminus A\in\U$, since $A$ appears in our enumeration. We will refer to the properties mentioned in the two preceding sentences as the <em>ultrafilter</em> property. No finite set belongs to $\U$, because every $C_n$ is infinite. In the language of Boolean algebras, $\U$ is a <em>nonprincipal ultrafilter on the Boolean algebra $\A$</em>. Notice that this is a construction in ordinary mathematics; we are not claiming that $\U$ is itself arithmetically definable.</p>
+    <h3 class="sub">Step 2: definable sequences and their classes</h3>
+    <p>Let $\F$ be the set of all functions $f:\N\to\N$ whose graphs are arithmetical in the following sense: there is an $L_A$-formula $\theta(x,y)$ that defines the graph of $f$ (when $f$ is viewed as a subset of the Cartesian product $\mathbb{N}\times\mathbb{N}$). These are precisely the <em>arithmetically definable functions</em>. Every constant function and the identity function $\mathrm{id}(n)=n$ belong to $\F$. Also $f+g$ and $fg$ belong to $\F$ whenever $f,g\in\F$.</p>
+    <p>For $f,g\in\F$ write</p>
+    \[ f\sim g\quad\Longleftrightarrow\quad\{n:f(n)=g(n)\}\in\U. \]
+    <p>This is an equivalence relation. Denote the class of $f$ by $[f]$, and let $M=\F/\!\sim$. Define arithmetic on the classes pointwise:</p>
+    \[ [f]+[g]=[f+g],\qquad [f]\cdot[g]=[fg], \]
+    <p>and declare</p>
+    \[ [f]\lt[g]\quad\Longleftrightarrow\quad\{n:f(n)\lt g(n)\}\in\U. \]
+    <p>These definitions do not depend on the chosen representatives, because $\U$ is closed under finite intersections.</p>
+    <h3 class="sub">Step 3: why every $L_A$-sentence survives</h3>
+    <p>The following is the central observation, usually called <em>Łoś’s theorem</em> in the context of ultrapowers.</p>
+    <div class="thm"><p><span class="lab">Lemma 4.1 (Truth lemma).</span> <span class="stmt">For every $L_A$-formula $\psi(x_1,\ldots,x_k)$ and $f_1,\ldots,f_k\in\F$,</span></p>
+    \[ M\models\psi([f_1],\ldots,[f_k])\quad\Longleftrightarrow\quad\{n:\N\models\psi(f_1(n),\ldots,f_k(n))\}\in\U. \tag{6} \]</div>
+    <div class="proof"><p><span class="lab">Idea of proof.</span> Proceed by induction on the way $\psi$ is assembled. Equations and inequalities follow from the definitions. Negation uses the fact that $\U$ chooses exactly one of a definable set and its complement; conjunction uses closure under intersections.</p>
+    <p>The only delicate case is $\exists y\,\psi(\bar x,y)$. Suppose the set of indices $n$ at which a witness for $\psi(f_1(n),\ldots,f_k(n),y)$ exists belongs to $\U$. For each such $n$, let $g(n)$ be the <em>least</em> witness, and set $g(n)=0$ if no witness exists. The graph of $g$ is arithmetical: “$g(n)$ is the least witness for $\psi(f_1(n),\ldots,f_k(n),y)$” can itself be written as an $L_A$-formula. Hence $g\in\F$ and $[g]$ provides a witness for $\psi([f_1],\ldots,[f_k],y)$ in $M$. The converse is immediate. This proves (6) by induction on formulas.</p></div>
+    <div class="thm"><p><span class="lab">Theorem 4.2.</span> <span class="stmt">$M$ is a <em>countable nonstandard model of $\PA$</em>.</span></p></div>
+    <div class="proof"><p><span class="lab">Proof.</span> By the Truth Lemma and the fact that our ultrafilter contains the set of natural numbers, every axiom of Peano arithmetic holds in $M$. There are only countably many $L_A$-formulas, hence only countably many functions in $\F$; therefore $M$ is countable.</p>
+    <p>Let $h=[\mathrm{id}]$. For each ordinary $m\in\N$,</p>
+    \[ \{n:n\gt m\}\in\U, \]
+    <p>since its complement is finite. Thus $h\gt[f_m]$ in $M$, where $f_m$ is the constant function with value $m$. The element $h$ exceeds every standard numeral, so $M$ is nonstandard.</p></div>
+    <div class="remark"><p><span class="lab">Remark 4.3.</span> The copy of $\N$ consisting of the constant classes is an <em>initial segment</em> of $M$: if $a=[f]\lt\overline m$ in $M$, then $a=\overline k$ for some standard $k\lt m$. This follows by partitioning the $\U$-large set $\{n:f(n)\lt m\}$ into the finitely many sets $\{n:f(n)=k\}$ (for $k\lt m$) and using the ultrafilter property. Nevertheless, there is no <em>largest</em> standard element: the standard copy has no endpoint inside $M$.</p></div>
+
+    <h2 class="sec">5. What does a nonstandard model look like?</h2>
+    <p>Our concrete model $I^{\ge0}$ of $\PAm$ gave us a first picture: the standard natural numbers followed by a densely ordered family of $\Z$-chains. A classical observation of Leon Henkin shows, remarkably, that this same picture describes the ordering of every countable nonstandard model of full Peano arithmetic; see <a href="#en-fig1">Figure 1</a>.</p>
+    <p>The following observation was recorded by Leon Henkin in 1950 <a class="cite" href="#en-r12">[12]</a>. Its proof brings in a classical theorem of Cantor: <em>every countable dense linear order without endpoints is isomorphic to $(\Q,\lt)$</em> (see <a class="cite" href="#en-r10">[10, 11]</a>).</p>
+    <p>We use the standard notation for combining order types. If $\alpha$ and $\beta$ are order types, their <em>order sum</em> $\alpha+\beta$ is obtained by placing a copy of an order of type $\beta$ after all the elements of an order of type $\alpha$. Their <em>order product</em> $\alpha\cdot\beta$ is obtained by replacing each point of an order of type $\beta$ by a copy of an order of type $\alpha$, with the copies arranged according to $\beta$. <em>These operations concern ordered arrangements and should not be confused with ordinary addition and multiplication of cardinal numbers</em>.</p>
+    <p>Let $\omega$, $\zeta$, and $\eta$ denote the order types of $\N$, $\Z$, and $\Q$, respectively. Thus $\zeta\cdot\eta$ means copies of $\Z$ indexed and ordered like $\Q$, and $\omega+\zeta\cdot\eta$ means an initial copy of $\N$ followed by this densely ordered family of $\Z$-chains without end points.</p>
+    <div class="thm"><p><span class="lab">Theorem 5.1 (Henkin’s order-type theorem).</span> <span class="stmt">Every countable nonstandard model $M\models\PA$ has order type</span></p>
+    \[ \boxed{\qquad\omega+\zeta\cdot\eta.\qquad} \]</div>
+    <div class="proof"><p><span class="lab">Proof sketch.</span> The standard elements of $M$ form an initial segment of type $\omega$. For each nonstandard $a\in M$, the elements</p>
+    \[ \ldots\lt a-2\lt a-1\lt a\lt a+1\lt a+2\lt\ldots \]
+    <p>form a two-sided $\Z$-chain. Two nonstandard elements belong to the same chain precisely when their difference is a standard integer.</p>
+    <p>The argument now parallels the one used for our concrete model $I^{\ge0}$. If $a\lt b$ belong to different chains, then $b-a$ exceeds every standard integer. Division with remainder by $2$, which holds in $\PA$, produces a chain strictly between theirs. Likewise, the chains containing the integer part of $a/2$ and $2a$ show that there is neither a first nor a last nonstandard chain.</p>
+    <p>Since $M$ is countable, the order of its nonstandard chains is a countable dense linear order without endpoints. <em>It is at this point that Cantor’s theorem applies</em>: the chains are ordered like $\Q$. Each chain has type $\zeta$, so their union has type $\zeta\cdot\eta$. By adjoining the standard initial segment at the beginning, we obtain $\omega+\zeta\cdot\eta$.</p></div>
+    <div class="remark"><p><span class="lab">Remark 5.2.</span> Henkin’s theorem describes only the <em>ordering</em>. Two countable nonstandard models of $\PA$ can have exactly this same order type while having very different addition and multiplication operations. Thus Figure 1, although it gives the correct order-theoretic picture for every countable nonstandard model of $\PA$, does not reveal a picture of their arithmetical operations.</p></div>
+    <h3 class="sub">A simple but important principle: overspill</h3>
+    <p>One of the fundamental features of nonstandard models of arithmetic is the <em>overspill principle</em>. It has several useful forms; the following one is enough for our purposes (see <a class="cite" href="#en-r3">[3]</a> for further discussion).</p>
+    <div class="thm"><p><span class="lab">Proposition 5.3 (Overspill).</span> <span class="stmt">Suppose that $M\models\PA$ is nonstandard and that $\varphi(x)$ is a first-order formula, possibly with <em>parameters</em> from $M$ (that is, with some fixed elements of $M$ temporarily named by additional constant symbols). If</span></p>
+    \[ M\models\varphi(\overline n)\qquad\text{for every }n\in\N, \]
+    <p><span class="stmt">then there is a nonstandard element $a\in M$ such that $M\models\varphi(a)$.</span></p></div>
+    <p>Informally, a property expressible by a first-order formula cannot hold of all standard natural numbers and then stop exactly at the invisible boundary between the standard and nonstandard parts. Some of the property must “spill over” into the nonstandard region.</p>
+    <p>An immediate and important consequence is that the standard copy of $\N$ inside $M$ cannot be defined by any first-order formula, even with parameters from $M$. Indeed, if $\theta(x)$ defined exactly the standard elements, then $\theta(0)$ would hold and, throughout $M$, $\theta(x)$ would imply $\theta(x+1)$. The induction scheme would then imply that $\theta(x)$ holds for every element of $M$, contradicting the nonstandardness of $M$. This is one of the first indications that the “standard part” is perfectly clear from outside the model but inaccessible from within the model itself.</p>
+
+    <h2 class="sec">6. How many countable models are there?</h2>
+    <p>The definable ultrapower produced one countable nonstandard model. The compactness theorem (Theorem 3.1) shows that this is only the tip of the iceberg.</p>
+    <div class="thm"><p><span class="lab">Theorem 6.1.</span> <span class="stmt">Up to isomorphism, $\PA$ has exactly $2^{\aleph_0}$ countable nonstandard models.</span></p></div>
+    <div class="proof"><p><span class="lab">Proof sketch.</span> Let $p_0,p_1,p_2,\ldots$ be the ordinary prime numbers. Enlarge the language of arithmetic by a new constant symbol $c$, and for each set $S\subseteq\N$ let $T_S$ be the theory obtained by adjoining to $\PA$ the following axioms:</p>
+    \[ \begin{array}{ll} \textup{(1)} & \overline n\lt c \qquad (n\in\N),\\[2mm] \textup{(2)} & \overline{p_n}\mid c \qquad (n\in S),\\[2mm] \textup{(3)} & \overline{p_n}\nmid c \qquad (n\notin S), \end{array} \]
+    <p>where $\overline m$ denotes the numeral for $m$, and $\overline{p_n}\mid c$ abbreviates</p>
+    \[ \exists y\,(c=\overline{p_n}\cdot y). \]
+    <p>Every finite subset of $T_S$ has a model in $\N$: Indeed, take the product of the finitely many primes required to divide $c$ (taking the product to be $1$ if there are none in the given finite subset of $T_S$), and multiply it by a sufficiently large power of a prime not among any of the finitely many primes whose divisibility or nondivisibility has been specified in the finite subset of $T_S$ under consideration. The resulting integer can be made arbitrarily large while having exactly the prescribed divisibility pattern for the primes under consideration. By compactness, $T_S$ therefore has a model. Since $T_S$ is a theory in a countable language, the Löwenheim–Skolem theorem (Theorem 3.2) gives a countable model of $T_S$. In this model the interpretation of $c$ is larger than every standard numeral and has exactly the prescribed prime-divisibility pattern. Forgetting the interpretation of $c$ therefore leaves a countable nonstandard model of $\PA$.</p>
+    <p>Thus every subset $S$ of $\N$ occurs as the prime-divisibility pattern</p>
+    \[ X_a=\{n\in\N:M\models\overline{p_n}\mid a\} \]
+    <p>of some element $a$ of some countable nonstandard model $M$ of $\PA$.</p>
+    <p>Now suppose that there are $\kappa$ isomorphism types of countable nonstandard models of $\PA$, and choose one representative of each type. Without loss of generality, we can assume that the underlying set of each model $M$ is $\mathbb{N}$. So here we are not identifying a structure with its underlying set. Each representative model $M$ is countable and there are only countably many sets of the form $X_a$ for a given $M$. Consequently, all the representatives together realize at most</p>
+    \[ \kappa\cdot\aleph_0 \]
+    <p>patterns. But every one of the $2^{\aleph_0}$ subsets of $\N$ must occur among them: isomorphic models realize exactly the same prime-divisibility patterns. Hence</p>
+    \[ 2^{\aleph_0}\le\kappa\cdot\aleph_0. \]
+    <p>This inequality in particular shows that $\kappa$ is infinite. Thus $\kappa\cdot\aleph_0=\kappa$, and consequently</p>
+    \[ \kappa\ge2^{\aleph_0}. \]
+    <p>On the other hand, in a countable language there are at most $2^{\aleph_0}$ structures with universe $\N$. Hence</p>
+    \[ \kappa=2^{\aleph_0}, \]
+    <p>as desired.</p></div>
+    <p>The subsets of natural numbers coded in a nonstandard model in this way form part of its <em>standard system</em>, a notion that plays an important role in the deeper structure theory of models of arithmetic.</p>
+
+    <h2 class="sec">7. A computational obstruction: Tennenbaum’s theorem</h2>
+    <p>Henkin’s theorem says that the <em>order</em> of every countable nonstandard model has the same shape. One might therefore hope to put an $L_A$-structure $(\{0,1,2,\ldots\},n_0,n_1,\bigoplus,\bigodot,\oleq)$ on the set of natural numbers in a way that it is a model of $\PA$ (so $\oleq$ induces the order type $\omega+\zeta\cdot\eta$ on the set $\N$) and both $\bigoplus$ and $\bigodot$ could be computed by algorithms. Tennenbaum’s theorem says that this is impossible.</p>
+    <div class="thm"><p><span class="lab">Theorem 7.1 (Tennenbaum, 1959).</span> <span class="stmt">There is no computable nonstandard model of $\PA$. More explicitly, if a countable nonstandard model $M\models\PA$ is presented with universe $\N$, then neither its addition nor multiplication can be computable functions $\N^2\to\N$.</span></p></div>
+    <p>We do not prove the theorem here, however its force is worth noticing. By Theorem 5.1, the underlying linear order of a countable nonstandard model has the very explicit type $\omega+\zeta\cdot\eta$ and can be given a computable presentation. Tennenbaum’s theorem says that the arithmetic operations cannot be computable by an algorithm. Thus nonstandardness is not merely the presence of “very large integers”; it forces genuine algorithmic complexity into the arithmetic structure. The original result was announced by Tennenbaum in 1959 <a class="cite" href="#en-r15">[15]</a> in a slightly weaker form; see <a class="cite" href="#en-r16">[16, Ch. 25]</a> and <a class="cite" href="#en-r3">[3]</a> for textbook treatments.</p>
+
+    <h2 class="sec">8. Two remarkable theorems (without proofs)</h2>
+    <p>The existence of nonstandard models is only the beginning. Their possible embeddings and extensions exhibit unexpectedly striking features. We state two classical results; proofs may be found in <a class="cite" href="#en-r3">[3, 4]</a>.</p>
+    <p>A submodel $M$ of $N$ is an <em>elementary submodel</em>, written $M\preccurlyeq N$, if every first-order formula with parameters from $M$ has the same truth value in both structures. The extension is an <em>end extension</em> if no new element of $N$ lies below an old element of $M$.</p>
+    <div class="thm"><p><span class="lab">Theorem 8.1 (MacDowell–Specker, 1961).</span> <span class="stmt">Every model $M\models\PA$ has a <em>proper elementary end extension</em>: there is an $N\models\PA$ such that</span></p>
+    \[ M\preccurlyeq N,\qquad M\ne N, \]
+    <p><span class="stmt">and every element of $N\setminus M$ is larger than every element of $M$.</span></p></div>
+    <p>This is stronger than merely adding an infinitely large element: it preserves the truth of <em>all</em> first-order statements about the old elements, and it works even when $M$ is uncountable.</p>
+    <p>A subset $I$ of an ordered model $M$ is an <em>initial segment</em> if $a\in I$ and $0\le b\lt a$ imply $b\in I$. An <em>initial self-embedding</em> of $M$ is an isomorphism from $M$ onto an initial segment of itself.</p>
+    <div class="thm"><p><span class="lab">Theorem 8.2 (Friedman, 1973).</span> <span class="stmt">Every countable nonstandard model $M\models\PA$ is isomorphic to a <em>proper</em> initial segment of itself.</span></p></div>
+    <p>Thus a countable nonstandard model of $\PA$ contains a smaller initial part with <em>exactly the same arithmetic structure as the whole model</em>. The theorem is a striking kind of self-similarity. Unlike an elementary end extension, the proper initial segment in Friedman’s theorem is not asserted to be elementary.</p>
+    <p><span class="run">From here to Lessan’s thesis.</span> The results above are only the beginning of the structure theory of nonstandard models. Lessan’s thesis studies subtler questions concerning definability, coded sets of natural numbers, end extensions, and initial self-embeddings. Their analysis leads to such notions as cuts, standard systems, and recursive saturation, central tools in the modern model theory of arithmetic <a class="cite" href="#en-r2">[2]</a>.</p>
+
+    <h2 class="sec">For further thought</h2>
+    <p>The following questions invite the reader to explore the constructions and results above.</p>
+    <ol class="qs">
+      <li>In the model $I^{\ge0}$ of $\PAm$, let $x$ be nonstandard. Which is larger, $10^6+x$ or $x^2-10^9$?</li>
+      <li>Is the model $I^{\ge0}$ countable?</li>
+      <li>Consider the polynomial ring $\Z[t]$, ordered as before by eventual comparison, and let $\Z[t]^{\ge0}$ be its nonnegative part. Show that it is a nonstandard model of $\PAm$.</li>
+      <li>Prove Proposition 5.3. <em>Hint: Suppose that $\varphi(x)$ holds for every standard element but for no nonstandard element. Apply induction to $\varphi(x)$.</em></li>
+      <li>Can the set of standard prime numbers of a nonstandard $M\models\PA$ be defined by an $L_A$-formula? What about the set of standard twin primes? <em>Warning: the second question contains a surprise.</em></li>
+    </ol>
+
+    <h2 class="sec">Further reading</h2>
+    <p>The theory of nonstandard models of arithmetic has a substantial literature, far beyond the few results described here. Two standard monographs are Kaye’s <em>Models of Peano Arithmetic</em> <a class="cite" href="#en-r3">[3]</a>, a solid entry point, and Kossak and Schmerl’s <em>The Structure of Models of Peano Arithmetic</em> <a class="cite" href="#en-r4">[4]</a>, which develops the structural theory in greater depth.</p>
+    <p>For a more informal and conversational introduction to several topics in the subject, including material beyond the scope of this essay, we also recommend the online series <em>Nonstandard Models of Arithmetic</em>, initiated by Michael Weiss and John Baez <a class="cite" href="#en-r20">[20]</a>.</p>
+
+    <div class="notes" id="en-fn1">1. Note that we are simplifying notation by identifying $n$ with the element of $F$ that is obtained by adding $1_F$ (the multiplicative identity of $F$) to itself $n$ times.</div>
+
+    <div class="refs">
+      <h2>References</h2>
+      <ol data-refs="en"></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div class="origin"><span class="lab">About this piece</span><br>By Saeideh Bahrami and Ali Enayat; a companion to <a href="hamid-lesan.html">“Hamid Lesan, a Logician Larger than Life”</a> by Amir Asghari. The authors are grateful to Professor Siavash Shahshahani for his valuable assistance in the preparation of this article.<br>Works · Issue 02 · October 2026</div>
+    <a class="pdfbtn" href="javascript:window.print()">↓ Download PDF</a>
+  </div>
+</article>
+
+<footer class="footer">
+  <span class="fl">A Mathswell publication · <a href="../index.html">mathswell.com</a></span>
+  <a class="back" href="../index.html" data-en="← Back to People and Mathematics" data-fa="بازگشت به آدم‌ها و ریاضیات →"></a>
+</footer>
+
+<script>
+var REFS = [
+  'A. Asghari, “Hamid Lesan, a Logician Larger than Life,” <em>People and Mathematics</em>, July 2026 (English and Persian versions). <a href="hamid-lesan.html">mathswell.com/people-and-mathematics/articles/hamid-lesan.html</a>.',
+  'H. Lessan, <em>Models of Arithmetic</em>, Ph.D. thesis, University of Manchester, 1978; reprinted in P. Cégielski, C. Cornaros, and C. Dimitracopoulos (eds.), <em>Studies in Weak Arithmetics, Volume 2</em>, CSLI Lecture Notes, vol. 211, CSLI Publications, 2013, pp. 359–417.',
+  'R. Kaye, <em>Models of Peano Arithmetic</em>, Oxford Logic Guides, vol. 15, Oxford University Press, 1991. Especially Chapters 2 and 12.',
+  'R. Kossak and J. H. Schmerl, <em>The Structure of Models of Peano Arithmetic</em>, Oxford Logic Guides, vol. 50, Oxford University Press, 2006.',
+  'Th. Skolem, <em>Über die Nicht-Charakterisierbarkeit der Zahlenreihe mittels endlich oder abzählbar unendlich vieler Aussagen mit ausschliesslich Zahlenvariablen</em>, Fund. Math. <b>23</b> (1934), 150–161.',
+  'A. Robinson, <em>Non-standard Analysis</em>, North-Holland, Amsterdam, 1966.',
+  'R. Goldblatt, <em>Lectures on the Hyperreals: An Introduction to Nonstandard Analysis</em>, Graduate Texts in Mathematics, vol. 188, Springer, New York, 1998.',
+  'J. Krajíček, <em>Bounded Arithmetic, Propositional Logic, and Complexity Theory</em>, Encyclopedia of Mathematics and its Applications, vol. 60, Cambridge University Press, 1995.',
+  'J. Krajíček, <em>Forcing with Random Variables and Proof Complexity</em>, London Mathematical Society Lecture Note Series, vol. 382, Cambridge University Press, 2011.',
+  'G. Cantor, “Beiträge zur Begründung der transfiniten Mengenlehre (Erster Artikel),” <em>Mathematische Annalen</em> <b>46</b> (1895), 481–512.',
+  'J. G. Rosenstein, <em>Linear Orderings</em>, Pure and Applied Mathematics, vol. 98, Academic Press, New York, 1982. See Chapter 2.',
+  'L. Henkin, “Completeness in the theory of types,” <em>Journal of Symbolic Logic</em> <b>15</b> (1950), 81–91. See the concluding paragraph for the order-type observation.',
+  'R. MacDowell and E. Specker, “Modelle der Arithmetik,” <em>Infinitistic Methods</em> (Warsaw, 1959), Pergamon Press, 1961, pp. 257–263.',
+  'H. Friedman, “Countable models of set theories,” <em>Cambridge Summer School in Mathematical Logic</em>, Lecture Notes in Mathematics, vol. 337, Springer, 1973, pp. 539–573.',
+  'S. Tennenbaum, “Non-Archimedean models for arithmetic,” <em>Notices of the American Mathematical Society</em> <b>6</b> (1959), 270, Abstract 556-42.',
+  'G. S. Boolos, J. P. Burgess, and R. C. Jeffrey, <em>Computability and Logic</em>, 4th ed., Cambridge University Press, 2002. See Chapter 25.',
+  'H. B. Enderton, <em>A Mathematical Introduction to Logic</em>, 2nd ed., Academic Press, 2001. For first-order logic, ultrafilters, and ultraproducts.',
+  'D. Hilbert, <em>Grundlagen der Geometrie</em>, Teubner, Leipzig, 1899. English translation: <em>The Foundations of Geometry</em>, Open Court, Chicago, 1902.',
+  'G. Veronese, <em>Fondamenti di geometria a più dimensioni e a più specie di unità rettilinee</em>, Tipografia del Seminario, Padua, 1891.',
+  'M. Weiss, with J. Baez and other contributors, “Nonstandard Models of Arithmetic: The Series,” <em>Diagonal Argument</em>, online series, 2019–. <a href="https://diagonalargument.com/mathnotes/nonstandard-models-of-arithmetic-the-series/" target="_blank" rel="noopener">diagonalargument.com</a>.'
+];
+document.querySelectorAll('[data-refs]').forEach(function(ol){
+  var p = ol.getAttribute('data-refs');
+  ol.innerHTML = REFS.map(function(r,i){ return '<li id="'+p+'-r'+(i+1)+'">'+r+'</li>'; }).join('');
+});
+
+var MACROS = { "\\N":"\\mathbb N", "\\Z":"\\mathbb Z", "\\Q":"\\mathbb Q", "\\PA":"\\mathsf{PA}", "\\PAm":"\\mathsf{PA}^{-}", "\\F":"\\mathcal F", "\\U":"\\mathcal U", "\\A":"\\mathcal A", "\\oleq":"\\mathrel{\\lessdot}" };
+var rendered = {};
+function persianDigits(root){
+  var map = '۰۱۲۳۴۵۶۷۸۹';
+  root.querySelectorAll('.katex-html').forEach(function(k){
+    var w = document.createTreeWalker(k, NodeFilter.SHOW_TEXT);
+    var n; while ((n = w.nextNode())) { n.nodeValue = n.nodeValue.replace(/[0-9]/g, function(d){ return map[+d]; }); }
+  });
+}
+function renderMath(lang){
+  if (rendered[lang] || !window.renderMathInElement) return;
+  var el = document.querySelector('[data-lang-block="'+lang+'"]');
+  renderMathInElement(el, { delimiters: [{left:'\\[', right:'\\]', display:true}, {left:'$', right:'$', display:false}], macros: MACROS, throwOnError: false });
+  if (lang === 'fa') persianDigits(el);
+  rendered[lang] = true;
+}
+function applyLabels(lang){
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el){ el.textContent = el.getAttribute('data-' + lang); });
+}
+function setLang(lang){
+  var isFa = lang === 'fa';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-block]').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang-block') === lang); });
+  document.querySelectorAll('.langtoggle button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+  document.title = isFa ? 'فراتر از اعداد طبیعی · آدم‌ها و ریاضیات' : 'Beyond the Natural Numbers · People and Mathematics';
+  applyLabels(lang);
+  renderMath(lang);
+  try { localStorage.setItem('pm-lang', lang); } catch(e){}
+}
+var START = 'fa';
+try { var s = localStorage.getItem('pm-lang'); if (s === 'en' || s === 'fa') START = s; } catch(e){}
+setLang(START);
+window.addEventListener('DOMContentLoaded', function(){ renderMath(document.documentElement.lang === 'en' ? 'en' : 'fa'); });
+</script>
+<script src="../counter.js"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@
   .run { font-weight: 700; }
   .gl { font-family: Newsreader, Georgia, serif; font-size: .78em; color: var(--muted); direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
   .gl::before { content: "("; } .gl::after { content: ")"; }
-  .dline { text-align: center; margin: 14px 0 18px !important; }
+  .dline { text-align: center !important; margin: 14px 0 18px !important; }
   .thm { margin: 24px 0; padding: 16px 20px; background: var(--screen); border: 1px solid var(--line); border-radius: 3px; }
   .thm p:last-child { margin-bottom: 0; }
   .thm .lab { font-family: "Vazirmatn", "Hanken Grotesk", sans-serif; font-weight: 700; font-size: .92em; }
@@ -82,7 +82,13 @@
   .cite { text-decoration: none; white-space: nowrap; }
   .katex { font-size: 1.05em; }
   .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
-  [dir="rtl"] .katex { direction: ltr; unicode-bidi: isolate; }
+  [dir="rtl"] .katex { direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+  .drow { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 6px 28px; margin: 18px 0 22px; }
+  .pabox { display: inline-block; border: 1px solid var(--ink, #1C1814); padding: 4px 64px; }
+  .iline { margin: 14px 0 18px !important; text-align: center !important; }
+  .iline .ya { margin: 0 1.4em; }
+  .eqn { position: relative; text-align: center !important; margin: 18px 0 22px !important; padding: 0 3em; }
+  .eqn .tag { position: absolute; inset-inline-end: 0; top: 0; }
 
   figure.plate { margin: 32px 0; }
   figure.plate img { display: block; width: 100%; border: 1px solid var(--line); background: #fff; }
@@ -179,9 +185,9 @@
     <p>پیش از معرفی زبان حساب، بیاید به اختصار یادآوری کنیم که منظور از یک <em>زبان مرتبه‌اول</em><span class="gl">First-order language</span> چیست. چنین زبانی شامل نمادهایی برای ساختارهای ریاضی مورد نظر — برای مثال، نمادهایی برای ‌‌عمل‌ها و روابط —، به همراه نمادهای منطقی معمول زیر است:</p>
     \[ \neg,\qquad \wedge,\qquad \vee,\qquad \longrightarrow,\qquad \forall,\qquad \exists,\qquad =. \]
     <p>چهار نماد نخست همان رابط‌های بولی آشنا هستند: $\neg\varphi$ یعنی «نقیضِ $\varphi$»، $\varphi\wedge\psi$ یعنی «$\varphi$ و $\psi$»، $\varphi\vee\psi$ یعنی «$\varphi$ یا $\psi$»، و $\varphi\to\psi$ یعنی «اگر $\varphi$، آن‌گاه $\psi$». نمادهای $\forall$ و $\exists$ <em>سورها</em><span class="gl">Quantifiers</span> هستند:</p>
-    <p class="dline">$\forall x\,\varphi(x)$ یعنی «برای هر $x$، $\varphi(x)$»،</p>
+    <p class="iline">$\forall x\,\varphi(x)$<span class="ya">یعنی</span>«برای هر $x$، $\varphi(x)$»،</p>
     <p>و</p>
-    <p class="dline">$\exists x\,\varphi(x)$ یعنی «$x$ای وجود دارد که $\varphi(x)$».</p>
+    <p class="iline">$\exists x\,\varphi(x)$<span class="ya">یعنی</span>«$x$ای وجود دارد که $\varphi(x)$».</p>
     <p>عبارت‌هایی که مطابق قواعد نحوی معمول از نمادهای زبان، متغیرها، تساوی، رابط‌های بولی و سورها ساخته می‌شوند <em>فرمول</em><span class="gl">Formula</span> نام دارند. وقوع یک متغیر در یک فرمول را <em>مقید</em><span class="gl">Bound</span> ‌می‌نامیم هر گاه در حوزه‌ی تاثیر سوری متناظر قرار داشته باشد؛ در غیر این صورت، <em>آزاد</em><span class="gl">Free</span> است. متغیری را در یک فرمول آزاد می‌نامیم هر گاه در آن فرمول وقوع آزادی داشته باشد. به عنوان مثال، در فرمولِ</p>
     \[ \exists y\,(x=y) \]
     <p>وقوع $y$ به‌ وسیله‌ی سور $\exists y$ مقید است، در حالی که $x$ آزاد است. فرمولی که هیچ متغیر آزادی ندارد <em>جمله</em><span class="gl">Sentence</span> نامیده می‌شود. بنابراین یک جمله، بدون آن‌که ابتدا مقداری به متغیرها نسبت داده شود، در یک ساختار می‌تواند صادق یا کاذب باشد.</p>
@@ -249,7 +255,7 @@
     <p><span class="run">اصول $\PA$.</span> حساب پئانو با افزودن <em>شِمای استقرا</em><span class="gl">Induction scheme</span> به $\PAm$ به دست می‌آید. یعنی برای هر $L_A$-فرمول مرتبه‌اول $\varphi(x,\bar y)$، اصل زیر را اضافه می‌کنیم:</p>
     \[ \forall\bar y\,\Bigl[\bigl(\varphi(0,\bar y)\wedge\forall x\,[\varphi(x,\bar y)\to\varphi(x+1,\bar y)]\bigr)\to\forall x\,\varphi(x,\bar y)\Bigr]. \tag{1} \]
     <p>بنابراین</p>
-    <p class="dline">$\boxed{\ \PA=\PAm+\ }$ استقرا برای هر فرمول مرتبه‌اول</p>
+    <p class="dline"><span class="pabox">$\PA$ $=$ $\PAm$ $+$ استقرا برای هر فرمول مرتبه‌اول.</span></p>
     <p>این <em>شِما</em><span class="gl">Scheme</span> یک شِمای نامتناهی است، یعنی: به ازای هر $L_A$-فرمول $\varphi$ یک اصل استقرا داریم. تفاوت میان $\PAm$ و $\PA$ در دو ساختار نخست ما آشکار خواهد شد.</p>
     <p>در بخش بعد، ابتدا تنها با استفاده از ابزارهای جبری یک مدل نااستانده از $\PAm$ می‌سازیم.</p>
 
@@ -290,11 +296,11 @@
     <p>$I^{\ge0}$ یک مدل نااستانده از حساب ضعیف $\PAm$ است: عنصر $t$ از هر عدد طبیعی معمولی بزرگ‌تر است. در واقع، بر هر عدد صحیح مثبت معمولی بخش‌پذیر است، زیرا $t/n\in I$.</p>
 
     <p><span class="run">نگاهی دیگر به این روش ساخت.</span> می‌توان مدل ساخته‌شده در بالا را به شیوه‌ای سودمند بازنویسی کرد که زمینه‌ساز ساخت مدل نااستانده‌ای از حساب پئانو در ادامه‌ی بحث باشد. فرض کنید $\mathcal E$ مجموعه‌ی همه‌ی آن توابع $f:\N\to\Q$ای باشد که <em>سرانجام یک چندجمله‌ای</em><span class="gl">Eventually polynomial</span> روی $I$ هستند: یعنی برای $p\in I$ای داشته باشیم:</p>
-    <p class="dline">برای همه‌ی $n$های به اندازه‌ی کافی بزرگ $f(n)=p(n)$.</p>
+    <p class="iline">برای همه‌ی $n$های به اندازه‌ی کافی بزرگ $f(n)=p(n)$.</p>
     <p>تعریف می‌کنیم:</p>
-    <p class="dline">$f\sim_{\mathrm{fin}}g\iff$ برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ $f(n)=g(n)$.</p>
+    <div class="drow"><span>$f\sim_{\mathrm{fin}}g$</span><span>$\Longleftrightarrow$</span><span>برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ</span><span>$f(n)=g(n)$.</span></div>
     <p>روی خانواده‌ی کلاس‌های هم‌ارزی حاصل از رابطه‌ی $\sim_{\mathrm{fin}}$ اعمال جمع و ضرب را به صورت نقطه‌به‌نقطه و ترتیب را به صورت زیر تعریف می‌کنیم:</p>
-    <p class="dline">$[f]\lt[g]\iff$ برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ $f(n)\lt g(n)$.</p>
+    <div class="drow"><span>$[f]\lt[g]$</span><span>$\Longleftrightarrow$</span><span>برای همه‌ی $n$های به‌اندازه‌ی کافی بزرگ</span><span>$f(n)\lt g(n)$.</span></div>
     <p>هر کلاس هم‌ارزی شامل یک تابع یک‌تای $n\mapsto p(n)$ است به طوری که $p\in I$ است؛ بنابراین داریم:</p>
     \[ \mathcal E/{\sim_{\mathrm{fin}}}\cong I. \]
     <p>برای مثال، چندجمله‌ای $t$ متناظر با کلاس تابع $n\mapsto n$ با مقادیر زیر است:</p>
@@ -350,7 +356,7 @@
     \[ A=\{n\in\N:\N\models\theta(n)\}. \]
     <p>خانواده‌ی $\A$ از مجموعه‌های حسابی شماراست، همه‌ی مجموعه‌های متناهی را دربر می‌گیرد، و نسبت به مکمل، اجتماع متناهی و اشتراک متناهی بسته است. آن را به صورت $A_0,A_1,\ldots$ فهرست کنید.</p>
     <p>دنباله‌ای نزولی از مجموعه‌های حسابی <em>نامتناهی</em> $C_0\supseteq C_1\supseteq\cdots$ به صورت زیر می‌سازیم. قرار دهید $C_0=\N$. در مرحله‌ی $n$، دست‌ِ کم یکی از $C_n\cap A_n$ و $C_n\setminus A_n$ نامتناهی است؛ یکی از این دو مجموعه‌ی نامتناهی را به عنوان $C_{n+1}$ برگزینید. تعریف کنید:</p>
-    <p class="dline">$\U=\{A\in\A:$ $n$ای وجود دارد به طوری که $C_n\subseteq A\}$. &nbsp;&nbsp;(۵)</p>
+    <p class="eqn" dir="ltr">$\U=\{A\in\A:C_n\subseteq A$ <span dir="rtl">وجود دارد $n$ای به طوری که</span>$\}$.<span class="tag" style="left:0;right:auto">(۵)</span></p>
     <p>خانواده‌ی $\U$ شامل $\N$ است و نسبت به ابرمجموعه‌ها<span class="gl">Supersets</span> و اشتراک‌های متناهی بسته است. برای هر $A\in\A$، داریم $A\in\U$ یا $\N\setminus A\in\U$، زیرا $A$ در فهرست ما ظاهر می‌شود. ویژگی‌های بیان‌شده در دو جمله‌ی قبل برای $\U$ را خاصیت <em>فراپالایه</em><span class="gl">Ultrafilter</span> می‌نامیم. هیچ مجموعه‌ی متناهی عضو $\U$ نیست، چون هر $C_n$ نامتناهی است. به زبان جبرهای بولی، $\U$ یک فراپالایه‌ی <em>غیراصلی</em><span class="gl">Nonprincipal</span> روی جبر بولی $\A$ است. توجه کنید که این روش ساخت در ریاضیات معمولی انجام می‌شود؛ ادعا نمی‌کنیم که خود $\U$ در زبان حساب تعریف‌پذیر است.</p>
 
     <h3 class="sub">گام ۲: دنباله‌های تعریف‌پذیر و کلاس‌های آن‌ها</h3>
@@ -376,7 +382,7 @@
     \[ \{n:n\gt m\}\in\U, \]
     <p>زیرا مکمل آن متناهی است. پس $h\gt[f_m]$ در $M$ صادق است (که در آن $f_m$ تابع ثابت با مقدار $m$ است). بنابراین عنصر $h$ از هر عددنمای استانده بزرگ‌تر است؛ پس $M$ نااستانده است.</p></div>
 
-    <div class="remark"><p><span class="lab">ملاحظه‌ی ۴.۳.</span> نسخه‌ی $\N$ که از کلاس‌های ثابت تشکیل شده است یک <em>قطعه‌ی آغازین</em> از $M$ است؛ به این معنا که اگر $a=[f]\lt\overline m$ در $M$ صادق باشد، آن‌گاه $a=\overline k$ برای یک $k\lt m$ استانده. این امر از افراز مجموعه‌ی $\U$-بزرگِ $\{n:f(n)\lt m\}$ به تعداد متناهی مجموعه‌ی $\{n:f(n)=k\}$ برای $k$های کم‌تر از $m$ و استفاده از خاصیت فراپالایه نتیجه می‌شود. با این‌ حال، <em>بزرگ‌ترین</em><span class="gl">Largest</span> عنصر استانده‌ای وجود ندارد، یعنی نسخه‌ی استانده درون $M$ نقطه‌ی پایانی ندارد.</p></div>
+    <div class="remark"><p><span class="lab">ملاحظه‌ی ۴.۳.</span> نسخه‌ی $\N$ که از کلاس‌های ثابت تشکیل شده است یک <em>قطعه‌ی آغازین</em> از $M$ است؛ به این معنا که اگر $a=[f]\lt\overline m$ در $M$ صادق باشد، آن‌گاه $a=\overline k$ برای یک $m\gt k$ استانده. این امر از افراز مجموعه‌ی $\U$-بزرگِ $\{n:f(n)\lt m\}$ به تعداد متناهی مجموعه‌ی $\{n:f(n)=k\}$ برای $k$های کم‌تر از $m$ و استفاده از خاصیت فراپالایه نتیجه می‌شود. با این‌ حال، <em>بزرگ‌ترین</em><span class="gl">Largest</span> عنصر استانده‌ای وجود ندارد، یعنی نسخه‌ی استانده درون $M$ نقطه‌ی پایانی ندارد.</p></div>
 
     <h2 class="sec">۵. یک مدل نااستانده چه شکلی دارد؟</h2>
     <p>مدل مشخص $I^{\ge0}$ از $\PAm$ تصویر اولیه‌ای را به دست داد: اعداد طبیعی استانده و پس از آن‌ها خانواده‌ای به‌طور چگال مرتب از $\Z$-زنجیرها. مشاهده‌ای کلاسیک از لئون هنکین<span class="gl">Leon Henkin</span> نشان می‌دهد که همین تصویر، به شکلی شگفت‌آور، ترتیب هر مدل نااستانده‌ی شمارای حساب کامل پئانو را نیز توصیف می‌کند (<a href="#fa-fig1">شکل ۱</a> را ببینید).</p>
@@ -784,7 +790,7 @@ document.querySelectorAll('[data-refs]').forEach(function(ol){
   ol.innerHTML = REFS.map(function(r,i){ return '<li id="'+p+'-r'+(i+1)+'">'+r+'</li>'; }).join('');
 });
 
-var MACROS = { "\\N":"\\mathbb N", "\\Z":"\\mathbb Z", "\\Q":"\\mathbb Q", "\\PA":"\\mathsf{PA}", "\\PAm":"\\mathsf{PA}^{-}", "\\F":"\\mathcal F", "\\U":"\\mathcal U", "\\A":"\\mathcal A", "\\oleq":"\\mathrel{\\lessdot}" };
+var MACROS = { "\\N":"\\mathbb N", "\\Z":"\\mathbb Z", "\\Q":"\\mathbb Q", "\\PA":"\\mathsf{PA}", "\\PAm":"\\mathsf{PA}^{-}", "\\F":"\\mathcal F", "\\U":"\\mathcal U", "\\A":"\\mathcal A", "\\oleq":"\\mathrel{\\mathrlap{\\bigcirc}\\mkern5mu{\\scriptstyle<}\\mkern6mu}" };
 var rendered = {};
 function persianDigits(root){
   var map = '۰۱۲۳۴۵۶۷۸۹';

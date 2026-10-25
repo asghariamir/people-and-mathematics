@@ -170,7 +170,13 @@ window.PM_CONTENT = {
       n:     { en: "07", fa: "۰۷" },
       name:  { en: "Works",                    fa: "کارنامه" },
       blurb: { en: "The mathematics itself: what the people in these pages did, explained for a wider reader.",
-               fa: "خودِ ریاضی: آنچه آدم‌های این صفحه‌ها کردند، برای خواننده‌ای گسترده‌تر." } }
+               fa: "خودِ ریاضی: آنچه آدم‌های این صفحه‌ها کردند، برای خواننده‌ای گسترده‌تر." } },
+
+    { id: "tales",
+      n:     { en: "08", fa: "۰۸" },
+      name:  { en: "Tales",                    fa: "حکایت‌ها" },
+      blurb: { en: "Short, true stories from the life of mathematics in Iran, kept for the record.",
+               fa: "حکایت‌هایی کوتاه و واقعی از زندگیِ ریاضی در ایران، به یادگار." } }
   ],
 
 
@@ -382,7 +388,7 @@ window.PM_CONTENT = {
             author: "عباس اقبالِ آشتیانی", meta: "۱۳۰۹ · متنِ کامل" } },
 
     /* ---- History of Mathematics  (also — History Corner) ---- */
-    { section: "history", featured: false,
+    { section: "tales", featured: false,
       href: "articles/history-corner-silver-matrix.html",
       added: "2026-06-15",
       issue: 1,
@@ -393,10 +399,10 @@ window.PM_CONTENT = {
       date: { en: "June 2026", fa: "خرداد ۱۴۰۵" },
       en: { title: "The Silver Matrix",
             dek: "How four problems from Tehran travelled to the International Mathematical Olympiad — and how one of them reached the Silver Sea.",
-            author: "Yahya Tabesh", meta: "History Corner" },
+            author: "Yahya Tabesh", meta: "Tale" },
       fa: { title: "ماتریسِ نقره‌ای",
             dek: "چهار مسئله چگونه از تهران به المپیادِ جهانیِ ریاضی رسید — و یکی از آن‌ها چگونه سر از دریای نقره درآورد.",
-            author: "یحیی تابش", meta: "گوشهٔ تاریخ" } },
+            author: "یحیی تابش", meta: "حکایت" } },
 
     /* ---- History of Mathematics  (retired flagship, issue 1) ---- */
     { section: "history", featured: false,
@@ -555,7 +561,7 @@ window.PM_CONTENT = {
        Bylined to the authors (Farnaz Haj Manouchehri & Bamdad Torabi) at their wish;
        the event logo stands in for a contributor photo. Not featured (the
        Mirzakhani gallery is pinned). ---- */
-    { section: "culture", featured: false,
+    { section: "tales", featured: false,
       href: "articles/women-in-mathematics.html",
       added: "2026-07-10",
       issue: 1,

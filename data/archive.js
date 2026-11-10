@@ -5,6 +5,33 @@
    Newest additions go at the TOP of the list (the home page shows the first 4). */
 window.PM_ARCHIVE = [
   {
+    id: "long-cartan-1928",
+    type: "letter",
+    img: "assets/long-cartan-1928-p1.jpg",
+    more: ["assets/long-cartan-1928-p2-3.jpg"],   /* optional: further pages, shown under the first */
+    ratio: "1381/2048",
+    decade: 1920,
+    en: {
+      title: "Louis Long’s letter to Élie Cartan from Tehran",
+      date: "16 November 1928",
+      caption: "Letter from Louis Long, a French mathematician newly arrived in Tehran, to Élie Cartan. Long explains that he has accepted a post teaching mathematics in what he calls a Faculty of Sciences then being founded, on a three-year renewable contract, and that a university library is being started. Entrusted with choosing 25,000 francs’ worth of mathematics books for it that year, he asks Cartan to point him to the most recent works on higher geometry, preferably written in or translated into French. He adds that he has turned to research in number theory and has studied Fermat’s theorem in particular, and that he believes he is on the way to a proof. He signs from the Hôtel Astoria, Avenue Lalézar, Tehran.",
+      source: "Archives de l’Académie des sciences, Paris",
+      provenance: "Fonds Élie Cartan, dossier 6.147/25. Louis Long to Élie Cartan, Tehran, 16 November 1928. Three pages.",
+      people: "Louis Long, Élie Cartan"
+    },
+    fa: {
+      title: "نامهٔ لوئی لانگ به الی کارتان از تهران",
+      date: "۲۵ آبان ۱۳۰۷ (۱۶ نوامبر ۱۹۲۸)",
+      caption: "نامهٔ لوئی لانگ، ریاضی‌دان فرانسوی که تازه به تهران آمده بود، به الی کارتان. لانگ توضیح می‌دهد که تدریس ریاضیات را در جایی که خود «دانشکدهٔ علومِ» در حال تأسیس می‌نامد، با قراردادی سه‌ساله و قابل تمدید، پذیرفته است و اینکه کتابخانه‌ای دانشگاهی در حال پایه‌گذاری است. انتخاب کتاب‌های ریاضی به ارزش ۲۵ هزار فرانک برای آن سال به او سپرده شده است و از کارتان می‌خواهد تازه‌ترین و مناسب‌ترین کتاب‌های هندسهٔ عالی را، ترجیحاً به زبان فرانسه، به او معرفی کند. می‌افزاید که به پژوهش در نظریهٔ اعداد روی آورده و به‌ویژه قضیهٔ فرما را مطالعه کرده است و گمان می‌کند در راه رسیدن به اثبات آن است. نشانیِ پای نامه: هتل آستوریا، خیابان لاله‌زار، تهران.",
+      source: "آرشیو فرهنگستان علوم فرانسه، پاریس",
+      provenance: "مجموعهٔ الی کارتان، پروندهٔ 6.147/25. نامهٔ لوئی لانگ به الی کارتان، تهران، ۱۶ نوامبر ۱۹۲۸. سه صفحه.",
+      people: "لوئی لانگ، الی کارتان"
+    },
+    appearsIn: [
+      { href: "index.html", en: "Roots timeline: Persia at the 1932 International Congress of Mathematicians", fa: "تایم‌لاین ریشه‌ها: حضور ایران در کنگرهٔ بین‌المللی ریاضیدانان ۱۹۳۲" }
+    ]
+  },
+  {
     id: "ardalan-vocational-school",
     type: "photo",
     img: "assets/maryam-ardalan-vocational-school.jpg",

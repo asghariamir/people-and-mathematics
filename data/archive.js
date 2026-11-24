@@ -5,6 +5,33 @@
    Newest additions go at the TOP of the list (the home page shows the first 4). */
 window.PM_ARCHIVE = [
   {
+    id: "darolmoallemin-math-syllabus",
+    type: "document",
+    img: "assets/darolmoallemin-syllabus.jpg",
+    ratio: "748/1015",
+    decade: 1930,
+    en: {
+      title: "The three-year mathematics syllabus of Dār al-Moʿallemin-e ʿĀli",
+      date: "1933 (1312 SH)",
+      caption: "The page setting out the three-year course of the mathematics section (shoʿbeh-ye ʿolum-e riyāzi) at Dār al-Moʿallemin-e ʿĀli, the Higher Teachers’ Training College in Tehran, with weekly hours of teaching and of practical work. First year: general mathematics (completion of algebra, introduction to differential and integral calculus, analytic geometry, mechanics), descriptive geometry and a French-language seminar — 11 hours of teaching and 7 of practical work. Second year: differential and integral calculus, descriptive geometry and mechanics — 10 and 5. Third year: differential and integral calculus (analytic functions, differential equations), mechanics, advanced astronomy and modern logic — 10 and 2. A footnote explains that the seminar is meant to accustom students to hearing French, so that they can follow courses given in that language in Iran or in France.",
+      source: "Tārikhcheh-ye Dār al-Moʿallemin-e ʿĀli (History of the Higher Teachers’ Training College), 1312 SH",
+      provenance: "Page 16. Prepared to mark the end of the institution’s fifth year. The copy used is held at the Grand Ayatollah Borujerdi Library.",
+      people: ""
+    },
+    fa: {
+      title: "فهرست دروس سه‌سالهٔ شعبهٔ علوم ریاضی دارالمعلمین عالی",
+      date: "۱۳۱۲",
+      caption: "صفحه‌ای که برنامهٔ سه‌سالهٔ «شعبهٔ علوم ریاضی» دارالمعلمین عالی را با ساعت‌های هفتگی درس و عملیات نشان می‌دهد. سال اول: ریاضی عمومی (تتمهٔ جبر، مقدمات حساب فاضله و جامعه، هندسهٔ تحلیلی، مکانیک)، هندسهٔ ترسیمی و کنفرانس به زبان فرانسه؛ ۱۱ ساعت درس و ۷ ساعت عملیات. سال دوم: حساب فاضله و جامعه، هندسهٔ ترسیمی و مکانیک؛ ۱۰ و ۵ ساعت. سال سوم: حساب فاضله و جامعه (توابع تحلیلی، معادلات فاضله)، مکانیک، هیئت عالی و منطق جدید؛ ۱۰ و ۲ ساعت. در پانوشت آمده است که این کنفرانس برای آشنا کردن محصلین با شنیدن زبان فرانسه است، تا درس‌هایی را که در ایران یا در فرانسه به این زبان داده می‌شود بفهمند.",
+      source: "«تاریخچهٔ دارالمعلمین عالی»، ۱۳۱۲",
+      provenance: "صفحهٔ ۱۶. به مناسبت پایان پنجمین سال فعالیت دارالمعلمین عالی فراهم شده است. نسخهٔ مورد استفاده در کتابخانهٔ آیت‌الله‌العظمی بروجردی نگهداری می‌شود.",
+      people: ""
+    },
+    appearsIn: [
+      { href: "articles/renaissance-1307.html", en: "A Renaissance in Mathematics Education in Iran: 1928", fa: "رنسانس آموزش ریاضیات ایران: ۱۳۰۷" },
+      { href: "index.html", en: "Roots timeline: Dār al-Moʿallemin-e ʿĀli", fa: "تایم‌لاین ریشه‌ها: دارالمعلمین عالی" }
+    ]
+  },
+  {
     id: "long-cartan-1928",
     type: "letter",
     img: "assets/long-cartan-1928-p1.jpg",

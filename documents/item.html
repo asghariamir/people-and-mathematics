@@ -71,7 +71,7 @@ dd a{color:#C8633E}
   row(T.source, d.sourceHref ? '<a href="'+d.sourceHref+'" target="_blank" rel="noopener">'+esc(d.source)+'</a>' : esc(d.source||''));
   row(T.prov, esc(d.provenance||''));
   row(T.people, esc(d.people||''));
-  var ap=(it.appearsIn||[]).map(function(a){var h=a.href; if(L==='fa'&&h==='index.html')h='fa.html'; return '<a href="../'+h+'">'+esc(a[L])+'</a>';}).join('<br>');
+  var ap=(it.appearsIn||[]).map(function(a){var h=a.href; if(L==='fa'&&h==='index.html')h='fa.html'; if(L==='fa'&&/^articles\//.test(h))h+='?lang=fa'; return '<a href="../'+h+'">'+esc(a[L])+'</a>';}).join('<br>');
   row(T.appears, ap || '<span style="color:#6B6259">'+T.notyet+'</span>');
   $('body').innerHTML=
     '<figure>'+[it.img].concat(it.more||[]).map(function(s){return '<img src="../'+s+'" alt="'+esc(d.title)+'">';}).join('')+'<figcaption class="hint sans">'+T.zoom+'</figcaption></figure>'+

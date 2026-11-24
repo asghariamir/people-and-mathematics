@@ -578,6 +578,26 @@ window.PM_CONTENT = {
             dek: "چگونه دانشجویانِ شریف بزرگداشتی دوساله برای مریم میرزاخانی برپا کردند — و آنچه برگزاری‌اش طلبید. گزارشی برای ثبتِ تاریخ، به زبانِ خودِ برگزارکنندگان.",
             author: "فرناز حاج‌منوچهری و بامداد ترابی", meta: "گزارش" } },
 
+    /* ---- Tales  (1307: Dār al-Moʿallemin-e ʿĀli and the law on sending students abroad).
+       The card shows the building, not the author: the tale is about a place
+       (it is also the "place" entry on the home timeline). ---- */
+    { section: "tales", featured: false,
+      href: "articles/renaissance-1307.html",
+      added: "2026-11-23",
+      issue: 2,
+      level: "general",
+      imgSrc: "assets/darolmoallemin-building.jpg",
+      cardImg: "assets/darolmoallemin-building.jpg",
+      authorImg: "assets/amir.jpg",
+      img: "photo — the central building of Dār al-Moʿallemin-e ʿĀli",
+      date: { en: "November 2026", fa: "آذر ۱۴۰۵" },
+      en: { title: "A Renaissance in Mathematics Education in Iran: 1928",
+            dek: "In 1928 (1307 in the Iranian calendar) two paths to mathematics opened at once: a law sending students to Europe, and a new college in Tehran, Dār al-Moʿallemin-e ʿĀli. At first they competed; then they joined, and a generation came out of that connection.",
+            author: "Amir Asghari", meta: "Tale" },
+      fa: { title: "رنسانس آموزش ریاضیات ایران: ۱۳۰۷",
+            dek: "در سال ۱۳۰۷ دو راه تازه برای تحصیل ریاضیات هم‌زمان گشوده شد: قانون اعزام محصل به اروپا و دارالمعلمین عالی در تهران. دو راهی که نخست رقیب بودند و سپس به هم پیوستند، و نسلی از این پیوند پدید آمد.",
+            author: "امیر اصغری", meta: "حکایت" } },
+
     /* ---- Mathematical Culture  (Weidman–Enayat imaginary conversation, from the
        IMS Newsletter no. 182, Spring 1404 — republished with the author's permission.
        Not featured (the Mirzakhani gallery is pinned). ---- */
@@ -598,9 +618,9 @@ window.PM_CONTENT = {
             dek: "در ۱۹۶۵ دونالد وایدمن به خوانندگان Science گفت چرا زندگی با ریاضیاتِ محض از نظر روحی پرمخاطره است. علی عنایت، شصت سال بعد و در میانهٔ ترجمهٔ نامه، پاسخش را می‌دهد — گفتگویی خیالی که پای حافظ و برادسکی و هوش مصنوعی هم به آن باز می‌شود.",
             author: "دونالد وایدمن و علی عنایت", meta: "گفتگو" } },
 
-    /* ---- Mathematical Culture  (the journal's own logo story — Amir's byline;
-       card image = the logo itself via cardImg. Not featured (Mirzakhani pinned). ---- */
-    { section: "culture", featured: false,
+    /* ---- Tales  (the logo story of People and Mathematics — Amir's byline;
+       card image = the logo itself via cardImg). Moved here from Mathematical Culture. ---- */
+    { section: "tales", featured: false,
       href: "articles/story-of-a-logo.html",
       added: "2026-07-29",
       issue: 2,

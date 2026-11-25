@@ -106,7 +106,9 @@ window.PM_ARCHIVE = [
       provenance: "اسناد دانشکدهٔ ریاضی، مجموعهٔ اعضا، مهمانان و دستیاران، جعبهٔ الفبایی ۱۱، پروندهٔ هشترودی. نسخهٔ دفتری با مهر «COPY».",
       people: "محسن هشترودی، رابرت اوپنهایمر"
     },
-    appearsIn: []
+    appearsIn: [
+      { href: "articles/mohsen-hachtroudi.html", en: "Mohsen Hachtroudi: A Bridge Between Two Mathematical Traditions (Masoud Khalkhali)", fa: "محسن هشترودی: پلی میان دو سنت ریاضی (مسعود خلخالی؛ فعلاً به انگلیسی)" }
+    ]
   }
 ];
 window.PM_ARCHIVE_TYPES = {

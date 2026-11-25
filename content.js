@@ -659,6 +659,43 @@ window.PM_CONTENT = {
             dek: "درآمدی مقدماتی به مدل‌های نااستانده‌ی حساب: چه‌گونه پدید می‌آیند، چه شکلی دارند و چه چیزی را آشکار می‌کنند. زمینه‌ای برای فهمِ رساله‌ی حمید لسان، «مدل‌های حساب».",
             author: "سعیده بهرامی و علی عنایت", meta: "مقاله‌ی توضیحی" } },
 
+    /* ---- Mohsen Hachtroudi, by Masoud Khalkhali — two parts of arXiv:2608.29382.
+       Part I (his life) and Part II (his mathematics, in Works). English only for now;
+       the Persian version is in preparation. Cards show the subject, not the author. ---- */
+    { section: "history", featured: false,
+      href: "articles/mohsen-hachtroudi.html",
+      added: "2026-11-24",
+      issue: 2,
+      level: "general",
+      imgSrc: "assets/hachtroudi-portrait.jpg",
+      cardImg: "assets/hachtroudi-portrait.jpg",
+      authorImg: "assets/masoud-khalkhali.jpg",
+      img: "photo — Mohsen Hachtroudi",
+      date: { en: "November 2026", fa: "آذر ۱۴۰۵" },
+      en: { title: "Mohsen Hachtroudi: A Bridge Between Two Mathematical Traditions",
+            dek: "One of the founders of modern mathematics in Iran, a student of Élie Cartan, and the first Iranian mathematician to gain international recognition for original research in modern times: his life, his teaching and his essays.",
+            author: "Masoud Khalkhali", meta: "Life" },
+      fa: { title: "محسن هشترودی: پلی میان دو سنت ریاضی",
+            dek: "از بنیان‌گذاران ریاضیات جدید در ایران، شاگرد الی کارتان، و نخستین ریاضی‌دان ایرانی که در دوران جدید برای پژوهش اصیل شهرت بین‌المللی یافت: زندگی، معلمی و نوشته‌هایش. (فعلاً به انگلیسی)",
+            author: "مسعود خلخالی", meta: "زندگی" } },
+
+    { section: "works", featured: false,
+      href: "articles/hachtroudi-connection.html",
+      added: "2026-11-24",
+      issue: 2,
+      level: "graduate",
+      imgSrc: "assets/hachtroudi-thesis-hermann.jpg",
+      cardImg: "assets/hachtroudi-thesis-hermann.jpg",
+      authorImg: "assets/masoud-khalkhali.jpg",
+      img: "photo — Hachtroudi’s 1937 thesis, Hermann edition",
+      date: { en: "November 2026", fa: "آذر ۱۴۰۵" },
+      en: { title: "The Hachtroudi Connection",
+            dek: "From Cartan’s equivalence problem to CR geometry: the mathematics of Mohsen Hachtroudi’s 1937 Paris thesis, its canonical projective connection and curvature, and its reappearance in the work of Chern and Moser.",
+            author: "Masoud Khalkhali", meta: "Expository essay" },
+      fa: { title: "التصاق هشترودی",
+            dek: "از مسئلهٔ هم‌ارزی کارتان تا هندسهٔ CR: ریاضیاتِ رسالهٔ ۱۹۳۷ محسن هشترودی در پاریس، التصاق تصویری کانونی و انحنای آن، و بازگشتش در کارهای چرن و موزر. (فعلاً به انگلیسی)",
+            author: "مسعود خلخالی", meta: "مقاله‌ی توضیحی" } },
+
     /* ---- Mathematical Culture  (pinned: always the Mirzakhani gallery) ---- */
     { section: "culture", featured: true,
       href: "articles/mathematical-culture.html",
